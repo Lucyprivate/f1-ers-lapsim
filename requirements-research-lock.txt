@@ -1,0 +1,5 @@
+-r requirements-lock.txt
+torch==2.14.1
+stable-baselines3==2.9.0
+gymnasium==1.4.0
+casadi==3.8.1

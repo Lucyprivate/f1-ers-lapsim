@@ -4,6 +4,13 @@
   "public_layout_changes": "current package only; imported computational dependencies consolidated by function",
   "original_frozen_history_modified": false,
   "original_frozen_exact_hashes_claimed_for_public_layout": false,
+  "migration_receipt_applies_to": "public 0.7.1 migration event only",
+  "subsequent_research_modifications": {
+    "package_version": "0.8.0",
+    "f1ers_v7/_core/integrator.py": "New optional independent braking, axle allocation and storage/auxiliary loss dynamics; defaults retain archived behavior",
+    "f1ers_v7/research": "New independently implemented research protocols, physical candidates, teacher proposals and learning audits",
+    "archived_D_results_reused_as_new_experimental_evidence": false
+  },
   "migrated_modules": [
     {
       "source": "f1ers_v7/rules.py",

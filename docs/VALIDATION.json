@@ -1,47 +1,197 @@
 {
   "schema_version": 1,
-  "package_version": "0.7.1",
-  "scope": "Local validation of the current public layout; not a new scientific experiment",
+  "package_version": "0.8.0",
+  "scope": "Preflight of new research source; archived scientific scores are separate",
   "checks": {
     "included_regression_tests": {
-      "passed": 73,
+      "passed": 107,
       "failed": 0
-    },
-    "audit_v7": {
-      "passed": true,
-      "feature_count": 34
     },
     "all_discovered_module_imports": {
       "passed": true,
-      "module_count": 33
+      "module_count": 45
+    },
+    "research_differential": {
+      "passed": true,
+      "tolerance": 1e-09,
+      "cases": [
+        {
+          "update": 1,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 3.469446951953614e-18,
+            "actor_loss": 8.673617379884035e-19,
+            "logp": 6.661338147750939e-16,
+            "actor_gradients": 8.131516293641283e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 2,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 5.204170427930421e-18,
+            "actor_loss": 0.0,
+            "logp": 2.220446049250313e-16,
+            "actor_gradients": 9.486769009248164e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 3,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 1.734723475976807e-18,
+            "logp": 4.440892098500626e-16,
+            "actor_gradients": 1.0842021724855044e-19,
+            "q_gradients": 2.6020852139652106e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 4,
+          "fixture": "saturated_mean",
+          "errors": {
+            "target": 3.469446951953614e-18,
+            "actor_loss": 0.0,
+            "logp": 0.0,
+            "actor_gradients": 1.0164395367051604e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 5,
+          "fixture": "clipped_logstd",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 0.0,
+            "logp": 1.7763568394002505e-15,
+            "actor_gradients": 2.710505431213761e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 1.1102230246251565e-16
+          },
+          "passed": true
+        },
+        {
+          "update": 6,
+          "fixture": "equal_twin_Q",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 0.0,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 5.421010862427522e-20,
+            "q_gradients": 1.734723475976807e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 7,
+          "fixture": "terminal_zero_bootstrap",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 8.673617379884035e-19,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 1.0842021724855044e-19,
+            "q_gradients": 1.0570971181733668e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17,
+            "terminal_bootstrap": 0.0
+          },
+          "passed": true
+        },
+        {
+          "update": 8,
+          "fixture": "negative_saturation_lower_clip_edge",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 0.0,
+            "actor_gradients": 1.0164395367051604e-20,
+            "q_gradients": 1.734723475976807e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 9,
+          "fixture": "upper_clip_edge",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 2.710505431213761e-20,
+            "q_gradients": 8.673617379884035e-19,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 10,
+          "fixture": "global_gradient_clipping",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 3.552713678800501e-15,
+            "actor_gradients": 5.421010862427522e-20,
+            "q_gradients": 4.547473508864641e-13,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        }
+      ],
+      "braking_actor_gradient_exact_zero": true,
+      "default_common_update_RNG_error": 5.551115123125783e-17,
+      "braking_Q_action_invariant": true,
+      "episodes_spent": 0,
+      "common_batch_common_epsilon": true,
+      "dependency_evidence": {
+        "implementation": "SB3 network modules with explicitly aligned custom float64 SAC updates",
+        "stock_sb3_learn_executed": false,
+        "actual_sb3_modules_used": [
+          "SACPolicy.Actor.latent_pi",
+          "Actor.mu",
+          "Actor.log_std",
+          "ContinuousCritic.q_networks"
+        ],
+        "sb3_version": "2.9.0",
+        "sb3_module_sha256": "a8d5d1b88605932e9d03c6acc37eadc54319bb1b563faf00cd173fbfdf059cf6",
+        "torch_version": "2.14.1+cpu",
+        "dtype": "float64",
+        "aligned_changes": [
+          "float64",
+          "fixed normalizer",
+          "strict logstd clipping derivative",
+          "per-critic Adam",
+          "gradient norm clipping10",
+          "pre-demand braking no-op mask"
+        ]
+      }
+    },
+    "legacy_audit": {
+      "passed": true,
+      "feature_count": 34
     },
     "wheel_build": {
       "passed": true
     },
-    "independent_wheel_install_and_audit": {
+    "english_markdown_and_local_links": {
       "passed": true,
-      "feature_count": 34
-    },
-    "missing_private_input_guards": {
-      "passed": true,
-      "run_v7_exit": 2,
-      "verify_v7_exit": 2,
-      "files_created": false,
-      "automatic_acquisition": false
-    },
-    "english_markdown": {
-      "passed": true
-    },
-    "markdown_local_link_targets": {
-      "passed": true
+      "problems": []
     },
     "original_research_repository": {
       "clean": true,
       "head": "b418dd27b071c413477b646db0c813350ad357ba"
     }
   },
-  "historical_accuracy_gates_passed": false,
-  "new_training_or_selection": false,
+  "formal_research_results": "pending",
   "FP2_accessed": false,
   "full_FIA_ECU_verified": false,
   "true_SOC_verified": false,

@@ -14,7 +14,7 @@ MANIFEST = 'docs/PUBLIC_SOURCE_INVENTORY.json'
 def verify(root: Path) -> dict:
     root = root.resolve()
     manifest = json.loads((root / MANIFEST).read_text(encoding='utf-8'))
-    if manifest.get('schema_version') != 1 or manifest.get('package_version') != '0.7.1':
+    if manifest.get('schema_version') != 1 or manifest.get('package_version') != '0.8.0':
         raise ValueError('Unexpected public inventory schema or package version')
     files = manifest['files']
     problems = []
