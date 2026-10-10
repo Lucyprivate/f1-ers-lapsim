@@ -1,0 +1,13 @@
+# Sources and scope
+
+This package uses equivalent model parameters. Observed speed, lap and sector timing must be distinguished from simulated power, regeneration and ideal DC-equivalent energy. Public data do not reveal real brake pressure, ICE/MGU-K allocation or SOC.
+
+- [OpenF1](https://openf1.org/): 2026 Austrian Race, session 11315, driver 63. Laps 3–6 were used for calibration and 7/9 for repeatedly used historical development. Laps 10–12 are historical diagnostics. Telemetry and processed arrays are omitted from the public package. See NOTICE.md for source terms.
+- [TUMFTM racetrack-database](https://github.com/TUMFTM/racetrack-database/tree/e59595d1f3573b30d1ded6a08984935b957688e0): fixed minimum-curvature Spielberg route, not a measured 2026 racing line or a minimum-time solution. Data and derived geometry are omitted. The model uses a continuous periodic curve and true arc-length mapping, with calibration-only registration.
+- [FIA technical regulations, Section C, Issue 19, 2026-06-25](https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_19_-_2026-06-25.pdf): historical rules for the modeled event.
+- [FIA sporting regulations, Section B, Issue 07, 2026-06-25](https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_07_-_2026-06-25.pdf).
+- [Austria Power Unit Information, Doc 5](https://www.fia.com/system/files/decision-document/2026_austrian_grand_prix_-_power_unit_information.pdf) and [circuit map, Doc 7](https://www.fia.com/system/files/decision-document/2026_austrian_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf): event-specific power and energy constraints and approximate sector/rule coordinates. Complete official files and rendered pages are not redistributed.
+
+The implementation treats the 350 kW limit as DC power, keeps the event's 8.0 MJ regeneration limit, and explicitly converts the 4326 m official reference distance onto the historical route. Doc 5 and Doc 7 give conflicting circuit lengths; using Doc 7 is a documented modeling choice. Exact FIA ECU periods, exceptions, transmission state and the real efficiency map remain unknown. Engineering geometry/request safeguards are audited separately from the public rule subset.
+
+The previously registered cross-session test remains 2026 Austrian FP2, driver 63, MEDIUM, with one bounded early-lap adaptation and a single later-lap score. Accuracy gates have not passed. The supported CLI and included tests do not acquire or open those arrays. Internal data helpers preserve the original protocol and shared-ledger checks; calling them is separate from the supported source-only workflow.

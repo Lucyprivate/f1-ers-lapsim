@@ -6,9 +6,9 @@ import tempfile
 import unittest
 import numpy as np
 
-from f1ers.learning import GaussianPolicy
-from f1ers_v6.learning import DiagnosticSAC, save_policy as save_v6
-from f1ers_v6.reward import RewardConfig, transition_reward
+from f1ers_v7._core.networks import GaussianPolicy
+from f1ers_v7._core.learning_base import DiagnosticSAC, save_policy as save_v6
+from f1ers_v7._core.reward import RewardConfig, transition_reward
 from f1ers_v7.learning import (ReturnScaledSAC, _bind, _rollout, adopt_policy, save_policy,
     load_policy, warmstart_critics, critic_diagnostics, evaluate_policy, is_legal, train_sac,
     monte_carlo_returns, RolloutFailure)
@@ -180,7 +180,7 @@ class LearningTests(unittest.TestCase):
         plain = DiagnosticSAC(self.policy(), seed=2026)
         scaled = ReturnScaledSAC(self.policy(), seed=2026)
         actor = [a.copy() for a in scaled.policy.network.parameters()]
-        from f1ers_v6.learning import warmstart_critics as unscaled_warmstart
+        from f1ers_v7._core.learning_base import warmstart_critics as unscaled_warmstart
         unscaled_warmstart(plain, trajectory, iterations=120, batch_size=64, seed=2026, monte_carlo=True)
         record = warmstart_critics(scaled, trajectory, iterations=120, batch_size=64, seed=2026)
         labels = monte_carlo_returns(trajectory["rewards"], trajectory["dones"],
@@ -246,7 +246,7 @@ class LearningTests(unittest.TestCase):
 
     def test_raw_action_not_substituted_with_executed_dc_and_failure_prefix_kept(self):
         sim, p = ToySimulator(), self.policy()
-        from f1ers.learning import ReplayBuffer
+        from f1ers_v7._core.networks import ReplayBuffer
         replay = ReplayBuffer(20, sim.observation_dim)
         trajectory = _rollout(sim, p, replay=replay, initial_energy_mj=3.)
         np.testing.assert_array_equal(replay.actions[:4, 0], trajectory["actions"])

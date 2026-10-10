@@ -10,8 +10,8 @@ from __future__ import annotations
 from pathlib import Path
 import numpy as np
 
-from f1ers.learning import GaussianPolicy, clone_behaviour
-from f1ers_v6.learning import _write, _teacher_arrays, _require_reproducible
+from f1ers_v7._core.networks import GaussianPolicy, clone_behaviour
+from f1ers_v7._core.learning_base import _write, _teacher_arrays, _require_reproducible
 from f1ers_v7.learning import (_bind, _copy, _features, _rollout, _score,
     evaluate_policy, is_legal, save_policy, load_policy)
 from f1ers_v7.deploy_only import FEATURES, PROTOCOL, require_policy_contract
@@ -178,10 +178,10 @@ def train_bc(teacher_rollouts, simulator, output_dir, *, seed=0, epochs=600,
 # and optimizer, while flushing accepted trajectories/checkpoints immediately.
 # It deliberately does not promise recovery of unsaved intermediate eval weights.
 from copy import deepcopy
-from f1ers.learning import ReplayBuffer
-from f1ers_v6.reward import RewardConfig
-from f1ers_v6.learning import RolloutFailure
-from f1ers_v6 import learning as previous
+from f1ers_v7._core.networks import ReplayBuffer
+from f1ers_v7._core.reward import RewardConfig
+from f1ers_v7._core.learning_base import RolloutFailure
+import f1ers_v7._core.learning_base as previous
 from f1ers_v7.learning import (_boundary, ReturnScaledSAC, warmstart_critics,
     critic_diagnostics, trajectory_diagnostics)
 

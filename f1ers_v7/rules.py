@@ -12,9 +12,9 @@ from math import sqrt
 
 import numpy as np
 
-from f1ers_v4.vehicle import IntegrationState
-from f1ers_v6.geometry_guard import GeometryAdvanceRuleShield
-from f1ers_v6.rules import _get
+from f1ers_v7._core.integrator import IntegrationState
+from f1ers_v7._core.geometry_guard import GeometryAdvanceRuleShield
+from f1ers_v7._core.base_rules import _get
 
 
 class EnergyViableRuleShield(GeometryAdvanceRuleShield):

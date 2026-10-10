@@ -10,15 +10,7 @@ dist/
 *.whl
 *.zip
 *.bundle
-vendor/wheels/
+vendor/
 results/
-!results/
-results/*/
-!results/austria_2026_v3/
-results/austria_2026_v3/*
-!results/austria_2026_v3/frozen_configuration.json
-!results/austria_2026_v3/verification.json
-!results/austria_2026_v3/gates.json
-data/v4/fp2/
-data/v4/test*
+data/
 artifacts/

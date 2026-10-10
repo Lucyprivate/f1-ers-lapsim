@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "package_version": "0.7.1",
+  "scope": "Local validation of the current public layout; not a new scientific experiment",
+  "checks": {
+    "included_regression_tests": {
+      "passed": 73,
+      "failed": 0
+    },
+    "audit_v7": {
+      "passed": true,
+      "feature_count": 34
+    },
+    "all_discovered_module_imports": {
+      "passed": true,
+      "module_count": 33
+    },
+    "wheel_build": {
+      "passed": true
+    },
+    "independent_wheel_install_and_audit": {
+      "passed": true,
+      "feature_count": 34
+    },
+    "missing_private_input_guards": {
+      "passed": true,
+      "run_v7_exit": 2,
+      "verify_v7_exit": 2,
+      "files_created": false,
+      "automatic_acquisition": false
+    },
+    "english_markdown": {
+      "passed": true
+    },
+    "markdown_local_link_targets": {
+      "passed": true
+    },
+    "original_research_repository": {
+      "clean": true,
+      "head": "b418dd27b071c413477b646db0c813350ad357ba"
+    }
+  },
+  "historical_accuracy_gates_passed": false,
+  "new_training_or_selection": false,
+  "FP2_accessed": false,
+  "full_FIA_ECU_verified": false,
+  "true_SOC_verified": false,
+  "browser_interaction_verified": false
+}

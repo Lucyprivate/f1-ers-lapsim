@@ -7,12 +7,12 @@ from unittest.mock import patch
 
 import numpy as np
 
-from f1ers_v3.geometry import ClosedRoute
-from f1ers_v4.vehicle import IntegrationState
-from f1ers_v6.frozen_demands import FrozenDemandDriver
-from f1ers_v6.learning import _features, _teacher_arrays
-from f1ers_v6.metrics import score
-from f1ers_v6.rules import RuleConfig, RuleState
+from f1ers_v7._core.geometry import ClosedRoute
+from f1ers_v7._core.integrator import IntegrationState
+from f1ers_v7._core.frozen_demands import FrozenDemandDriver
+from f1ers_v7._core.learning_base import _features, _teacher_arrays
+from f1ers_v7._core.metrics import score
+from f1ers_v7._core.base_rules import RuleConfig, RuleState
 from f1ers_v7.rules import EnergyViableRuleShield
 from f1ers_v7.simulator import FEATURES, ReachableSimulator, freeze_simulator
 
@@ -157,9 +157,9 @@ class SimulatorTests(unittest.TestCase):
 
     def test_simulation_does_not_access_fp2_acquisition_or_unsealing(self):
         sim = fixture()
-        with patch('f1ers_v4.data.prepare_new_session', side_effect=AssertionError('FP2 acquisition')) as acquire, \
-             patch('f1ers_v4.data.load_new_session', side_effect=AssertionError('FP2 arrays')) as load, \
-             patch('f1ers_v4.protocol.authorize_test_access', side_effect=AssertionError('FP2 unseal')) as unseal:
+        with patch('f1ers_v7._core.data.prepare_new_session', side_effect=AssertionError('FP2 acquisition')) as acquire, \
+             patch('f1ers_v7._core.data.load_new_session', side_effect=AssertionError('FP2 arrays')) as load, \
+             patch('f1ers_v7._core.protocol.authorize_test_access', side_effect=AssertionError('FP2 unseal')) as unseal:
             result = sim.simulate()
         self.assertTrue(result['summary']['completed_lap'])
         acquire.assert_not_called()
@@ -168,36 +168,45 @@ class SimulatorTests(unittest.TestCase):
 
 
 class ExperimentEntryTests(unittest.TestCase):
+    def test_source_freeze_includes_nested_deployment_config(self):
+        from f1ers_v7._core.artifacts import source_hashes
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config = root/'config/v7/deployment.json'
+            config.parent.mkdir(parents=True)
+            config.write_text('{"guard": 1000}', encoding='utf-8')
+            first = source_hashes(root)
+            self.assertIn('config/v7/deployment.json', first)
+            config.write_text('{"guard": 999}', encoding='utf-8')
+            self.assertNotEqual(first, source_hashes(root))
+
     def test_existing_experiment_refuses_before_provenance_or_new_data(self):
-        from f1ers_v7.experiment import run
+        from f1ers_v7.deployment_experiment import run
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root/'results/existing').mkdir(parents=True)
-            with patch('f1ers_v7.experiment.provenance') as source, \
-                 patch('f1ers_v7.experiment.load_local_dataset') as data:
+            with patch('f1ers_v7.deployment_experiment.provenance') as source, \
+                 patch('f1ers_v7.deployment_experiment.load_local_dataset') as data:
                 with self.assertRaises(RuntimeError):
-                    run(root, 'existing')
+                    run(root, name='existing')
             source.assert_not_called()
             data.assert_not_called()
 
-    def test_bad_historical_data_gate_stops_before_creating_experiment(self):
-        from f1ers_v7.experiment import run
+    def test_missing_private_prerequisites_stop_before_any_acquisition(self):
+        from f1ers_v7.cli import require_private_inputs
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            with patch('f1ers_v7.experiment.provenance', return_value={}), \
-                 patch('f1ers_v7.experiment.read', return_value={}), \
-                 patch('f1ers_v7.experiment.load_local_dataset', return_value={'audit': {'data_gate_passed': False}}), \
-                 patch('f1ers_v4.data.prepare_new_session', side_effect=AssertionError('FP2 acquisition')) as acquire:
-                with self.assertRaisesRegex(ValueError, 'historical data gate failed'):
-                    run(root, 'new_run')
+            with patch('f1ers_v7._core.data.prepare_new_session', side_effect=AssertionError('FP2 acquisition')) as acquire:
+                with self.assertRaisesRegex(ValueError, 'Private frozen prerequisites'):
+                    require_private_inputs(root, 'run-v7', 'new_run', 'prior')
             self.assertFalse((root/'results/new_run').exists())
             acquire.assert_not_called()
 
     def test_dirty_worktree_refuses_before_hashing_or_dependency_capture(self):
-        from f1ers_v7.experiment import provenance
-        with patch('f1ers_v7.experiment.git', return_value=' M f1ers_v7/simulator.py'), \
-             patch('f1ers_v7.experiment.digest') as hashed, \
-             patch('f1ers_v7.experiment.importlib.metadata.version') as versions:
+        from f1ers_v7._core.provenance import provenance
+        with patch('f1ers_v7._core.provenance.git', return_value=' M f1ers_v7/simulator.py'), \
+             patch('f1ers_v7._core.provenance.digest') as hashed, \
+             patch('f1ers_v7._core.provenance.importlib.metadata.version') as versions:
             with self.assertRaisesRegex(RuntimeError, 'clean worktree'):
                 provenance(Path('.'))
         hashed.assert_not_called()

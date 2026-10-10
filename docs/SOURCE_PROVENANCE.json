@@ -1,0 +1,142 @@
+{
+  "original_local_result_commit": "b418dd27b071c413477b646db0c813350ad357ba",
+  "latest_experiment_source_commit": "9be703eadc8a8b25f2b0b28fd225e0f0952d6210",
+  "public_layout_changes": "current package only; imported computational dependencies consolidated by function",
+  "original_frozen_history_modified": false,
+  "original_frozen_exact_hashes_claimed_for_public_layout": false,
+  "migrated_modules": [
+    {
+      "source": "f1ers_v7/rules.py",
+      "destination": "f1ers_v7/rules.py",
+      "original_sha256": "e6f2bf9da1152576f6dd84465beb85922cf4368304981800793ed6fae18cf6ca",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v7/simulator.py",
+      "destination": "f1ers_v7/simulator.py",
+      "original_sha256": "9c8162d3a29a4fce5746c68e133a58c91cbf47e7f0d63f162128c12ccc987d52",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v7/learning.py",
+      "destination": "f1ers_v7/learning.py",
+      "original_sha256": "e962b87e08d91de1ee364c1ab55c017fd686b84e93e91e88253277446655f0cb",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v7/deploy_only.py",
+      "destination": "f1ers_v7/deploy_only.py",
+      "original_sha256": "42ca9465d394d93bb160cfa0883d53620715b68943e4230ee6c0c49758a0074a",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v7/deploy_learning.py",
+      "destination": "f1ers_v7/deploy_learning.py",
+      "original_sha256": "7177d1116dc8037c15451f918fe27ed699d3feaea5fbe89dadb2def1f4e3f980",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v7/deployment_experiment.py",
+      "destination": "f1ers_v7/deployment_experiment.py",
+      "original_sha256": "b08626690ccab66659fba6e6d380728d9165fd6e586082b914cf68240757e28e",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers/learning.py",
+      "destination": "f1ers_v7/_core/networks.py",
+      "original_sha256": "d318af4fa91bdc79bbdc0a9c9e43f1822c8f507f8e9df391aca7c1c2b771f10d",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v3/geometry.py",
+      "destination": "f1ers_v7/_core/geometry.py",
+      "original_sha256": "07555a2d18bebbbd5fdcceaffe82dac8bc422f83134d84557308ad854c5d4d4b",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v4/vehicle.py",
+      "destination": "f1ers_v7/_core/integrator.py",
+      "original_sha256": "903cf0a0824928378f404529a7656fe316454de25e6e0de8d1b540631bb30d9d",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v4/simulator.py",
+      "destination": "f1ers_v7/_core/base_simulator.py",
+      "original_sha256": "627aac52533a77a13c0010121bb3f50cdbdbddee2c744d4f5b05e44e4a5c5984",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v4/data.py",
+      "destination": "f1ers_v7/_core/data.py",
+      "original_sha256": "c80196ff5ca5478506e5aa7177cc81091dd4162e6b823307487e812e8625a587",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v4/protocol.py",
+      "destination": "f1ers_v7/_core/protocol.py",
+      "original_sha256": "b4c501b2c366b6b14bd24840ee85c32b1cd442a2ab83cb947852d45c9cd730f0",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/driver.py",
+      "destination": "f1ers_v7/_core/driver.py",
+      "original_sha256": "67cf6ddbd8443f9715384d719347c0463ddbca15bc9862983b12dba99e27473b",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/environment.py",
+      "destination": "f1ers_v7/_core/environment.py",
+      "original_sha256": "4d1ecad04412ec1489a7aba5feeb17d11a998e32be9e2f894665dd19e24c698e",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/simulator.py",
+      "destination": "f1ers_v7/_core/control_simulator.py",
+      "original_sha256": "dff5e08f60ef2b1b6a934afc4553957956dee787c27cf3f95529fbe47114757b",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/geometry_guard.py",
+      "destination": "f1ers_v7/_core/geometry_guard.py",
+      "original_sha256": "aac9cdee3483fc80a1026e735a625ba4a2594dd795972caf407ae99fe0542b3b",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/frozen_demands.py",
+      "destination": "f1ers_v7/_core/frozen_demands.py",
+      "original_sha256": "e3fa425622f1200ee13d93520319f4e2a0bde2e6330c6897f8809ed0f6f62a7f",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/rules.py",
+      "destination": "f1ers_v7/_core/base_rules.py",
+      "original_sha256": "c71bbd9be26dc4675ad18af9901371816c8031ac28569a1da435dcee223482c2",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/reward.py",
+      "destination": "f1ers_v7/_core/reward.py",
+      "original_sha256": "c0e3086ef55d7908d3b883048b092a07d17a8e2d5d1329deb991b89de2dcf667",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/learning.py",
+      "destination": "f1ers_v7/_core/learning_base.py",
+      "original_sha256": "db06fa29d14beb8bf6b76d6b066d81e9c93a75d9e8e203610aafb920506a936c",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/proxy_audit.py",
+      "destination": "f1ers_v7/_core/proxy_audit.py",
+      "original_sha256": "d4f9c06315b8df305633ff4cbebac736c8af05856d81dd8e4a19a67d650df861",
+      "change": "imports relocated; computational statements retained"
+    },
+    {
+      "source": "f1ers_v6/metrics.py",
+      "destination": "f1ers_v7/_core/metrics.py",
+      "original_sha256": "7c543ab5b9d3e592de596458344b5b09b0e07a04466f77a9e59ffdf6f7db2e47",
+      "change": "imports relocated; computational statements retained"
+    }
+  ],
+  "extraction_receipt_sha256": "2325551aeb2d1fa1e6ffcf285214e3fa327c76749ce15ae1c71dc8876610ee83"
+}

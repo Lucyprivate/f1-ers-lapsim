@@ -14,12 +14,12 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 from f1ers_v7 import deploy_only as module
 
-from f1ers.learning import GaussianPolicy
-from f1ers_v3.geometry import ClosedRoute
-from f1ers_v4.vehicle import IntegrationState, VehicleParamsV4, WheelCommand, vehicle_step
-from f1ers_v6.frozen_demands import FrozenDemandDriver
-from f1ers_v6.learning import save_policy as save_legacy_policy
-from f1ers_v6.rules import RuleConfig
+from f1ers_v7._core.networks import GaussianPolicy
+from f1ers_v7._core.geometry import ClosedRoute
+from f1ers_v7._core.integrator import IntegrationState, VehicleParamsV4, WheelCommand, vehicle_step
+from f1ers_v7._core.frozen_demands import FrozenDemandDriver
+from f1ers_v7._core.learning_base import save_policy as save_legacy_policy
+from f1ers_v7._core.base_rules import RuleConfig
 from f1ers_v7.rules import EnergyViableRuleShield
 from f1ers_v7.learning import _bind, save_policy
 from f1ers_v7.simulator import FEATURES as OLD_FEATURES
@@ -211,9 +211,9 @@ class DeploymentOnlyTests(unittest.TestCase):
         starts = sim.driver_template.decision_s[:-1]
         profile = {'s_m': starts.copy(), 'wheel_force_n': np.where(np.arange(len(starts))%2, -500., 500.)}
         fixed = module.freeze_simulator(sim, profile)
-        with patch('f1ers_v4.data.prepare_new_session', side_effect=AssertionError('FP2')) as acquire, \
-                patch('f1ers_v4.data.load_new_session', side_effect=AssertionError('FP2')) as load, \
-                patch('f1ers_v4.protocol.authorize_test_access', side_effect=AssertionError('FP2')) as unseal:
+        with patch('f1ers_v7._core.data.prepare_new_session', side_effect=AssertionError('FP2')) as acquire, \
+                patch('f1ers_v7._core.data.load_new_session', side_effect=AssertionError('FP2')) as load, \
+                patch('f1ers_v7._core.protocol.authorize_test_access', side_effect=AssertionError('FP2')) as unseal:
             result = fixed.simulate(initial_speed_mps=10., initial_energy_mj=3.)
         self.assertTrue(result['summary']['completed_lap'])
         self.assertEqual(result['summary']['protocol'], module.PROTOCOL)

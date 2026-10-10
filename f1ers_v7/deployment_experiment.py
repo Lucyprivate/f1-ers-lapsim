@@ -17,12 +17,12 @@ import time
 import traceback
 import numpy as np
 
-from f1ers_v4.data import load_local_dataset
-from f1ers_v4.protocol import ledger_paths
-from f1ers_v6.learning import _write, _jsonable
-from f1ers_v6.metrics import score
-from f1ers_v6.rules import RuleConfig
-from f1ers_v7.experiment import digest, read, provenance, git
+from f1ers_v7._core.data import load_local_dataset
+from f1ers_v7._core.protocol import ledger_paths
+from f1ers_v7._core.learning_base import _write, _jsonable
+from f1ers_v7._core.metrics import score
+from f1ers_v7._core.base_rules import RuleConfig
+from f1ers_v7._core.provenance import digest, read, provenance, git
 from f1ers_v7.deploy_only import (DeployOnlySimulator, FEATURES, PROTOCOL,
     proxy_audit, numerical_audit, load_deploy_policy)
 from f1ers_v7.deploy_learning import train_bc, train_sac

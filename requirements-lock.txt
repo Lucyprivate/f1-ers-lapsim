@@ -2,4 +2,3 @@ numpy==2.3.5
 scipy==1.18.1
 numba==0.68.0
 llvmlite==0.50.0
-pdfplumber==0.11.9

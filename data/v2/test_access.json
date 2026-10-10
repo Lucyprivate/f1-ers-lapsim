@@ -1,9 +1,0 @@
-{
-  "status": "completed",
-  "experiment": "austria_2026_v2",
-  "started_at": "2026-10-05T14:06:17.805150+00:00",
-  "protocol_sha256": "b99ace85ec093720b3d1518a9b4ca1fd95cefd356e6fbc6510be373f8c673af9",
-  "configuration_sha256": "cec77070dfe48df39ae1344a4060773fe339c2ba9a0eaf8c8a6078c2fd09e3ef",
-  "completed_at": "2026-10-05T14:06:17.853790+00:00",
-  "result_sha256": "05986acd22cef3ac37a84c7872506b2846f4bd3d26ce7adcf5e208b213482eab"
-}

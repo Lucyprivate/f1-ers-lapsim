@@ -1,2 +1,2 @@
-"""Independent reachable-control research; frozen v4/v6 remain unchanged."""
-__version__ = '0.7.0'
+"""Current deployment-only ERS control research package."""
+__version__ = "0.7.1"

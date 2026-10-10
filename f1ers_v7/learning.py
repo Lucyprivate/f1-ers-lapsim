@@ -12,9 +12,9 @@ from dataclasses import replace
 from pathlib import Path
 import numpy as np
 
-from f1ers.learning import GaussianPolicy, SAC, ReplayBuffer
-from f1ers_v6 import learning as previous
-from f1ers_v6.reward import RewardConfig
+from f1ers_v7._core.networks import GaussianPolicy, SAC, ReplayBuffer
+import f1ers_v7._core.learning_base as previous
+from f1ers_v7._core.reward import RewardConfig
 
 CHECKPOINT_SCHEMA = 7
 POLICY_PROTOCOL = "v7_state_feedback_gaussian_v1"

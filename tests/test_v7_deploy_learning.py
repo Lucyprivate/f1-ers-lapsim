@@ -6,7 +6,7 @@ import numpy as np
 import unittest
 import tempfile
 
-from f1ers.learning import clone_behaviour
+from f1ers_v7._core.networks import clone_behaviour
 from f1ers_v7.deploy_only import FEATURES, PROTOCOL
 from f1ers_v7.learning import _bind, save_policy, load_policy
 from f1ers_v7.deploy_learning import analytical_zero_policy, require_exact_zero_mean, train_sac
@@ -75,7 +75,7 @@ class DeployLearningTests(unittest.TestCase):
     def test_episode_accounting_does_not_count_failed_attempt_as_completed(self):
         for index in (1, 2):
             (self.tmp_path/f'episode_{index:03d}_started.json').write_text('{}')
-        from f1ers_v6.learning import _write
+        from f1ers_v7._core.learning_base import _write
         _write(self.tmp_path/'training_episode_001.json.gz', {'result': {'summary': {'completed_lap': True}}})
         (self.tmp_path/'sac_history.json').write_text(json.dumps([{'episode': 0}, {'episode': 1}, {'episode': 2, 'failure': 'test'}]))
         count = episode_counts(self.tmp_path)

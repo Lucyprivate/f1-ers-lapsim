@@ -12,11 +12,11 @@ from dataclasses import replace
 from pathlib import Path
 import numpy as np
 
-from f1ers_v4.vehicle import IntegratorConfig
-from f1ers_v6.frozen_demands import FrozenDemandDriver
-from f1ers_v6.learning import _write
-from f1ers_v6.proxy_audit import audit_proxy_consistency
-from f1ers_v6.rules import _get
+from f1ers_v7._core.integrator import IntegratorConfig
+from f1ers_v7._core.frozen_demands import FrozenDemandDriver
+from f1ers_v7._core.learning_base import _write
+from f1ers_v7._core.proxy_audit import audit_proxy_consistency
+from f1ers_v7._core.base_rules import _get
 from f1ers_v7.rules import EnergyViableRuleShield
 from f1ers_v7.learning import load_policy
 from f1ers_v7.simulator import ReachableEnv, ReachableSimulator, FEATURES as OLD_FEATURES

@@ -1,18 +1,22 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "f1-ers-lab-v4"
-version = "0.4.0"
-description = "Dual-path public-data vehicle fidelity and causal ERS experiments"
-requires-python = ">=3.12"
-dependencies = ["numpy>=2.0,<3", "scipy>=1.14,<2", "numba>=0.63,<1", "pdfplumber>=0.11,<1"]
+name = "f1-ers-lapsim"
+version = "0.7.1"
+description = "Causal ERS deployment research with constrained vehicle integration and bounded imitation learning/SAC"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+authors = [{name = "F1 ERS Lab"}]
+dependencies = ["numpy==2.3.5", "scipy==1.18.1", "numba==0.68.0", "llvmlite==0.50.0"]
+
+[project.urls]
+Repository = "https://github.com/Lucyprivate/f1-ers-lapsim"
 
 [project.scripts]
-f1-ers = "f1ers.cli:main"
-f1-ers-v3 = "f1ers_v3.cli:main"
-f1-ers-v4 = "f1ers_v4.cli:main"
+f1-ers-v7 = "f1ers_v7.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["f1ers*"]
+include = ["f1ers_v7*"]

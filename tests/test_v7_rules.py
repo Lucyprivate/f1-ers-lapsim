@@ -5,8 +5,8 @@ from types import SimpleNamespace
 
 import numpy as np
 
-from f1ers_v4.vehicle import IntegrationState
-from f1ers_v6.rules import RuleConfig, RuleState
+from f1ers_v7._core.integrator import IntegrationState
+from f1ers_v7._core.base_rules import RuleConfig, RuleState
 from f1ers_v7.rules import EnergyViableRuleShield
 
 

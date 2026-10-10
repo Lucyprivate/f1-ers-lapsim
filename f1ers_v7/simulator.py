@@ -4,14 +4,14 @@ from __future__ import annotations
 from dataclasses import replace
 import numpy as np
 
-from f1ers_v4.vehicle import IntegratorConfig
-from f1ers_v6.environment import CausalEnvV6, FEATURES as OLD_FEATURES
-from f1ers_v6.geometry_guard import GeometryGuardSimulator
-from f1ers_v6.frozen_demands import FrozenDemandDriver
-from f1ers_v6.proxy_audit import audit_proxy_consistency
-from f1ers_v6.reward import transition_reward
-from f1ers_v6.r7 import label_elapsed_time
-from f1ers_v6.learning import _write
+from f1ers_v7._core.integrator import IntegratorConfig
+from f1ers_v7._core.environment import CausalEnvV6, FEATURES as OLD_FEATURES
+from f1ers_v7._core.geometry_guard import GeometryGuardSimulator
+from f1ers_v7._core.frozen_demands import FrozenDemandDriver
+from f1ers_v7._core.proxy_audit import audit_proxy_consistency
+from f1ers_v7._core.reward import transition_reward
+from f1ers_v7._core.boundary import label_elapsed_time
+from f1ers_v7._core.learning_base import _write
 from .rules import EnergyViableRuleShield
 
 FEATURES = tuple(OLD_FEATURES) + (
