@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "repository": "Lucyprivate/f1-ers-lapsim",
+  "branch": "main",
+  "published_source_commit": "0d45dbd521d984cd5fadaeb4c4c872941f3c14c0",
+  "tree_sha": "6e5836452a35ad80ee252ca002d247252617a5dd",
+  "independent_public_GitHub_clone": true,
+  "all_255_published_file_sha256_match": true,
+  "published_files_checked": 255,
+  "published_original_files_unchanged": 248,
+  "original_files_excluded": 61,
+  "full_FIA_documents_published": false,
+  "private_telemetry_cache_or_weights_published": false,
+  "owner_selected_source_license": "MIT",
+  "local_original_history_rewritten": false,
+  "original_frozen_commit": "b418dd27b071c413477b646db0c813350ad357ba",
+  "new_training_or_selection": false,
+  "FP2_accessed": false,
+  "scientific_acceptance_implied": false,
+  "published_snapshot_regressions": {
+    "v7_synthetic_tests": 67,
+    "passed": true
+  },
+  "validation_scope": "Byte checks cover the published source commit above; this later receipt is additive."
+}
