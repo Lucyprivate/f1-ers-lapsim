@@ -28,6 +28,8 @@ def ensure_run(root,data_root,output,ledger):
         raise ValueError('Result directory must be immediately inside this repository/results')
     if (output/'freeze.json').exists():
         row=read(output/'freeze.json')
+        if row!=read(CANONICAL_RESEARCH_LEDGER/IDENTITY/'run_claim.json'):
+            raise RuntimeError('Local freeze differs from the canonical shared run claim')
         if git(root,'status','--porcelain') or row['code_commit']!=git(root,'rev-parse','HEAD'):
             raise RuntimeError('Stage continuation requires the unchanged clean frozen commit')
         if row['data_sha256']!=input_files(data_root):
