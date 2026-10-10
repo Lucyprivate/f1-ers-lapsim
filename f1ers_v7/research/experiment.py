@@ -136,7 +136,10 @@ def verify_saved(root,data_root,output,*,replay=False):
         data=load_historical(data_root,root,role='calibration')
         sim=make_sim(data,frozen['config'])
         with TemporaryDirectory(dir=output.parent) as tmp:
-            replay_report,_=qualify(sim,BlockController([0.]*16),Path(tmp),frozen['config']['cold_initial_speed_mps'])
+            qualify(sim,BlockController([0.]*16),Path(tmp),frozen['config']['cold_initial_speed_mps'])
+            # Compare persisted JSON on both sides: tuples in feature schemas
+            # serialize as lists. No numerical tolerance or field removal.
+            replay_report=read(Path(tmp)/'qualification.json')
         expected=read(output/'baseline/qualification.json')
         replay_report={'passed':replay_report==expected,'six_carry_recomputed':True,
                        'formal_objective_s':replay_report['formal_objective_s']}

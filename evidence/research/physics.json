@@ -1,0 +1,652 @@
+{
+  "kind": "read_only_saved_artifact_physics_summary",
+  "code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "physics_report_sha256": "82fce6229b3062b8941f86f891c93a6070d9a96c0ed5a923438627e7d08b01a1",
+  "source_report": "<repository>/results/opensource_control_2026_01/physics/physics.json",
+  "screening_points_total": 192,
+  "screening_simulations_total": 960,
+  "screening_replay_trajectories_total": 768,
+  "screening_autonomous_trajectories_total": 192,
+  "fit_evaluations_total": 0,
+  "calibration_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "development_statement": "Development was loaded upstream but was not scored or used for candidate selection.",
+  "candidates": [
+    {
+      "name": "baseline",
+      "screened_points": 64,
+      "viable_points": 0,
+      "fit_status": "withheld_fewer_than_three_viable_starts",
+      "fit_evaluations": 0,
+      "development_scored": false,
+      "complete_physical_autonomous_runs": 64,
+      "autonomous_control_qualified_runs": 0,
+      "failure_counts": [
+        {
+          "mode": "replay",
+          "status": "physical_fail",
+          "classification": "combined_tire_force",
+          "count": 240
+        },
+        {
+          "mode": "replay",
+          "status": "physical_stop",
+          "classification": "certified_stop",
+          "count": 16
+        }
+      ],
+      "replay_failures_with_zero_aggregate_longitudinal_capacity_and_actual_force": 240,
+      "replay_terminal_distance_range_m": [
+        220.21945704980934,
+        2015.456734319939
+      ],
+      "partial_replay_RMSE_or_sector_scores": null
+    },
+    {
+      "name": "independent_braking",
+      "screened_points": 64,
+      "viable_points": 0,
+      "fit_status": "withheld_fewer_than_three_viable_starts",
+      "fit_evaluations": 0,
+      "development_scored": false,
+      "complete_physical_autonomous_runs": 64,
+      "autonomous_control_qualified_runs": 0,
+      "failure_counts": [
+        {
+          "mode": "replay",
+          "status": "physical_fail",
+          "classification": "combined_tire_force",
+          "count": 239
+        },
+        {
+          "mode": "replay",
+          "status": "physical_stop",
+          "classification": "certified_stop",
+          "count": 17
+        }
+      ],
+      "replay_failures_with_zero_aggregate_longitudinal_capacity_and_actual_force": 239,
+      "replay_terminal_distance_range_m": [
+        220.22886215478306,
+        2829.7902222965827
+      ],
+      "partial_replay_RMSE_or_sector_scores": null
+    },
+    {
+      "name": "independent_braking_axles",
+      "screened_points": 64,
+      "viable_points": 0,
+      "fit_status": "withheld_fewer_than_three_viable_starts",
+      "fit_evaluations": 0,
+      "development_scored": false,
+      "complete_physical_autonomous_runs": 0,
+      "autonomous_control_qualified_runs": 0,
+      "failure_counts": [
+        {
+          "mode": "autonomous",
+          "status": "physical_fail",
+          "classification": "combined_tire_force",
+          "count": 64
+        },
+        {
+          "mode": "replay",
+          "status": "physical_fail",
+          "classification": "combined_tire_force",
+          "count": 242
+        },
+        {
+          "mode": "replay",
+          "status": "physical_stop",
+          "classification": "certified_stop",
+          "count": 14
+        }
+      ],
+      "replay_failures_with_zero_aggregate_longitudinal_capacity_and_actual_force": 0,
+      "replay_terminal_distance_range_m": [
+        219.50062041104843,
+        2532.7081521643167
+      ],
+      "partial_replay_RMSE_or_sector_scores": null
+    }
+  ],
+  "selected_candidate": null,
+  "selected_numerical_gates": {
+    "passed": false,
+    "status": "withheld_no_eligible_physical_model",
+    "reason": "No converged complete physical/control-qualified development candidate"
+  },
+  "selected_two_path_accuracy_passed": false,
+  "selected_model_formal_release_passed": false,
+  "independent_boundary_audit": {
+    "method": "nearest closed centerline segment, linearly interpolated inherited widths",
+    "direction": 1,
+    "minimum_left_clearance_m": 0.6672424280108205,
+    "minimum_right_clearance_m": 0.7135769383077228,
+    "minimum_boundary_clearance_m": 0.6672424280108205,
+    "outside_samples": 0,
+    "mean_projection_distance_m": 3.6010017846897835,
+    "geometry_changed": false,
+    "actual_surveyed_boundary_verified": false,
+    "inherited_nearest_node_clearance_m": 0.47848847695982943,
+    "segment_vs_node_minimum_difference_m": 0.18875395105099102
+  },
+  "loss_sensitivities": [
+    {
+      "parameters": {
+        "name": "eta_1.00_aux_0",
+        "storage_charge_efficiency": 1.0,
+        "storage_discharge_efficiency": 1.0,
+        "auxiliary_power_w": 0.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 6,
+      "complete_six_carried_laps": true,
+      "control_line_continuity_passed": true,
+      "proxy_gate_passed": true,
+      "diagnostic_last_two_mean_s": 70.83072417895706,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        1.4145751044888577,
+        0.016126704602756003,
+        -2.3986990171920297e-10,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        [
+          "terminal_speed_not_closed"
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "last_two_mean_storage_change_mj": 0.0,
+      "max_abs_storage_ledger_residual_mj": 6.507294703084199e-14,
+      "cold_speed_closure_error_mps": 1.2785964607997187,
+      "partial_trajectory_reason": null,
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_1.00_aux_50",
+        "storage_charge_efficiency": 1.0,
+        "storage_discharge_efficiency": 1.0,
+        "auxiliary_power_w": 50.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_1.00_aux_100",
+        "storage_charge_efficiency": 1.0,
+        "storage_discharge_efficiency": 1.0,
+        "auxiliary_power_w": 100.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.98_aux_0",
+        "storage_charge_efficiency": 0.98,
+        "storage_discharge_efficiency": 0.98,
+        "auxiliary_power_w": 0.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 6,
+      "complete_six_carried_laps": true,
+      "control_line_continuity_passed": true,
+      "proxy_gate_passed": true,
+      "diagnostic_last_two_mean_s": 70.86225387372266,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        1.2934023209484304,
+        0.022255118330150037,
+        -0.02792087525035214,
+        0.033905280083343925,
+        -0.0008849343060775006,
+        -0.027920511656125857
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        [
+          "terminal_speed_not_closed"
+        ],
+        [],
+        [
+          "terminal_energy_deficit"
+        ],
+        [],
+        [
+          "terminal_energy_deficit"
+        ],
+        [
+          "terminal_energy_deficit"
+        ]
+      ],
+      "last_two_mean_storage_change_mj": -0.014402722981101679,
+      "max_abs_storage_ledger_residual_mj": 1.7255641360236496e-13,
+      "cold_speed_closure_error_mps": 1.278596477818951,
+      "partial_trajectory_reason": null,
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.98_aux_50",
+        "storage_charge_efficiency": 0.98,
+        "storage_discharge_efficiency": 0.98,
+        "auxiliary_power_w": 50.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.98_aux_100",
+        "storage_charge_efficiency": 0.98,
+        "storage_discharge_efficiency": 0.98,
+        "auxiliary_power_w": 100.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.95_aux_0",
+        "storage_charge_efficiency": 0.95,
+        "storage_discharge_efficiency": 0.95,
+        "auxiliary_power_w": 0.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 6,
+      "complete_six_carried_laps": true,
+      "control_line_continuity_passed": true,
+      "proxy_gate_passed": true,
+      "diagnostic_last_two_mean_s": 70.97959684258751,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        1.176216672493736,
+        -0.0013927790240142457,
+        -0.0013927787664065328,
+        -0.0013927787664060887,
+        0.012187468101387822,
+        -0.0013927787440590755
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        [
+          "terminal_speed_not_closed"
+        ],
+        [
+          "terminal_energy_deficit"
+        ],
+        [
+          "terminal_energy_deficit"
+        ],
+        [
+          "terminal_energy_deficit"
+        ],
+        [],
+        [
+          "terminal_energy_deficit"
+        ]
+      ],
+      "last_two_mean_storage_change_mj": 0.005397344678664373,
+      "max_abs_storage_ledger_residual_mj": 1.6964207816272392e-13,
+      "cold_speed_closure_error_mps": 1.2785964721878713,
+      "partial_trajectory_reason": null,
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.95_aux_50",
+        "storage_charge_efficiency": 0.95,
+        "storage_discharge_efficiency": 0.95,
+        "auxiliary_power_w": 50.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    },
+    {
+      "parameters": {
+        "name": "eta_0.95_aux_100",
+        "storage_charge_efficiency": 0.95,
+        "storage_discharge_efficiency": 0.95,
+        "auxiliary_power_w": 100.0
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "control_line_continuity_passed": false,
+      "proxy_gate_passed": false,
+      "diagnostic_last_two_mean_s": null,
+      "formal_objective_s": null,
+      "per_lap_storage_change_mj": [
+        0.0
+      ],
+      "per_lap_terminal_constraint_reasons": [
+        []
+      ],
+      "last_two_mean_storage_change_mj": null,
+      "max_abs_storage_ledger_residual_mj": 0.0,
+      "cold_speed_closure_error_mps": 0.0,
+      "partial_trajectory_reason": "energy_floor_event at exactly 2 MJ, t=0 and s=0",
+      "numerical_convergence_verified": false
+    }
+  ],
+  "axle_sensitivities": [
+    {
+      "parameters": {
+        "name": "nominal",
+        "rear_static_fraction": 0.5,
+        "rear_aero_fraction": 0.5,
+        "height_over_wheelbase": 0.1
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 253.65266020184046,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 5761.7066476532445,
+      "rear_normal_load_n": 4242.332417708002,
+      "front_lateral_force_n": 7432.089280359659,
+      "rear_lateral_force_n": 7432.089280359659,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -6813.998032243533,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_1",
+        "rear_static_fraction": 0.45,
+        "rear_aero_fraction": 0.45,
+        "height_over_wheelbase": 0.05
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 263.6596150804407,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 5447.1132820145185,
+      "rear_normal_load_n": 4034.3914002081938,
+      "front_lateral_force_n": 8638.91137267362,
+      "rear_lateral_force_n": 7068.2002140056875,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -4029.4800866612077,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_2",
+        "rear_static_fraction": 0.45,
+        "rear_aero_fraction": 0.45,
+        "height_over_wheelbase": 0.15
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 225.40993640994947,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 9003.748717321077,
+      "rear_normal_load_n": 3067.261241813778,
+      "front_lateral_force_n": 6570.344077547961,
+      "rear_lateral_force_n": 5375.736063448331,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -14321.300179821203,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_3",
+        "rear_static_fraction": 0.45,
+        "rear_aero_fraction": 0.55,
+        "height_over_wheelbase": 0.05
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 264.9997447428915,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 4989.3379794501525,
+      "rear_normal_load_n": 4456.478576608012,
+      "front_lateral_force_n": 8850.631341785145,
+      "rear_lateral_force_n": 7241.425643278754,
+      "rear_remaining_longitudinal_capacity_n": 2895.445216459,
+      "actual_front_wheel_force_n": 0.0,
+      "actual_rear_wheel_force_n": 1526.0308792376302
+    },
+    {
+      "parameters": {
+        "name": "corner_4",
+        "rear_static_fraction": 0.45,
+        "rear_aero_fraction": 0.55,
+        "height_over_wheelbase": 0.15
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 236.00247285435628,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 7671.261660141807,
+      "rear_normal_load_n": 3555.300692226454,
+      "front_lateral_force_n": 7614.205259603289,
+      "rear_lateral_force_n": 6229.804303311781,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -11056.519461941914,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_5",
+        "rear_static_fraction": 0.55,
+        "rear_aero_fraction": 0.45,
+        "height_over_wheelbase": 0.05
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 263.07982838427296,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 4698.515623299381,
+      "rear_normal_load_n": 4806.296655746497,
+      "front_lateral_force_n": 6888.29621099023,
+      "rear_lateral_force_n": 8419.028702321393,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -4489.89766244751,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_6",
+        "rear_static_fraction": 0.55,
+        "rear_aero_fraction": 0.45,
+        "height_over_wheelbase": 0.15
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 228.72177608176202,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 7752.164570762558,
+      "rear_normal_load_n": 4055.9034646347245,
+      "front_lateral_force_n": 5813.935528284555,
+      "rear_lateral_force_n": 7105.921201236681,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -12257.335733371463,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_7",
+        "rear_static_fraction": 0.55,
+        "rear_aero_fraction": 0.55,
+        "height_over_wheelbase": 0.05
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 264.0739249579265,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 4435.202587080992,
+      "rear_normal_load_n": 5035.091008088708,
+      "front_lateral_force_n": 7215.8798181329175,
+      "rear_lateral_force_n": 8819.408666606902,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -2858.930622356621,
+      "actual_rear_wheel_force_n": -0.0
+    },
+    {
+      "parameters": {
+        "name": "corner_8",
+        "rear_static_fraction": 0.55,
+        "rear_aero_fraction": 0.55,
+        "height_over_wheelbase": 0.15
+      },
+      "qualification_passed": false,
+      "actual_laps": 1,
+      "complete_six_carried_laps": false,
+      "failure_position_m": 238.0575190333506,
+      "failure_reasons": [
+        "combined_tire_force"
+      ],
+      "front_normal_load_n": 6614.302721012287,
+      "rear_normal_load_n": 4501.298391738997,
+      "front_lateral_force_n": 6451.660626039532,
+      "rear_lateral_force_n": 7885.362987381651,
+      "rear_remaining_longitudinal_capacity_n": 0.0,
+      "actual_front_wheel_force_n": -9610.273770574573,
+      "actual_rear_wheel_force_n": -0.0
+    }
+  ],
+  "fallback_parameters": {
+    "mass_kg": 800.0,
+    "ice_power_kw": 400.0,
+    "mu": 1.75,
+    "drag_area_m2": 1.15,
+    "downforce_area_m2": 3.6,
+    "equivalent_power_kw": 600.0,
+    "replay_brake_gain": 0.5
+  },
+  "cold_initial_speed_mps": 77.79423955757463,
+  "cold_initial_energy_mj": 2.0,
+  "fallback_is_diagnostic_only": true,
+  "fallback_differs_from_learning_baseline": {
+    "learning_mu": 1.8,
+    "learning_drag_area_m2": 1.3,
+    "learning_downforce_area_m2": 3.9,
+    "learning_equivalent_power_kw": 541.25,
+    "learning_replay_brake_gain": 0.55
+  },
+  "FP2_accessed": false,
+  "source_or_configuration_edited_during_audit": false,
+  "new_simulations_or_retry_budget_spent_during_audit": 0,
+  "interpretation_limits": [
+    "Zero viable Sobol points is a finite screening result, not a proof that no feasible parameter set exists.",
+    "Partial replay runs have no formal RMSE, lap-time or sector accuracy score.",
+    "Axle and storage parameters are engineering assumptions, not real F1 parameter identification.",
+    "Complete six-lap sensitivity runs do not override per-lap sustainability or cold speed-closure failures.",
+    "No fitted model, numerical qualification, real-car gain, global optimality or full FIA ECU certification is established."
+  ]
+}

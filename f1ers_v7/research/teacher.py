@@ -34,6 +34,68 @@ def deployment_coefficients(deploy_mj, baseline_actions):
     return fractions,coefficients
 
 
+MJ_TO_J = 1e6
+
+
+def surrogate_speed_squared_coefficients(coefficients_mj, dt_s, ds_m,
+        reference_speed_mps, mass_kg, deploy_efficiency):
+    """Squared-speed response per deployment fraction, in SI units.
+
+    The deployed-energy integral is DC kW * seconds / 1000, hence MJ.
+    Its mechanical-power response must therefore use MJ_TO_J, not 1000.
+    Reference travel time/mean speed remain frozen surrogate assumptions.
+    """
+    energy = np.asarray(coefficients_mj, float)
+    duration = np.asarray(dt_s, float)
+    distance = np.asarray(ds_m, float)
+    speed = np.asarray(reference_speed_mps, float)
+    if (energy.ndim != 1 or duration.shape != energy.shape
+            or distance.shape != energy.shape
+            or speed.shape != (len(energy)+1,)):
+        raise ValueError('One energy/time/distance coefficient per block required')
+    if (not all(np.isfinite(x).all() for x in (energy,duration,distance,speed))
+            or np.any(energy < 0.) or np.any(duration <= 0.)
+            or np.any(distance <= 0.) or np.any(speed < 0.)
+            or not np.isfinite(mass_kg) or mass_kg <= 0.
+            or not np.isfinite(deploy_efficiency)
+            or not 0. < deploy_efficiency <= 1.):
+        raise ValueError('Finite SI inputs, positive mass/time/distance and efficiency required')
+    mechanical_power_per_fraction_w = energy * MJ_TO_J * deploy_efficiency / duration
+    mean_speed = np.maximum(.5*(speed[:-1]+speed[1:]),1.)
+    return 2. * mechanical_power_per_fraction_w * distance / (mass_kg*mean_speed)
+
+
+def surrogate_action_authority(speed_squared_coefficients, frozen_phases):
+    """Useful local response dimension after the terminal-speed equality.
+
+    The terminal squared-speed row sums all unpinned block responses. Zero
+    response columns change neither motion nor deployment in this surrogate.
+    One responsive column is uniquely fixed by that equality; at least two
+    allow a speed-neutral redistribution. Energy/box constraints can further
+    reduce feasibility, so a positive dimension is not an execution proof.
+    """
+    response = np.asarray(speed_squared_coefficients, float)
+    if (response.ndim != 1 or len(frozen_phases) != len(response)
+            or not np.isfinite(response).all() or np.any(response < 0.)
+            or any(not phases for phases in frozen_phases)):
+        raise ValueError('Finite responses and a nonempty phase schedule per block required')
+    pinned = np.array([any(phase != 'NORMAL' for phase in phases)
+        for phases in frozen_phases], bool)
+    responsive = (~pinned) & (response > 0.)
+    responsive_count = int(responsive.sum())
+    endpoint_rank = int(responsive_count > 0)
+    return {'pinned_blocks':(np.flatnonzero(pinned)+1).tolist(),
+        'free_blocks':(np.flatnonzero(~pinned)+1).tolist(),
+        'responsive_free_blocks':(np.flatnonzero(responsive)+1).tolist(),
+        'zero_response_free_blocks':(np.flatnonzero((~pinned)&(response == 0.))+1).tolist(),
+        'responsive_free_columns':responsive_count,
+        'terminal_speed_equality_rank':endpoint_rank,
+        'useful_free_action_dimension':responsive_count-endpoint_rank,
+        'dimension_scope':'local fixed-phase surrogate response before energy/box feasibility',
+        'six_carry_optimality_proven':False,
+        'global_optimality_proven':False}
+
+
 def qualify(sim, controller, output, initial_speed, *, initial_energy=2., initial_rule=None):
     """Carry all physical terminal fields; never shoot a policy-specific boundary."""
     from .environment import proxy_audit
@@ -75,22 +137,17 @@ def qualify(sim, controller, output, initial_speed, *, initial_energy=2., initia
 def casadi_proposal(sim, baseline, initial_state, blocks, initial_actions):
     """Fixed mode multiple shooting is a proposal, never an execution certificate.
 
-    Mixed blocks use fixed braking duration and measured baseline aero drag;
-    full time-domain integration/FSM is required for every resulting action.
+    First-lap motion, harvest and phase allocation remain fixed. A proposal
+    is withheld if terminal-speed closure leaves no useful action response;
+    full time-domain integration/FSM is required for every remaining action.
+    This is not six-carry or global optimization evidence.
     """
-    try:
-        import casadi as ca
-    except ImportError:
-        return None, {'status':'optional_dependency_missing','solver':'casadi'}
     trace = baseline['internal_trace']
     ss, tt = np.asarray(trace['s_m']), np.asarray(trace['time_s'])
     edges = np.linspace(0.,sim.length_m,blocks+1)
     dt = np.diff(np.interp(edges,ss,tt))
     ds = np.diff(edges)
     vref = np.interp(edges,ss,trace['speed_mps'])
-    mids = .5*(edges[:-1]+edges[1:])
-    g = sim.geometry.evaluate(mids)
-    drag = .5*sim.vehicle.air_density_kgpm3*np.asarray(g['drag_area_m2'])*(.5*(vref[:-1]+vref[1:]))**2
     dct = np.asarray(trace['dc_kw'])
     rt = np.asarray(trace['dt_s'])
     deploy = np.r_[0.,np.cumsum(np.maximum(dct,0.)*rt/1000.)]
@@ -106,6 +163,24 @@ def casadi_proposal(sim, baseline, initial_state, blocks, initial_actions):
     for a,b in zip(edges[:-1],edges[1:]):
         phases = sorted({r['state_after_decide']['phase'] for r in audit if a<=r['s_m']<b})
         frozen_phases.append(phases)
+    speed_response = surrogate_speed_squared_coefficients(coefficients,dt,ds,vref,
+        sim.vehicle.mass_kg,sim.vehicle.deploy_efficiency)
+    authority = surrogate_action_authority(speed_response,frozen_phases)
+    status_fields = {'fixed_FSM_mode':True,'frozen_phase_schedule':frozen_phases,
+        'HOLD_LIMITED_blocks_pinned_to_baseline':True,
+        'FSM_transitions_optimized':False,'exact_FSM_in_solver':False,
+        'energy_coefficient_unit':'MJ','mechanical_power_unit':'W',
+        'MJ_to_J':MJ_TO_J,'action_authority':authority,
+        'six_carry_optimality_proven':False,'global_optimality_proven':False}
+    if authority['useful_free_action_dimension'] <= 0:
+        return None, dict(status_fields,status='withheld_zero_action_authority',
+            solver='casadi_ipopt',solver_invoked=False,
+            reason='Terminal-speed equality leaves no useful responsive free action dimension')
+    try:
+        import casadi as ca
+    except ImportError:
+        return None, dict(status_fields,status='optional_dependency_missing',
+            solver='casadi',solver_invoked=False)
     opt = ca.Opti()
     u,v,e = opt.variable(blocks),opt.variable(blocks+1),opt.variable(blocks+1)
     opt.subject_to(opt.bounded(-1,u,1))
@@ -120,8 +195,8 @@ def casadi_proposal(sim, baseline, initial_state, blocks, initial_actions):
         fraction=(u[i]+1)/2
         # The requested reference fraction is start-specific. Regeneration is
         # fixed; it is not an independent force source in this surrogate.
-        power_delta=coefficients[i]/max(dt[i],1e-12)*1000*(fraction-reference_fraction[i])*sim.vehicle.deploy_efficiency
-        opt.subject_to(v[i+1]**2==vref[i+1]**2+(v[i]**2-vref[i]**2)+2*power_delta*ds[i]/(sim.vehicle.mass_kg*max(.5*(vref[i]+vref[i+1]),1.)))
+        # speed_response was derived from mechanical watts using MJ_TO_J.
+        opt.subject_to(v[i+1]**2==vref[i+1]**2+(v[i]**2-vref[i]**2)+speed_response[i]*(fraction-reference_fraction[i]))
         opt.subject_to(e[i+1]==e[i]-coefficients[i]*fraction+har[i])
         time_terms.append(2*ds[i]/(v[i]+v[i+1]))
     opt.subject_to(e[-1]>=initial_state.energy_mj)
@@ -132,14 +207,13 @@ def casadi_proposal(sim, baseline, initial_state, blocks, initial_actions):
     opt.solver('ipopt',{'print_time':False},{'print_level':0,'max_iter':300,'tol':1e-8})
     try:
         solution=opt.solve()
-        return np.clip(np.asarray(solution.value(u)).reshape(-1),-1,1), {
-            'status':'proposal_only','solver':'casadi_ipopt','fixed_FSM_mode':True,
-            'frozen_phase_schedule':frozen_phases,'HOLD_LIMITED_blocks_pinned_to_baseline':True,
-            'FSM_transitions_optimized':False,'exact_FSM_in_solver':False,
-            'solver_iterations':solution.stats().get('iter_count')}
+        return np.clip(np.asarray(solution.value(u)).reshape(-1),-1,1), dict(
+            status_fields,status='proposal_only',solver='casadi_ipopt',
+            solver_invoked=True,solver_iterations=solution.stats().get('iter_count'))
     except RuntimeError as exc:
-        return None, {'status':'solver_infeasible_or_nonconverged','reason':str(exc)[-800:],
-                      'execution_state_overwritten':False}
+        return None, dict(status_fields,status='solver_infeasible_or_nonconverged',
+            solver='casadi_ipopt',solver_invoked=True,reason=str(exc)[-800:],
+            execution_state_overwritten=False)
 
 
 def plan_ers(initial_state, rule_state, geometry, control_grid, budget):

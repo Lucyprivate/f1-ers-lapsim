@@ -1,0 +1,1374 @@
+{
+  "format": 1,
+  "diagnosis": "conservative_cold_first_lap_surrogate_authority_falsification",
+  "generated_utc": "2026-10-10T07:56:53.135806+00:00",
+  "evidence_scope": "Read-only arithmetic on previously saved frozen-source first-lap trajectories, starts, and six-carry qualifications; no new execution, training, solver call, FP2 access, or budget expenditure.",
+  "source_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "protocol_identity": "spielberg_open_source_control_2026_01",
+  "formal_run_not_yet_complete": true,
+  "frozen_manifest_sha256_not_pinned_during_active_run": true,
+  "length_m": 4284.99588150108,
+  "blocks": 16,
+  "tail_guard_start_m": 3284.9958815010796,
+  "fixed_initial_boundary": {
+    "speed_mps": 77.79423955757463,
+    "energy_mj": 2.0,
+    "rule_state": "declared NORMAL zero-reference cold boundary"
+  },
+  "source_formulas": {
+    "location": "f1ers_v7/research/teacher.py:casadi_proposal, lines 75\u2013138",
+    "f_ref_i": "(u_ref_i + 1) / 2",
+    "c_i": "reference DC deployment energy in block i (MJ) / f_ref_i",
+    "pinned": "u_i = u_ref_i if any saved decision state_after_decide phase in block i is not NORMAL",
+    "speed_recursion": "v[i+1]^2 = vref[i+1]^2 + (v[i]^2-vref[i]^2) + A_i*(f_i-f_ref_i)",
+    "A_i": "2*eta_deploy*c_i*1000*ds_i/(dt_i*mass*max((vref[i]+vref[i+1])/2,1))",
+    "energy_recursion": "e[i+1] = e[i] - c_i*f_i + fixed_harvest_i",
+    "terminal_speed_constraint": "v[-1] = initial_speed",
+    "terminal_energy_constraint": "e[-1] >= initial_energy; all e in [2,4] MJ",
+    "eta_deploy": 0.95,
+    "mass_kg": 800.0,
+    "delta_power_kw_as_written": "1000 * eta_deploy * c_i / dt_i * (f_i - f_ref_i)",
+    "SI_consistent_delta_power_w": "1000000 * eta_deploy * c_i / dt_i * (f_i - f_ref_i)"
+  },
+  "starts": [
+    {
+      "reference_candidate": 1,
+      "proposal_candidate": 2,
+      "constant_start_action": 0.0,
+      "cold_first_lap_completed": true,
+      "cold_first_lap_feasible": true,
+      "cold_first_lap_time_s": 71.17924128285941,
+      "cold_first_lap_deploy_mj": 2.944777805515896,
+      "cold_first_lap_harvest_mj": 4.0769542152018055,
+      "vref_end_minus_initial_mps": 0.0,
+      "pinned_count": 13,
+      "pinned_blocks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "free_blocks": [
+        1,
+        15,
+        16
+      ],
+      "free_positive_sensitive_blocks": [],
+      "free_positive_coefficient_sum_mj": 0.0,
+      "useful_sensitive_dimensions_after_terminal_speed_equality": 0,
+      "terminal_speed_forced_action": null,
+      "proposal_max_abs_action": 3.140014571785024e-16,
+      "proposal_max_change_on_nonzero_coefficient_columns": 3.140014571785024e-16,
+      "reference_six_carry": {
+        "passed": true,
+        "saved_lap_count": 6,
+        "formal_objective_s": 70.44079066181877,
+        "control_line_continuity": true
+      },
+      "proposal_six_carry": {
+        "passed": true,
+        "saved_lap_count": 6,
+        "formal_objective_s": 70.44079066181877,
+        "control_line_continuity": true
+      },
+      "blocks": [
+        {
+          "block": 1,
+          "s_start_m": 0.0,
+          "s_end_m": 267.8122425938175,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.6504091009138636,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.237667179364531,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 2,
+          "s_start_m": 267.8122425938175,
+          "s_end_m": 535.624485187635,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 3.140014571785024e-16,
+          "action_change": 3.140014571785024e-16,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.26355736559240883,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.5271147311848177,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.359428683356506,
+          "dt_s": 5.0838855534999725,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1359.4286833565059
+        },
+        {
+          "block": 3,
+          "s_start_m": 535.624485187635,
+          "s_end_m": 803.4367277814524,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.6007593464139056,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 4,
+          "s_start_m": 803.4367277814524,
+          "s_end_m": 1071.24897037527,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.2887281564325157,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 5,
+          "s_start_m": 1071.24897037527,
+          "s_end_m": 1339.0612129690874,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 1.9677623816146273e-19,
+          "action_change": 1.9677623816146273e-19,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.40686408480846326,
+          "fixed_harvest_mj": 0.757405368942672,
+          "positive_deploy_coefficient_mj_per_fraction": 0.8137281696169265,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.069872903505998,
+          "dt_s": 6.828096045629387,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1069.872903505998
+        },
+        {
+          "block": 6,
+          "s_start_m": 1339.0612129690874,
+          "s_end_m": 1606.8734555629048,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 1.4521634797738222e-17,
+          "action_change": 1.4521634797738222e-17,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.6186761726336067,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 1.2373523452672135,
+          "speed_squared_coefficient_m2ps2_per_fraction": 3.019515940723719,
+          "dt_s": 3.733145420193395,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 3019.5159407237193
+        },
+        {
+          "block": 7,
+          "s_start_m": 1606.8734555629048,
+          "s_end_m": 1874.6856981567223,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": -1.0627199799106913e-16,
+          "action_change": -1.0627199799106913e-16,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.042125003901023694,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.08425000780204739,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.2012458329340197,
+          "dt_s": 3.202635004611299,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 201.24583293401972
+        },
+        {
+          "block": 8,
+          "s_start_m": 1874.6856981567223,
+          "s_end_m": 2142.49794075054,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 4.2217819879361594e-19,
+          "action_change": 4.2217819879361594e-19,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.35283026184900734,
+          "fixed_harvest_mj": 0.7205628636906902,
+          "positive_deploy_coefficient_mj_per_fraction": 0.7056605236980147,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.0122536189400242,
+          "dt_s": 6.230968997768972,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1012.2536189400242
+        },
+        {
+          "block": 9,
+          "s_start_m": 2142.49794075054,
+          "s_end_m": 2410.310183344357,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 1.1016118006805791e-16,
+          "action_change": 1.1016118006805791e-16,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.3653820084037305,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.730764016807461,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.8098195908865002,
+          "dt_s": 3.901939789231747,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1809.8195908865002
+        },
+        {
+          "block": 10,
+          "s_start_m": 2410.310183344357,
+          "s_end_m": 2678.1224259381747,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": -2.2543658814452874e-16,
+          "action_change": -2.2543658814452874e-16,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.12382273095236807,
+          "fixed_harvest_mj": 0.5956138364264936,
+          "positive_deploy_coefficient_mj_per_fraction": 0.24764546190473613,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.45739493730512215,
+          "dt_s": 5.116220575087588,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 457.39493730512214
+        },
+        {
+          "block": 11,
+          "s_start_m": 2678.1224259381747,
+          "s_end_m": 2945.9346685319924,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.42609644875444586,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.0839430862505,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 12,
+          "s_start_m": 2945.9346685319924,
+          "s_end_m": 3213.7469111258097,
+          "recorded_decision_phases": [
+            "HOLD",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": -1.1002546839761658e-17,
+          "action_change": -1.1002546839761658e-17,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.4852709548761771,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.9705419097523542,
+          "speed_squared_coefficient_m2ps2_per_fraction": 2.3116532181160707,
+          "dt_s": 3.9382960833365956,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 2311.6532181160705
+        },
+        {
+          "block": 13,
+          "s_start_m": 3213.7469111258097,
+          "s_end_m": 3481.559153719627,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": -6.608925495876899e-18,
+          "action_change": -6.608925495876899e-18,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.28624922249911045,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.5724984449982209,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.383784877571232,
+          "dt_s": 3.182078461952031,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1383.784877571232
+        },
+        {
+          "block": 14,
+          "s_start_m": 3481.559153719627,
+          "s_end_m": 3749.3713963134446,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.7164619115878827,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.687621100441433,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 15,
+          "s_start_m": 3749.3713963134446,
+          "s_end_m": 4017.1836389072623,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.21040468488575748,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.3822239703130705,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 16,
+          "s_start_m": 4017.1836389072623,
+          "s_end_m": 4284.99588150108,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.0,
+          "proposal_action": 0.0,
+          "action_change": 0.0,
+          "reference_fraction": 0.5,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.6810325123324645,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "reference_candidate": 3,
+      "proposal_candidate": 4,
+      "constant_start_action": -0.25,
+      "cold_first_lap_completed": true,
+      "cold_first_lap_feasible": true,
+      "cold_first_lap_time_s": 71.19317965037149,
+      "cold_first_lap_deploy_mj": 2.6335168747781905,
+      "cold_first_lap_harvest_mj": 4.032553724710998,
+      "vref_end_minus_initial_mps": 5.0720956323857536e-09,
+      "pinned_count": 12,
+      "pinned_blocks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "free_blocks": [
+        1,
+        12,
+        15,
+        16
+      ],
+      "free_positive_sensitive_blocks": [
+        12
+      ],
+      "free_positive_coefficient_sum_mj": 0.9812024427811655,
+      "useful_sensitive_dimensions_after_terminal_speed_equality": 0,
+      "terminal_speed_forced_action": -0.2500006737276215,
+      "proposal_max_abs_action": 0.2500006737276865,
+      "proposal_max_change_on_nonzero_coefficient_columns": 6.737276864732245e-07,
+      "reference_six_carry": {
+        "passed": true,
+        "saved_lap_count": 6,
+        "formal_objective_s": 70.78344216364873,
+        "control_line_continuity": true
+      },
+      "proposal_six_carry": {
+        "passed": true,
+        "saved_lap_count": 6,
+        "formal_objective_s": 70.78344234864599,
+        "control_line_continuity": true
+      },
+      "blocks": [
+        {
+          "block": 1,
+          "s_start_m": 0.0,
+          "s_end_m": 267.8122425938175,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": -0.25,
+          "proposal_action": 0.0,
+          "action_change": 0.25,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.6504091009138636,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.237667179364531,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 2,
+          "s_start_m": 267.8122425938175,
+          "s_end_m": 535.624485187635,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.564160145211427,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 1.5044270538971387,
+          "speed_squared_coefficient_m2ps2_per_fraction": 3.7985258662943693,
+          "dt_s": 4.9730321400816395,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 3798.5258662943693
+        },
+        {
+          "block": 3,
+          "s_start_m": 535.624485187635,
+          "s_end_m": 803.4367277814524,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.030124942632801188,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0803331803541365,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.19232695922389256,
+          "dt_s": 3.448961985067994,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 192.32695922389257
+        },
+        {
+          "block": 4,
+          "s_start_m": 803.4367277814524,
+          "s_end_m": 1071.24897037527,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.225709174487589,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 5,
+          "s_start_m": 1071.24897037527,
+          "s_end_m": 1339.0612129690874,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.30652220727168966,
+          "fixed_harvest_mj": 0.7572686193959545,
+          "positive_deploy_coefficient_mj_per_fraction": 0.8173925527245057,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.0716247761153894,
+          "dt_s": 6.835258821819956,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1071.6247761153895
+        },
+        {
+          "block": 6,
+          "s_start_m": 1339.0612129690874,
+          "s_end_m": 1606.8734555629048,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.4412539464353453,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 1.1766771904942541,
+          "speed_squared_coefficient_m2ps2_per_fraction": 2.874958865159715,
+          "dt_s": 3.8130616449369015,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 2874.958865159715
+        },
+        {
+          "block": 7,
+          "s_start_m": 1606.8734555629048,
+          "s_end_m": 1874.6856981567223,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.002516265106611071,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.006710040284296189,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.01599665664087905,
+          "dt_s": 3.2820807252907187,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 15.99665664087905
+        },
+        {
+          "block": 8,
+          "s_start_m": 1874.6856981567223,
+          "s_end_m": 2142.49794075054,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.26586960797830006,
+          "fixed_harvest_mj": 0.6998150111502919,
+          "positive_deploy_coefficient_mj_per_fraction": 0.7089856212754668,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.031170510154741,
+          "dt_s": 6.2463056791518135,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1031.1705101547411
+        },
+        {
+          "block": 9,
+          "s_start_m": 2142.49794075054,
+          "s_end_m": 2410.310183344357,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.2703223862150672,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.7208596965735126,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.7780167233495747,
+          "dt_s": 3.974828805171704,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1778.0167233495747
+        },
+        {
+          "block": 10,
+          "s_start_m": 2410.310183344357,
+          "s_end_m": 2678.1224259381747,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.12382273139214717,
+          "fixed_harvest_mj": 0.5719997493516242,
+          "positive_deploy_coefficient_mj_per_fraction": 0.33019395037905913,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.6142141241628482,
+          "dt_s": 5.120373545523492,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 614.2141241628482
+        },
+        {
+          "block": 11,
+          "s_start_m": 2678.1224259381747,
+          "s_end_m": 2945.9346685319924,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.42609644962361237,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.083943086089775,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 12,
+          "s_start_m": 2945.9346685319924,
+          "s_end_m": 3213.7469111258097,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": -0.25,
+          "proposal_action": -0.2500006737276865,
+          "action_change": -6.737276864732245e-07,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.36795091604293706,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.9812024427811655,
+          "speed_squared_coefficient_m2ps2_per_fraction": 2.3426688829234035,
+          "dt_s": 3.9687547470864217,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 2342.6688829234035
+        },
+        {
+          "block": 13,
+          "s_start_m": 3213.7469111258097,
+          "s_end_m": 3481.559153719627,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.2609737264918648,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.6959299373116394,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.6791565886571411,
+          "dt_s": 3.2310517852527383,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1679.1565886571411
+        },
+        {
+          "block": 14,
+          "s_start_m": 3481.559153719627,
+          "s_end_m": 3749.3713963134446,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": -0.25,
+          "proposal_action": -0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.7165663080927724,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.688894714607557,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 15,
+          "s_start_m": 3749.3713963134446,
+          "s_end_m": 4017.1836389072623,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": -0.25,
+          "proposal_action": 0.0,
+          "action_change": 0.25,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.21039848618287893,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.382223097086545,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 16,
+          "s_start_m": 4017.1836389072623,
+          "s_end_m": 4284.99588150108,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": -0.25,
+          "proposal_action": 0.0,
+          "action_change": 0.25,
+          "reference_fraction": 0.375,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.6810325136264197,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        }
+      ]
+    },
+    {
+      "reference_candidate": 5,
+      "proposal_candidate": 6,
+      "constant_start_action": 0.25,
+      "cold_first_lap_completed": true,
+      "cold_first_lap_feasible": true,
+      "cold_first_lap_time_s": 71.42626361247562,
+      "cold_first_lap_deploy_mj": 2.661712380826549,
+      "cold_first_lap_harvest_mj": 4.058424367171304,
+      "vref_end_minus_initial_mps": 5.4727280485167284e-09,
+      "pinned_count": 12,
+      "pinned_blocks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "free_blocks": [
+        1,
+        14,
+        15,
+        16
+      ],
+      "free_positive_sensitive_blocks": [],
+      "free_positive_coefficient_sum_mj": 0.0,
+      "useful_sensitive_dimensions_after_terminal_speed_equality": 0,
+      "terminal_speed_forced_action": null,
+      "proposal_max_abs_action": 0.2500000000489615,
+      "proposal_max_change_on_nonzero_coefficient_columns": 2.5305368911432424e-10,
+      "reference_six_carry": {
+        "passed": false,
+        "saved_lap_count": 2,
+        "formal_objective_s": null,
+        "control_line_continuity": false
+      },
+      "proposal_six_carry": {
+        "passed": false,
+        "saved_lap_count": 2,
+        "formal_objective_s": null,
+        "control_line_continuity": false
+      },
+      "blocks": [
+        {
+          "block": 1,
+          "s_start_m": 0.0,
+          "s_end_m": 267.8122425938175,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.25,
+          "proposal_action": 0.17911400226433852,
+          "action_change": -0.07088599773566148,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.6504091009138636,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.237667179364531,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 2,
+          "s_start_m": 267.8122425938175,
+          "s_end_m": 535.624485187635,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999999390407,
+          "action_change": -6.095929316884963e-12,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.1694813369715118,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.2711701391544189,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.6946387247444882,
+          "dt_s": 5.151677137789387,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 694.6387247444882
+        },
+        {
+          "block": 3,
+          "s_start_m": 535.624485187635,
+          "s_end_m": 803.4367277814524,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.62140830561715,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 4,
+          "s_start_m": 803.4367277814524,
+          "s_end_m": 1071.24897037527,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.2967000512273756,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 5,
+          "s_start_m": 1071.24897037527,
+          "s_end_m": 1339.0612129690874,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.2500000000489615,
+          "action_change": 4.896150151978418e-11,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.5073089643416477,
+          "fixed_harvest_mj": 0.7574222579069162,
+          "positive_deploy_coefficient_mj_per_fraction": 0.8116943429466363,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.0640529652324515,
+          "dt_s": 6.822696343004065,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1064.0529652324515
+        },
+        {
+          "block": 6,
+          "s_start_m": 1339.0612129690874,
+          "s_end_m": 1606.8734555629048,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.2499999997469463,
+          "action_change": -2.5305368911432424e-10,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.6297917750257978,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 1.0076668400412765,
+          "speed_squared_coefficient_m2ps2_per_fraction": 2.4805913755579714,
+          "dt_s": 3.6825322516533383,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 2480.5913755579713
+        },
+        {
+          "block": 7,
+          "s_start_m": 1606.8734555629048,
+          "s_end_m": 1874.6856981567223,
+          "recorded_decision_phases": [
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999999983652,
+          "action_change": -1.634803403760543e-13,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.004887252044018187,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.007819603270429099,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.018630535375470873,
+          "dt_s": 3.2161847725434036,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 18.630535375470874
+        },
+        {
+          "block": 8,
+          "s_start_m": 1874.6856981567223,
+          "s_end_m": 2142.49794075054,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999999356223,
+          "action_change": -6.437766986167048e-12,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.3159301359502582,
+          "fixed_harvest_mj": 0.7205971684809611,
+          "positive_deploy_coefficient_mj_per_fraction": 0.5054882175204132,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.7335929015440743,
+          "dt_s": 6.245356908492006,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 733.5929015440743
+        },
+        {
+          "block": 9,
+          "s_start_m": 2142.49794075054,
+          "s_end_m": 2410.310183344357,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999999897893,
+          "action_change": -1.0210721157477565e-12,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.029904665167767686,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0478474642684283,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.11635189283796446,
+          "dt_s": 4.1315021488005,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 116.35189283796446
+        },
+        {
+          "block": 10,
+          "s_start_m": 2410.310183344357,
+          "s_end_m": 2678.1224259381747,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.2499999999967168,
+          "action_change": -3.283207039572744e-12,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.12382273190227688,
+          "fixed_harvest_mj": 0.5723069676464116,
+          "positive_deploy_coefficient_mj_per_fraction": 0.19811637104364302,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.37412667717393205,
+          "dt_s": 5.131379480115498,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 374.1266771739321
+        },
+        {
+          "block": 11,
+          "s_start_m": 2678.1224259381747,
+          "s_end_m": 2945.9346685319924,
+          "recorded_decision_phases": [
+            "LIMITED",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.25,
+          "action_change": 0.0,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.4260964487136616,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.083943086146334,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 12,
+          "s_start_m": 2945.9346685319924,
+          "s_end_m": 3213.7469111258097,
+          "recorded_decision_phases": [
+            "HOLD",
+            "NORMAL"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999997476302,
+          "action_change": -2.5236979173115515e-11,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.6002572940262259,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.9604116704419614,
+          "speed_squared_coefficient_m2ps2_per_fraction": 2.28226976381485,
+          "dt_s": 3.909352542783722,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 2282.2697638148497
+        },
+        {
+          "block": 13,
+          "s_start_m": 3213.7469111258097,
+          "s_end_m": 3481.559153719627,
+          "recorded_decision_phases": [
+            "HOLD",
+            "LIMITED"
+          ],
+          "pinned": true,
+          "baseline_action": 0.25,
+          "proposal_action": 0.24999999999048456,
+          "action_change": -9.51544398830606e-12,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.28032822539704494,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.4485251606352719,
+          "speed_squared_coefficient_m2ps2_per_fraction": 1.0842985539714591,
+          "dt_s": 3.1455505305389764,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 1084.2985539714591
+        },
+        {
+          "block": 14,
+          "s_start_m": 3481.559153719627,
+          "s_end_m": 3749.3713963134446,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.25,
+          "proposal_action": 0.17911400226433852,
+          "action_change": -0.07088599773566148,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.7211939377672332,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 4.687057258183927,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 15,
+          "s_start_m": 3749.3713963134446,
+          "s_end_m": 4017.1836389072623,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.25,
+          "proposal_action": 0.17911400226433852,
+          "action_change": -0.07088599773566148,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.21039848574225628,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 5.382223097073243,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        },
+        {
+          "block": 16,
+          "s_start_m": 4017.1836389072623,
+          "s_end_m": 4284.99588150108,
+          "recorded_decision_phases": [
+            "NORMAL"
+          ],
+          "pinned": false,
+          "baseline_action": 0.25,
+          "proposal_action": 0.17911400226433852,
+          "action_change": -0.07088599773566148,
+          "reference_fraction": 0.625,
+          "reference_deploy_mj": 0.0,
+          "fixed_harvest_mj": 0.0,
+          "positive_deploy_coefficient_mj_per_fraction": 0.0,
+          "speed_squared_coefficient_m2ps2_per_fraction": 0.0,
+          "dt_s": 3.681032513604279,
+          "SI_consistent_speed_squared_coefficient_m2ps2_per_fraction": 0.0
+        }
+      ]
+    }
+  ],
+  "baseline_request_execution_diagnostics": [
+    {
+      "lap": 1,
+      "total_decisions": 857,
+      "nonnegative_wheel_demand_decisions": 722,
+      "negative_wheel_demand_decisions": 135,
+      "raw_action_min": 0.0,
+      "raw_action_max": 0.0,
+      "raw_saturated_nonnegative_wheel_count": 0,
+      "nonnegative_wheel_decision_time_s": 56.72812928601603,
+      "zero_averaged_dc_nonnegative_wheel_count": 446,
+      "zero_averaged_dc_nonnegative_wheel_time_s": 34.85610118306736,
+      "positive_averaged_dc_with_zero_effective_request_count": 67,
+      "zero_averaged_dc_with_positive_effective_request_count": 144,
+      "energy_request_filtered_nonnegative_wheel_count": 69,
+      "energy_triggered_reduction_nonnegative_wheel_count": 35,
+      "geometry_request_filtered_nonnegative_wheel_count": 349,
+      "tail_guard_nonnegative_wheel_count": 170,
+      "predecision_public_cap_nonnegative_wheel_min_kw": 246.06735992135418,
+      "predecision_public_cap_nonnegative_wheel_max_kw": 350.0,
+      "accepted_internal_dc_max_kw": 175.0,
+      "accepted_internal_dc_min_kw": -350.0,
+      "accepted_internal_ice_max_kw": 400.00000000000017,
+      "accepted_internal_ice_min_kw": 0.0,
+      "phase_after_decide_counts_nonnegative_wheel": {
+        "NORMAL": 332,
+        "HOLD": 68,
+        "LIMITED": 322
+      },
+      "phase_after_decide_time_nonnegative_wheel_s": {
+        "NORMAL": 30.158265901546542,
+        "HOLD": 5.265741464555344,
+        "LIMITED": 21.304121919914138
+      },
+      "phase_after_decide_deployed_nonnegative_wheel_mj": {
+        "NORMAL": 1.8290788165782577,
+        "HOLD": 0.6516928571013441,
+        "LIMITED": 0.46400613183631256
+      },
+      "energy_start_mj": 2.0,
+      "energy_end_mj": 3.1321764096859104,
+      "net_energy_mj": 1.1321764096859104,
+      "deploy_mj": 2.944777805515914,
+      "harvest_mj": 4.07695421520182,
+      "lap_time_s": 71.17924128285941,
+      "mechanical_work_max_segment_residual_mj": 2.4081814871124152e-11,
+      "max_joint_tire_force_excess_n": 3.637978807091713e-12
+    },
+    {
+      "lap": 6,
+      "total_decisions": 857,
+      "nonnegative_wheel_demand_decisions": 722,
+      "negative_wheel_demand_decisions": 135,
+      "raw_action_min": 0.0,
+      "raw_action_max": 0.0,
+      "raw_saturated_nonnegative_wheel_count": 0,
+      "nonnegative_wheel_decision_time_s": 55.99297006462214,
+      "zero_averaged_dc_nonnegative_wheel_count": 315,
+      "zero_averaged_dc_nonnegative_wheel_time_s": 26.021353123185065,
+      "positive_averaged_dc_with_zero_effective_request_count": 77,
+      "zero_averaged_dc_with_positive_effective_request_count": 39,
+      "energy_request_filtered_nonnegative_wheel_count": 31,
+      "energy_triggered_reduction_nonnegative_wheel_count": 31,
+      "geometry_request_filtered_nonnegative_wheel_count": 372,
+      "tail_guard_nonnegative_wheel_count": 170,
+      "predecision_public_cap_nonnegative_wheel_min_kw": 186.7141877396416,
+      "predecision_public_cap_nonnegative_wheel_max_kw": 350.0,
+      "accepted_internal_dc_max_kw": 175.0,
+      "accepted_internal_dc_min_kw": -350.0,
+      "accepted_internal_ice_max_kw": 400.0000000000001,
+      "accepted_internal_ice_min_kw": 0.0,
+      "phase_after_decide_counts_nonnegative_wheel": {
+        "NORMAL": 344,
+        "HOLD": 88,
+        "LIMITED": 290
+      },
+      "phase_after_decide_time_nonnegative_wheel_s": {
+        "NORMAL": 31.386466527275374,
+        "HOLD": 6.2240372298174425,
+        "LIMITED": 18.382466307529324
+      },
+      "phase_after_decide_deployed_nonnegative_wheel_mj": {
+        "NORMAL": 2.4094571193773877,
+        "HOLD": 0.8722598162509722,
+        "LIMITED": 0.7935591038832106
+      },
+      "energy_start_mj": 3.1342260495575567,
+      "energy_end_mj": 3.1347384595254684,
+      "net_energy_mj": 0.0005124099679116867,
+      "deploy_mj": 4.075276039511571,
+      "harvest_mj": 4.075788449479501,
+      "lap_time_s": 70.44079066181877,
+      "mechanical_work_max_segment_residual_mj": 2.6001577055012603e-11,
+      "max_joint_tire_force_excess_n": 3.637978807091713e-12
+    }
+  ],
+  "baseline_six_carry_qualification": {
+    "passed": true,
+    "physical_laps": 6,
+    "formal_objective_s": 70.44079066181877,
+    "physical_control_line_continuity": true
+  },
+  "interpretation": {
+    "conclusion": "All three cold reference surrogates have zero useful feasible action sensitivity. Two have no free positive-deployment coefficient; the third has one coefficient but the terminal-speed equality uniquely fixes it back to the reference up to endpoint roundoff.",
+    "solver_evidence": "Saved CasADi proposal actions are not evidence of a sensitive energy/time optimum. Arbitrary movement of zero-coefficient columns cannot change this surrogate objective.",
+    "cold_vs_carried": "Cold E=2 MJ is the floor, making the first free block inactive. Six-carry qualification begins later laps with accumulated energy, so that same action column may become active. Exact carried results remain meaningful but do not demonstrate optimization of a sensitive six-carry surrogate.",
+    "tail": "The final 1000 m experimental no-new-deployment guard is distinct from a FIA rule; the late free columns have zero deployment here.",
+    "baseline_raw_saturation": "Baseline raw action is exactly 0, mapping to half of the then-available request cap on nonnegative wheel demand; it never hits the raw [-1,1] bound. Strong geometry, energy, tail, and FSM restrictions dominate available timing authority.",
+    "available_wheel_and_state_caps_limit": "Saved decision averages, predecision public caps, and guard requests are different stages. Actual kernel jointly limits force at beginning/mid/end, energy reserve, wheel demand, speed cap and slew. No exact single-cause attribution or unmeasured pointwise ICE headroom subtraction is inferred from these averages.",
+    "request_vs_execution": "Positive executed DC with zero outgoing request can be committed HOLD/ramp/slew, and positive request with zero average execution can be clipping/phase/force effects; neither by itself proves illegality.",
+    "phase_allocation_limit": "Phase-weighted deployed energy uses phase after decide and whole decision averages; within-decision transitions are not resolved by these totals. Filter categories overlap.",
+    "exact_pattern_search": "Registered exact pattern search can modify columns pinned by this surrogate and change actual FSM timing. It remains a finite comparison within the frozen budget.",
+    "not_claimed": [
+      "global optimality",
+      "no better strategy exists",
+      "infinite-horizon stability",
+      "real vehicle performance gain",
+      "full FIA ECU compliance",
+      "actual ES SOC validation"
+    ],
+    "future_method_hypothesis": "A future separately preregistered surrogate could retain deployment authority across carried energy/state boundaries and use action bases that do not pin every sensitive column; do not alter this frozen run."
+  },
+  "source_artifacts": {
+    "results/opensource_control_2026_01/freeze.json": {
+      "sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+      "bytes": 13063
+    },
+    "f1ers_v7/research/teacher.py": {
+      "sha256": "0f225720fac631994ee097f6854b51930a3e5e1387db3e5c5790c12b2554975f",
+      "bytes": 10087
+    },
+    "f1ers_v7/_core/integrator.py": {
+      "sha256": "7eea9b968be0010b2e767c005dc6d528c00c0734c718b0c9f04ce259b8b4b1b8",
+      "bytes": 41932
+    },
+    "f1ers_v7/_core/environment.py": {
+      "sha256": "8033a77a3c2ba365e8745703b2a6a24b9429a0f4ff57529db93763a40ab10640",
+      "bytes": 12175
+    },
+    "f1ers_v7/_core/control_simulator.py": {
+      "sha256": "d378818c23bcd162f63327b8d7fdc20f7979e208a57bcf3c0dbe1d0300572279",
+      "bytes": 6981
+    },
+    "config/research/experiment.json": {
+      "sha256": "2c7c7cb92de1f43382639dc40ba196640f9f11a957c539ee92457a4d389b52eb",
+      "bytes": 1463
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0001/started.json": {
+      "sha256": "75f158b09b69fab8ae695b18071ed7f48408bbb07800a6e6228d142da392aa77",
+      "bytes": 217
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0002/started.json": {
+      "sha256": "5a9a19807a17a9a4363667e6f18d55fcda9f619f0fdba1389d6bb4a09532c402",
+      "bytes": 390
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0001/lap_1.json.gz": {
+      "sha256": "10362ce659c4832b9c1848ca4ca6267effd6877e1a6243ce775dbaa1f5a3d7b4",
+      "bytes": 1179462
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0001/qualification.json": {
+      "sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+      "bytes": 77044
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0002/qualification.json": {
+      "sha256": "2d58722da3013466631de7fa22669a11da80c2f590ebf03249f6f3982f352d4b",
+      "bytes": 77045
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0003/started.json": {
+      "sha256": "9049af499074eaf050df8745634592ce6cba2f9ce5f3599fe58b8bf23bfaa830",
+      "bytes": 249
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0004/started.json": {
+      "sha256": "d407ba86bb878148d7beff820866799d772718147cbb89524f6cd6aa1ba7b724",
+      "bytes": 257
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0003/lap_1.json.gz": {
+      "sha256": "aeb1afa58c822094dac8a76189b191f714b51cb5d1a92e4749c81c25a1471aab",
+      "bytes": 1174919
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0003/qualification.json": {
+      "sha256": "49f28137ab47fd9de1ed87e3379c0fd9cfd838661c6db644cca8488a1a280d41",
+      "bytes": 77040
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0004/qualification.json": {
+      "sha256": "5467a83aaf6b76c0d62e36dcbcae44d6ff18dacc6278a0f2fc06e2a254a815a4",
+      "bytes": 77058
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0005/started.json": {
+      "sha256": "de1ea73247514174c1ae88bc516709abe965da1c7c6723204115defa7a304eac",
+      "bytes": 233
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0006/started.json": {
+      "sha256": "ae1828ffca054df493df21670fca195546ce8d6f5f92e72d25f5278552d62318",
+      "bytes": 425
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0005/lap_1.json.gz": {
+      "sha256": "5e5af762513b9609d918b5c24c018dbc901fe7b9f875357ed438c77abab3b28f",
+      "bytes": 1175531
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0005/qualification.json": {
+      "sha256": "6b5da6524e08b9ce730b81368244deeadaba7e6e71686a016b3c5243bf63e676",
+      "bytes": 25574
+    },
+    "results/opensource_control_2026_01/teacher_search/candidate_0006/qualification.json": {
+      "sha256": "c61581a8340c6697cd0b1295423b06c8c4ef52b1a53cdf439e40596c63fb046b",
+      "bytes": 25582
+    },
+    "results/opensource_control_2026_01/baseline/qualification.json": {
+      "sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+      "bytes": 77044
+    },
+    "results/opensource_control_2026_01/baseline/lap_1.json.gz": {
+      "sha256": "10362ce659c4832b9c1848ca4ca6267effd6877e1a6243ce775dbaa1f5a3d7b4",
+      "bytes": 1179462
+    },
+    "results/opensource_control_2026_01/baseline/lap_6.json.gz": {
+      "sha256": "709b689f98e7e551a1cdf827e3d0fc282604517ea1d667d0fe3692532e260dcf",
+      "bytes": 1255949
+    }
+  },
+  "source_unit_audit": {
+    "reference_deploy_units": "Internal DC power is kW; deploy=cumsum(positive_dc_kw*dt_s/1000), so deploy and c_i have units MJ.",
+    "source_power_delta_units": "c_i/dt_i*1000 has units kW. The source inserts this number directly into 2*power_delta*ds/(mass*speed), which requires watts for a squared-speed increment in SI.",
+    "source_speed_sensitivity_scale_relative_to_SI": 0.001,
+    "implication": "Where coefficients are nonzero, the written surrogate velocity response is 1000 times smaller than an SI mechanical-power perturbation. This is a source arithmetic/model-surrogate limitation, not a correction applied to any frozen result.",
+    "authority_conclusion_unchanged": "Multiplying a zero free coefficient by 1000 remains zero. One free nonzero column is still uniquely fixed by the terminal-speed equality, though the small roundoff-closing numerical change would differ.",
+    "no_new_physics_execution": true
+  }
+}

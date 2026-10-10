@@ -13,6 +13,20 @@ from .backends import differential_audit,make_backend
 from .learning import fit_bc,train_case,rollout,_warmstart,frozen_policy_audit,physical_noop_audit
 
 
+def _qualification_counts(candidates):
+    """Count actual candidate certificate receipts; an empty stage certifies none.
+
+    These are six-carry physical qualification counts, not numerical validation
+    counts or proof that all retained intermediate checkpoints were qualified.
+    Failure receipts count as attempts, including exceptions written by the runner.
+    """
+    certificates=[candidate['qualification'] for candidate in candidates
+                  if isinstance(candidate.get('qualification'),dict)]
+    return {'qualification_attempts':len(certificates),
+            'passed_candidates':sum(certificate.get('passed') is True
+                                    for certificate in certificates)}
+
+
 def _baseline_identity(laps,output):
     checks=[]
     for i,lap in enumerate(laps):
@@ -42,8 +56,9 @@ def run_learning(root,data_root,output,ledger_root,config,backend='both'):
         'real_car_gain_claimed':False,'FP2_accessed':False,'dagger_enabled':False,
         'same_state_expert_available':False,'candidates':[],'cases':[],
         'all_intermediate_checkpoints_retained':True,'all_intermediate_six_carry_qualified':False,
-        'best_last_and_BC_six_carry_qualified':True,'policy_specific_periodic_shooting':False}
+        'policy_specific_periodic_shooting':False}
     def persist():
+        summary['learner_certification_counts']=_qualification_counts(summary['candidates'])
         summary['episode_budget_counts']=budget.counts()
         _write(output/'learning.json',summary)
     persist()

@@ -17,7 +17,9 @@ python tools/verify_public_snapshot.py
 python -m unittest discover -s tests -v
 ```
 
-Version **0.8.0** adds optional open-source-method research: independent brake requests, axle tire budgets, storage/auxiliary loss ledgers, bounded CasADi teacher proposals, 36-feature observations and NumPy versus SB3-aligned SAC audits. Optional modes keep the historical defaults. The model is not released as an accurate real-car predictor.
+Current research completed 192 physics screening points without viable fit starts, then stopped teacher search after 35 attempts on a diagnosed surrogate-unit defect. **No new SAC episode was started and no gain was demonstrated.** Version 0.8.1 fixes the units, zero-authority proposals and exact replay verification; the corrected formal optimizer has not been rerun. See the [research results](docs/RESEARCH_RESULTS.md).
+
+Version **0.8.1** adds optional open-source-method research: independent brake requests, axle tire budgets, storage/auxiliary loss ledgers, bounded CasADi teacher proposals, 36-feature observations and NumPy versus SB3-aligned SAC audits. Optional modes keep the historical defaults. The model is not released as an accurate real-car predictor.
 
 ```sh
 python -m pip install -e ".[research]"

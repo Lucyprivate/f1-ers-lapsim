@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "package_version": "0.8.1",
+  "source_version": "0.8.0",
+  "identity": "spielberg_open_source_control_2026_01",
+  "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "result_directory_name": "opensource_control_2026_01",
+  "result_manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+  "freeze_sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+  "completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+  "completion_payload": {
+    "identity": "spielberg_open_source_control_2026_01",
+    "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+    "source_version": "0.8.0",
+    "result_directory_name": "opensource_control_2026_01",
+    "manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+    "freeze_sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+    "teacher_stop_sha256": "f96eb5a313f808b5ac71e4b3d3592911e63a5576e29ebdbf17cdbbdf5810d8a8",
+    "interruption_detail_sha256": "06f4b4bc33134fc3fd2fbdff5211d52f9ea114994eaa7f8bc32165e23e54cb99",
+    "physics_status": "completed_screening_all_candidates_withheld",
+    "teacher_status": "stopped_after_surrogate_validation_failure",
+    "learning_status": "withheld_teacher_or_physics_gate",
+    "episode_budget_counts": {
+      "attempted": 0,
+      "maximum": 120,
+      "per_backend": {
+        "numpy": 0,
+        "sb3": 0
+      }
+    },
+    "timestamp_utc": "2026-10-10T08:03:07.182691+00:00",
+    "FP2_accessed": false,
+    "new_optimizer_or_training_execution_after_stop": false,
+    "completion_writer_sha256": "67de22a938bf2e10fc02cfecfcfb015eaabb48355a6790e8c1121f60890e57fb"
+  },
+  "scope": "Stopped frozen0.8.0 experiment; current0.8.1 source corrections are separately tested, not a restarted formal run",
+  "formal_calibration_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "historical_development_laps": [
+    7,
+    9
+  ],
+  "physics": {
+    "screened_parameter_points": 192,
+    "screening_replay_trajectories": 768,
+    "screening_autonomous_trajectories": 192,
+    "viable_fit_starts_per_candidate": [
+      0,
+      0,
+      0
+    ],
+    "fit_evaluations": 0,
+    "development_candidates_scored": 0,
+    "selected_model": null,
+    "formal_model_release_passed": false
+  },
+  "teacher": {
+    "status": "stopped_teacher_surrogate_validation",
+    "exact_search_evaluations_attempted": 35,
+    "exact_qualifications_completed": 34,
+    "qualified_completed_candidates": 17,
+    "best_retained_exact_objective_s": 70.44079066181877,
+    "full_search_completed": false
+  },
+  "learning": {
+    "status": "withheld_teacher_or_physics_gate",
+    "new_SAC_attempts": 0,
+    "per_backend_attempts": {
+      "numpy": 0,
+      "sb3": 0
+    },
+    "learner_certifications": 0,
+    "reserved_maximum_attempts": 120,
+    "unused_budget_is_not_permission_to_restart_closed_identity": true
+  },
+  "baseline": {
+    "six_actual_carried_laps_passed": true,
+    "last_two_mean_s": 70.44079066181877,
+    "cold_first_lap_time_s": 71.17924128285941,
+    "warm_per_lap_net_energy_j": [
+      512.4099679112426,
+      512.4099679116866,
+      512.4099679116866,
+      512.4099679116866,
+      512.4099679116866
+    ],
+    "calibration": {
+      "aggregate": {
+        "mean_speed_rmse_kmh": 20.348815136092966,
+        "sector_speed_rmse_kmh": [
+          20.499151508601916,
+          18.99086413609446,
+          21.6276132212013
+        ],
+        "max_abs_lap_error_pct": 2.0934984616192973,
+        "max_abs_sector_error_s": 1.9210653429220272
+      },
+      "accuracy_passed": false,
+      "sector_energy": [
+        {
+          "deploy_mj": 1.5457589472673172,
+          "harvest_mj": 1.081063078260009,
+          "net_energy_mj": -0.4646958690073216,
+          "balance_residual_mj": -1.3378187446733136e-14
+        },
+        {
+          "deploy_mj": 1.7579969148271184,
+          "harvest_mj": 2.0624742418804876,
+          "net_energy_mj": 0.3044773270533563,
+          "balance_residual_mj": -1.2989609388114332e-14
+        },
+        {
+          "deploy_mj": 0.7715201774171003,
+          "harvest_mj": 0.9322511293389474,
+          "net_energy_mj": 0.16073095192187703,
+          "balance_residual_mj": 2.9976021664879227e-14
+        }
+      ]
+    },
+    "development_saved_score": {
+      "aggregate": {
+        "mean_speed_rmse_kmh": 19.62589671158222,
+        "sector_speed_rmse_kmh": [
+          19.076824972354913,
+          19.965902030630286,
+          19.652756564103086
+        ],
+        "max_abs_lap_error_pct": 2.710121594659391,
+        "max_abs_sector_error_s": 1.9862646996573474
+      },
+      "accuracy_passed": false,
+      "sector_energy": [
+        {
+          "deploy_mj": 1.5457589472673172,
+          "harvest_mj": 1.1213362672543987,
+          "net_energy_mj": -0.42442268001293737,
+          "balance_residual_mj": -1.887379141862766e-14
+        },
+        {
+          "deploy_mj": 1.7579969148271184,
+          "harvest_mj": 2.026730736670676,
+          "net_energy_mj": 0.2687338218435511,
+          "balance_residual_mj": -6.661338147750939e-15
+        },
+        {
+          "deploy_mj": 0.7715201774171003,
+          "harvest_mj": 0.9277214455543694,
+          "net_energy_mj": 0.15620126813729796,
+          "balance_residual_mj": 2.886579864025407e-14
+        }
+      ],
+      "scope": "Post-stop historical diagnostic; not used for candidate selection"
+    },
+    "numerics": {
+      "cold_first": {
+        "output": [
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0,
+            "speed_rmse_kmh": 0.3407178651167474,
+            "passed": true
+          },
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0,
+            "speed_rmse_kmh": 0.015952903355798277,
+            "passed": true
+          }
+        ],
+        "integration": [
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.002648456932803356,
+            "speed_rmse_kmh": 0.006692543225645354,
+            "passed": true
+          },
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0014964503261012396,
+            "speed_rmse_kmh": 0.006396286355740088,
+            "passed": true
+          }
+        ]
+      },
+      "carried_late": {
+        "output": [
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0,
+            "speed_rmse_kmh": 0.34886971276207734,
+            "passed": true
+          },
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0,
+            "speed_rmse_kmh": 0.016081284014490962,
+            "passed": true
+          }
+        ],
+        "integration": [
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0021506124276839955,
+            "speed_rmse_kmh": 0.005994618443254362,
+            "passed": true
+          },
+          {
+            "valid": true,
+            "lap_time_difference_s": 0.0004395957918603699,
+            "speed_rmse_kmh": 0.005120348852676906,
+            "passed": true
+          }
+        ]
+      }
+    },
+    "numerical_gates_passed": true
+  },
+  "new_model_gain_demonstrated": false,
+  "SAC_gain_demonstrated": false,
+  "current_source_corrections": [
+    "Explicit MJ-to-W conversion in the proposal response",
+    "Pre-solver rejection of zero useful action dimension",
+    "Exact persisted JSON comparison in baseline verification",
+    "Learner qualification counts from actual receipts rather than unconditional flags"
+  ],
+  "current_source_formal_optimization_repeated": false,
+  "original_frozen_CLI_replay_false_due_to_tuple_list_comparison": true,
+  "independent_frozen_baseline_certificate_bytes_exactly_reproduced": true,
+  "interrupted_candidate": {
+    "attempt_consumed": true,
+    "retained_complete_lap_prefixes": 1,
+    "in_flight_second_lap_trace_retained": false,
+    "formal_score": null
+  },
+  "limits": {
+    "speed_RMSE_kmh": 15,
+    "lap_abs_error_pct": 2,
+    "sector_abs_error_s": 1
+  },
+  "FP2_accessed": false,
+  "full_FIA_ECU_verified": false,
+  "true_SOC_verified": false,
+  "real_car_gain_claimed": false,
+  "global_optimality_proven": false,
+  "infinite_horizon_proven": false,
+  "browser_interaction_verified": false,
+  "diagnostic_input_audit": {
+    "role": "calibration",
+    "laps": [
+      {
+        "lap_number": 3,
+        "alignment": {
+          "absolute_projected_start_m": -0.34039368034999384,
+          "absolute_projected_end_m": 4284.9367856544695,
+          "projected_span_m": 4285.277179334819,
+          "projected_span_fraction": 1.000065647165486,
+          "speed_integral_m": 4305.104869537885,
+          "projection_vs_speed_integral_rmse_m": 12.439504322477417,
+          "mean_route_projection_error_m": 1.869240289702694,
+          "monotonicity_repairs": 0,
+          "outside_metadata_lap_scoring_nodes": 0,
+          "per_lap_first_sample_reset": false,
+          "per_lap_span_stretch": false,
+          "grid_bracketed": true
+        },
+        "full_throttle_straight_samples": 83,
+        "equivalent_wheel_power_interval_kw": [
+          445.402479408065,
+          552.8137857124129
+        ],
+        "400kw_excluded": true,
+        "observed_lateral_infeasible_samples": 23,
+        "combined_kinematic_infeasible_samples": 25,
+        "uncertainty_identifies_true_ICE_or_ERS": false
+      },
+      {
+        "lap_number": 4,
+        "alignment": {
+          "absolute_projected_start_m": 5.183101506645691,
+          "absolute_projected_end_m": 4288.634662183809,
+          "projected_span_m": 4283.451560677164,
+          "projected_span_fraction": 0.9996395980610897,
+          "speed_integral_m": 4295.229310757588,
+          "projection_vs_speed_integral_rmse_m": 6.660506061277552,
+          "mean_route_projection_error_m": 1.7639205675677083,
+          "monotonicity_repairs": 0,
+          "outside_metadata_lap_scoring_nodes": 2,
+          "per_lap_first_sample_reset": false,
+          "per_lap_span_stretch": false,
+          "grid_bracketed": true
+        },
+        "full_throttle_straight_samples": 73,
+        "equivalent_wheel_power_interval_kw": [
+          443.5832081601677,
+          572.6483966232563
+        ],
+        "400kw_excluded": true,
+        "observed_lateral_infeasible_samples": 23,
+        "combined_kinematic_infeasible_samples": 24,
+        "uncertainty_identifies_true_ICE_or_ERS": false
+      },
+      {
+        "lap_number": 5,
+        "alignment": {
+          "absolute_projected_start_m": 3.723032693147575,
+          "absolute_projected_end_m": 4297.706465867727,
+          "projected_span_m": 4293.98343317458,
+          "projected_span_fraction": 1.0020974469805912,
+          "speed_integral_m": 4301.459180059268,
+          "projection_vs_speed_integral_rmse_m": 6.4825102429368116,
+          "mean_route_projection_error_m": 1.7904817177784353,
+          "monotonicity_repairs": 0,
+          "outside_metadata_lap_scoring_nodes": 1,
+          "per_lap_first_sample_reset": false,
+          "per_lap_span_stretch": false,
+          "grid_bracketed": true
+        },
+        "full_throttle_straight_samples": 81,
+        "equivalent_wheel_power_interval_kw": [
+          467.9517746427625,
+          595.0111067037925
+        ],
+        "400kw_excluded": true,
+        "observed_lateral_infeasible_samples": 16,
+        "combined_kinematic_infeasible_samples": 14,
+        "uncertainty_identifies_true_ICE_or_ERS": false
+      },
+      {
+        "lap_number": 6,
+        "alignment": {
+          "absolute_projected_start_m": 15.770545032320067,
+          "absolute_projected_end_m": 4298.525313074519,
+          "projected_span_m": 4282.7547680421985,
+          "projected_span_fraction": 0.9994769858546291,
+          "speed_integral_m": 4288.556082471432,
+          "projection_vs_speed_integral_rmse_m": 9.542090973904418,
+          "mean_route_projection_error_m": 1.7482495516826821,
+          "monotonicity_repairs": 0,
+          "outside_metadata_lap_scoring_nodes": 4,
+          "per_lap_first_sample_reset": false,
+          "per_lap_span_stretch": false,
+          "grid_bracketed": true
+        },
+        "full_throttle_straight_samples": 82,
+        "equivalent_wheel_power_interval_kw": [
+          463.49315343294467,
+          593.46330049827
+        ],
+        "400kw_excluded": true,
+        "observed_lateral_infeasible_samples": 18,
+        "combined_kinematic_infeasible_samples": 21,
+        "uncertainty_identifies_true_ICE_or_ERS": false
+      }
+    ],
+    "registration": {
+      "original_route_control_line_s_m": 180.52827448989203,
+      "location_clock_offset_s": -0.018977077205087255,
+      "direction": 1,
+      "raw_location_units_per_m": 9.986262080592116,
+      "rotation": [
+        [
+          0.9999968299508247,
+          -0.0025179531968601834
+        ],
+        [
+          0.0025179531968600667,
+          0.9999968299508248
+        ]
+      ],
+      "translation_raw_units": [
+        1289.0343551930864,
+        -1112.0446690320086
+      ],
+      "rmse_m": 9.156769918388425,
+      "fit_laps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "fit_role": "calibration",
+      "converged": true,
+      "evaluations": 5,
+      "method": "Proper global 2D similarity + common control-line phase + common clock offset fitted to unscaled calibration speed integral",
+      "per_lap_first_sample_reset": false,
+      "per_lap_span_stretch": false,
+      "speed_integral_scale": 1.0,
+      "clock_offset_definition": "corrected_location_time = raw_location_time - location_clock_offset_s"
+    },
+    "geometry_audit": {
+      "curve_id": "7df494b6f59314cf769cc654c41ff562b908d0bb72b40a5eef9d5c3555d64a99",
+      "length_m": 4284.99588150108,
+      "source_polyline_length_m": 4284.754728737779,
+      "analytic_curvature": true,
+      "arc_quadrature_spacing_max_m": 0.1,
+      "minimum_boundary_clearance_m": 0.47848847695982943,
+      "mesh_refit": false,
+      "geometry_source": "Historical TUM minimum-curvature route; not the observed racing line"
+    },
+    "diagnostic_only": true,
+    "integrated_state_updated_from_observations": false,
+    "power_hypothesis": {
+      "hypothesis": "Fixed 400 kW may omit an equivalent straight-line power contribution",
+      "expected": "At least three calibration intervals consistently exclude 400 kW",
+      "falsifier": "Uncertainty overlaps 400 kW or signs differ across sectors",
+      "conclusion": "Equivalent-power mismatch merits investigation; ICE versus unknown ERS is not identifiable"
+    },
+    "alignment_hypothesis": {
+      "hypothesis": "One shared geometry/control-line registration explains corner displacement",
+      "expected": "Projection and unscaled speed integral agree within sampling uncertainty",
+      "falsifier": "Persistent lap-varying offset or boundary failure after one common transform",
+      "conclusion": "Frozen offsets reported; no residual-based or per-lap registration is performed"
+    },
+    "braking_hypothesis": {
+      "hypothesis": "Remaining-capacity-scaled request vanishes near the lateral limit",
+      "expected": "Independent request remains negative while executed force clips to capacity",
+      "falsifier": "Independent mapping leaves the same failure and residual pattern",
+      "conclusion": "Requires paired candidate execution; kernel regression alone proves only the mapping"
+    },
+    "traction_hypothesis": {
+      "hypothesis": "Instantaneous traction recovery causes positive exit residual",
+      "expected": "At least three fixed calibration exit windows have a systematic positive error",
+      "falsifier": "Straight underprediction, sign-changing sectors, or geometry uncertainty explains error",
+      "conclusion": "No extra response-time parameter is introduced in this preregistered experiment"
+    },
+    "FP2_accessed": false
+  }
+}

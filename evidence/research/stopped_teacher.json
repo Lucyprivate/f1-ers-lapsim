@@ -1,0 +1,403 @@
+{
+  "audit_kind": "saved-only stopped frozen 0.8.0 teacher and zero-learning audit",
+  "timestamp_utc": "2026-10-10T08:06:25.061814+00:00",
+  "source_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "sealed_manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+  "started_teacher_attempts": 35,
+  "completed_qualifications": 34,
+  "qualified_candidates": 17,
+  "rejected_completed_candidates": 17,
+  "interrupted_candidates": [
+    {
+      "candidate": "candidate_0035",
+      "started": true,
+      "qualification_completed": false,
+      "passed": null,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 1,
+      "saved_proxy_receipt_count": 1,
+      "retained_prefix_last_summary": {
+        "status": "accepted",
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "lap_time_s": 71.17924128285941,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 3.1321764096859104,
+        "terminal_constraint_reasons": []
+      }
+    }
+  ],
+  "saved_lap_prefixes": 146,
+  "saved_proxy_receipts": 146,
+  "saved_physical_complete_laps": 146,
+  "saved_constraint_feasible_laps": 129,
+  "saved_status_counts": {
+    "accepted": 146
+  },
+  "completed_saved_lap_distribution": {
+    "6": 17,
+    "2": 11,
+    "3": 4,
+    "5": 1,
+    "4": 1
+  },
+  "completed_qualification_terminal_reasons": {
+    "terminal_energy_deficit": 17
+  },
+  "best_retained_exact_candidate": {
+    "candidate": "candidate_0001",
+    "started": true,
+    "qualification_completed": true,
+    "passed": true,
+    "formal_objective_s": 70.44079066181877,
+    "saved_complete_lap_prefix_count": 6,
+    "saved_proxy_receipt_count": 6
+  },
+  "gain_against_baseline_s": 0.0,
+  "teacher_status": "stopped_teacher_surrogate_validation",
+  "learning_allowed": false,
+  "learning_status": "withheld_teacher_or_physics_gate",
+  "new_episode_budget_counts": {
+    "attempted": 0,
+    "maximum": 120,
+    "per_backend": {
+      "numpy": 0,
+      "sb3": 0
+    }
+  },
+  "notes": [
+    "All completed failed qualifications end with a full physically accepted lap that fails terminal energy nondepletion.",
+    "Interrupted candidate35 has only completed lap1 saved; no within-lap2 partial integration trajectory is present.",
+    "Saved exact baseline traces remain physical evidence; the stopped defective surrogate search is not optimization evidence.",
+    "No candidate-selection, training, vehicle simulation, or FP2 access was performed by this audit.",
+    "Zero learning candidates makes best_last_and_BC_six_carry_qualified=true a vacuous metadata flag, not evidence that any new learner was qualified."
+  ],
+  "candidates": [
+    {
+      "candidate": "candidate_0001",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0002",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0003",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.78344216364873,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0004",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.78344234864599,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0005",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0006",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0007",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0008",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0009",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 3,
+      "saved_proxy_receipt_count": 3
+    },
+    {
+      "candidate": "candidate_0010",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0011",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 5,
+      "saved_proxy_receipt_count": 5
+    },
+    {
+      "candidate": "candidate_0012",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0013",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0014",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 3,
+      "saved_proxy_receipt_count": 3
+    },
+    {
+      "candidate": "candidate_0015",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 3,
+      "saved_proxy_receipt_count": 3
+    },
+    {
+      "candidate": "candidate_0016",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0017",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 3,
+      "saved_proxy_receipt_count": 3
+    },
+    {
+      "candidate": "candidate_0018",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0019",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0020",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0021",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0022",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.51785887428782,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0023",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0024",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0025",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0026",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0027",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0028",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0029",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 4,
+      "saved_proxy_receipt_count": 4
+    },
+    {
+      "candidate": "candidate_0030",
+      "started": true,
+      "qualification_completed": true,
+      "passed": false,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 2,
+      "saved_proxy_receipt_count": 2
+    },
+    {
+      "candidate": "candidate_0031",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0032",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0033",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0034",
+      "started": true,
+      "qualification_completed": true,
+      "passed": true,
+      "formal_objective_s": 70.44079066181877,
+      "saved_complete_lap_prefix_count": 6,
+      "saved_proxy_receipt_count": 6
+    },
+    {
+      "candidate": "candidate_0035",
+      "started": true,
+      "qualification_completed": false,
+      "passed": null,
+      "formal_objective_s": null,
+      "saved_complete_lap_prefix_count": 1,
+      "saved_proxy_receipt_count": 1,
+      "retained_prefix_last_summary": {
+        "status": "accepted",
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "lap_time_s": 71.17924128285941,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 3.1321764096859104,
+        "terminal_constraint_reasons": []
+      }
+    }
+  ]
+}

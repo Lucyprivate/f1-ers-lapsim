@@ -1,4 +1,4 @@
-# Open-source control research (0.8.0)
+# Open-source control research (current source 0.8.1)
 
 The original frozen checkout, tags, data and deliveries are unchanged. This
 branch extends the current package through `f1ers_v7.research`. Optional physical
@@ -102,3 +102,38 @@ optimizer/training replay is not claimed by an artifact-hash check.
 Public Git contains source and small summaries only. Telemetry, FIA documents,
 checkpoints, large trajectories and private archives are excluded. Browser
 interaction verification and real SOC/full FIA ECU certification remain pending.
+
+
+## Closed study and read-only artifact verification
+
+The `spielberg_open_source_control_2026_01` run is closed with a controlled
+teacher stop and zero new SAC attempts. Its source is frozen0.8.0 at
+`1cff56a38630c49fc56fcfafe9a0e65d43a6665b`. Current0.8.1 fixes the diagnosed
+proposal/serialization/metadata defects. It has not repeated the formal search.
+Do not delete ledgers, rename the run or switch clones to reset the closed
+identity. A separately registered correction experiment must preserve the
+shared test identity and previous attempted budgets.
+
+The current source-sensitive research CLI intentionally reports source drift
+against the old freeze. To check restored artifacts from current source without
+executing old or new models:
+
+```sh
+python tools/verify_public_snapshot.py
+python tools/verify_research_artifacts.py --artifacts /restored/opensource_control_2026_01 --completion /restored/completion.json
+```
+
+The standalone verifier uses the tracked `evidence/research/summary.json` as its
+pin. It checks exact manifest/freeze hashes, inventory and optional completion
+payload, rejects path/link/tamper cases, and neither modifies artifacts nor
+consumes training budget. It establishes stored byte identity only. Private
+telemetry and FIA documents are not included in public Git or the new research
+artifact archive. Authorized historical inputs remain necessary for simulation.
+
+For source-sensitive saved-score verification, use a detached checkout of the
+frozen commit and the archived research CLI **without** `--replay`. The old
+`--replay` has a tuple/list comparison defect; the preserved independent replay
+helper compared persisted certificates and reproduced all six laps byte for
+byte. The archive includes that helper and its receipt. Source0.8.1 fixes the
+comparison without changing the old result or relaxing tolerances. The new
+completion receipt and tracked summary independently pin the final manifest.

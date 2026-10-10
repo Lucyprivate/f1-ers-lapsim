@@ -145,5 +145,16 @@
       "change": "imports relocated; computational statements retained"
     }
   ],
-  "extraction_receipt_sha256": "2325551aeb2d1fa1e6ffcf285214e3fa327c76749ce15ae1c71dc8876610ee83"
+  "extraction_receipt_sha256": "2325551aeb2d1fa1e6ffcf285214e3fa327c76749ce15ae1c71dc8876610ee83",
+  "source_corrections_0_8_1": {
+    "frozen_research_source": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+    "original_results_modified": false,
+    "formal_search_or_training_restarted": false,
+    "changes": [
+      "SI proposal energy conversion and useful-authority gate",
+      "Exact persisted JSON replay comparison",
+      "Actual learner certificate counts",
+      "Independent read-only pinned artifact verifier"
+    ]
+  }
 }
