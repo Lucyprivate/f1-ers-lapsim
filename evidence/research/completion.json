@@ -1,0 +1,25 @@
+{
+  "identity": "spielberg_open_source_control_2026_01",
+  "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "source_version": "0.8.0",
+  "result_directory_name": "opensource_control_2026_01",
+  "manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+  "freeze_sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+  "teacher_stop_sha256": "f96eb5a313f808b5ac71e4b3d3592911e63a5576e29ebdbf17cdbbdf5810d8a8",
+  "interruption_detail_sha256": "06f4b4bc33134fc3fd2fbdff5211d52f9ea114994eaa7f8bc32165e23e54cb99",
+  "physics_status": "completed_screening_all_candidates_withheld",
+  "teacher_status": "stopped_after_surrogate_validation_failure",
+  "learning_status": "withheld_teacher_or_physics_gate",
+  "episode_budget_counts": {
+    "attempted": 0,
+    "maximum": 120,
+    "per_backend": {
+      "numpy": 0,
+      "sb3": 0
+    }
+  },
+  "timestamp_utc": "2026-10-10T08:03:07.182691+00:00",
+  "FP2_accessed": false,
+  "new_optimizer_or_training_execution_after_stop": false,
+  "completion_writer_sha256": "67de22a938bf2e10fc02cfecfcfb015eaabb48355a6790e8c1121f60890e57fb"
+}

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "persisted_JSON_qualification_exactly_equal": true,
+  "in_memory_report_equal": false,
+  "in_memory_schema_type": "tuple",
+  "persisted_schema_type": "list",
+  "physical_laps_recomputed": 6,
+  "formal_objective_s": 70.44079066181877,
+  "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+  "replay_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+  "expected_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+  "optimizer_or_training_repeated": false,
+  "source_changed": false,
+  "FP2_accessed": false
+}

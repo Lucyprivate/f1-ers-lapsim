@@ -1,47 +1,258 @@
 {
   "schema_version": 1,
-  "package_version": "0.7.1",
-  "scope": "Local validation of the current public layout; not a new scientific experiment",
+  "package_version": "0.8.1",
+  "scope": "Current 0.8.1 source validation; stopped frozen 0.8.0 experiment separately identified",
   "checks": {
     "included_regression_tests": {
-      "passed": 73,
-      "failed": 0
-    },
-    "audit_v7": {
-      "passed": true,
-      "feature_count": 34
+      "run": 145,
+      "passed": 143,
+      "skipped": 2,
+      "failed": 0,
+      "skip_reason": "Windows privileges unavailable for two symlink-creation fixtures",
+      "log_sha256": "0a6e32b7952a267be8de042f01557ab6e442601447d074437b938238bf5882d7"
     },
     "all_discovered_module_imports": {
       "passed": true,
-      "module_count": 33
+      "module_count": 45
+    },
+    "research_differential": {
+      "passed": true,
+      "tolerance": 1e-09,
+      "cases": [
+        {
+          "update": 1,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 3.469446951953614e-18,
+            "actor_loss": 8.673617379884035e-19,
+            "logp": 6.661338147750939e-16,
+            "actor_gradients": 8.131516293641283e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 2,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 5.204170427930421e-18,
+            "actor_loss": 0.0,
+            "logp": 2.220446049250313e-16,
+            "actor_gradients": 9.486769009248164e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 3,
+          "fixture": "ordinary",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 1.734723475976807e-18,
+            "logp": 4.440892098500626e-16,
+            "actor_gradients": 1.0842021724855044e-19,
+            "q_gradients": 2.6020852139652106e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 4,
+          "fixture": "saturated_mean",
+          "errors": {
+            "target": 3.469446951953614e-18,
+            "actor_loss": 0.0,
+            "logp": 0.0,
+            "actor_gradients": 1.0164395367051604e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 5,
+          "fixture": "clipped_logstd",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 0.0,
+            "logp": 1.7763568394002505e-15,
+            "actor_gradients": 2.710505431213761e-20,
+            "q_gradients": 3.469446951953614e-18,
+            "Adam_and_Polyak": 1.1102230246251565e-16
+          },
+          "passed": true
+        },
+        {
+          "update": 6,
+          "fixture": "equal_twin_Q",
+          "errors": {
+            "target": 6.938893903907228e-18,
+            "actor_loss": 0.0,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 5.421010862427522e-20,
+            "q_gradients": 1.734723475976807e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 7,
+          "fixture": "terminal_zero_bootstrap",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 8.673617379884035e-19,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 1.0842021724855044e-19,
+            "q_gradients": 1.0570971181733668e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17,
+            "terminal_bootstrap": 0.0
+          },
+          "passed": true
+        },
+        {
+          "update": 8,
+          "fixture": "negative_saturation_lower_clip_edge",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 0.0,
+            "actor_gradients": 1.0164395367051604e-20,
+            "q_gradients": 1.734723475976807e-18,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 9,
+          "fixture": "upper_clip_edge",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 8.881784197001252e-16,
+            "actor_gradients": 2.710505431213761e-20,
+            "q_gradients": 8.673617379884035e-19,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        },
+        {
+          "update": 10,
+          "fixture": "global_gradient_clipping",
+          "errors": {
+            "target": 0.0,
+            "actor_loss": 0.0,
+            "logp": 3.552713678800501e-15,
+            "actor_gradients": 5.421010862427522e-20,
+            "q_gradients": 4.547473508864641e-13,
+            "Adam_and_Polyak": 5.551115123125783e-17
+          },
+          "passed": true
+        }
+      ],
+      "braking_actor_gradient_exact_zero": true,
+      "default_common_update_RNG_error": 5.551115123125783e-17,
+      "braking_Q_action_invariant": true,
+      "episodes_spent": 0,
+      "common_batch_common_epsilon": true,
+      "dependency_evidence": {
+        "implementation": "SB3 network modules with explicitly aligned custom float64 SAC updates",
+        "stock_sb3_learn_executed": false,
+        "actual_sb3_modules_used": [
+          "SACPolicy.Actor.latent_pi",
+          "Actor.mu",
+          "Actor.log_std",
+          "ContinuousCritic.q_networks"
+        ],
+        "sb3_version": "2.9.0",
+        "sb3_module_sha256": "a8d5d1b88605932e9d03c6acc37eadc54319bb1b563faf00cd173fbfdf059cf6",
+        "torch_version": "2.14.1+cpu",
+        "dtype": "float64",
+        "aligned_changes": [
+          "float64",
+          "fixed normalizer",
+          "strict logstd clipping derivative",
+          "per-critic Adam",
+          "gradient norm clipping10",
+          "pre-demand braking no-op mask"
+        ]
+      }
+    },
+    "legacy_audit": {
+      "passed": true,
+      "feature_count": 34,
+      "scope": "Archived controller synthetic audit"
     },
     "wheel_build": {
-      "passed": true
-    },
-    "independent_wheel_install_and_audit": {
       "passed": true,
-      "feature_count": 34
+      "filename": "f1_ers_lapsim-0.8.1-py3-none-any.whl",
+      "bytes": 179092,
+      "sha256": "eced2ea31c6efa090ce8e4ad990e9e4b1a7d2cbad592ce0ac3439a2e5aea1494"
     },
-    "missing_private_input_guards": {
+    "english_markdown_and_local_links": {
       "passed": true,
-      "run_v7_exit": 2,
-      "verify_v7_exit": 2,
-      "files_created": false,
-      "automatic_acquisition": false
+      "problems": []
     },
-    "english_markdown": {
-      "passed": true
+    "sealed_research_artifact_bytes": {
+      "passed": true,
+      "identity": "spielberg_open_source_control_2026_01",
+      "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+      "result_manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+      "freeze_sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+      "declared_files_checked": 2612,
+      "unexpected_files": [],
+      "completion_checked": true,
+      "completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+      "scope": "sealed artifact byte identity and inventory only",
+      "simulation_executed": false,
+      "telemetry_loaded": false,
+      "artifacts_modified": false,
+      "training_attempts_consumed": 0
     },
-    "markdown_local_link_targets": {
-      "passed": true
+    "independent_frozen_baseline_recomputation": {
+      "passed": true,
+      "persisted_JSON_qualification_exactly_equal": true,
+      "in_memory_report_equal": false,
+      "in_memory_schema_type": "tuple",
+      "persisted_schema_type": "list",
+      "physical_laps_recomputed": 6,
+      "formal_objective_s": 70.44079066181877,
+      "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+      "replay_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+      "expected_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+      "optimizer_or_training_repeated": false,
+      "source_changed": false,
+      "FP2_accessed": false
     },
     "original_research_repository": {
       "clean": true,
-      "head": "b418dd27b071c413477b646db0c813350ad357ba"
+      "head": "b418dd27b071c413477b646db0c813350ad357ba",
+      "frozen_historical_inputs_checked": 8,
+      "frozen_historical_inputs_unchanged": true
+    },
+    "independent_wheel_install_and_audit": {
+      "passed": true,
+      "version": "0.8.1",
+      "imported_from_independent_target": true,
+      "differential_fixtures_passed": 10,
+      "historical_arrays_loaded": false,
+      "training_started": false,
+      "FP2_accessed": false
     }
   },
-  "historical_accuracy_gates_passed": false,
-  "new_training_or_selection": false,
+  "formal_research_results": {
+    "source_version": "0.8.0",
+    "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+    "status": "Stopped after teacher surrogate defect; physics screening complete, SAC withheld",
+    "screening_points": 192,
+    "viable_fit_starts": 0,
+    "teacher_attempts": 35,
+    "new_SAC_attempts": 0,
+    "accuracy_gates_passed": false,
+    "learning_gain_demonstrated": false
+  },
+  "current_source_formal_optimizer_or_training_rerun": false,
   "FP2_accessed": false,
   "full_FIA_ECU_verified": false,
   "true_SOC_verified": false,

@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import tomllib
 
 
 MANIFEST = 'docs/PUBLIC_SOURCE_INVENTORY.json'
@@ -14,7 +15,8 @@ MANIFEST = 'docs/PUBLIC_SOURCE_INVENTORY.json'
 def verify(root: Path) -> dict:
     root = root.resolve()
     manifest = json.loads((root / MANIFEST).read_text(encoding='utf-8'))
-    if manifest.get('schema_version') != 1 or manifest.get('package_version') != '0.7.1':
+    package_version = tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']['version']
+    if manifest.get('schema_version') != 1 or manifest.get('package_version') != package_version:
         raise ValueError('Unexpected public inventory schema or package version')
     files = manifest['files']
     problems = []

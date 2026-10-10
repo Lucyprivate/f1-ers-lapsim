@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "f1-ers-lapsim"
-version = "0.7.1"
+version = "0.8.1"
 description = "Causal ERS deployment research with constrained vehicle integration and bounded imitation learning/SAC"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
@@ -12,11 +12,15 @@ license = "MIT"
 authors = [{name = "F1 ERS Lab"}]
 dependencies = ["numpy==2.3.5", "scipy==1.18.1", "numba==0.68.0", "llvmlite==0.50.0"]
 
+[project.optional-dependencies]
+research = ["torch==2.14.1", "stable-baselines3==2.9.0", "gymnasium==1.4.0", "casadi==3.8.1"]
+
 [project.urls]
 Repository = "https://github.com/Lucyprivate/f1-ers-lapsim"
 
 [project.scripts]
 f1-ers-v7 = "f1ers_v7.cli:main"
+f1-ers-research = "f1ers_v7.research.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["f1ers_v7*"]
