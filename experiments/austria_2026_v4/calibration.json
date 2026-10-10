@@ -1,0 +1,2455 @@
+{
+  "schema_version": 4,
+  "candidate": "fixed_periodic_spline",
+  "budget": {
+    "screening_points": 64,
+    "screening_seed": 2026,
+    "starts": 3,
+    "maxiter_per_start": 300,
+    "maxfev_per_start": 600
+  },
+  "parameter_order": [
+    "mu",
+    "drag_area_m2",
+    "downforce_area_m2",
+    "equivalent_power_kw",
+    "replay_brake_gain"
+  ],
+  "bounds": {
+    "mu": [
+      1.2,
+      2.4
+    ],
+    "drag_area_m2": [
+      0.6,
+      2.0
+    ],
+    "downforce_area_m2": [
+      1.8,
+      6.0
+    ],
+    "equivalent_power_kw": [
+      350.0,
+      732.5
+    ],
+    "replay_brake_gain": [
+      0.1,
+      1.0
+    ]
+  },
+  "fitted_vehicle": {
+    "mass_kg": 800.0,
+    "ice_power_kw": 400.0,
+    "ice_max_tractive_force_n": 12000.0,
+    "mu": 1.7999999999999998,
+    "drag_area_m2": 1.3,
+    "downforce_area_m2": 3.9,
+    "straight_drag_factor": 0.72,
+    "straight_downforce_factor": 0.65,
+    "air_density_kgpm3": 1.18,
+    "rolling_coefficient": 0.012,
+    "deploy_efficiency": 0.95,
+    "harvest_efficiency": 0.9,
+    "energy_start_mj": 2.0,
+    "max_speed_mps": 103.0,
+    "superclip_max_dc_kw": 350.0,
+    "minimum_ice_wheel_power_kw": 25.0,
+    "equivalent_power_kw": 541.25,
+    "replay_brake_gain": 0.55,
+    "session_grip_scale": 1.0,
+    "replay_power_scale": 1.0
+  },
+  "screening_feasible_count": 0,
+  "multistart": [],
+  "solver_success": false,
+  "diagnostic_selection": true,
+  "physical_valid": false,
+  "reason": "Fewer than three feasible screening points; fitting stopped",
+  "calibration_objective": null,
+  "development_objective": null,
+  "development_gate": {
+    "replay": {
+      "passed": false,
+      "observed": {},
+      "thresholds": {
+        "mean_speed_rmse_kmh": 15.0,
+        "max_abs_lap_error_pct": 2.0,
+        "max_abs_sector_error_s": 1.0
+      },
+      "reasons": [
+        "All precommitted laps must have complete valid predictions",
+        "Nonfinite or missing observable error",
+        "Physical checks failed"
+      ],
+      "precommitted": true
+    },
+    "autonomous": {
+      "passed": false,
+      "observed": {
+        "mean_speed_rmse_kmh": 20.399269504086703,
+        "max_abs_lap_error_pct": 1.556936292384629,
+        "max_abs_sector_error_s": 1.2508342546203757
+      },
+      "thresholds": {
+        "mean_speed_rmse_kmh": 15.0,
+        "max_abs_lap_error_pct": 2.0,
+        "max_abs_sector_error_s": 1.0
+      },
+      "reasons": [
+        "mean_speed_rmse_kmh: 20.3993 exceeds 15.0",
+        "max_abs_sector_error_s: 1.25083 exceeds 1.0"
+      ],
+      "precommitted": true
+    }
+  },
+  "near_optimal_parameter_family": [],
+  "sensitivity": {
+    "available": false,
+    "reason": "No complete physical calibration reference"
+  },
+  "evaluations": 64,
+  "failed_evaluations": [
+    {
+      "evaluation": 0,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.079161749407649,
+        "drag_area_m2": 0.9952493758872151,
+        "downforce_area_m2": 2.333836972899735,
+        "equivalent_power_kw": 576.4800920733251,
+        "replay_brake_gain": 0.9775351240299642
+      },
+      "trace_path": "failures/evaluation_00000.json.gz"
+    },
+    {
+      "evaluation": 1,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.404323388263583,
+        "drag_area_m2": 1.907073196209967,
+        "downforce_area_m2": 5.98284723367542,
+        "equivalent_power_kw": 370.14946936862543,
+        "replay_brake_gain": 0.24990517580881716
+      },
+      "trace_path": "failures/evaluation_00001.json.gz"
+    },
+    {
+      "evaluation": 2,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.7557249758392572,
+        "drag_area_m2": 0.8981295991688967,
+        "downforce_area_m2": 3.568644959293306,
+        "equivalent_power_kw": 695.2216872083955,
+        "replay_brake_gain": 0.4135733678936958
+      },
+      "trace_path": "failures/evaluation_00002.json.gz"
+    },
+    {
+      "evaluation": 3,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.2808854881674048,
+        "drag_area_m2": 1.39715792350471,
+        "downforce_area_m2": 4.780819390900433,
+        "equivalent_power_kw": 538.1017849757336,
+        "replay_brake_gain": 0.5853534510359168
+      },
+      "trace_path": "failures/evaluation_00003.json.gz"
+    },
+    {
+      "evaluation": 4,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.2345575492829086,
+        "drag_area_m2": 0.7671280050650239,
+        "downforce_area_m2": 5.240838037244976,
+        "equivalent_power_kw": 484.3528714776039,
+        "replay_brake_gain": 0.7065220362506807
+      },
+      "trace_path": "failures/evaluation_00004.json.gz"
+    },
+    {
+      "evaluation": 5,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.5594657015055418,
+        "drag_area_m2": 1.6159971030429006,
+        "downforce_area_m2": 2.0588841939345004,
+        "equivalent_power_kw": 641.374941309914,
+        "replay_brake_gain": 0.5490454227663577
+      },
+      "trace_path": "failures/evaluation_00005.json.gz"
+    },
+    {
+      "evaluation": 6,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2829954538494348,
+        "drag_area_m2": 1.126590107008815,
+        "downforce_area_m2": 4.342861796356738,
+        "equivalent_power_kw": 411.9351316476241,
+        "replay_brake_gain": 0.14273730590939523
+      },
+      "trace_path": "failures/evaluation_00006.json.gz"
+    },
+    {
+      "evaluation": 7,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.807902479544282,
+        "drag_area_m2": 1.688573132827878,
+        "downforce_area_m2": 2.9240801660344005,
+        "equivalent_power_kw": 618.3604918187484,
+        "replay_brake_gain": 0.8843123806640506
+      },
+      "trace_path": "failures/evaluation_00007.json.gz"
+    },
+    {
+      "evaluation": 8,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.9235226731747388,
+        "drag_area_m2": 0.7932764556258917,
+        "downforce_area_m2": 4.066627306491137,
+        "equivalent_power_kw": 671.077881436795,
+        "replay_brake_gain": 0.3194045448675752
+      },
+      "trace_path": "failures/evaluation_00008.json.gz"
+    },
+    {
+      "evaluation": 9,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2480972301214932,
+        "drag_area_m2": 1.3222230318933725,
+        "downforce_area_m2": 3.1836202885955576,
+        "equivalent_power_kw": 463.62665326334536,
+        "replay_brake_gain": 0.9344033833593131
+      },
+      "trace_path": "failures/evaluation_00009.json.gz"
+    },
+    {
+      "evaluation": 10,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6094597551971672,
+        "drag_area_m2": 1.1117209324613213,
+        "downforce_area_m2": 4.973359672352672,
+        "equivalent_power_kw": 598.7562213512138,
+        "replay_brake_gain": 0.6581751097925007
+      },
+      "trace_path": "failures/evaluation_00010.json.gz"
+    },
+    {
+      "evaluation": 11,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.134035474434495,
+        "drag_area_m2": 1.9717515217140318,
+        "downforce_area_m2": 2.3097327791154383,
+        "equivalent_power_kw": 440.5157136498019,
+        "replay_brake_gain": 0.3741497325710953
+      },
+      "trace_path": "failures/evaluation_00011.json.gz"
+    },
+    {
+      "evaluation": 12,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.387707535549998,
+        "drag_area_m2": 1.2432240191847086,
+        "downforce_area_m2": 3.8197493601590393,
+        "equivalent_power_kw": 386.7668236629106,
+        "replay_brake_gain": 0.4777264447882772
+      },
+      "trace_path": "failures/evaluation_00012.json.gz"
+    },
+    {
+      "evaluation": 13,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.7132004808634518,
+        "drag_area_m2": 1.7530940260738133,
+        "downforce_area_m2": 4.513596841692925,
+        "equivalent_power_kw": 544.9094989639707,
+        "replay_brake_gain": 0.7479577574878931
+      },
+      "trace_path": "failures/evaluation_00013.json.gz"
+    },
+    {
+      "evaluation": 14,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.426769295707345,
+        "drag_area_m2": 0.6621178673580289,
+        "downforce_area_m2": 2.5936329111456873,
+        "equivalent_power_kw": 505.41229345602915,
+        "replay_brake_gain": 0.8167023596353828
+      },
+      "trace_path": "failures/evaluation_00014.json.gz"
+    },
+    {
+      "evaluation": 15,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.9522634033113717,
+        "drag_area_m2": 1.541224963404238,
+        "downforce_area_m2": 5.706868559494615,
+        "equivalent_power_kw": 712.9582590959035,
+        "replay_brake_gain": 0.18749618185684086
+      },
+      "trace_path": "failures/evaluation_00015.json.gz"
+    },
+    {
+      "evaluation": 16,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.0012374822050334,
+        "drag_area_m2": 0.6256557680666447,
+        "downforce_area_m2": 3.3706568481400607,
+        "equivalent_power_kw": 406.26599960727617,
+        "replay_brake_gain": 0.5672037137672306
+      },
+      "trace_path": "failures/evaluation_00016.json.gz"
+    },
+    {
+      "evaluation": 17,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.4763613555580377,
+        "drag_area_m2": 1.4966878294944763,
+        "downforce_area_m2": 3.928807314299047,
+        "equivalent_power_kw": 635.7549669942819,
+        "replay_brake_gain": 0.4088715560734272
+      },
+      "trace_path": "failures/evaluation_00017.json.gz"
+    },
+    {
+      "evaluation": 18,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6871742378920316,
+        "drag_area_m2": 1.269688638113439,
+        "downforce_area_m2": 2.1440346663817764,
+        "equivalent_power_kw": 477.28610603371635,
+        "replay_brake_gain": 0.22756690094247461
+      },
+      "trace_path": "failures/evaluation_00018.json.gz"
+    },
+    {
+      "evaluation": 19,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.3622992735356094,
+        "drag_area_m2": 1.809679411165416,
+        "downforce_area_m2": 5.122648726589978,
+        "equivalent_power_kw": 660.5526683968492,
+        "replay_brake_gain": 0.9699905998073518
+      },
+      "trace_path": "failures/evaluation_00019.json.gz"
+    },
+    {
+      "evaluation": 20,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.1648817900568247,
+        "drag_area_m2": 1.0510286390781403,
+        "downforce_area_m2": 4.663913868181408,
+        "equivalent_power_kw": 702.3791461857036,
+        "replay_brake_gain": 0.8382401635870338
+      },
+      "trace_path": "failures/evaluation_00020.json.gz"
+    },
+    {
+      "evaluation": 21,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6396789345890284,
+        "drag_area_m2": 1.941179994493723,
+        "downforce_area_m2": 3.6530284071341157,
+        "equivalent_power_kw": 519.2073554871604,
+        "replay_brake_gain": 0.10970794707536698
+      },
+      "trace_path": "failures/evaluation_00021.json.gz"
+    },
+    {
+      "evaluation": 22,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2039438676089047,
+        "drag_area_m2": 0.844654862396419,
+        "downforce_area_m2": 5.57007638309151,
+        "equivalent_power_kw": 582.0586217753589,
+        "replay_brake_gain": 0.49837268078699715
+      },
+      "trace_path": "failures/evaluation_00022.json.gz"
+    },
+    {
+      "evaluation": 23,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.8787421744316815,
+        "drag_area_m2": 1.3655264040455222,
+        "downforce_area_m2": 2.7796465365216134,
+        "equivalent_power_kw": 352.4717877898365,
+        "replay_brake_gain": 0.6710619523189962
+      },
+      "trace_path": "failures/evaluation_00023.json.gz"
+    },
+    {
+      "evaluation": 24,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.8526285115629433,
+        "drag_area_m2": 1.2104765592142939,
+        "downforce_area_m2": 5.821444923430681,
+        "equivalent_power_kw": 500.6770213926211,
+        "replay_brake_gain": 0.3357679451815784
+      },
+      "trace_path": "failures/evaluation_00024.json.gz"
+    },
+    {
+      "evaluation": 25,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.3271675918251276,
+        "drag_area_m2": 1.6986741011962292,
+        "downforce_area_m2": 2.5116467144340278,
+        "equivalent_power_kw": 729.7924536233768,
+        "replay_brake_gain": 0.6069084462709725
+      },
+      "trace_path": "failures/evaluation_00025.json.gz"
+    },
+    {
+      "evaluation": 26,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.5291914116591214,
+        "drag_area_m2": 0.695119072496891,
+        "downforce_area_m2": 4.922933034226299,
+        "equivalent_power_kw": 380.26033744215965,
+        "replay_brake_gain": 0.9006495866924524
+      },
+      "trace_path": "failures/evaluation_00026.json.gz"
+    },
+    {
+      "evaluation": 27,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.203729365393519,
+        "drag_area_m2": 1.59606938585639,
+        "downforce_area_m2": 3.377314373105764,
+        "equivalent_power_kw": 563.1533646490425,
+        "replay_brake_gain": 0.2705411406233907
+      },
+      "trace_path": "failures/evaluation_00027.json.gz"
+    },
+    {
+      "evaluation": 28,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.306311881914735,
+        "drag_area_m2": 0.9139610892161727,
+        "downforce_area_m2": 1.8685774493962526,
+        "equivalent_power_kw": 604.9798659491353,
+        "replay_brake_gain": 0.17747632740065455
+      },
+      "trace_path": "failures/evaluation_00028.json.gz"
+    },
+    {
+      "evaluation": 29,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.781696108356118,
+        "drag_area_m2": 1.4650706289336086,
+        "downforce_area_m2": 5.381924709677697,
+        "equivalent_power_kw": 422.1816104068421,
+        "replay_brake_gain": 0.7933237900026142
+      },
+      "trace_path": "failures/evaluation_00029.json.gz"
+    },
+    {
+      "evaluation": 30,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.3547501038759946,
+        "drag_area_m2": 0.9919789992272854,
+        "downforce_area_m2": 3.102913843095303,
+        "equivalent_power_kw": 676.096086318139,
+        "replay_brake_gain": 0.7420989748090505
+      },
+      "trace_path": "failures/evaluation_00030.json.gz"
+    },
+    {
+      "evaluation": 31,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.0301332037895916,
+        "drag_area_m2": 1.8300173357129097,
+        "downforce_area_m2": 4.1804326716810465,
+        "equivalent_power_kw": 446.8827874888666,
+        "replay_brake_gain": 0.4572180533781648
+      },
+      "trace_path": "failures/evaluation_00031.json.gz"
+    },
+    {
+      "evaluation": 32,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.0444595515727997,
+        "drag_area_m2": 0.8726715002208948,
+        "downforce_area_m2": 5.020976100862026,
+        "equivalent_power_kw": 356.23896359466016,
+        "replay_brake_gain": 0.8706582562066615
+      },
+      "trace_path": "failures/evaluation_00032.json.gz"
+    },
+    {
+      "evaluation": 33,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.3698849946260452,
+        "drag_area_m2": 1.4236425813287497,
+        "downforce_area_m2": 2.229559916630387,
+        "equivalent_power_kw": 587.2214303910732,
+        "replay_brake_gain": 0.1282685778103769
+      },
+      "trace_path": "failures/evaluation_00033.json.gz"
+    },
+    {
+      "evaluation": 34,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.7678977601230144,
+        "drag_area_m2": 1.0325822668150066,
+        "downforce_area_m2": 4.1475691962987185,
+        "equivalent_power_kw": 524.3721931939945,
+        "replay_brake_gain": 0.5345092890784144
+      },
+      "trace_path": "failures/evaluation_00034.json.gz"
+    },
+    {
+      "evaluation": 35,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.2933220408856867,
+        "drag_area_m2": 1.8707591870799658,
+        "downforce_area_m2": 3.1357474654912947,
+        "equivalent_power_kw": 706.1439737165347,
+        "replay_brake_gain": 0.6929310224950314
+      },
+      "trace_path": "failures/evaluation_00035.json.gz"
+    },
+    {
+      "evaluation": 36,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.1896408915519716,
+        "drag_area_m2": 1.1637422319501638,
+        "downforce_area_m2": 2.6757283966988323,
+        "equivalent_power_kw": 652.304507039953,
+        "replay_brake_gain": 0.5998247825540602
+      },
+      "trace_path": "failures/evaluation_00036.json.gz"
+    },
+    {
+      "evaluation": 37,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.5141479462385177,
+        "drag_area_m2": 1.6517586324363944,
+        "downforce_area_m2": 5.657329507917166,
+        "equivalent_power_kw": 470.6276748725213,
+        "replay_brake_gain": 0.42722489228472116
+      },
+      "trace_path": "failures/evaluation_00037.json.gz"
+    },
+    {
+      "evaluation": 38,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.3412038497626781,
+        "drag_area_m2": 0.7411723772063851,
+        "downforce_area_m2": 3.8695447750389578,
+        "equivalent_power_kw": 629.0974705829285,
+        "replay_brake_gain": 0.26350050624459986
+      },
+      "trace_path": "failures/evaluation_00038.json.gz"
+    },
+    {
+      "evaluation": 39,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.8657097421586513,
+        "drag_area_m2": 1.6423040406778453,
+        "downforce_area_m2": 4.430732360109687,
+        "equivalent_power_kw": 398.0173138785176,
+        "replay_brake_gain": 0.9920669376850129
+      },
+      "trace_path": "failures/evaluation_00039.json.gz"
+    },
+    {
+      "evaluation": 40,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.9028829753398895,
+        "drag_area_m2": 1.096579491533339,
+        "downforce_area_m2": 3.6202350268140435,
+        "equivalent_power_kw": 453.63826734246686,
+        "replay_brake_gain": 0.20109107978641988
+      },
+      "trace_path": "failures/evaluation_00040.json.gz"
+    },
+    {
+      "evaluation": 41,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2277213364839554,
+        "drag_area_m2": 1.9865496637299658,
+        "downforce_area_m2": 4.696673390083015,
+        "equivalent_power_kw": 684.2471989826299,
+        "replay_brake_gain": 0.8312337474897504
+      },
+      "trace_path": "failures/evaluation_00041.json.gz"
+    },
+    {
+      "evaluation": 42,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6169450394809246,
+        "drag_area_m2": 0.7970558416098356,
+        "downforce_area_m2": 2.418752001039684,
+        "equivalent_power_kw": 430.33470656489953,
+        "replay_brake_gain": 0.7624295215122402
+      },
+      "trace_path": "failures/evaluation_00042.json.gz"
+    },
+    {
+      "evaluation": 43,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.141784527152777,
+        "drag_area_m2": 1.3181086916476488,
+        "downforce_area_m2": 5.931000771559775,
+        "equivalent_power_kw": 611.7329519311897,
+        "replay_brake_gain": 0.4913783949799836
+      },
+      "trace_path": "failures/evaluation_00043.json.gz"
+    },
+    {
+      "evaluation": 44,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.338103377819061,
+        "drag_area_m2": 0.6657138170674443,
+        "downforce_area_m2": 4.4209836428985,
+        "equivalent_power_kw": 557.893507340923,
+        "replay_brake_gain": 0.3596140246838332
+      },
+      "trace_path": "failures/evaluation_00044.json.gz"
+    },
+    {
+      "evaluation": 45,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6631952255964277,
+        "drag_area_m2": 1.5366074616089462,
+        "downforce_area_m2": 2.8785142527893184,
+        "equivalent_power_kw": 376.59021032974124,
+        "replay_brake_gain": 0.644584528543055
+      },
+      "trace_path": "failures/evaluation_00045.json.gz"
+    },
+    {
+      "evaluation": 46,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.4990401916205882,
+        "drag_area_m2": 1.2275770384818316,
+        "downforce_area_m2": 5.2866603137925265,
+        "equivalent_power_kw": 726.1232156632468,
+        "replay_brake_gain": 0.9207488331012428
+      },
+      "trace_path": "failures/evaluation_00046.json.gz"
+    },
+    {
+      "evaluation": 47,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.024133165925741,
+        "drag_area_m2": 1.767706437036395,
+        "downforce_area_m2": 1.9799933513626458,
+        "equivalent_power_kw": 495.4165941150859,
+        "replay_brake_gain": 0.3049353842623532
+      },
+      "trace_path": "failures/evaluation_00047.json.gz"
+    },
+    {
+      "evaluation": 48,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.974701752513647,
+        "drag_area_m2": 1.2845109796151517,
+        "downforce_area_m2": 4.874547265470028,
+        "equivalent_power_kw": 622.0311832008883,
+        "replay_brake_gain": 0.6846517741680145
+      },
+      "trace_path": "failures/evaluation_00048.json.gz"
+    },
+    {
+      "evaluation": 49,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.450162672251463,
+        "drag_area_m2": 1.7945194451138375,
+        "downforce_area_m2": 3.458768707886338,
+        "equivalent_power_kw": 417.1940599055961,
+        "replay_brake_gain": 0.5129057114943862
+      },
+      "trace_path": "failures/evaluation_00049.json.gz"
+    },
+    {
+      "evaluation": 50,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.6887635618448256,
+        "drag_area_m2": 0.6215118877589703,
+        "downforce_area_m2": 5.739734225347639,
+        "equivalent_power_kw": 646.6362634394318,
+        "replay_brake_gain": 0.1241778670810163
+      },
+      "trace_path": "failures/evaluation_00050.json.gz"
+    },
+    {
+      "evaluation": 51,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.364225608110428,
+        "drag_area_m2": 1.5004804000258445,
+        "downforce_area_m2": 2.56080147922039,
+        "equivalent_power_kw": 488.0215793661773,
+        "replay_brake_gain": 0.851897391024977
+      },
+      "trace_path": "failures/evaluation_00051.json.gz"
+    },
+    {
+      "evaluation": 52,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.1116521798074244,
+        "drag_area_m2": 0.840013494901359,
+        "downforce_area_m2": 3.019536916539073,
+        "equivalent_power_kw": 529.9501080415212,
+        "replay_brake_gain": 0.9554601691663265
+      },
+      "trace_path": "failures/evaluation_00052.json.gz"
+    },
+    {
+      "evaluation": 53,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.586267953366041,
+        "drag_area_m2": 1.3691412126645446,
+        "downforce_area_m2": 4.230741032212973,
+        "equivalent_power_kw": 688.4671364049427,
+        "replay_brake_gain": 0.2139744756743312
+      },
+      "trace_path": "failures/evaluation_00053.json.gz"
+    },
+    {
+      "evaluation": 54,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2725892394781113,
+        "drag_area_m2": 1.0656702563166618,
+        "downforce_area_m2": 1.8175000615417958,
+        "equivalent_power_kw": 363.39548853458837,
+        "replay_brake_gain": 0.39521864866837864
+      },
+      "trace_path": "failures/evaluation_00054.json.gz"
+    },
+    {
+      "evaluation": 55,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.9472061395645142,
+        "drag_area_m2": 1.9255194954574106,
+        "downforce_area_m2": 5.465558030828833,
+        "equivalent_power_kw": 568.3275259868242,
+        "replay_brake_gain": 0.5527294770814478
+      },
+      "trace_path": "failures/evaluation_00055.json.gz"
+    },
+    {
+      "evaluation": 56,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.8214052818715571,
+        "drag_area_m2": 0.7215798646211624,
+        "downforce_area_m2": 2.091675759293139,
+        "equivalent_power_kw": 719.61725452682,
+        "replay_brake_gain": 0.4435655717737973
+      },
+      "trace_path": "failures/evaluation_00056.json.gz"
+    },
+    {
+      "evaluation": 57,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.2962814085185528,
+        "drag_area_m2": 1.570630145817995,
+        "downforce_area_m2": 5.208076700381935,
+        "equivalent_power_kw": 513.6595257627778,
+        "replay_brake_gain": 0.7276251706294715
+      },
+      "trace_path": "failures/evaluation_00057.json.gz"
+    },
+    {
+      "evaluation": 58,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.5448432356119155,
+        "drag_area_m2": 1.1741917563602327,
+        "downforce_area_m2": 3.284972511045635,
+        "equivalent_power_kw": 553.1590795447119,
+        "replay_brake_gain": 0.7787929335609078
+      },
+      "trace_path": "failures/evaluation_00058.json.gz"
+    },
+    {
+      "evaluation": 59,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.219718199968338,
+        "drag_area_m2": 1.735993473790586,
+        "downforce_area_m2": 3.981935217417777,
+        "equivalent_power_kw": 393.4237900027074,
+        "replay_brake_gain": 0.1638834696263075
+      },
+      "trace_path": "failures/evaluation_00059.json.gz"
+    },
+    {
+      "evaluation": 60,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.2671447716653343,
+        "drag_area_m2": 0.9551886983215808,
+        "downforce_area_m2": 5.490672594867647,
+        "equivalent_power_kw": 435.3523407643661,
+        "replay_brake_gain": 0.2850106281228364
+      },
+      "trace_path": "failures/evaluation_00060.json.gz"
+    },
+    {
+      "evaluation": 61,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.7423476271331308,
+        "drag_area_m2": 1.8671509355306624,
+        "downforce_area_m2": 2.825981258042157,
+        "equivalent_power_kw": 594.9899745965376,
+        "replay_brake_gain": 0.9143063883297146
+      },
+      "trace_path": "failures/evaluation_00061.json.gz"
+    },
+    {
+      "evaluation": 62,
+      "stage": "screening",
+      "parameters": {
+        "mu": 1.418707975745201,
+        "drag_area_m2": 0.9402384867891669,
+        "downforce_area_m2": 4.616810119338334,
+        "equivalent_power_kw": 459.86093088053167,
+        "replay_brake_gain": 0.6204987006261945
+      },
+      "trace_path": "failures/evaluation_00062.json.gz"
+    },
+    {
+      "evaluation": 63,
+      "stage": "screening",
+      "parameters": {
+        "mu": 2.093909668922424,
+        "drag_area_m2": 1.439128185622394,
+        "downforce_area_m2": 3.732688589952886,
+        "equivalent_power_kw": 665.9135738015175,
+        "replay_brake_gain": 0.35030140168964863
+      },
+      "trace_path": "failures/evaluation_00063.json.gz"
+    }
+  ],
+  "calibration_summary": {
+    "role": "calibration",
+    "physical_valid": false,
+    "normalized_objective": null,
+    "passed": false,
+    "diagnostics": {
+      "autonomous": [
+        {
+          "lap_number": 3,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 149.99985582850923,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 19.999980777134624,
+              "observed_mean_deceleration_mps2": -11.514456505053355,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 120.32624004975001,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -19.097919006579122
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1059.9989811881317,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -9.946182751887125,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 68.04202623995042,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -2.001598501569043
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1929.9981449934853,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": -24.99997597141828,
+              "observed_mean_deceleration_mps2": -17.22648876985237,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 100.31759125838748,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -13.509001582522739
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2414.997678838998,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 24.99997597141828,
+              "observed_mean_deceleration_mps2": -8.002695319881687,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 160.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -17.80225445631765
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -5.474199451432695,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 186.0670614371548,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -35.967797428420006
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2749.997356856002,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": 9.999990388567312,
+              "observed_mean_deceleration_mps2": -4.463567529232632,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 209.59682783777987,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -15.447868042243034
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -6.932192935794166,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 210.2076797620582,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -37.55995518554747
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -7.58135365681476,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 162.05110797524623,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -46.6408638892894
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        },
+        {
+          "lap_number": 4,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 174.9998317999275,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": -4.999995194283656,
+              "observed_mean_deceleration_mps2": -11.330514186624143,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 119.42515371532416,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -18.196832672153263
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1094.9989475481173,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": -4.999995194283656,
+              "observed_mean_deceleration_mps2": -10.830880371725133,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 66.0,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": 0.0404277383813735
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1874.998197856365,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -11.705857266645573,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 99.22609347675002,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -12.417503800885273
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2419.997674033282,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 19.999980777134624,
+              "observed_mean_deceleration_mps2": -7.252512996151278,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 160.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -17.80225445631765
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -5.24547647813116,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 185.0,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -34.900735991265215
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2754.997352050286,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": 4.999995194283656,
+              "observed_mean_deceleration_mps2": -5.035826345321334,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 204.69179819980675,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -10.542838404269919
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.350014472510749,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 201.52698838067332,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -28.879263804162587
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.647875578320589,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 157.25127943679288,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -41.84103535083607
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        },
+        {
+          "lap_number": 5,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 144.99986063422557,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 24.99997597141828,
+              "observed_mean_deceleration_mps2": -11.794643994083717,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 120.00000000000001,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -18.771678956829117
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1069.998971576699,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 19.999980777134624,
+              "observed_mean_deceleration_mps2": -10.420245969178831,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 65.60332879940776,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": 0.4370989389736039
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1864.9982074677978,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 39.99996155426925,
+              "observed_mean_deceleration_mps2": -11.95506235732394,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 98.43964137085882,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -11.631051694994076
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2424.9976692275654,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 14.999985582850968,
+              "observed_mean_deceleration_mps2": -6.90338970687959,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 160.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -17.80225445631765
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -5.7046931955918865,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 183.13350491529877,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -33.034240906564
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2759.9973472445695,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.710427735198473,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 205.51205207066735,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -11.363092275130521
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -8.092578748300387,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 206.12080937833002,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -33.47308480181928
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -8.716280186766145,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 162.65365249616667,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -47.24340841020986
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        },
+        {
+          "lap_number": 6,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 154.99985102279288,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 14.999985582850968,
+              "observed_mean_deceleration_mps2": -12.24012783083688,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 115.42925423308999,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -14.2009331899191
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1079.9989619652663,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 9.999990388567312,
+              "observed_mean_deceleration_mps2": -11.247497625571558,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 68.0,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -1.9595722616186322
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1884.9981882449322,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 19.999980777134624,
+              "observed_mean_deceleration_mps2": -14.295706639899674,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 98.0,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -11.191410324135253
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2404.997688450431,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 34.99996635998559,
+              "observed_mean_deceleration_mps2": -8.824854980097877,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 157.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -14.802254456317641
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.096442036997402,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 179.03530503581942,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -28.936041027084652
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": null,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": null,
+              "observed_mean_deceleration_mps2": -4.0305669870963,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 200.72941526651087,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -6.580455470974056
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -8.849517331112501,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 202.04314063951,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -29.39541606299926
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3469.996664832846,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 24.999975971418735,
+              "observed_mean_deceleration_mps2": -8.35561160038543,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 162.01264857164526,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -46.60240448568844
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        }
+      ],
+      "replay": [
+        {
+          "lap_number": 3,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        },
+        {
+          "lap_number": 4,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        },
+        {
+          "lap_number": 5,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        },
+        {
+          "lap_number": 6,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        }
+      ]
+    },
+    "replay": {
+      "metrics": [
+        {
+          "lap_number": 3,
+          "role": "calibration",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 46,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 2.834430576640427,
+            "speed_start_mps": 84.16666666666667,
+            "speed_end_mps": 61.6426432067287,
+            "periodic_speed_residual_mps": 22.524023459937972,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 232.73695325375462,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 232.73695325375462,
+                "time_s": 2.834430576640427
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.5250353208772225e-11,
+            "mechanical_work_total_residual_mj": 2.084643788013429e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.9079480064501695,
+            "internal_steps": 534,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        },
+        {
+          "lap_number": 4,
+          "role": "calibration",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 45,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 2.70445686732592,
+            "speed_start_mps": 85.0,
+            "speed_end_mps": 68.40155296216848,
+            "periodic_speed_residual_mps": 16.59844703783152,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 229.58094761421344,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 229.58094761421344,
+                "time_s": 2.70445686732592
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.5462601797698882e-11,
+            "mechanical_work_total_residual_mj": 3.155872668186287e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.93109680753696,
+            "internal_steps": 520,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        },
+        {
+          "lap_number": 5,
+          "role": "calibration",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 47,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 2.954931171296697,
+            "speed_start_mps": 84.16666666666667,
+            "speed_end_mps": 56.39692790942597,
+            "periodic_speed_residual_mps": 27.769738757240702,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 235.60823771153244,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 235.60823771153244,
+                "time_s": 2.954931171296697
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.4735852434787375e-11,
+            "mechanical_work_total_residual_mj": -3.478206672268279e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.997064479292021,
+            "internal_steps": 536,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        },
+        {
+          "lap_number": 6,
+          "role": "calibration",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 47,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 2.9761476865825847,
+            "speed_start_mps": 85.78571418434584,
+            "speed_end_mps": 54.63012239685507,
+            "periodic_speed_residual_mps": 31.155591787490764,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 236.58626999445968,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 236.58626999445968,
+                "time_s": 2.9761476865825847
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.558636049343477e-11,
+            "mechanical_work_total_residual_mj": 2.0065020874165946e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.989651448719087,
+            "internal_steps": 540,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        }
+      ],
+      "expected_laps": 4,
+      "gate": {
+        "passed": false,
+        "observed": {},
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "All precommitted laps must have complete valid predictions",
+          "Nonfinite or missing observable error",
+          "Physical checks failed"
+        ],
+        "precommitted": true
+      }
+    },
+    "autonomous": {
+      "metrics": [
+        {
+          "lap_number": 3,
+          "role": "calibration",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.818,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.2776048964438331,
+          "lap_error_pct": 1.7789480303598446,
+          "speed_rmse_kmh": 21.129637882782696,
+          "speed_mae_kmh": 18.226214983197046,
+          "signed_speed_bias_kmh": -8.403778266555342,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.546,
+            32.419,
+            21.853
+          ],
+          "sim_sector_times_s": [
+            17.771992074941316,
+            31.711934806044823,
+            23.61167801545769
+          ],
+          "sector_error_s": [
+            0.2259920749413169,
+            -0.7070651939551738,
+            1.75867801545769
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 126,
+              "speed_rmse_kmh": 26.688736733975908,
+              "signed_speed_bias_kmh": 15.133292923732869
+            },
+            "partial_throttle": {
+              "samples": 149,
+              "speed_rmse_kmh": 21.98083715282801,
+              "signed_speed_bias_kmh": -5.98044110580098
+            },
+            "full_throttle_straight": {
+              "samples": 471,
+              "speed_rmse_kmh": 20.400242345501653,
+              "signed_speed_bias_kmh": -15.263218342649084
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 19.457855848169494,
+              "signed_speed_bias_kmh": -6.047347826959847
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        },
+        {
+          "lap_number": 4,
+          "role": "calibration",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.779,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.3166048964438346,
+          "lap_error_pct": 1.8342480341657514,
+          "speed_rmse_kmh": 20.153407475552275,
+          "speed_mae_kmh": 17.23514124217419,
+          "signed_speed_bias_kmh": -7.727935742495767,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.512,
+            32.282,
+            21.985
+          ],
+          "sim_sector_times_s": [
+            17.805299230039534,
+            31.851657600569514,
+            23.438648065834784
+          ],
+          "sector_error_s": [
+            0.2932992300395334,
+            -0.4303423994304829,
+            1.4536480658347841
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 133,
+              "speed_rmse_kmh": 25.751612494528974,
+              "signed_speed_bias_kmh": 11.121520969535856
+            },
+            "partial_throttle": {
+              "samples": 154,
+              "speed_rmse_kmh": 20.31719912829639,
+              "signed_speed_bias_kmh": -0.5792168375638302
+            },
+            "full_throttle_straight": {
+              "samples": 455,
+              "speed_rmse_kmh": 19.674652796414605,
+              "signed_speed_bias_kmh": -15.715312229343786
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 17.81002123907398,
+              "signed_speed_bias_kmh": -5.531287866264576
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        },
+        {
+          "lap_number": 5,
+          "role": "calibration",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.686,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.409604896443824,
+          "lap_error_pct": 1.9663600932452971,
+          "speed_rmse_kmh": 21.914137215430152,
+          "speed_mae_kmh": 18.575300586282463,
+          "signed_speed_bias_kmh": -8.62621642268076,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.524,
+            32.303,
+            21.859
+          ],
+          "sim_sector_times_s": [
+            17.874026405750804,
+            31.71698365466321,
+            23.504594836029817
+          ],
+          "sector_error_s": [
+            0.35002640575080335,
+            -0.5860163453367875,
+            1.6455948360298152
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 142,
+              "speed_rmse_kmh": 29.94907157842898,
+              "signed_speed_bias_kmh": 16.365679154971943
+            },
+            "partial_throttle": {
+              "samples": 142,
+              "speed_rmse_kmh": 19.774550957985127,
+              "signed_speed_bias_kmh": -4.70903094335951
+            },
+            "full_throttle_straight": {
+              "samples": 459,
+              "speed_rmse_kmh": 21.345993712916183,
+              "signed_speed_bias_kmh": -17.696767829447396
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 17.92902717208811,
+              "signed_speed_bias_kmh": -5.792791202882302
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        },
+        {
+          "lap_number": 6,
+          "role": "calibration",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.947,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.1486048964438282,
+          "lap_error_pct": 1.5964597501547364,
+          "speed_rmse_kmh": 20.965960956149985,
+          "speed_mae_kmh": 17.812904766899887,
+          "signed_speed_bias_kmh": -7.410713191885729,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.528,
+            32.387,
+            22.032
+          ],
+          "sim_sector_times_s": [
+            17.87068821209987,
+            31.72022494166753,
+            23.504691742676428
+          ],
+          "sector_error_s": [
+            0.34268821209987266,
+            -0.666775058332469,
+            1.472691742676428
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 127,
+              "speed_rmse_kmh": 27.35851832712068,
+              "signed_speed_bias_kmh": 16.24215943038306
+            },
+            "partial_throttle": {
+              "samples": 169,
+              "speed_rmse_kmh": 20.432635703374448,
+              "signed_speed_bias_kmh": -0.29367689275299086
+            },
+            "full_throttle_straight": {
+              "samples": 456,
+              "speed_rmse_kmh": 20.678219793915726,
+              "signed_speed_bias_kmh": -16.478952876079216
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 17.746611715030866,
+              "signed_speed_bias_kmh": -3.5445055919594686
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        }
+      ],
+      "expected_laps": 4,
+      "gate": {
+        "passed": false,
+        "observed": {
+          "mean_speed_rmse_kmh": 21.04078588247878,
+          "max_abs_lap_error_pct": 1.9663600932452971,
+          "max_abs_sector_error_s": 1.75867801545769
+        },
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "mean_speed_rmse_kmh: 21.0408 exceeds 15.0",
+          "max_abs_sector_error_s: 1.75868 exceeds 1.0"
+        ],
+        "precommitted": true
+      }
+    }
+  },
+  "development_summary": {
+    "role": "development",
+    "physical_valid": false,
+    "normalized_objective": null,
+    "passed": false,
+    "diagnostics": {
+      "autonomous": [
+        {
+          "lap_number": 7,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 134.99987024565826,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 34.99996635998559,
+              "observed_mean_deceleration_mps2": -13.40221476766769,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 120.23887867000612,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -19.010557626835226
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1064.9989763824153,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 24.99997597141828,
+              "observed_mean_deceleration_mps2": -10.46985340213549,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 67.0,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -0.9595722616186294
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1869.9982026620814,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 34.99996635998559,
+              "observed_mean_deceleration_mps2": -11.926982926803458,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 98.50697560753909,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -11.69838593167435
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2394.9976980618635,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 44.999956748552904,
+              "observed_mean_deceleration_mps2": -7.808829024488487,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 158.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -15.802254456317645
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -6.0176309865999436,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 184.0,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -33.900735991265215
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2764.9973424388527,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": -4.999995194283201,
+              "observed_mean_deceleration_mps2": -4.591764421156521,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 196.47486469732732,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -2.3259049017905
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.24114067006187,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 203.0,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -30.352275423489264
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.912371471571486,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 158.1554400053048,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -42.74519591934799
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        },
+        {
+          "lap_number": 9,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 164.9998414113602,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 4.999995194283656,
+              "observed_mean_deceleration_mps2": -12.00298210620396,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 117.14258880028612,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -15.91426775711522
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1084.99895715955,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 4.999995194283656,
+              "observed_mean_deceleration_mps2": -10.862539147874688,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 66.30623573451402,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -0.2658079961326507
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1874.998197856365,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -12.219277310233466,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 95.0,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -8.191410324135257
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2409.9976836447145,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -7.416865663189115,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 156.02514569602545,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -13.827400152343092
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.912560099535123,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 180.0,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -29.900735991265226
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2759.9973472445695,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.228676364821978,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 191.37313483989072,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": 2.775824955646101
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3494.9966408042646,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -9.934736118432502,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 198.053868280919,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -25.406143704408272
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3494.9966408042646,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -8.77713939371828,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 155.11542185191652,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -39.70517776595971
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        }
+      ],
+      "replay": [
+        {
+          "lap_number": 7,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        },
+        {
+          "lap_number": 9,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        }
+      ]
+    },
+    "replay": {
+      "metrics": [
+        {
+          "lap_number": 7,
+          "role": "development",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 49,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 3.3121096897125213,
+            "speed_start_mps": 85.27777777777777,
+            "speed_end_mps": 46.723318984098384,
+            "periodic_speed_residual_mps": 38.55445879367939,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 245.4807065661655,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 245.4807065661655,
+                "time_s": 3.3121096897125213
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.5254257479900844e-11,
+            "mechanical_work_total_residual_mj": -4.963622283001221e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.996783762566338,
+            "internal_steps": 578,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        },
+        {
+          "lap_number": 9,
+          "role": "development",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 47,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 3.0195071072924318,
+            "speed_start_mps": 83.88888888888889,
+            "speed_end_mps": 54.15239844600602,
+            "periodic_speed_residual_mps": 29.736490442882868,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 236.86648298020415,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 236.86648298020415,
+                "time_s": 3.0195071072924318
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.4844608105922816e-11,
+            "mechanical_work_total_residual_mj": -3.539297223959792e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.952250597416423,
+            "internal_steps": 540,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        }
+      ],
+      "expected_laps": 2,
+      "gate": {
+        "passed": false,
+        "observed": {},
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "All precommitted laps must have complete valid predictions",
+          "Nonfinite or missing observable error",
+          "Physical checks failed"
+        ],
+        "precommitted": true
+      }
+    },
+    "autonomous": {
+      "metrics": [
+        {
+          "lap_number": 7,
+          "role": "development",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.975,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.1206048964438367,
+          "lap_error_pct": 1.556936292384629,
+          "speed_rmse_kmh": 20.833313354850205,
+          "speed_mae_kmh": 17.607566914860474,
+          "signed_speed_bias_kmh": -7.63368582784967,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.441,
+            32.377,
+            22.157
+          ],
+          "sim_sector_times_s": [
+            17.914829825173655,
+            31.7729408166498,
+            23.407834254620376
+          ],
+          "sector_error_s": [
+            0.4738298251736559,
+            -0.604059183350202,
+            1.2508342546203757
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 150,
+              "speed_rmse_kmh": 26.72356039362768,
+              "signed_speed_bias_kmh": 13.15372297782225
+            },
+            "partial_throttle": {
+              "samples": 155,
+              "speed_rmse_kmh": 19.352877273261242,
+              "signed_speed_bias_kmh": -1.4195621190037728
+            },
+            "full_throttle_straight": {
+              "samples": 445,
+              "speed_rmse_kmh": 20.797674030335088,
+              "signed_speed_bias_kmh": -17.035812895997235
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 16.944042049388106,
+              "signed_speed_bias_kmh": -4.498182005571741
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        },
+        {
+          "lap_number": 9,
+          "role": "development",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 72.403,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 0.6926048964438252,
+          "lap_error_pct": 0.9565969593025497,
+          "speed_rmse_kmh": 19.9652256533232,
+          "speed_mae_kmh": 16.85576816417117,
+          "signed_speed_bias_kmh": -6.6871507682227325,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.558,
+            32.504,
+            22.341
+          ],
+          "sim_sector_times_s": [
+            17.9758945523652,
+            31.732497425895705,
+            23.387212918182925
+          ],
+          "sector_error_s": [
+            0.4178945523652011,
+            -0.7715025741042929,
+            1.046212918182924
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 128,
+              "speed_rmse_kmh": 26.313751779787747,
+              "signed_speed_bias_kmh": 14.754200482571067
+            },
+            "partial_throttle": {
+              "samples": 187,
+              "speed_rmse_kmh": 18.532560035687336,
+              "signed_speed_bias_kmh": 2.2443209909033617
+            },
+            "full_throttle_straight": {
+              "samples": 446,
+              "speed_rmse_kmh": 20.003820982199194,
+              "signed_speed_bias_kmh": -16.605097054508946
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 16.263799682973392,
+              "signed_speed_bias_kmh": -2.299301816844148
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        }
+      ],
+      "expected_laps": 2,
+      "gate": {
+        "passed": false,
+        "observed": {
+          "mean_speed_rmse_kmh": 20.399269504086703,
+          "max_abs_lap_error_pct": 1.556936292384629,
+          "max_abs_sector_error_s": 1.2508342546203757
+        },
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "mean_speed_rmse_kmh: 20.3993 exceeds 15.0",
+          "max_abs_sector_error_s: 1.25083 exceeds 1.0"
+        ],
+        "precommitted": true
+      }
+    }
+  }
+}

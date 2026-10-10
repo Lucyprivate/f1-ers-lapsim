@@ -1,0 +1,9 @@
+{
+  "html_script_syntax": true,
+  "dom_stub_execution": true,
+  "metrics_rows": 4,
+  "role_switch_handler": true,
+  "actual_browser_interaction": false,
+  "status": "dom_stub_passed_browser_not_measured",
+  "report_sha256": "0906b7071108561e0bd7304a0dccb708f6cb76bf313e5d9c719643db48a3e908"
+}

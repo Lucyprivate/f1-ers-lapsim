@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "exact_trace": true,
+  "exact_raw_actions": true,
+  "exact_mapped_actions": true,
+  "exact_proxy": true,
+  "exact_saved_calibration": true,
+  "exact_saved_development": true,
+  "inventory_passed": true,
+  "source_hashes_passed": true,
+  "dependency_versions_passed": true,
+  "new_selection_or_training": false,
+  "FP2_accessed": false,
+  "accuracy_gates": {
+    "cold_and_warm_control": true,
+    "calibration_accuracy": false,
+    "development_accuracy": false,
+    "numerical_convergence": true,
+    "new_session_test": false,
+    "full_FIA_ECU": false,
+    "true_SOC": false,
+    "formal_release": false
+  },
+  "policy_specific_periodic_shooting": false,
+  "formal_release": false,
+  "schema_version": 7,
+  "source_commit": "9be703eadc8a8b25f2b0b28fd225e0f0952d6210",
+  "results_manifest_sha256": "6c3ec2c07c1e4eddf41af7ee4c4c0300221f8666ca659f311e19a65f17fa97f4",
+  "verification_log_sha256": "da60b89798693885030de4180169a26c3a8099d7f867bdf1fa25e1aa92b94a96"
+}

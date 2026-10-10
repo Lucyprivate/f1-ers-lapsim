@@ -1,0 +1,28 @@
+{
+  "schema_version": 3,
+  "artifact_integrity_passed": true,
+  "exact_local_replay_passed": true,
+  "checks": [
+    {
+      "candidate": "alignment",
+      "all_local_traces_match": true,
+      "retained_partial_failures_match": true
+    },
+    {
+      "candidate": "spline",
+      "all_local_traces_match": true,
+      "retained_partial_failures_match": true
+    },
+    {
+      "candidate": "anisotropic",
+      "all_local_traces_match": true,
+      "retained_partial_failures_match": true
+    }
+  ],
+  "accuracy_gate_passed": false,
+  "physical_gate_passed": false,
+  "new_session_status": "pending",
+  "test_arrays_reloaded": false,
+  "formal_training_run": false,
+  "interpretation": "Exact reproduction includes retained failures; fidelity gates remain separate"
+}

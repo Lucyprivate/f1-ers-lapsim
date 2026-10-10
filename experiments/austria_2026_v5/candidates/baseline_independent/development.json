@@ -1,0 +1,314 @@
+{
+  "role": "development",
+  "physical_valid": false,
+  "passed": false,
+  "normalized_objective": null,
+  "huber_objective": null,
+  "replay": {
+    "metrics": [
+      {
+        "lap_number": 7,
+        "role": "development",
+        "mode": "replay",
+        "valid": false,
+        "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+        "completed_segments": 50,
+        "summary": {
+          "protocol": "falsification_adapters_frozen_midpoint_v5",
+          "mode": "replay",
+          "completed_lap": false,
+          "execution_feasible": false,
+          "feasible": false,
+          "status": "physical_fail",
+          "lap_time_s": 3.4532483673095724,
+          "speed_start_mps": 85.27777777777777,
+          "speed_end_mps": 41.87922881254934,
+          "periodic_speed_residual_mps": 43.39854896522843,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": false,
+          "observed_initial_speed_only": true,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": true,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 250.7818131302197,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [
+            {
+              "status": "physical_fail",
+              "guard_reasons": [
+                "combined_tire_force"
+              ],
+              "s_m": 250.7818131302197,
+              "time_s": 3.4532483673095724
+            }
+          ],
+          "mechanical_work_max_segment_residual_mj": 2.5254257479900844e-11,
+          "mechanical_work_total_residual_mj": -1.4093086371001765e-10,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 7.951776012596383,
+          "internal_steps": 568,
+          "integrator_config": {
+            "dt_max": 0.02,
+            "max_ds": 1.0,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": null,
+          "envelope_report": null,
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": false,
+          "frozen_v4_kernel_sha256": "903cf0a0824928378f404529a7656fe316454de25e6e0de8d1b540631bb30d9d",
+          "brake_mapping": "independent",
+          "brake_decay_tau_s": null,
+          "traction_tau_s": null,
+          "raw_driver_requests_preserved": true
+        }
+      },
+      {
+        "lap_number": 9,
+        "role": "development",
+        "mode": "replay",
+        "valid": false,
+        "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+        "completed_segments": 47,
+        "summary": {
+          "protocol": "falsification_adapters_frozen_midpoint_v5",
+          "mode": "replay",
+          "completed_lap": false,
+          "execution_feasible": false,
+          "feasible": false,
+          "status": "physical_fail",
+          "lap_time_s": 3.052492273019854,
+          "speed_start_mps": 83.88888888888889,
+          "speed_end_mps": 51.906256918547754,
+          "periodic_speed_residual_mps": 31.98263197034113,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": false,
+          "observed_initial_speed_only": true,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": true,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 238.2855324456883,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [
+            {
+              "status": "physical_fail",
+              "guard_reasons": [
+                "combined_tire_force"
+              ],
+              "s_m": 238.2855324456883,
+              "time_s": 3.052492273019854
+            }
+          ],
+          "mechanical_work_max_segment_residual_mj": 2.4844608105922816e-11,
+          "mechanical_work_total_residual_mj": -8.992704599491967e-11,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 7.992119347010885,
+          "internal_steps": 534,
+          "integrator_config": {
+            "dt_max": 0.02,
+            "max_ds": 1.0,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": null,
+          "envelope_report": null,
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": false,
+          "frozen_v4_kernel_sha256": "903cf0a0824928378f404529a7656fe316454de25e6e0de8d1b540631bb30d9d",
+          "brake_mapping": "independent",
+          "brake_decay_tau_s": null,
+          "traction_tau_s": null,
+          "raw_driver_requests_preserved": true
+        }
+      }
+    ],
+    "expected_laps": 2,
+    "gate": {
+      "passed": false,
+      "observed": {},
+      "thresholds": {
+        "mean_speed_rmse_kmh": 15.0,
+        "max_abs_lap_error_pct": 2.0,
+        "max_abs_sector_error_s": 1.0
+      },
+      "reasons": [
+        "All precommitted laps must have complete valid predictions",
+        "Nonfinite or missing observable error",
+        "Physical checks failed"
+      ],
+      "precommitted": true
+    }
+  },
+  "autonomous": {
+    "metrics": [
+      {
+        "lap_number": 7,
+        "role": "development",
+        "mode": "autonomous",
+        "valid": true,
+        "real_lap_time_s": 71.975,
+        "sim_lap_time_s": 73.09560489644383,
+        "lap_error_s": 1.1206048964438367,
+        "lap_error_pct": 1.556936292384629,
+        "speed_rmse_kmh": 20.833313354850205,
+        "speed_mae_kmh": 17.607566914860474,
+        "signed_speed_bias_kmh": -7.63368582784967,
+        "sample_count": 857,
+        "real_sector_times_s": [
+          17.441,
+          32.377,
+          22.157
+        ],
+        "sim_sector_times_s": [
+          17.914829825173655,
+          31.7729408166498,
+          23.407834254620376
+        ],
+        "sector_error_s": [
+          0.4738298251736559,
+          -0.604059183350202,
+          1.2508342546203757
+        ],
+        "grouped_speed_errors": {
+          "braking": {
+            "samples": 150,
+            "speed_rmse_kmh": 26.72356039362768,
+            "signed_speed_bias_kmh": 13.15372297782225
+          },
+          "partial_throttle": {
+            "samples": 155,
+            "speed_rmse_kmh": 19.352877273261242,
+            "signed_speed_bias_kmh": -1.4195621190037728
+          },
+          "full_throttle_straight": {
+            "samples": 445,
+            "speed_rmse_kmh": 20.797674030335088,
+            "signed_speed_bias_kmh": -17.035812895997235
+          },
+          "corner": {
+            "samples": 312,
+            "speed_rmse_kmh": 16.944042049388106,
+            "signed_speed_bias_kmh": -4.498182005571741
+          }
+        },
+        "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+        "ers_validated": true,
+        "speed_median_absolute_error_kmh": 16.51333783466514,
+        "speed_p95_absolute_error_kmh": 33.26382048670714
+      },
+      {
+        "lap_number": 9,
+        "role": "development",
+        "mode": "autonomous",
+        "valid": true,
+        "real_lap_time_s": 72.403,
+        "sim_lap_time_s": 73.09560489644383,
+        "lap_error_s": 0.6926048964438252,
+        "lap_error_pct": 0.9565969593025497,
+        "speed_rmse_kmh": 19.9652256533232,
+        "speed_mae_kmh": 16.85576816417117,
+        "signed_speed_bias_kmh": -6.6871507682227325,
+        "sample_count": 857,
+        "real_sector_times_s": [
+          17.558,
+          32.504,
+          22.341
+        ],
+        "sim_sector_times_s": [
+          17.9758945523652,
+          31.732497425895705,
+          23.387212918182925
+        ],
+        "sector_error_s": [
+          0.4178945523652011,
+          -0.7715025741042929,
+          1.046212918182924
+        ],
+        "grouped_speed_errors": {
+          "braking": {
+            "samples": 128,
+            "speed_rmse_kmh": 26.313751779787747,
+            "signed_speed_bias_kmh": 14.754200482571067
+          },
+          "partial_throttle": {
+            "samples": 187,
+            "speed_rmse_kmh": 18.532560035687336,
+            "signed_speed_bias_kmh": 2.2443209909033617
+          },
+          "full_throttle_straight": {
+            "samples": 446,
+            "speed_rmse_kmh": 20.003820982199194,
+            "signed_speed_bias_kmh": -16.605097054508946
+          },
+          "corner": {
+            "samples": 312,
+            "speed_rmse_kmh": 16.263799682973392,
+            "signed_speed_bias_kmh": -2.299301816844148
+          }
+        },
+        "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+        "ers_validated": true,
+        "speed_median_absolute_error_kmh": 15.43813152624055,
+        "speed_p95_absolute_error_kmh": 33.597927408551364
+      }
+    ],
+    "expected_laps": 2,
+    "gate": {
+      "passed": false,
+      "observed": {
+        "mean_speed_rmse_kmh": 20.399269504086703,
+        "max_abs_lap_error_pct": 1.556936292384629,
+        "max_abs_sector_error_s": 1.2508342546203757
+      },
+      "thresholds": {
+        "mean_speed_rmse_kmh": 15.0,
+        "max_abs_lap_error_pct": 2.0,
+        "max_abs_sector_error_s": 1.0
+      },
+      "reasons": [
+        "mean_speed_rmse_kmh: 20.3993 exceeds 15.0",
+        "max_abs_sector_error_s: 1.25083 exceeds 1.0"
+      ],
+      "precommitted": true
+    }
+  }
+}

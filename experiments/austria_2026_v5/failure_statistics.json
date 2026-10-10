@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "diagnostic_only": true,
+  "candidate_selection_influenced": false,
+  "tool_sha256": "acc1d93fd66ed28313da3f6917b4a9ae9f9d3c6851f2493e7633a7002218af6a",
+  "calibration_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "development_views_opened": false,
+  "new_telemetry_requested": false,
+  "method": {
+    "stage_s": "[s_start, (s_start+s_end)/2, s_end]",
+    "stage_speed": "[v_start, (v_start+v_end)/2, v_end]",
+    "total_tire_force_n": "mu * session_grip_scale * (mass*9.81 + 0.5*rho*downforce_area_at_stage*v_stage**2)",
+    "lateral_force_n": "mass*v_stage**2*abs(continuous_route_curvature_at_stage)",
+    "remaining_longitudinal_capacity_n": "sqrt(max(0,total_tire_force**2-lateral_force**2)); minimum over all three stages",
+    "pure_lateral_excess_n": "max_over_stages(lateral-total)",
+    "joint_excess_n": "max_over_stages(hypot(rejected_executed_wheel_force,lateral)-total)",
+    "kernel_force_function_called": false,
+    "kernel_guard_threshold_n": 8.0,
+    "zero_force_tolerance_n": 1e-09,
+    "firstcorner_window_m": [
+      180.0,
+      320.0
+    ],
+    "request_interpretation": "Model demand, never real brake pressure",
+    "source_caveat": "Inherited raw caches may contain multiple historical roles; only the loader's explicit calibration view is processed"
+  },
+  "candidates": [
+    {
+      "candidate": "baseline_independent",
+      "screening_report_available": true,
+      "preregistered_screening_points": 64,
+      "screening_points_completed": 64,
+      "screening_feasible_count": 0,
+      "observed_screen_failure_evaluations": 64,
+      "skipped_non_screening_failure_files": 0,
+      "status": "complete",
+      "missing_invalid_screening_archive_indices": [],
+      "feasible_points_without_failure_archives": 0,
+      "force_analysis_scope": "Saved screening-failure trajectories only; no force evidence inferred for feasible rows",
+      "replay_trajectories_analyzed": 256,
+      "replay_terminal_state_counts": {
+        "physical_fail": 240,
+        "physical_stop": 16
+      },
+      "replay_completed_count": 0,
+      "replay_reason_counts": {
+        "combined_tire_force": 240
+      },
+      "autonomous_complete_physical_count": 64,
+      "autonomous_count_source": "Saved failure-file autonomous trace plus complete-physical screening rows without failure files",
+      "firstcorner_180_320m_combined_failures": 211,
+      "firstcorner_180_320m_all_terminal_count": 212,
+      "physical_stops_before_release": 16,
+      "stop_distance_m": {
+        "min": 226.4592291351103,
+        "median": 1033.4661060828125,
+        "max": 1176.6330338467715
+      },
+      "next_release_minus_stop_s": {
+        "min": 0.03385670293117471,
+        "median": 0.2558278067037367,
+        "max": 0.9520637791231152
+      },
+      "combined_failures_with_independent_force_reconstruction": 240,
+      "pure_lateral_excess_above_8n_count": 240,
+      "joint_excess_above_8n_without_pure_lateral_excess_above_8n_count": 0,
+      "zero_executed_wheel_force_at_combined_failure_count": 240,
+      "zero_recomputed_remaining_capacity_count": 240,
+      "combined_failures_with_brake_released": 19,
+      "pure_lateral_excess_n": {
+        "min": 8.00018517967328,
+        "median": 8.047515431153442,
+        "max": 8.527375110159483
+      },
+      "maximum_lateral_utilization": {
+        "min": 1.0001399248766552,
+        "median": 1.0002957354654511,
+        "max": 1.0005378639700513
+      },
+      "reported_minus_recomputed_joint_excess_n": {
+        "min": -8.840288501232862e-10,
+        "median": 0.0,
+        "max": 6.330083124339581e-10
+      },
+      "first_brake_switch_counts": {
+        "1.0": 256
+      },
+      "first_requested_brake_force_n": {
+        "min": -71513.13069914951,
+        "median": -23711.024332689703,
+        "max": -3152.5719242378195
+      },
+      "first_executed_brake_force_n": {
+        "min": -71513.13069914951,
+        "median": -23711.024332689703,
+        "max": -3152.5719242378195
+      },
+      "by_lap": {
+        "3": {
+          "states": {
+            "physical_fail": 59,
+            "physical_stop": 5
+          },
+          "saved_trace_distance_m": {
+            "min": 220.40119605399707,
+            "median": 232.87342145098125,
+            "max": 1200.1228289091353
+          },
+          "first_brake_time_s": {
+            "min": 1.8859999179840088,
+            "median": 1.8859999179840088,
+            "max": 1.8859999179840088
+          },
+          "first_requested_brake_force_n": {
+            "min": -71513.13069914951,
+            "median": -24109.573471637963,
+            "max": -3198.9521806935504
+          },
+          "first_executed_brake_force_n": {
+            "min": -71513.13069914951,
+            "median": -24109.573471637963,
+            "max": -3198.9521806935504
+          },
+          "firstcorner_tire_failures": 54,
+          "stops_before_release": 5
+        },
+        "4": {
+          "states": {
+            "physical_fail": 61,
+            "physical_stop": 3
+          },
+          "saved_trace_distance_m": {
+            "min": 220.22913245048764,
+            "median": 229.19951341983912,
+            "max": 1064.247194599394
+          },
+          "first_brake_time_s": {
+            "min": 2.067000150680542,
+            "median": 2.067000150680542,
+            "max": 2.067000150680542
+          },
+          "first_requested_brake_force_n": {
+            "min": -69626.7068811319,
+            "median": -23929.51020289224,
+            "max": -3152.5719242378195
+          },
+          "first_executed_brake_force_n": {
+            "min": -69626.7068811319,
+            "median": -23929.51020289224,
+            "max": -3152.5719242378195
+          },
+          "firstcorner_tire_failures": 61,
+          "stops_before_release": 3
+        },
+        "5": {
+          "states": {
+            "physical_fail": 59,
+            "physical_stop": 5
+          },
+          "saved_trace_distance_m": {
+            "min": 220.5539148849918,
+            "median": 235.5945580746404,
+            "max": 2827.5916020363047
+          },
+          "first_brake_time_s": {
+            "min": 1.7670001983642578,
+            "median": 1.7670001983642578,
+            "max": 1.7670001983642578
+          },
+          "first_requested_brake_force_n": {
+            "min": -71110.08678193107,
+            "median": -23873.925661348367,
+            "max": -3182.918176731294
+          },
+          "first_executed_brake_force_n": {
+            "min": -71110.08678193107,
+            "median": -23873.925661348367,
+            "max": -3182.918176731294
+          },
+          "firstcorner_tire_failures": 50,
+          "stops_before_release": 5
+        },
+        "6": {
+          "states": {
+            "physical_fail": 61,
+            "physical_stop": 3
+          },
+          "saved_trace_distance_m": {
+            "min": 220.55141844006985,
+            "median": 236.65752221161003,
+            "max": 2008.7195060166569
+          },
+          "first_brake_time_s": {
+            "min": 1.687000036239624,
+            "median": 1.687000036239624,
+            "max": 1.687000036239624
+          },
+          "first_requested_brake_force_n": {
+            "min": -57452.20907928461,
+            "median": -21381.33537208144,
+            "max": -3199.532475578805
+          },
+          "first_executed_brake_force_n": {
+            "min": -57452.20907928461,
+            "median": -21381.33537208144,
+            "max": -3199.532475578805
+          },
+          "firstcorner_tire_failures": 46,
+          "stops_before_release": 3
+        }
+      }
+    },
+    {
+      "candidate": "baseline_remaining",
+      "screening_report_available": true,
+      "preregistered_screening_points": 64,
+      "screening_points_completed": 64,
+      "screening_feasible_count": 0,
+      "observed_screen_failure_evaluations": 64,
+      "skipped_non_screening_failure_files": 0,
+      "status": "complete",
+      "missing_invalid_screening_archive_indices": [],
+      "feasible_points_without_failure_archives": 0,
+      "force_analysis_scope": "Saved screening-failure trajectories only; no force evidence inferred for feasible rows",
+      "replay_trajectories_analyzed": 256,
+      "replay_terminal_state_counts": {
+        "physical_fail": 240,
+        "physical_stop": 16
+      },
+      "replay_completed_count": 0,
+      "replay_reason_counts": {
+        "combined_tire_force": 240
+      },
+      "autonomous_complete_physical_count": 64,
+      "autonomous_count_source": "Saved failure-file autonomous trace plus complete-physical screening rows without failure files",
+      "firstcorner_180_320m_combined_failures": 221,
+      "firstcorner_180_320m_all_terminal_count": 222,
+      "physical_stops_before_release": 16,
+      "stop_distance_m": {
+        "min": 226.74182534359983,
+        "median": 1035.8893488900549,
+        "max": 1184.7285722467025
+      },
+      "next_release_minus_stop_s": {
+        "min": 0.049206885360156605,
+        "median": 0.2308789634331987,
+        "max": 0.935728610716744
+      },
+      "combined_failures_with_independent_force_reconstruction": 240,
+      "pure_lateral_excess_above_8n_count": 240,
+      "joint_excess_above_8n_without_pure_lateral_excess_above_8n_count": 0,
+      "zero_executed_wheel_force_at_combined_failure_count": 240,
+      "zero_recomputed_remaining_capacity_count": 240,
+      "combined_failures_with_brake_released": 13,
+      "pure_lateral_excess_n": {
+        "min": 8.000226094743994,
+        "median": 8.056847689038477,
+        "max": 8.483206427117693
+      },
+      "maximum_lateral_utilization": {
+        "min": 1.0001299205616012,
+        "median": 1.0002904905903534,
+        "max": 1.0004979357408799
+      },
+      "reported_minus_recomputed_joint_excess_n": {
+        "min": -1.0550138540565968e-09,
+        "median": 0.0,
+        "max": 4.220055416226387e-10
+      },
+      "first_brake_switch_counts": {
+        "1.0": 256
+      },
+      "first_requested_brake_force_n": {
+        "min": -71169.39136823181,
+        "median": -23646.207811882086,
+        "max": -3149.676047981962
+      },
+      "first_executed_brake_force_n": {
+        "min": -71169.39136823181,
+        "median": -23646.207811882086,
+        "max": -3149.676047981962
+      },
+      "by_lap": {
+        "3": {
+          "states": {
+            "physical_fail": 59,
+            "physical_stop": 5
+          },
+          "saved_trace_distance_m": {
+            "min": 220.39036084920704,
+            "median": 232.27869455555245,
+            "max": 1176.009949256064
+          },
+          "first_brake_time_s": {
+            "min": 1.8859999179840088,
+            "median": 1.8859999179840088,
+            "max": 1.8859999179840088
+          },
+          "first_requested_brake_force_n": {
+            "min": -71169.39136823181,
+            "median": -24044.868098015868,
+            "max": -3196.0004349987107
+          },
+          "first_executed_brake_force_n": {
+            "min": -71169.39136823181,
+            "median": -24044.868098015868,
+            "max": -3196.0004349987107
+          },
+          "firstcorner_tire_failures": 57,
+          "stops_before_release": 5
+        },
+        "4": {
+          "states": {
+            "physical_fail": 61,
+            "physical_stop": 3
+          },
+          "saved_trace_distance_m": {
+            "min": 220.21945704980934,
+            "median": 228.85273038463237,
+            "max": 1086.719298194287
+          },
+          "first_brake_time_s": {
+            "min": 2.067000150680542,
+            "median": 2.067000150680542,
+            "max": 2.067000150680542
+          },
+          "first_requested_brake_force_n": {
+            "min": -69292.32495478628,
+            "median": -23859.3207580339,
+            "max": -3149.676047981962
+          },
+          "first_executed_brake_force_n": {
+            "min": -69292.32495478628,
+            "median": -23859.3207580339,
+            "max": -3149.676047981962
+          },
+          "firstcorner_tire_failures": 61,
+          "stops_before_release": 3
+        },
+        "5": {
+          "states": {
+            "physical_fail": 59,
+            "physical_stop": 5
+          },
+          "saved_trace_distance_m": {
+            "min": 220.54171041636033,
+            "median": 234.59120785104358,
+            "max": 1200.861408676725
+          },
+          "first_brake_time_s": {
+            "min": 1.7670001983642578,
+            "median": 1.7670001983642578,
+            "max": 1.7670001983642578
+          },
+          "first_requested_brake_force_n": {
+            "min": -70768.36554233827,
+            "median": -23809.946596599122,
+            "max": -3179.9949135944426
+          },
+          "first_executed_brake_force_n": {
+            "min": -70768.36554233827,
+            "median": -23809.946596599122,
+            "max": -3179.9949135944426
+          },
+          "firstcorner_tire_failures": 53,
+          "stops_before_release": 5
+        },
+        "6": {
+          "states": {
+            "physical_fail": 61,
+            "physical_stop": 3
+          },
+          "saved_trace_distance_m": {
+            "min": 220.53924380893434,
+            "median": 235.75665632415368,
+            "max": 2015.456734319939
+          },
+          "first_brake_time_s": {
+            "min": 1.687000036239624,
+            "median": 1.687000036239624,
+            "max": 1.687000036239624
+          },
+          "first_requested_brake_force_n": {
+            "min": -57256.485793435626,
+            "median": -21323.155658364944,
+            "max": -3196.5875644761268
+          },
+          "first_executed_brake_force_n": {
+            "min": -57256.485793435626,
+            "median": -21323.155658364944,
+            "max": -3196.5875644761268
+          },
+          "firstcorner_tire_failures": 50,
+          "stops_before_release": 3
+        }
+      }
+    }
+  ],
+  "comparison": [
+    {
+      "candidate": "baseline_independent",
+      "status": "complete",
+      "screening_points_completed": 64,
+      "screening_feasible_count": 0,
+      "replay_completed_count": 0,
+      "autonomous_complete_physical_count": 64,
+      "pure_lateral_excess_above_8n_count": 240,
+      "physical_stops_before_release": 16
+    },
+    {
+      "candidate": "baseline_remaining",
+      "status": "complete",
+      "screening_points_completed": 64,
+      "screening_feasible_count": 0,
+      "replay_completed_count": 0,
+      "autonomous_complete_physical_count": 64,
+      "pure_lateral_excess_above_8n_count": 240,
+      "physical_stops_before_release": 16
+    }
+  ],
+  "paired_baseline_comparison": {
+    "left": "baseline_remaining",
+    "right": "baseline_independent",
+    "paired_saved_failure_trajectories": 256,
+    "identical_screening_parameter_vectors_verified": true,
+    "state_transitions": {
+      "physical_fail -> physical_fail": 240,
+      "physical_stop -> physical_stop": 16
+    },
+    "right_minus_left_distance_m": {
+      "min": -811.214927534186,
+      "median": 0.27903537563801706,
+      "max": 1651.4307416191407
+    },
+    "right_minus_left_time_s": {
+      "min": -15.105407543182274,
+      "median": 0.0068269586413811645,
+      "max": 33.92610150798983
+    },
+    "farther_by_more_than_0_1m": 157,
+    "earlier_by_more_than_0_1m": 26,
+    "distance_comparison_threshold_m": 0.1,
+    "interpretation": "Partial-trajectory termination contrast only, never formal accuracy or a candidate-selection criterion"
+  },
+  "input_errors": [],
+  "input_sha256": {
+    "config/rules_austria_2026.json": "5494a93000dddb9ea37637c24ae33b6f8b6043b4f41a1c00576059e987f49a7e",
+    "data/processed/dataset.json": "e40adf65085a1b7147a7992706bfec3bca78ee1a54a8f233efbaacdc66e49c2b",
+    "data/processed/track.npz": "badcddde67cae0c2c8887f07d188b4a52dfb25317245d045cf794c52220d2345",
+    "data/raw/openf1/car_data_63_laps3to9.json": "81e5f3dd1d094085ef47f920314304db1cb855f1c584a2389c32b4acd4530d69",
+    "data/raw/openf1/laps.json": "09624d83306bbb970a04d147123b52fe542fd333ac0f51c7f7b1ac8cb5107e8e",
+    "data/raw/openf1/location_63_laps3to9.json": "6b059fb79bda90ccec5dc3475be327de1bd2be04fde0a2a79fc8bb8a97630a12",
+    "data/raw/tum/Spielberg_centerline.csv": "277b2854c4323021b10b6b63ebfe6a6cc971f494c0728202e910d67d7d65dc8c",
+    "data/raw/tum/Spielberg_minimum_curvature.csv": "dd8516946053f5fdd4a5fe0b2f3df1bfe10d90fea84fe2ce125da4763da7fc15",
+    "data/v3/local/registration.json": "371d3f18d7940959887129ecacea4ce3714a77cb7464458f203f9e4b6483e5dc",
+    "f1ers/model.py": "22269b7464316813a6804898dc1a5adc9c6f1bbf8b9d6dd4bc94823153b029bd",
+    "f1ers_v3/data.py": "e398a24bbed734bc3669553a29420bd952c83e3a8ea8f59209823f2f7c6cb6ad",
+    "f1ers_v3/geometry.py": "07555a2d18bebbbd5fdcceaffe82dac8bc422f83134d84557308ad854c5d4d4b",
+    "f1ers_v4/simulator.py": "627aac52533a77a13c0010121bb3f50cdbdbddee2c744d4f5b05e44e4a5c5984",
+    "f1ers_v4/vehicle.py": "903cf0a0824928378f404529a7656fe316454de25e6e0de8d1b540631bb30d9d",
+    "f1ers_v5/adapters.py": "6665a499299bf9aec6c7f502b8e65d56d8476f6a41d338be44a05212205830f4",
+    "f1ers_v5/data.py": "e6426ff47093c33396471f58b33dd143827cddf9d86973248f88892989bcbe46",
+    "f1ers_v5/geometry.py": "bffad19cb6ea788db540c5f50488287d718a8ed6c5f47a7995793cb96c40ed85",
+    "results/austria_2026_v5/candidates/baseline_independent/calibration.json": "a942bc784819daeb5c753e31d67eecf93bea8fa6ddf7682ebfcc44b576a1001b",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00000.json.gz": "b4cb0ca72b7944cdad67683af1e4ca8c9910a648165f0e6ebedafd336ba0090f",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00001.json.gz": "b71690a42e1f657cac4590d36b70743283b9176d7786781ded2c6dbe81ccd1fc",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00002.json.gz": "1015a9d47d2b156e8a39f7631d6d5202436955ec7645515514b2d969edba6034",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00003.json.gz": "07387fe8d7a7a17c52afc2229c13e3833ee43f8955e2031ae27663b6f0abbc9d",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00004.json.gz": "f2f7c547df8ebc46006708e3d91676c930822e8290541f9dbaaedd76c05468b5",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00005.json.gz": "b98a62335f666cef26782ab64f285e0426f7addd3f0ce26c501179c78ae466c3",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00006.json.gz": "09ed05c3c1c9911692aaf1cea42dc79ce75faed085a3f420b34c99535e1cb555",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00007.json.gz": "988362f4c614066a20a853a59d62ffa96cd7042ead5275ef9a62b6bbec0e1352",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00008.json.gz": "f9e89e9475ae6d65f0f40e5163a9092f9cb8f818b4a81589ce3c9e72c355720f",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00009.json.gz": "ce69105489bd048279dda3084c28e26c80ea7992aa964aacc927675f58330676",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00010.json.gz": "7c20a8921ca0ae215ee010833b30b3a6ee7ce29dba2077077c199693f65251c1",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00011.json.gz": "1d28472b9e30ace348f5ffc4faab7b4048c23d6e70d95f6be9254ce8e5e91ba0",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00012.json.gz": "4cb804ac0a5172a568096265faee80e1908cfaa7d8b497244854da9cf6f1d27e",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00013.json.gz": "117d41fbf6545f141fe738e9f873bdb4dcad5a92c5510118d3d4bdec1cc2f3f2",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00014.json.gz": "6bd41a71643f34f79c918ec84a518428a772898b9fb26bf01922503b72379ed6",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00015.json.gz": "a05eeffc9c8efda4d62a49a32b431dd0126555ede9932bf72529fb9497d05e99",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00016.json.gz": "418e34d922373ab6c61843c705248e40ca3c948aa56d7a4e54a092498153b2ee",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00017.json.gz": "6ec94c91fa3b270e26835912ade973a297813ba87538639de9158e67386d3911",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00018.json.gz": "5023889e35ab65eaf8510989740d46a0030385f348a61d8493eb2f3116ab8524",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00019.json.gz": "1b9f1a4176bf610f6ce99085509c09f02eb83a20404dc4569c8d54d84ac06d80",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00020.json.gz": "c9101daf02b36ae57e8ae4de435fb26e77b3d578ba0752693849dcbda502a765",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00021.json.gz": "98e9ea39fdcff3aeaba605ea013be60060302de64cfb174cbda8602937f0d273",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00022.json.gz": "4745833b89669677182f23736ee27eb3087cd54f24131a2f7442149ed45c9c05",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00023.json.gz": "10bb2b2c3fb7f376b5e309cce143189d3a35012b62b813d5aad2c9e869e1dcd2",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00024.json.gz": "10237d5a4d5d7de12c10a6962c324818888ae985288d11cd39b217d87b0aeb17",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00025.json.gz": "ec51c0696f5883c48927b40ef54c96a0a9afc23bfcc95b6b039b166f7c42ea98",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00026.json.gz": "84eaeab3897712da3056cb9be0057e1a3ed048d17dffc6e3d9c39cb141ff5024",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00027.json.gz": "f8fd6a281be9c2fc7f12739759bcf2b75fa867f16f4580918f44d24a9832d2e9",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00028.json.gz": "99c1551b2bde50451987a6c4f96c1a0bdbcb418ac24a6f786bbd7a2408a78afa",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00029.json.gz": "ba57f2e92b8d8e778742b87679d6fcb584e2b1ee84809009dc1d4bfcbf576e7a",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00030.json.gz": "766de6a095e44246117dc4acda4b05e175db6012efe9fe75fc38a26f792dd293",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00031.json.gz": "3a86a615c078b3e32cdff2454c5e430d973c0252a245c2b557cd715b138da9e7",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00032.json.gz": "f9369ecbea34237d6ccfb5a4a51e989be0a522fe1bf0e90e6545a7b7c468ffe2",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00033.json.gz": "e4f7a05916ba0b21107b6944154884ba1e7ec7710a67c80d59f2676aafa2fdde",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00034.json.gz": "b1a35953bab42487b417fc6d27998ec1745dd98fcfee187be9edec10d5173f0d",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00035.json.gz": "d9961946dc05c39ad9023670f814e26a0b11bf17acf598b84a0bc8545aee030d",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00036.json.gz": "92e4de98ac6eb28af129e4a0f50e7985fd6cbdcecaf0ed02cbf4ddd5e70444c0",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00037.json.gz": "e3240405239ccf2ca705e219c52359344b6aae912aaf5ff3e45eefa45d840a45",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00038.json.gz": "a17d59a85717e2d0bdf5f59f3c367cd74f653b388b5423dff68738969b31cce8",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00039.json.gz": "ff73b0d97668d49f9f68be80e051de7459094028bfbafa2435c424d6b0d0d5fc",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00040.json.gz": "3e30db748641b9f35baf7813eff826c12fa79df6d057d286b056098ae9cf51af",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00041.json.gz": "b7e2094733fdfac956355137e3224d249de5561fe379b4cf8c5974b4062f3368",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00042.json.gz": "5e249f55a2e650bdfb930aa9306d5c51e4cf36d4a556301daae6a44ea8614075",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00043.json.gz": "affc8bcfcf64c6727456292494694019fde7e4b73de16748044950fc4d6f605a",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00044.json.gz": "054031c6f2fc14374706878a022c400773d5d290fc236315a87d3ff445bb53a5",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00045.json.gz": "3a319da95beb84d143868e44bcf516ab8f42f606884ad88ac444509aeeae310b",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00046.json.gz": "c00ff706c4ef980e553c2b7d5deeb4b32d59dea9c9feffa9668d8b14dad922f8",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00047.json.gz": "c8159b0e1fb43e7760723a43b0b7cea43b0613c75f89c690957ad14d3d41c73c",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00048.json.gz": "fde4bab83344e48e7d2037ac4befd57aa6b17d41e1e10938991a0c2da1c98164",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00049.json.gz": "31d51966baf4afee2bf165c639e2257ebe001e516e30b622bcacab99f3ddc463",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00050.json.gz": "ba327072264d879c71a498f6005db9e8bb8d39ea8e4d9a0ed3e4433371806fb2",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00051.json.gz": "166c43efbaa72d929d7d3da76daa76548eb6d5b4f36b95383f2713845f4a0b10",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00052.json.gz": "fce785370ba8ca88f8af55727982a9c8f0ce3de9f156ea00dfc19391c82ddcda",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00053.json.gz": "64fa224699c0cf887e92246e8ad586f46963e8f25c57cde343de8457945d8ead",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00054.json.gz": "7d6fa27175a88ab559782ce1246c88ad9700c9a5c900f2f02c0c9472ccdc9670",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00055.json.gz": "46c3a6299b3da64493b0d4815121199cbab263db3cc67a39ac3116e5b0f8682c",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00056.json.gz": "076968a4c4cb00a7e8720562a2820ebceceef5c6e46d8b9ac9aed58912100f94",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00057.json.gz": "e882a58139995bb1d8ba6198d5f5c4d74ddd2c5518129bea6a02c42afd12333c",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00058.json.gz": "a808e509d11a9645d2871716df8a95ee07c7449888df597ac70829b4798a2188",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00059.json.gz": "6d7f022eca6e34d40fe911de064b36b75856e2f3ffe4398fdce07f0f0764da41",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00060.json.gz": "fa3d1c00cbcfe417ca48c1a9d48c4d9b65a4e22a2df8bfd76dcff449c336088e",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00061.json.gz": "03df47810db454f46b7eaafb0600692d0b116987ee90acabb09c4190bd4c9190",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00062.json.gz": "e841dac0ea8a3f4946fd0672db05dcaf3929a7c25a1e2cbef5a5a28623a6020e",
+    "results/austria_2026_v5/candidates/baseline_independent/failures/evaluation_00063.json.gz": "c568a541302af1e1efd8add8b8e4c81cf87ea9dad24704489c9b5d522b0a13bd",
+    "results/austria_2026_v5/candidates/baseline_remaining/calibration.json": "69de651bc524013ba4b761abf436564c47c7d31364fb7ed8544f50305dcf35f6",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00000.json.gz": "2c2da8a2c9f126333f200cea98779ce44c83263dc9b3df28e3c3a7d984c176b3",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00001.json.gz": "21ecb7c83ec57c6815497cd5bb21a6ff103945a09210018a2ae8fa06c312b990",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00002.json.gz": "1d06bae0c771bc8a9ef794f3d847a525781573d27fadef0aaa2cdc98da5c19d1",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00003.json.gz": "f3844b04b72ad608aaf8b1e77e7e499f6305e614c1ad27c2f709fb5830edc2d3",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00004.json.gz": "d03a708401d4003197a4a7d452b8789636b511b9487493c31da369e6f1b6da4b",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00005.json.gz": "c533fd4e5aa6f788ace0442664245f9fea9aa1c7a7704917749d27a7c7352455",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00006.json.gz": "46933240e73b3316f5d9ff24370557952a2b289aea5a20e7a00998729147f6b0",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00007.json.gz": "2977b6c34b2a7ec8d7dfa578430a49ea1f20fe69aff32ab487e119b70200db08",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00008.json.gz": "9ee4f7ae0243f931768d2ec7c2a85e6515ed466ebf22b0cf1e2dc52ce3d7ed8c",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00009.json.gz": "4a97fb7d0e71fdbf50aae3ef40e0589af190a6f91d96bee9060d2d814a1b7395",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00010.json.gz": "eed6c1a75bf6dc2aa2e2a14d647292cd8494d5b4cd6f0e10ed1031f35d427c77",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00011.json.gz": "3aa9fcee814a73cefe17069400942f6bf5240ef59f30c183044f981445678817",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00012.json.gz": "f2a864cfa7186b8e9ae324c5a0e6ca77930862dcf22c995cb761e5eec7859915",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00013.json.gz": "c41d635e0b91ec3a00a3f2d31c51897ea712ccb29cae36952c0518ec0ae13c77",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00014.json.gz": "5c6de2f62fdae69619d87cdbbfde1ff08ef769f1dd5ebb8563ea5577a2a019bb",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00015.json.gz": "cbc3996b31747b9baa1c5a47b3f4ecd662423b08b68e963df52d7db0903802e4",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00016.json.gz": "9aafbd6760a8681544c57a181e1846d1abe5a676564aedb3bb615bf467738d3c",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00017.json.gz": "acd0f92b0843a552181b15308b52438f492ab87b588281d8e3f6e25baf98574d",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00018.json.gz": "2a1802cc4e15bf6d9b80b68f28514499af10c068989feeda53b64f2c758ea96f",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00019.json.gz": "96ec84ae43dbc45cd02ae3cc1d88bc1feb143798fb157a997365e59c2e3a9f6f",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00020.json.gz": "f3974770843dbb42a0a07eeaf45f384ff70a31723dccf238f68b450ec1c53bcc",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00021.json.gz": "ede588ddbce27fb51120b5fa76f67e4d87f6b2dddec49b1f35547859af876aca",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00022.json.gz": "d88b828b6c6c1b4121d67a2c16c14f2f62509eba926c74d876cbce0d2d277aa1",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00023.json.gz": "67c25da76a8c18793ea423fa475528152d6505ac2b1c54f84b7a803e4d82dcf1",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00024.json.gz": "e65c1e46dde0b1c39fba37ab218921d1c01d4115c6a6fd0cca13bb39ad8a2bdf",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00025.json.gz": "3b7c09f2f74baeb75f4e8d28d909316f8a8293481cd3a56146c6af74683e931c",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00026.json.gz": "b86f3ecb5402fcd507e07c2358284f48b44ac9e55d4159eccc7e73eb0abe8ba7",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00027.json.gz": "f6f38d4a24ad710eec9bc7379c86929ef1337fd37643fd801832b2f2c238fa38",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00028.json.gz": "8f56db255e7d899dd1dc415218b696ccd8597c329498a212b12c2474c5523ad4",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00029.json.gz": "10690337e1f1e9c173459410d9046289fc6ed7f5d9fe74f6d99938d40e55b676",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00030.json.gz": "982795b027750e75e2e163c025bd3c76ea2807200ee7d44ca32b24f007c9117f",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00031.json.gz": "deee21f8922b6c382c32637665764941bbc9c3a3c0eec0686db7dfbaac0a86bc",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00032.json.gz": "533e3a1d86b11536d4fd60bac9effab0972e68608a91a64203b6a33c93089255",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00033.json.gz": "476b56d39d24a53c4739157840b0acdfc8ae70292e3828f0ba84285b1a4bc649",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00034.json.gz": "1d9d471e03c5374557d6aaeaf930c4b8ee87ee17519b534b3da165b5bde247b5",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00035.json.gz": "6b9b313efcf01d4c9e4eaa05817abf715d05d2f7621cec54fc27d9e2274755c9",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00036.json.gz": "66b27c3081f02c9c3e0506de289ffe46b6bffa0f39ade3d408e8d91d55714aec",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00037.json.gz": "fffd945e23a2e80335a4280c88deac83d318362ee3d71f2a0d563b6cde1405b0",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00038.json.gz": "059ee2b47c21d320519d1bf4e10aebe647096dbc8c197ad082755735882782f0",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00039.json.gz": "80c72fa60a5879bf32276ac3180e779da7d02a81db284ab368de547a20f412f5",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00040.json.gz": "2e1785e51b8d480a1f409ffd7ac8e9ea1394f0b494a59a8a4fa42b2d3b8a0629",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00041.json.gz": "a45c44d11a42a6bcb7c6d2db2716653130d7f64d0bd29db34bdcd8818ddf7a34",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00042.json.gz": "f03b3b5fde8476c6302bcb39f202eaac3bbd7f3173bef6d2545a3608beba82c0",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00043.json.gz": "cdd37857aa84b75b26cb582a2c9c165f055c58eeb995cab0ccb7305da32a1faf",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00044.json.gz": "b266e46a747281f3e04dc9659c40001a081e31c9ea29a36f912028408c21720f",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00045.json.gz": "75977446c781c3dda02d0cb4b75dc9949977e0f2700dad4540ceb719934e048d",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00046.json.gz": "ba0f651f78077f7b5aea3b5a6ddd35b0658729c13328ff8bb8ea2a84db774dc3",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00047.json.gz": "4e2e5714c0b917be6b237fb22f53f82091e9e95f9138757c1fdeaac8d7eff902",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00048.json.gz": "ad4b3a38a9ab5cd785a3a3411c191b4b2db457cf48ba9033e5aa1d37efe716c8",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00049.json.gz": "f1554c2b45480aa70ca6c551ec5d07207c220d4bbb171904f1cfb6e2d1ca0be8",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00050.json.gz": "22d8879373781037387350810a6cc8ca78d53f96bf84a4c15e0655e0020beedd",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00051.json.gz": "b1b6b9881b48989db68888080596db4656124944b5415f684db384211e8b69ca",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00052.json.gz": "1815e978bc9bb500e18a95a7f1325135d62096712dd1cf657ebb7f7acb73ff24",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00053.json.gz": "f72eb7ce858a219d86a0af915305a19e3d6a43c6c859cbcaea643e9ee7a7ff85",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00054.json.gz": "c9623699de8902554620cf6f4a86c58786e9aae8fc17d8c6b281d3eb4e24ee60",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00055.json.gz": "74fb2d8a4645d96a1b707f8b819fec08219bbbfd82119cac8f7639bed5d864ab",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00056.json.gz": "bedfec9e11d0a8b88643d1ae86051fa417bfb29d872f065cb2df191b15d70bc2",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00057.json.gz": "53164c68ecc57a5e825f839f576bb3a6959df647d32054929bd8b156bb93c5e2",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00058.json.gz": "526b1232372a8d2ae308e092d334ecf8ec6fd54bcbb87dff1ead98590d2c791a",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00059.json.gz": "88f4710136144c345e22f2c29ef5efdcdad22ca2a79211761480f67d62a53735",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00060.json.gz": "fab4ce33049e0c7f9ecd218d027e9dc6f66d22f6abb19fb0562707c99ce81116",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00061.json.gz": "a452bcda70dcc09b1bb52f8f3c229a971c44ecd653d0ece395068d099f67a2da",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00062.json.gz": "768b126458449d342e5c7a6856ca0cd0138f04e89f3f29aed15b7a9e91c5e958",
+    "results/austria_2026_v5/candidates/baseline_remaining/failures/evaluation_00063.json.gz": "4165fee0edf92885fbe574cafbcb3bf87c439c03ffb045beae19f53d566eb5ed",
+    "results/austria_2026_v5/geometry_spec.json": "28be0e8a290abc3cc418377ef29733f426a8a9784f7a52fcddec12965be8d045"
+  }
+}

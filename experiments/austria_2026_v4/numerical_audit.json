@@ -1,0 +1,465 @@
+{
+  "protocol": "event_time_midpoint_v4",
+  "passed": false,
+  "physical_passed": false,
+  "modes": {
+    "autonomous": {
+      "passed": true,
+      "integration": [
+        {
+          "valid": true,
+          "lap_time_difference_s": 0.0032533483759777937,
+          "speed_difference_rmse_kmh": 0.007415476774944845,
+          "passed": true
+        },
+        {
+          "valid": true,
+          "lap_time_difference_s": 0.003814514464394847,
+          "speed_difference_rmse_kmh": 0.008610774652226174,
+          "passed": true
+        }
+      ],
+      "output_resampling": [
+        {
+          "valid": true,
+          "lap_time_difference_s": 0.0,
+          "speed_difference_rmse_kmh": 0.32205444380927245,
+          "passed": true
+        },
+        {
+          "valid": true,
+          "lap_time_difference_s": 0.0,
+          "speed_difference_rmse_kmh": 0.016973588762551197,
+          "passed": true
+        }
+      ],
+      "summaries": [
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "autonomous",
+          "completed_lap": true,
+          "execution_feasible": true,
+          "feasible": true,
+          "status": "accepted",
+          "lap_time_s": 73.09560489813103,
+          "speed_start_mps": 77.79127755388618,
+          "speed_end_mps": 77.78921525519993,
+          "periodic_speed_residual_mps": 0.002062298686240638,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": true,
+          "observed_initial_speed_only": false,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": false,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 4284.995881632325,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [],
+          "mechanical_work_max_segment_residual_mj": 2.3388346107822144e-11,
+          "mechanical_work_total_residual_mj": -1.8986914260880864e-09,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 3.637978807091713e-12,
+          "internal_steps": 9566,
+          "integrator_config": {
+            "dt_max": 0.02,
+            "max_ds": 1.0,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": true,
+          "energy_end_mj": 2.0,
+          "energy_min_mj": 2.0,
+          "energy_max_mj": 2.0,
+          "recharge_end_mj": 0.0,
+          "energy_start_mj": 2.0,
+          "energy_floor_mj": 2.0,
+          "envelope_report": {
+            "method": "frozen_raw_requests",
+            "converged": true
+          },
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": true
+        },
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "autonomous",
+          "completed_lap": true,
+          "execution_feasible": true,
+          "feasible": true,
+          "status": "accepted",
+          "lap_time_s": 73.098858246507,
+          "speed_start_mps": 77.79127755388618,
+          "speed_end_mps": 77.78860339517064,
+          "periodic_speed_residual_mps": 0.0026741587155356683,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": true,
+          "observed_initial_speed_only": false,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": false,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 4284.995881713732,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [],
+          "mechanical_work_max_segment_residual_mj": 2.339993170608068e-11,
+          "mechanical_work_total_residual_mj": 9.954172412950803e-10,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 3.637978807091713e-12,
+          "internal_steps": 18624,
+          "integrator_config": {
+            "dt_max": 0.01,
+            "max_ds": 0.5,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": true,
+          "energy_end_mj": 2.0,
+          "energy_min_mj": 2.0,
+          "energy_max_mj": 2.0,
+          "recharge_end_mj": 0.0,
+          "energy_start_mj": 2.0,
+          "energy_floor_mj": 2.0,
+          "envelope_report": {
+            "method": "frozen_raw_requests",
+            "converged": true
+          },
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": true
+        },
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "autonomous",
+          "completed_lap": true,
+          "execution_feasible": true,
+          "feasible": true,
+          "status": "accepted",
+          "lap_time_s": 73.1026727609714,
+          "speed_start_mps": 77.79127755388618,
+          "speed_end_mps": 77.78812993824249,
+          "periodic_speed_residual_mps": 0.003147615643683821,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": true,
+          "observed_initial_speed_only": false,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": false,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 4284.9958819341155,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [],
+          "mechanical_work_max_segment_residual_mj": 2.3248589286595235e-11,
+          "mechanical_work_total_residual_mj": 1.1503310403905088e-09,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 3.637978807091713e-12,
+          "internal_steps": 36800,
+          "integrator_config": {
+            "dt_max": 0.005,
+            "max_ds": 0.25,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": true,
+          "energy_end_mj": 2.0,
+          "energy_min_mj": 2.0,
+          "energy_max_mj": 2.0,
+          "recharge_end_mj": 0.0,
+          "energy_start_mj": 2.0,
+          "energy_floor_mj": 2.0,
+          "envelope_report": {
+            "method": "frozen_raw_requests",
+            "converged": true
+          },
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": true
+        }
+      ],
+      "raw_requests_frozen": true,
+      "raw_request_sha256": "5814788f4ad1601a272c4b1eac572cb7c20750ff3a675671b942a74ec6309cce"
+    },
+    "replay": {
+      "passed": false,
+      "integration": [
+        {
+          "valid": false,
+          "lap_time_difference_s": null,
+          "speed_difference_rmse_kmh": null,
+          "passed": false
+        },
+        {
+          "valid": false,
+          "lap_time_difference_s": null,
+          "speed_difference_rmse_kmh": null,
+          "passed": false
+        }
+      ],
+      "output_resampling": [
+        {
+          "valid": false,
+          "lap_time_difference_s": null,
+          "speed_difference_rmse_kmh": null,
+          "passed": false
+        },
+        {
+          "valid": false,
+          "lap_time_difference_s": null,
+          "speed_difference_rmse_kmh": null,
+          "passed": false
+        }
+      ],
+      "summaries": [
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "replay",
+          "completed_lap": false,
+          "execution_feasible": false,
+          "feasible": false,
+          "status": "physical_fail",
+          "lap_time_s": 2.834430576640427,
+          "speed_start_mps": 84.16666666666667,
+          "speed_end_mps": 61.6426432067287,
+          "periodic_speed_residual_mps": 22.524023459937972,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": false,
+          "observed_initial_speed_only": true,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": true,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 232.73695325375462,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [
+            {
+              "status": "physical_fail",
+              "guard_reasons": [
+                "combined_tire_force"
+              ],
+              "s_m": 232.73695325375462,
+              "time_s": 2.834430576640427
+            }
+          ],
+          "mechanical_work_max_segment_residual_mj": 2.5250353208772225e-11,
+          "mechanical_work_total_residual_mj": 2.084643788013429e-10,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 7.9079480064501695,
+          "internal_steps": 534,
+          "integrator_config": {
+            "dt_max": 0.02,
+            "max_ds": 1.0,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": null,
+          "envelope_report": null,
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": false
+        },
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "replay",
+          "completed_lap": false,
+          "execution_feasible": false,
+          "feasible": false,
+          "status": "physical_fail",
+          "lap_time_s": 2.8347330983865326,
+          "speed_start_mps": 84.16666666666667,
+          "speed_end_mps": 61.624701695706236,
+          "periodic_speed_residual_mps": 22.541964970960436,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": false,
+          "observed_initial_speed_only": true,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": true,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 232.74673171111053,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [
+            {
+              "status": "physical_fail",
+              "guard_reasons": [
+                "combined_tire_force"
+              ],
+              "s_m": 232.74673171111053,
+              "time_s": 2.8347330983865326
+            }
+          ],
+          "mechanical_work_max_segment_residual_mj": 2.5251541629689456e-11,
+          "mechanical_work_total_residual_mj": -1.763862958385765e-10,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 7.944667149335146,
+          "internal_steps": 960,
+          "integrator_config": {
+            "dt_max": 0.01,
+            "max_ds": 0.5,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": null,
+          "envelope_report": null,
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": false
+        },
+        {
+          "protocol": "event_time_midpoint_v4",
+          "mode": "replay",
+          "completed_lap": false,
+          "execution_feasible": false,
+          "feasible": false,
+          "status": "physical_fail",
+          "lap_time_s": 2.835052268092264,
+          "speed_start_mps": 84.16666666666667,
+          "speed_end_mps": 61.59987872269609,
+          "periodic_speed_residual_mps": 22.56678794397058,
+          "periodic_speed_tolerance_mps": 0.02,
+          "ers_validated": false,
+          "observed_initial_speed_only": true,
+          "intermediate_speed_resets": 0,
+          "future_speed_caps_used": false,
+          "equivalent_power_and_braking": true,
+          "whole_lap_scaling_used": false,
+          "shared_vehicle_step": true,
+          "distance_completed_m": 232.76021720994038,
+          "length_m": 4284.99588150108,
+          "ds_m": 4.99999519428364,
+          "guard_failures": [
+            {
+              "status": "physical_fail",
+              "guard_reasons": [
+                "combined_tire_force"
+              ],
+              "s_m": 232.76021720994038,
+              "time_s": 2.835052268092264
+            }
+          ],
+          "mechanical_work_max_segment_residual_mj": 2.5260665064585908e-11,
+          "mechanical_work_total_residual_mj": 2.6011731912872744e-10,
+          "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+          "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+          "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+          "max_joint_tire_force_excess_n": 7.94713557729483,
+          "internal_steps": 1886,
+          "integrator_config": {
+            "dt_max": 0.005,
+            "max_ds": 0.25,
+            "dt_min": 1e-06,
+            "max_subdivisions": 20,
+            "v_atol": 0.001,
+            "v_rtol": 1e-05,
+            "s_atol": 0.0001,
+            "s_rtol": 1e-05,
+            "e_atol": 1e-07,
+            "e_rtol": 1e-06,
+            "root_tol": 1e-09,
+            "root_iterations": 50,
+            "event_t_tol": 1e-08,
+            "event_s_tol": 1e-05
+          },
+          "input_interpolation": {
+            "throttle": "linear",
+            "brake": "previous_value_hold"
+          },
+          "sustainable": null,
+          "envelope_report": null,
+          "driver_decision_spacing_m": 5.0,
+          "raw_requests_fixed": false
+        }
+      ],
+      "raw_requests_frozen": true,
+      "raw_request_sha256": null
+    }
+  },
+  "thresholds": {
+    "lap_time_difference_s": 0.1,
+    "speed_difference_rmse_kmh": 0.5
+  }
+}

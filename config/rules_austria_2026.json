@@ -1,0 +1,82 @@
+{
+  "profile": "Austria 2026 Race, normal grip, Overtake and Boost disabled",
+  "event_date": "2026-06-28",
+  "technical_issue": 19,
+  "technical_issue_date": "2026-06-25",
+  "sporting_issue": 7,
+  "sporting_issue_date": "2026-06-25",
+  "event_document": 5,
+  "event_document_date": "2026-06-25",
+  "ers_max_power_kw": 350.0,
+  "ers_power_measurement": "Absolute electrical DC power at CU-K HV DC bus; not mechanical wheel power",
+  "soc_window_mj": 4.0,
+  "soc_window_note": "Maximum minus minimum ES charge while on track; absolute physical battery capacity and observed SOC are not public",
+  "harvest_max_mj_per_lap": 8.0,
+  "harvest_max_mj_overtake": 8.5,
+  "harvest_max_mj_qualifying": 6.0,
+  "harvest_measurement": "Recharge measured at CU-K HV DC bus",
+  "overtake_enabled": false,
+  "boost_enabled": false,
+  "mgu_h_present": false,
+  "standard_power_curve": {
+    "speed_unit": "km/h",
+    "power_unit": "kW DC",
+    "absolute_cap_kw": 350.0,
+    "segments": [
+      {"v_min_kph": 0.0, "v_max_kph": 340.0, "intercept_kw": 1800.0, "slope_kw_per_kph": -5.0},
+      {"v_min_kph": 340.0, "v_max_kph": 345.0, "intercept_kw": 6900.0, "slope_kw_per_kph": -20.0},
+      {"v_min_kph": 345.0, "v_max_kph": null, "intercept_kw": 0.0, "slope_kw_per_kph": 0.0}
+    ]
+  },
+  "alternative_power_zones_m": [[2170.0, 2960.0], [3720.0, 3920.0]],
+  "alternative_power_curve": {"below_310_kph_kw": 250.0, "otherwise": "standard_power_curve"},
+  "zone_distance_reference": "FIA centreline distance from control line, mapped approximately onto the fixed TUM route",
+  "power_reduction_rate_kw_per_s": 100.0,
+  "power_limited_distance_m": 2923.0,
+  "power_reduction_initial_max_kw": 150.0,
+  "power_reduction_initial_hold_s": 1.0,
+  "power_reduction_exceptions": [
+    {"start_m": 2700.0, "end_m": 3000.0, "initial_reduction_max_kw": 350.0},
+    {"start_m": 3750.0, "end_m": 3900.0, "initial_reduction_max_kw": 350.0}
+  ],
+  "power_reduction_reset_zones_race": [],
+  "power_reduction_total_max_kw": 700.0,
+  "power_reduction_low_speed_exception_kph": 210.0,
+  "power_reduction_exemption_note": "C5.12.7 also exempts negative driver demand, gearshift, ICE negative power, speed-cap enforcement and theoretical ERS-K power below 100kW. Complete pending/limited ECU states are specified in non-public FIA-F1-DOC-058; only a declared approximation can be implemented.",
+  "mechanical_torque_limit_nm": 500.0,
+  "mechanical_torque_reference": "ICE crankshaft speed; a torque verification requires engine speed and transmission model",
+  "ecu_efficiency_correction": 0.97,
+  "fuel_energy_flow_max_mj_per_h": 3000.0,
+  "superclip_note": "Full-throttle recharge remains subject to absolute ERS-K DC cap, recharge and ES limits; ICE mechanical power and losses are model assumptions, not a FIA fixed 400kW limit",
+  "fia_centreline_length_m": 4326.0,
+  "fia_sector_lengths_m": [1215.0, 1697.0, 1414.0],
+  "centreline_conflict": {"doc5_power_unit_m": 4236.0, "doc7_circuit_map_m": 4326.0, "choice": "Doc7 centreline and sector-length sum; preserve discrepancy as unresolved FIA document inconsistency"},
+  "aero": {
+    "status": "activation_offsets_documented_precise_deactivation_endpoints_unknown",
+    "default_mode": "approximate_dry_activation_zones",
+    "normal_grip_activation": [
+      {"zone": "A1", "turn": 10, "offset_after_turn_m": 110.0},
+      {"zone": "A2", "turn": 1, "offset_after_turn_m": 110.0},
+      {"zone": "A3", "turn": 3, "offset_after_turn_m": 90.0},
+      {"zone": "A4", "turn": 8, "offset_after_turn_m": 10.0}
+    ],
+    "low_grip_activation": [
+      {"zone": "A1", "turn": 10, "offset_after_turn_m": 160.0},
+      {"zone": "A2", "turn": 1, "offset_after_turn_m": 170.0},
+      {"zone": "A3", "turn": 3, "offset_after_turn_m": 160.0},
+      {"zone": "A4", "turn": 8, "offset_after_turn_m": 60.0}
+    ],
+    "deactivation_reference": "Return to corner mode before next turn; conservative model endpoint estimated from geometry or calibration braking, not an official numeric zone endpoint",
+    "observed_actual_aero_state": "not_available; 2026 OpenF1 drs field is null",
+    "complete_fia_zone_reproduction": false
+  },
+  "public_rule_subset": ["C5.2.7 absolute DC power", "C5.2.8 speed and event sector caps", "C5.2.9 ES usable window", "C5.2.10 event recharge limit", "C5.12.4-7 documented public power-reduction bounds and explicit approximation"],
+  "unavailable_or_unverified": ["FIA-F1-DOC-058 Standard ECU pending/limited/Boost state machine", "FIA-F1-DOC-034 vehicle fundamentals", "FIA-F1-DOC-096 manufacturer efficiency maps", "FIA-F1-DOC-111 low-grip curves", "actual ERS-K deployment and recharge telemetry", "actual ES SOC", "exact aero zone deactivation positions and observed driver activation", "team tyre/aero/ICE maps"],
+  "full_fia_compliance_claim_supported": false,
+  "sources": [
+    {"id": "fia_technical_issue19", "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_c_technical_-_iss_19_-_2026-06-25.pdf", "local_path": "data/raw/fia/technical_regulations_issue19.pdf", "pages_1based": [65, 66, 67, 75], "visual_checked_pages_1based": [65, 66, 67, 75]},
+    {"id": "fia_sporting_issue07", "url": "https://www.fia.com/system/files/documents/fia_2026_f1_regulations_-_section_b_sporting_-_iss_07_-_2026-06-25.pdf", "local_path": "data/raw/fia/sporting_regulations_issue07.pdf", "articles": ["B7.1", "B7.2"], "visual_checked_pages_1based": [62, 63]},
+    {"id": "fia_event_power_unit", "url": "https://www.fia.com/system/files/decision-document/2026_austrian_grand_prix_-_power_unit_information.pdf", "local_path": "data/raw/fia/power_unit_information.pdf", "pages_1based": [2], "visual_checked_pages_1based": [2]},
+    {"id": "fia_event_circuit_map", "url": "https://www.fia.com/system/files/decision-document/2026_austrian_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf", "local_path": "data/raw/fia/circuit_map.pdf", "map_issue_date": "2026-06-22", "map_version": 3, "pages_1based": [2], "visual_checked_pages_1based": [2]}
+  ]
+}

@@ -1,0 +1,531 @@
+{
+  "schema_version": 5,
+  "diagnostic_only": true,
+  "config": {
+    "calibration_laps": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "minimum_supporting_laps": 3,
+    "speed_quantization_half_width_kmh": 0.5,
+    "derivative_windows_s": [
+      0.4,
+      0.6,
+      0.8
+    ],
+    "minimum_derivative_samples": 3,
+    "maximum_raw_car_gap_s": 0.35,
+    "brake_window_s": 0.75,
+    "minimum_brake_interval_s": 1.8,
+    "minimum_window_samples": 3,
+    "brake_utilization_drop_min": 0.15,
+    "straight_curvature_max_1pm": 0.002,
+    "full_throttle_min": 0.95,
+    "minimum_straight_samples_per_lap": 5,
+    "exit_window_m": [
+      20.0,
+      120.0
+    ],
+    "exit_anchor_window_m": [
+      0.0,
+      20.0
+    ],
+    "exit_speed_bias_lower_kmh": 5.0,
+    "exit_anchor_abs_bias_max_kmh": 5.0,
+    "throttle_build_min_s": 0.2,
+    "minimum_position_sensitivity_m": 0.5,
+    "position_sensitivity_queries": 5,
+    "mass_kg": 800.0,
+    "air_density_kgpm3": 1.18,
+    "rolling_coefficient": 0.012,
+    "mu_grid": [
+      1.2,
+      1.8,
+      2.4
+    ],
+    "drag_area_grid_m2": [
+      0.6,
+      1.3,
+      2.0
+    ],
+    "downforce_area_grid_m2": [
+      1.8,
+      3.9,
+      6.0
+    ],
+    "drag_mode_factor_grid": [
+      0.72,
+      1.0
+    ],
+    "downforce_mode_factor_grid": [
+      0.65,
+      1.0
+    ],
+    "zero_mguk_equivalent_ice_power_kw": 400.0,
+    "phase_sensitivity_half_width_m": 50.0,
+    "phase_sensitivity_step_m": 5.0,
+    "clock_added_sensitivity_half_width_s": 0.3,
+    "clock_sensitivity_step_s": 0.05,
+    "clock_absolute_bounds_s": [
+      -1.0,
+      1.0
+    ],
+    "phase_clock_near_optimal_relative_cost": 0.01,
+    "phase_clock_near_optimal_numerical_cost_tolerance_m2": 1e-12,
+    "minimum_phase_clock_location_samples_per_lap": 20,
+    "similarity_template_variance_floor_m2": 1e-12,
+    "phase_clock_numerical_time_tolerance_s": 1e-12,
+    "minimum_phase_clock_correlation_cells": 3,
+    "phase_clock_correlation_spread_floor": 1e-12,
+    "uncertainty_interpretation": "Fixed sampling/quantization and original parameter-bound sensitivity envelopes; not confidence intervals",
+    "window_selection": "All complete raw brake intervals and all frozen-route corners; no residual-based window selection"
+  },
+  "calibration_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "development_used_for_model_evidence": false,
+  "future_test_arrays_read": false,
+  "brake_decay_eligible": false,
+  "traction_eligible": false,
+  "candidate_evidence_gates": {
+    "brake_decay": {
+      "eligible": false,
+      "supporting_laps": [],
+      "required_supporting_laps": 3,
+      "status": "not_identifiable",
+      "reasons": [
+        "Fewer than three original calibration laps support the hypothesis after fixed nuisance sensitivity",
+        "Smoothing/reconstruction curvature uncertainty is not quantified; position shifts alone cannot exclude a geometry explanation"
+      ]
+    },
+    "traction_build": {
+      "eligible": false,
+      "supporting_laps": [],
+      "required_supporting_laps": 3,
+      "status": "not_identifiable",
+      "reasons": [
+        "Fewer than three original calibration laps support the hypothesis after fixed nuisance sensitivity",
+        "Smoothing/reconstruction curvature uncertainty is not quantified; position shifts alone cannot exclude a geometry explanation"
+      ]
+    }
+  },
+  "hypotheses_ledger": [
+    {
+      "hypothesis": "binary_brake_mapping_missing_global_decay",
+      "status": "not_identifiable",
+      "evidence": "Normalized early/late demand intervals, same nuisance parameters, at least three calibration laps",
+      "expected_observation": "Brake-on normalized equivalent demand is robustly stronger early than late in at least three calibration laps",
+      "falsification_condition": "The early-minus-late sensitivity lower bound does not exceed 0.15, or fewer than three laps have adequate original control/geometry coverage",
+      "conclusion": "Missing-decay explanation is not identifiable; raw deceleration changes alone cannot justify it",
+      "alternative_causes": "Changing speed/downforce, lateral budget, original switch sampling, geometry and clock uncertainty"
+    },
+    {
+      "hypothesis": "autonomous_traction_establishes_too_fast",
+      "status": "not_identifiable",
+      "evidence": "Complete autonomous calibration-only exit residuals and raw throttle establishment",
+      "expected_observation": "Exit signed-speed sensitivity stays above 5 km/h while anchor error remains within 5 km/h and raw throttle establishment remains longer than 0.2 seconds after timing sensitivity",
+      "falsification_condition": "Exit growth is absent, already present at the anchor, or inseparable from original input/position/geometry uncertainty in at least three laps",
+      "conclusion": "Rapid-traction explanation is not identifiable; no new control parameter is justified",
+      "alternative_causes": "Approach-state error, route curvature, observed throttle already established, power/drag allocation"
+    },
+    {
+      "hypothesis": "frozen_reference_line_or_control_line_mismatch",
+      "status": "not_identifiable",
+      "evidence": "Original location versus speed-integral and frozen registration sensitivity, without residual-driven re-registration",
+      "expected_observation": "Position-only phase/clock profile localizes a stable shared mismatch across fixed calibration laps",
+      "falsification_condition": "Frozen phase/clock remains near-optimal or a broad/correlated sensitivity valley cannot separate metadata clock, control line and shape",
+      "conclusion": "Position-only profile is diagnostic sensitivity; its minimum cannot authorize model re-registration or establish the cause of a speed residual",
+      "alternative_causes": "Location noise, actual racing line, metadata boundary, correlated global clock and phase"
+    },
+    {
+      "hypothesis": "mu_downforce_bounds_cannot_cover_observed_demand",
+      "status": "not_identifiable",
+      "evidence": "Observed kinematics under unexpanded bounds; noisy intervals cannot measure actual tyre friction",
+      "expected_observation": "Observed joint-demand lower bound exceeds upper physical capacity after quantified geometry and kinematic sensitivity",
+      "falsification_condition": "Upper capability accommodates observed-demand intervals or geometry uncertainty remains unquantified",
+      "conclusion": "Any exceedance is conditional on the specified mass, aero and route sensitivity; absence of an exceedance does not identify true friction/downforce",
+      "alternative_causes": "Curvature, mass, aero mode, time/position correspondence, differentiation noise"
+    },
+    {
+      "hypothesis": "zero_MGUK_power_assumption",
+      "status": "not_identifiable",
+      "assumed_equivalent_ice_power_kw": 400.0,
+      "evidence_by_lap": [
+        {
+          "lap_number": 3,
+          "interval_kw": [
+            166.26601294978576,
+            780.4787441547815
+          ],
+          "relation": "contains_assumed_power"
+        },
+        {
+          "lap_number": 4,
+          "interval_kw": [
+            190.22866297470352,
+            834.5621482950021
+          ],
+          "relation": "contains_assumed_power"
+        },
+        {
+          "lap_number": 5,
+          "interval_kw": [
+            226.9195551995689,
+            885.5642851048219
+          ],
+          "relation": "contains_assumed_power"
+        },
+        {
+          "lap_number": 6,
+          "interval_kw": [
+            288.8042059433847,
+            893.539012191211
+          ],
+          "relation": "contains_assumed_power"
+        }
+      ],
+      "expected_observation": "Zero requested MGU-K plus 400 kW equivalent ICE is consistent with full-throttle straight inferred wheel-power sensitivity intervals",
+      "falsification_condition": "At least three calibration-lap intervals exclude 400 kW in the same direction after original-sample, drag, position and derivative sensitivity",
+      "conclusion": "400 kW is not falsified by broad intervals that contain it; real ICE/ERS allocation is not identifiable",
+      "alternative_causes": "Unknown ICE wheel power, ERS deployment, drivetrain efficiency, drag, fuel mass, speed quantization and sampling"
+    }
+  ],
+  "unknowns": [
+    "real brake pressure",
+    "SOC",
+    "ICE/ERS power split",
+    "precise racing line",
+    "true fuel mass"
+  ],
+  "acceptance_thresholds_changed": false,
+  "partial_lap_accuracy_computed": false,
+  "by_lap": [
+    {
+      "lap_number": 3,
+      "role": "calibration",
+      "original_car_samples": 266,
+      "kinematic_samples": 127,
+      "control_alignment": {
+        "projected_start_m": -0.34039368034999384,
+        "projection_minus_speed_integral_rmse_m": 11.957366448462064,
+        "projection_minus_speed_integral_signed_mean_m": -8.266750871180204,
+        "position_sensitivity_half_width_m": 22.15736685377365,
+        "registered_position_sensitivity_half_width_m": 11.957366448462064,
+        "clock_position_sensitivity_half_width_m": 10.200000405311584,
+        "sampling_clock_sensitivity_half_width_s": 0.12000000476837158,
+        "frozen_global_location_clock_offset_s": -0.018977077205087255,
+        "registration_rmse_m": 9.156769918388425,
+        "per_lap_origin_reset": false,
+        "per_lap_span_stretch": false,
+        "clock_interval_is_sampling_sensitivity_not_fitted_offset": true,
+        "phase_clock_identifiable": false,
+        "reason": "One global registration cannot separately establish metadata control-line timing, racing-line bias and clock uncertainty"
+      },
+      "geometry_sensitivity_quantified": false,
+      "geometry_sensitivity_source": "Position-shift only; smoothing uncertainty unquantified",
+      "capability_certificate": {
+        "certain_joint_exceedances": 0,
+        "possible_joint_exceedances": 80,
+        "certain_pure_lateral_exceedances": 0,
+        "bounds_expanded": false,
+        "observed_state_feedback": false
+      },
+      "full_throttle_straight_power": {
+        "status": "interval_available",
+        "original_samples": 54,
+        "median_equivalent_wheel_power_interval_kw": [
+          166.26601294978576,
+          780.4787441547815
+        ],
+        "ice_ers_separation_identifiable": false,
+        "interpretation": "Inferred ma+drag times speed, conditional on mass/drag bounds; not measured engine power or SOC"
+      }
+    },
+    {
+      "lap_number": 4,
+      "role": "calibration",
+      "original_car_samples": 264,
+      "kinematic_samples": 122,
+      "control_alignment": {
+        "projected_start_m": 5.183101506645691,
+        "projection_minus_speed_integral_rmse_m": 6.305987441380151,
+        "projection_minus_speed_integral_signed_mean_m": 2.4184583466235847,
+        "position_sensitivity_half_width_m": 20.27899173264997,
+        "registered_position_sensitivity_half_width_m": 9.156769918388425,
+        "clock_position_sensitivity_half_width_m": 11.122221814261543,
+        "sampling_clock_sensitivity_half_width_s": 0.12999999523162842,
+        "frozen_global_location_clock_offset_s": -0.018977077205087255,
+        "registration_rmse_m": 9.156769918388425,
+        "per_lap_origin_reset": false,
+        "per_lap_span_stretch": false,
+        "clock_interval_is_sampling_sensitivity_not_fitted_offset": true,
+        "phase_clock_identifiable": false,
+        "reason": "One global registration cannot separately establish metadata control-line timing, racing-line bias and clock uncertainty"
+      },
+      "geometry_sensitivity_quantified": false,
+      "geometry_sensitivity_source": "Position-shift only; smoothing uncertainty unquantified",
+      "capability_certificate": {
+        "certain_joint_exceedances": 0,
+        "possible_joint_exceedances": 84,
+        "certain_pure_lateral_exceedances": 0,
+        "bounds_expanded": false,
+        "observed_state_feedback": false
+      },
+      "full_throttle_straight_power": {
+        "status": "interval_available",
+        "original_samples": 41,
+        "median_equivalent_wheel_power_interval_kw": [
+          190.22866297470352,
+          834.5621482950021
+        ],
+        "ice_ers_separation_identifiable": false,
+        "interpretation": "Inferred ma+drag times speed, conditional on mass/drag bounds; not measured engine power or SOC"
+      }
+    },
+    {
+      "lap_number": 5,
+      "role": "calibration",
+      "original_car_samples": 270,
+      "kinematic_samples": 131,
+      "control_alignment": {
+        "projected_start_m": 3.723032693147575,
+        "projection_minus_speed_integral_rmse_m": 6.363330812910853,
+        "projection_minus_speed_integral_signed_mean_m": -1.9676818715922293,
+        "position_sensitivity_half_width_m": 19.42343699301577,
+        "registered_position_sensitivity_half_width_m": 9.156769918388425,
+        "clock_position_sensitivity_half_width_m": 10.266667074627346,
+        "sampling_clock_sensitivity_half_width_s": 0.12000000476837158,
+        "frozen_global_location_clock_offset_s": -0.018977077205087255,
+        "registration_rmse_m": 9.156769918388425,
+        "per_lap_origin_reset": false,
+        "per_lap_span_stretch": false,
+        "clock_interval_is_sampling_sensitivity_not_fitted_offset": true,
+        "phase_clock_identifiable": false,
+        "reason": "One global registration cannot separately establish metadata control-line timing, racing-line bias and clock uncertainty"
+      },
+      "geometry_sensitivity_quantified": false,
+      "geometry_sensitivity_source": "Position-shift only; smoothing uncertainty unquantified",
+      "capability_certificate": {
+        "certain_joint_exceedances": 0,
+        "possible_joint_exceedances": 80,
+        "certain_pure_lateral_exceedances": 0,
+        "bounds_expanded": false,
+        "observed_state_feedback": false
+      },
+      "full_throttle_straight_power": {
+        "status": "interval_available",
+        "original_samples": 62,
+        "median_equivalent_wheel_power_interval_kw": [
+          226.9195551995689,
+          885.5642851048219
+        ],
+        "ice_ers_separation_identifiable": false,
+        "interpretation": "Inferred ma+drag times speed, conditional on mass/drag bounds; not measured engine power or SOC"
+      }
+    },
+    {
+      "lap_number": 6,
+      "role": "calibration",
+      "original_car_samples": 272,
+      "kinematic_samples": 140,
+      "control_alignment": {
+        "projected_start_m": 15.770545032320067,
+        "projection_minus_speed_integral_rmse_m": 9.540883581979111,
+        "projection_minus_speed_integral_signed_mean_m": 8.49519615631153,
+        "position_sensitivity_half_width_m": 19.840883991264338,
+        "registered_position_sensitivity_half_width_m": 9.540883581979111,
+        "clock_position_sensitivity_half_width_m": 10.300000409285227,
+        "sampling_clock_sensitivity_half_width_s": 0.12000000476837158,
+        "frozen_global_location_clock_offset_s": -0.018977077205087255,
+        "registration_rmse_m": 9.156769918388425,
+        "per_lap_origin_reset": false,
+        "per_lap_span_stretch": false,
+        "clock_interval_is_sampling_sensitivity_not_fitted_offset": true,
+        "phase_clock_identifiable": false,
+        "reason": "One global registration cannot separately establish metadata control-line timing, racing-line bias and clock uncertainty"
+      },
+      "geometry_sensitivity_quantified": false,
+      "geometry_sensitivity_source": "Position-shift only; smoothing uncertainty unquantified",
+      "capability_certificate": {
+        "certain_joint_exceedances": 0,
+        "possible_joint_exceedances": 92,
+        "certain_pure_lateral_exceedances": 0,
+        "bounds_expanded": false,
+        "observed_state_feedback": false
+      },
+      "full_throttle_straight_power": {
+        "status": "interval_available",
+        "original_samples": 63,
+        "median_equivalent_wheel_power_interval_kw": [
+          288.8042059433847,
+          893.539012191211
+        ],
+        "ice_ers_separation_identifiable": false,
+        "interpretation": "Inferred ma+drag times speed, conditional on mass/drag bounds; not measured engine power or SOC"
+      }
+    }
+  ],
+  "global_phase_clock_sensitivity": {
+    "diagnostic_only": true,
+    "uses_predicted_speed": false,
+    "uses_observed_position_and_unscaled_speed_integral_only": true,
+    "registration_changed": false,
+    "route_shape_changed": false,
+    "formal_model_re_registration_permitted": false,
+    "interval_interpretation": "1% deterministic grid cost sensitivity; not a statistical confidence interval",
+    "nuisance": "One global proper rotation, positive scale and translation shared by all four laps",
+    "status": "profile_available",
+    "phase_shift_grid_m": [
+      -50.0,
+      -45.0,
+      -40.0,
+      -35.0,
+      -30.0,
+      -25.0,
+      -20.0,
+      -15.0,
+      -10.0,
+      -5.0,
+      0.0,
+      5.0,
+      10.0,
+      15.0,
+      20.0,
+      25.0,
+      30.0,
+      35.0,
+      40.0,
+      45.0,
+      50.0
+    ],
+    "added_clock_grid_s": [
+      -0.3,
+      -0.25,
+      -0.2,
+      -0.15,
+      -0.1,
+      -0.05,
+      -0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3
+    ],
+    "absolute_clock_grid_s": [
+      -0.3189770772050872,
+      -0.26897707720508723,
+      -0.21897707720508727,
+      -0.16897707720508726,
+      -0.11897707720508727,
+      -0.06897707720508725,
+      -0.018977077205087255,
+      0.031022922794912748,
+      0.08102292279491274,
+      0.13102292279491273,
+      0.18102292279491275,
+      0.23102292279491274,
+      0.28102292279491276
+    ],
+    "frozen_clock_offset_s": -0.018977077205087255,
+    "cost_definition": "Mean squared 2D position residual in registered observed metre units, after one shared proper similarity",
+    "minimum_cost_m2": 84.01374873868815,
+    "minimum_position_rmse_m": 9.165901414410268,
+    "minimum_phase_shift_m": 0.0,
+    "minimum_added_clock_s": -0.0,
+    "minimum_absolute_clock_s": -0.018977077205087255,
+    "near_optimal_cost_threshold_m2": 84.85388622607603,
+    "near_optimal_grid_points": 1,
+    "near_optimal_phase_shift_range_m": [
+      0.0,
+      0.0
+    ],
+    "near_optimal_added_clock_range_s": [
+      -0.0,
+      -0.0
+    ],
+    "near_optimal_absolute_clock_range_s": [
+      -0.018977077205087255,
+      -0.018977077205087255
+    ],
+    "near_optimal_phase_clock_correlation": null,
+    "correlation_unavailable_reason": "Too few near-optimal cells or zero phase/clock range; separate identifiability is not established",
+    "best_global_similarity_nuisance": {
+      "positive_scale": 1.0000674570415347,
+      "proper_rotation": [
+        [
+          0.9999999933434071,
+          -0.00011538278499191305
+        ],
+        [
+          0.0001153827849918912,
+          0.999999993343407
+        ]
+      ],
+      "translation_m": [
+        0.004481328209351432,
+        -0.09866326562638505
+      ],
+      "rotation_determinant": 1.000000000000001
+    },
+    "coverage": [
+      {
+        "lap_number": 3,
+        "common_location_samples": 270,
+        "integral_time_bounds_s": [
+          0.046000003814697266,
+          71.68600010871887
+        ],
+        "sample_time_bounds_s": [
+          0.5409772396087646,
+          71.32197713851929
+        ]
+      },
+      {
+        "lap_number": 4,
+        "common_location_samples": 268,
+        "integral_time_bounds_s": [
+          0.14700007438659668,
+          71.50699996948242
+        ],
+        "sample_time_bounds_s": [
+          0.6019773483276367,
+          71.06297731399536
+        ]
+      },
+      {
+        "lap_number": 5,
+        "common_location_samples": 282,
+        "integral_time_bounds_s": [
+          0.0070002079010009766,
+          71.48800015449524
+        ],
+        "sample_time_bounds_s": [
+          0.5429773330688477,
+          71.16297721862793
+        ]
+      },
+      {
+        "lap_number": 6,
+        "common_location_samples": 268,
+        "integral_time_bounds_s": [
+          0.04800009727478027,
+          71.80800008773804
+        ],
+        "sample_time_bounds_s": [
+          0.6629772186279297,
+          71.40297722816467
+        ]
+      }
+    ],
+    "extrapolation_used": false,
+    "conclusion": "Position-only phase/clock sensitivity; do not re-align formal trajectories or infer a model improvement from this minimum"
+  },
+  "full_diagnosis_sha256": "e9266cfe315fdc9922b157cd07ab3020ad4bd679f973d477e340acaf32420861"
+}

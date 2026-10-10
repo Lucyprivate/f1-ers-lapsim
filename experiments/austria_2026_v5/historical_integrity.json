@@ -1,0 +1,17 @@
+{
+  "source_diff_from_v4_tag_empty": true,
+  "old_archives": [
+    {
+      "name": "F1_ERS_Spielberg_2026_v2.zip",
+      "sha256": "b88fcfd861ce1cf5367ec2c5ea0dd63982a397dba7d272c5f8a6dc512f8455d1"
+    },
+    {
+      "name": "F1_ERS_Spielberg_2026_v3.zip",
+      "sha256": "a464e90c6bcaac167bed05a80da8353552e4c625a830b333ca02151e065e6da0"
+    },
+    {
+      "name": "F1_ERS_Lab_v4.zip",
+      "sha256": "e4c3d065593b2727e86d92e8a8106127092a628c5de546fca1b1b64bc5195d3a"
+    }
+  ]
+}

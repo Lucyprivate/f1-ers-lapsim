@@ -1,0 +1,21 @@
+{
+  "schema_version": 7,
+  "source_commit": "b98443c7efe42fd3bb2541c25675e0b51362256a",
+  "source_hashes_passed": true,
+  "checkpoint_hash_passed": true,
+  "manifest_inputs_checked": true,
+  "dependencies_match": true,
+  "FP2_accessed": false,
+  "new_policy_selection_or_training": false,
+  "exact_selected_trace": true,
+  "exact_selected_terminal": true,
+  "exact_selected_proxy": true,
+  "exact_selected_calibration": true,
+  "exact_selected_development": true,
+  "exact_selected_actions": true,
+  "saved_development_reproduction_only": true,
+  "selected_margin_unchanged": true,
+  "original_subset_passed": true,
+  "stronger_steady_proxy_passed": true,
+  "passed": true
+}

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "f1-ers-lab-v4"
+version = "0.4.0"
+description = "Dual-path public-data vehicle fidelity and causal ERS experiments"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0,<3", "scipy>=1.14,<2", "numba>=0.63,<1", "pdfplumber>=0.11,<1"]
+
+[project.scripts]
+f1-ers = "f1ers.cli:main"
+f1-ers-v3 = "f1ers_v3.cli:main"
+f1-ers-v4 = "f1ers_v4.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["f1ers*"]

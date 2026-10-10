@@ -1,0 +1,19 @@
+{
+  "schema_version": 5,
+  "artifact_integrity_passed": true,
+  "exact_local_replay_passed": true,
+  "candidate_count": 2,
+  "code_commit": "00eb339727a6aa169a48c4a0ad643d519f1e631c",
+  "fidelity_gates": {
+    "data": true,
+    "convergence": false,
+    "physical": false,
+    "grid": false,
+    "development": false,
+    "new_test": false
+  },
+  "new_session_status": "pending",
+  "late_arrays_reloaded": false,
+  "training_run": false,
+  "interpretation": "Reproduced every fixed-parameter calibration/development candidate including failures; final score read from saved receipt only"
+}

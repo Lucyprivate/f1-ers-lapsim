@@ -1,0 +1,1557 @@
+{
+  "schema_version": 6,
+  "source_commit": "82d28f8",
+  "review_status": "complete; review files must not be edited after parent seals inventory",
+  "scope": {
+    "calibration_laps_only": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "new_simulations": false,
+    "development_data_loaded_in_this_final_review": false,
+    "FP2_opened": false,
+    "experiment_json_available_at_review": false,
+    "experiment_final_ML_aggregate_review_owner": "root",
+    "previous_development_companion_audit": "Earlier historical development companion score preserved in r5_diagnostic.json. It predates final pipeline scoring and is not a new test; no policy, reward, candidate, or R6 configuration was changed from it."
+  },
+  "budget": {
+    "actual_SAC_episodes": 180,
+    "physically_completed_training_episodes": 179,
+    "partial_training_episodes": 1,
+    "physical_completion_is_not_periodic_legal_selection": true,
+    "SAC_cases": 9,
+    "SAC_cases_best_episode_zero": 9,
+    "MLP_BC_three_seed_epochs": 600,
+    "fixed_label_DAgger_three_rounds_epochs_each": 200
+  },
+  "rounds": [
+    {
+      "round": "R0",
+      "hypothesis": "Fixed ICE-only target acceleration suppresses K speed response",
+      "change": "Audit frozen neutral dynamics; compare measured preflight positive-K experiment",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": null,
+        "periodic_speed_closed": null,
+        "dc_boundary_closed": null,
+        "rule_state_closed": null,
+        "lap_time_s": 73.09560489813103,
+        "speed_start_mps": 77.79127755388618,
+        "speed_end_mps": 77.78921525519993,
+        "periodic_speed_residual_mps": 0.002062298686240638,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.0,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.0,
+        "deploy_mj": null,
+        "harvest_mj": null,
+        "energy_balance_residual_mj": null,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 21.040785882206716,
+        "sector_speed_rmse_kmh": [
+          22.965793501879382,
+          19.15319295092147,
+          21.43633703081324
+        ],
+        "max_abs_lap_error_pct": 1.966360095598892,
+        "max_abs_sector_error_s": 1.7588384714442853
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": null
+    },
+    {
+      "round": "R1",
+      "hypothesis": "Power response improves pace but free control-line reset can create false gains",
+      "change": "Shared execution; strict SOC/speed/DC/FSM gates; conservative tail-mask comparison",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.35202743481214,
+        "speed_start_mps": 77.79423957938211,
+        "speed_end_mps": 77.79423957938211,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.906188274033004,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.906188274033004,
+        "deploy_mj": 3.1498481335878146,
+        "harvest_mj": 4.056036407620856,
+        "energy_balance_residual_mj": -3.7636560534792807e-14,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.73772884115199,
+        "sector_speed_rmse_kmh": [
+          19.832765825717292,
+          19.818498637875088,
+          19.50717971686383
+        ],
+        "max_abs_lap_error_pct": 0.8269595190735672,
+        "max_abs_sector_error_s": 1.5994995046906375
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": null
+    },
+    {
+      "round": "R2",
+      "hypothesis": "Gradient search is unreliable on hard-shield action plateaus",
+      "change": "Bounded seeded six-block signed numerical search",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.03206042484939,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957938211,
+        "periodic_speed_residual_mps": 5.345697218217538e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9061189327819634,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9061189327819634,
+        "deploy_mj": 3.181342722032696,
+        "harvest_mj": 4.087461654814712,
+        "energy_balance_residual_mj": -5.2735593669694936e-14,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.353855954174175,
+        "sector_speed_rmse_kmh": [
+          18.669680536199184,
+          19.63098896618808,
+          19.504424823232785
+        ],
+        "max_abs_lap_error_pct": 1.2716855117664558,
+        "max_abs_sector_error_s": 1.7708506950173053
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": null
+    },
+    {
+      "round": "R3",
+      "hypothesis": "Unreachable negative drive commands and coarse blocks waste exploration",
+      "change": "Mode-aware braking/drive action and eight-block refinement",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.03330811051745,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423956854417,
+        "periodic_speed_residual_mps": 5.491614274433232e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9061129781628825,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9061129781628825,
+        "deploy_mj": 3.176837762958416,
+        "harvest_mj": 4.082950741121312,
+        "energy_balance_residual_mj": -1.4099832412739488e-14,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.298514219007423,
+        "sector_speed_rmse_kmh": [
+          18.595732414771703,
+          19.534512525971593,
+          19.510942916458497
+        ],
+        "max_abs_lap_error_pct": 1.2699513384610197,
+        "max_abs_sector_error_s": 1.7624843555675263
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": null
+    },
+    {
+      "round": "R4",
+      "hypothesis": "An action table and an incompatible legacy checkpoint are not deployed state feedback",
+      "change": "Versioned current-state MLP with three seeds and disclosed fixed-label DAgger",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.221322747425347,
+        "sector_speed_rmse_kmh": [
+          18.5830364289777,
+          19.380642126271837,
+          19.473470129392965
+        ],
+        "max_abs_lap_error_pct": 1.2554851258433322,
+        "max_abs_sector_error_s": 1.7432349983719355
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": null
+    },
+    {
+      "round": "R5",
+      "hypothesis": "Entropy and inaccurate long-horizon critics can destroy a good warm start",
+      "change": "Gamma 1, seconds reward, fixed/automatic entropy with strict incumbent selection",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.221322747425347,
+        "sector_speed_rmse_kmh": [
+          18.5830364289777,
+          19.380642126271837,
+          19.473470129392965
+        ],
+        "max_abs_lap_error_pct": 1.2554851258433322,
+        "max_abs_sector_error_s": 1.7432349983719355
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": "BC episode zero fallback"
+    },
+    {
+      "round": "R6",
+      "hypothesis": "Bootstrap critic errors and delayed energy credit need causal training correction",
+      "change": "Realised MC critic initialization; terminal-zero telescoping energy potential; retain incumbent",
+      "representative_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "calibration_aggregate": {
+        "mean_speed_rmse_kmh": 19.221322747425347,
+        "sector_speed_rmse_kmh": [
+          18.5830364289777,
+          19.380642126271837,
+          19.473470129392965
+        ],
+        "max_abs_lap_error_pct": 1.2554851258433322,
+        "max_abs_sector_error_s": 1.7432349983719355
+      },
+      "calibration_accuracy_passed": false,
+      "source_of_R5_R6_representative": "BC episode zero fallback"
+    }
+  ],
+  "BC_cases": [
+    {
+      "seed": 2026,
+      "bc_epochs": 600,
+      "dagger_rounds": 3,
+      "dagger_epochs_per_round": 200,
+      "expert": "Frozen numerical teacher requested action at the same ordered route decision; no state-dependent expert replanning",
+      "deployed_controller": "Current-state numeric MLP; no teacher action table lookup",
+      "raw_action_rmse": 0.011833549379918467,
+      "raw_completed_lap": true,
+      "raw_terminal_time_s": 71.24323721225508,
+      "raw_formal_lap_time_s": 71.24323721225508,
+      "selected_round": 1,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04392928651328,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957486041,
+        "periodic_speed_residual_mps": 8.24002199806273e-10,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9036838140674748,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9036838140674748,
+        "deploy_mj": 3.1740857775203546,
+        "harvest_mj": 4.077769591587905,
+        "energy_balance_residual_mj": -7.560618797697316e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04518923552311,
+        "speed_start_mps": 77.79423956854602,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 5.4903921409277245e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9044947270513832,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9044947270513832,
+        "deploy_mj": 3.1765646766445066,
+        "harvest_mj": 4.08105940369591,
+        "energy_balance_residual_mj": -2.098321516541546e-14,
+        "intermediate_speed_resets": 0
+      },
+      "selected_checkpoint": "best_bc_policy.npz",
+      "last_checkpoint": "last_bc_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "seed": 2027,
+      "bc_epochs": 600,
+      "dagger_rounds": 3,
+      "dagger_epochs_per_round": 200,
+      "expert": "Frozen numerical teacher requested action at the same ordered route decision; no state-dependent expert replanning",
+      "deployed_controller": "Current-state numeric MLP; no teacher action table lookup",
+      "raw_action_rmse": 0.01066114825959735,
+      "raw_completed_lap": false,
+      "raw_terminal_time_s": 46.39330229851342,
+      "raw_formal_lap_time_s": null,
+      "selected_round": 3,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04519659417222,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9034119897054778,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9034119897054778,
+        "deploy_mj": 3.1769396195464443,
+        "harvest_mj": 4.080351609251883,
+        "energy_balance_residual_mj": 3.9190872769268026e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04519659417222,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9034119897054778,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9034119897054778,
+        "deploy_mj": 3.1769396195464443,
+        "harvest_mj": 4.080351609251883,
+        "energy_balance_residual_mj": 3.9190872769268026e-14,
+        "intermediate_speed_resets": 0
+      },
+      "selected_checkpoint": "best_bc_policy.npz",
+      "last_checkpoint": "last_bc_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "seed": 2028,
+      "bc_epochs": 600,
+      "dagger_rounds": 3,
+      "dagger_epochs_per_round": 200,
+      "expert": "Frozen numerical teacher requested action at the same ordered route decision; no state-dependent expert replanning",
+      "deployed_controller": "Current-state numeric MLP; no teacher action table lookup",
+      "raw_action_rmse": 0.012662715584092344,
+      "raw_completed_lap": true,
+      "raw_terminal_time_s": 71.10315172981903,
+      "raw_formal_lap_time_s": 71.10315172981903,
+      "selected_round": 3,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "selected_checkpoint": "best_bc_policy.npz",
+      "last_checkpoint": "last_bc_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    }
+  ],
+  "SAC_cases": [
+    {
+      "round": "R5",
+      "case": "2026_auto",
+      "seed": 2026,
+      "temperature_mode": "auto",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04392928651328,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957486041,
+        "periodic_speed_residual_mps": 8.24002199806273e-10,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9036838140674748,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9036838140674748,
+        "deploy_mj": 3.1740857775203546,
+        "harvest_mj": 4.077769591587905,
+        "energy_balance_residual_mj": -7.560618797697316e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.21086312515732,
+        "speed_start_mps": 77.7942395575744,
+        "speed_end_mps": 77.79423955362911,
+        "periodic_speed_residual_mps": 3.945288540307956e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.391999817253093,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.407600610250904,
+        "deploy_mj": 1.5901242218297458,
+        "harvest_mj": 1.9821240390828532,
+        "energy_balance_residual_mj": -1.432187701766452e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.40588016193962,
+        "sector_speed_rmse_kmh": [
+          21.55048550354699,
+          19.920173446262403,
+          19.948940042310745
+        ],
+        "max_abs_lap_error_pct": 0.7321696358526213,
+        "max_abs_sector_error_s": 1.5004350114879799
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0030882857658032954
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        41.991819409778394,
+        38.76336654830001
+      ],
+      "Q_minus_realised_soft_MC_last_s": 32.25886872853853,
+      "Q1_Q2_disagreement_last_s": 0.050894745485998205,
+      "mean_action_projection_last": 0.36409375431390345,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R5",
+      "case": "2026_fixed",
+      "seed": 2026,
+      "temperature_mode": "fixed",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04392928651328,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957486041,
+        "periodic_speed_residual_mps": 8.24002199806273e-10,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9036838140674748,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9036838140674748,
+        "deploy_mj": 3.1740857775203546,
+        "harvest_mj": 4.077769591587905,
+        "energy_balance_residual_mj": -7.560618797697316e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.25175667821809,
+        "speed_start_mps": 77.7942395685492,
+        "speed_end_mps": 77.79423956306488,
+        "periodic_speed_residual_mps": 5.484324105964333e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.363479965763688,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.5159263993855956,
+        "deploy_mj": 1.4495183123944126,
+        "harvest_mj": 1.8129982781580882,
+        "energy_balance_residual_mj": 1.2323475573339238e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.512436326667522,
+        "sector_speed_rmse_kmh": [
+          21.867944618868194,
+          20.062697423658605,
+          19.82684515893027
+        ],
+        "max_abs_lap_error_pct": 0.7892150185783547,
+        "max_abs_sector_error_s": 1.4679260190730758
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        41.864682589842744,
+        39.064445815478805
+      ],
+      "Q_minus_realised_soft_MC_last_s": 32.49789182232956,
+      "Q1_Q2_disagreement_last_s": 0.052306202706183115,
+      "mean_action_projection_last": 0.3646887212909505,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R5",
+      "case": "2027_auto",
+      "seed": 2027,
+      "temperature_mode": "auto",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04519659417222,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9034119897054778,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9034119897054778,
+        "deploy_mj": 3.1769396195464443,
+        "harvest_mj": 4.080351609251883,
+        "energy_balance_residual_mj": 3.9190872769268026e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.75281848324492,
+        "speed_start_mps": 77.79423955757454,
+        "speed_end_mps": 77.79423955757454,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.4510888148847276,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.6368750416244935,
+        "deploy_mj": 2.2502710206371153,
+        "harvest_mj": 2.7013598355218447,
+        "energy_balance_residual_mj": -1.8318679906315083e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 19.880083498813633,
+        "sector_speed_rmse_kmh": [
+          19.960924093721463,
+          19.975987310338702,
+          19.634851194610956
+        ],
+        "max_abs_lap_error_pct": 0.2698952239218869,
+        "max_abs_sector_error_s": 1.4160713149573425
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0040568317203301665
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        42.8814433988417,
+        41.151311536886475
+      ],
+      "Q_minus_realised_soft_MC_last_s": 34.46316611643539,
+      "Q1_Q2_disagreement_last_s": 0.1270650417105618,
+      "mean_action_projection_last": 0.30079889899792867,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R5",
+      "case": "2027_fixed",
+      "seed": 2027,
+      "temperature_mode": "fixed",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04519659417222,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9034119897054778,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9034119897054778,
+        "deploy_mj": 3.1769396195464443,
+        "harvest_mj": 4.080351609251883,
+        "energy_balance_residual_mj": 3.9190872769268026e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.13552592436602,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423955599572,
+        "periodic_speed_residual_mps": 1.804069427180366e-08,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 3.6090566303809997,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 3.6090566303809997,
+        "deploy_mj": 1.5800046434981991,
+        "harvest_mj": 3.1890612738791986,
+        "energy_balance_residual_mj": 4.440892098500626e-16,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.599351359530985,
+        "sector_speed_rmse_kmh": [
+          18.00336194821438,
+          21.851168752121787,
+          20.988118913957468
+        ],
+        "max_abs_lap_error_pct": 0.6270763110872616,
+        "max_abs_sector_error_s": 1.6861606978990196
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        42.699150216558536,
+        39.44212842081033
+      ],
+      "Q_minus_realised_soft_MC_last_s": 32.63554911457409,
+      "Q1_Q2_disagreement_last_s": 0.031747933689128635,
+      "mean_action_projection_last": 0.20212479639330616,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R5",
+      "case": "2028_auto",
+      "seed": 2028,
+      "temperature_mode": "auto",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.56163627756786,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.820925111619333,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.820925111619333,
+        "deploy_mj": 0.9960640151749334,
+        "harvest_mj": 1.8169891267942804,
+        "energy_balance_residual_mj": -1.4099832412739488e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.957050042466705,
+        "sector_speed_rmse_kmh": [
+          22.82802954959575,
+          20.375128869212446,
+          19.96226693296838
+        ],
+        "max_abs_lap_error_pct": 1.2214885438828358,
+        "max_abs_sector_error_s": 1.5051754545735108
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0034311052014206873
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        44.12876016816833,
+        41.25810130995981
+      ],
+      "Q_minus_realised_soft_MC_last_s": 34.51090458741999,
+      "Q1_Q2_disagreement_last_s": 0.051874821790575766,
+      "mean_action_projection_last": 0.19489178194645157,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R5",
+      "case": "2028_fixed",
+      "seed": 2028,
+      "temperature_mode": "fixed",
+      "critic_method": "Bellman bootstrap critic warmup",
+      "reward_config": {
+        "potential_seconds_per_mj": 0.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.9479553526792,
+        "speed_start_mps": 77.79423957486041,
+        "speed_end_mps": 77.79423957938211,
+        "periodic_speed_residual_mps": 4.521695018411265e-09,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 3.4117518705480054,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 3.4117518705480054,
+        "deploy_mj": 0.14300239898961553,
+        "harvest_mj": 1.5547542695376373,
+        "energy_balance_residual_mj": -1.6431300764452317e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.767010818967755,
+        "sector_speed_rmse_kmh": [
+          22.400136274107346,
+          18.884994671165074,
+          21.40138788317129
+        ],
+        "max_abs_lap_error_pct": 1.7603930372446426,
+        "max_abs_sector_error_s": 1.753496407378421
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        43.7951628301302,
+        40.46264956870807
+      ],
+      "Q_minus_realised_soft_MC_last_s": 33.63160807566133,
+      "Q1_Q2_disagreement_last_s": 0.039460181475755134,
+      "mean_action_projection_last": 0.13163760612715167,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R6",
+      "case": "2026",
+      "seed": 2026,
+      "temperature_mode": "fixed",
+      "critic_method": "realised Monte Carlo critic initialisation",
+      "reward_config": {
+        "potential_seconds_per_mj": 1.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 19,
+      "partial_training_episodes": 1,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04392928651328,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957486041,
+        "periodic_speed_residual_mps": 8.24002199806273e-10,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9036838140674748,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9036838140674748,
+        "deploy_mj": 3.1740857775203546,
+        "harvest_mj": 4.077769591587905,
+        "energy_balance_residual_mj": -7.560618797697316e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.84981608833316,
+        "speed_start_mps": 77.79423956854602,
+        "speed_end_mps": 77.79423956854602,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.8180109216044342,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.8180109216044342,
+        "deploy_mj": 2.3227144705585805,
+        "harvest_mj": 3.1407253921630236,
+        "energy_balance_residual_mj": -9.103828801926284e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 20.287288663684755,
+        "sector_speed_rmse_kmh": [
+          21.149515579868662,
+          20.152734539577832,
+          19.66630010556801
+        ],
+        "max_abs_lap_error_pct": 0.2285189414015978,
+        "max_abs_sector_error_s": 1.4250482687254333
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        40.49499094198215,
+        37.59633035244777
+      ],
+      "Q_minus_realised_soft_MC_last_s": 31.740741978443715,
+      "Q1_Q2_disagreement_last_s": 0.06370088920739714,
+      "mean_action_projection_last": 0.46120656655595366,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [
+        {
+          "episode": 11,
+          "message": "Executor terminated before the lap boundary",
+          "status": "physical_fail",
+          "s_m": 2749.997357393887,
+          "guard_reasons": [
+            "deployment_slew"
+          ],
+          "terminal_potential_zero": true,
+          "reward_failure_s": -100.0,
+          "not_a_formal_lap": true,
+          "independent_FIA_violation_claim": false
+        }
+      ],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R6",
+      "case": "2027",
+      "seed": 2027,
+      "temperature_mode": "fixed",
+      "critic_method": "realised Monte Carlo critic initialisation",
+      "reward_config": {
+        "potential_seconds_per_mj": 1.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.04519659417222,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.9034119897054778,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.9034119897054778,
+        "deploy_mj": 3.1769396195464443,
+        "harvest_mj": 4.080351609251883,
+        "energy_balance_residual_mj": 3.9190872769268026e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.35227699391535,
+        "speed_start_mps": 77.79423957403641,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 0.0,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 3.220719110424187,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 3.220719110424187,
+        "deploy_mj": 2.806603268590046,
+        "harvest_mj": 4.027322379014262,
+        "energy_balance_residual_mj": -2.864375403532904e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 19.829061444128477,
+        "sector_speed_rmse_kmh": [
+          19.846902603070298,
+          19.361341609773845,
+          20.277840387911077
+        ],
+        "max_abs_lap_error_pct": 0.8266126538766722,
+        "max_abs_sector_error_s": 1.3067067718583303
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        39.972757695319494,
+        37.68679819006565
+      ],
+      "Q_minus_realised_soft_MC_last_s": 32.43086546856196,
+      "Q1_Q2_disagreement_last_s": 0.0765706960314684,
+      "mean_action_projection_last": 0.3008142333739099,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    },
+    {
+      "round": "R6",
+      "case": "2028",
+      "seed": 2028,
+      "temperature_mode": "fixed",
+      "critic_method": "realised Monte Carlo critic initialisation",
+      "reward_config": {
+        "potential_seconds_per_mj": 1.0,
+        "energy_start_mj": 2.0,
+        "failure_penalty_s": 100.0
+      },
+      "actual_episodes": 20,
+      "physically_completed_training_episodes": 20,
+      "partial_training_episodes": 0,
+      "training_initial_speed_mps": 103.0,
+      "training_periodic_closure": false,
+      "best_episode": 0,
+      "best_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 71.0437161165095,
+        "speed_start_mps": 77.79423957403579,
+        "speed_end_mps": 77.79423957403641,
+        "periodic_speed_residual_mps": 6.252776074688882e-13,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 2.90378455306749,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 2.90378455306749,
+        "deploy_mj": 3.1767101263563653,
+        "harvest_mj": 4.080494679423862,
+        "energy_balance_residual_mj": -6.661338147750939e-15,
+        "intermediate_speed_resets": 0
+      },
+      "last_summary": {
+        "completed_lap": true,
+        "execution_feasible": true,
+        "feasible": true,
+        "sustainable": true,
+        "public_rules_passed": true,
+        "periodic_speed_closed": true,
+        "dc_boundary_closed": true,
+        "rule_state_closed": true,
+        "lap_time_s": 72.33962145509375,
+        "speed_start_mps": 77.79423957990578,
+        "speed_end_mps": 77.7942395575744,
+        "periodic_speed_residual_mps": 2.23313776359646e-08,
+        "energy_start_mj": 2.0,
+        "energy_end_mj": 4.0,
+        "energy_min_mj": 2.0,
+        "energy_max_mj": 4.0,
+        "deploy_mj": 0.9980752635006734,
+        "harvest_mj": 2.9980752635006502,
+        "energy_balance_residual_mj": 2.3092638912203256e-14,
+        "intermediate_speed_resets": 0
+      },
+      "last_periodic_formally_legal": true,
+      "last_calibration": {
+        "mean_speed_rmse_kmh": 19.954512930064897,
+        "sector_speed_rmse_kmh": [
+          19.451129369104244,
+          19.401538326115038,
+          20.891147873725423
+        ],
+        "max_abs_lap_error_pct": 0.9117839677116055,
+        "max_abs_sector_error_s": 1.6808909364452091
+      },
+      "last_calibration_accuracy_passed": false,
+      "gain_over_bc_s": 0.0,
+      "SAC_improvement_found": false,
+      "alpha_initial_final": [
+        0.001,
+        0.0010000000000000002
+      ],
+      "Q_MC_RMSE_first_last_s": [
+        42.48369630495421,
+        38.641424041101196
+      ],
+      "Q_minus_realised_soft_MC_last_s": 32.97514442092235,
+      "Q1_Q2_disagreement_last_s": 0.04579825643266311,
+      "mean_action_projection_last": 0.34690819031042397,
+      "potential_total_last_s": 0.0,
+      "all_training_potential_max_abs_s": 0.0,
+      "failures": [],
+      "best_checkpoint": "best_feasible_policy.npz",
+      "last_checkpoint": "last_sac_candidate.npz",
+      "checkpoint_roundtrip_passed": true
+    }
+  ],
+  "matched_case_comparisons": [
+    {
+      "seed": 2026,
+      "auto_last_faster_than_fixed_by_s": 0.04089355306076925,
+      "R6_last_faster_than_R5_fixed_by_s": 0.40194058988493,
+      "R6_last_slower_than_BC_by_s": 0.8058868018198808,
+      "R6_Q_MC_reduction_vs_R5_fixed_s": 1.4681154630310331
+    },
+    {
+      "seed": 2027,
+      "auto_last_faster_than_fixed_by_s": 0.38270744112109867,
+      "R6_last_faster_than_R5_fixed_by_s": 0.783248930450668,
+      "R6_last_slower_than_BC_by_s": 0.3070803997431284,
+      "R6_Q_MC_reduction_vs_R5_fixed_s": 1.7553302307446756
+    },
+    {
+      "seed": 2028,
+      "auto_last_faster_than_fixed_by_s": 0.386319075111345,
+      "R6_last_faster_than_R5_fixed_by_s": 0.6083338975854531,
+      "R6_last_slower_than_BC_by_s": 1.295905338584248,
+      "R6_Q_MC_reduction_vs_R5_fixed_s": 1.8212255276068774
+    }
+  ],
+  "conclusions": [
+    {
+      "finding": "No SAC improvement over BC incumbent in the frozen R5/R6 evidence",
+      "evidence": "All nine SAC cases selected episode zero; gain_over_bc_s=0, SAC_improvement_found=false. Last checkpoints are separate and slower.",
+      "implication": "Successful legal fallback is BC preservation, not SAC success or learning convergence."
+    },
+    {
+      "finding": "Critic values remain inconsistent with realised long-horizon returns",
+      "evidence": "R5 final Q-MC RMSE38.763–41.258 seconds; R6 final37.596–38.641 seconds. R6 positive Q-minus-realised-soft-MC31.741–32.975 seconds despite twin-Q disagreement0.046–0.077 seconds.",
+      "implication": "Small TD loss or twin-critic agreement cannot certify correct total return. Realised stochastic MC comparisons diagnose value mismatch; they do not alone estimate exact policy-expectation bias."
+    },
+    {
+      "finding": "R6 modestly improves final policies but still fails learning and fidelity gates",
+      "evidence": "Every R6 last policy is faster than matching R5 fixed last, but slower than matching BC; calibration mean RMSE19.829–20.287km/h, max sector errors1.307–1.681seconds.",
+      "implication": "MC initialisation plus potential sensitivity is a joint experiment; individual causal effects cannot be separated and no convergence is demonstrated."
+    },
+    {
+      "finding": "Reward does not purchase pace with terminal SOC bonus",
+      "evidence": "gamma1, elapsed seconds objective, terminal potential zero including failed prefix; every R6 training trajectory potential total is numerically zero. The one failed episode has explicit−100seconds failure penalty.",
+      "implication": "Potential redistribution changes local credit, not complete-episode elapsed-time objective. It does not itself ensure optimal policy or correct Q."
+    },
+    {
+      "finding": "Observed model discrepancy precedes resumed ML",
+      "evidence": "R0 historical training_run=false; baseline cal RMSE21.041km/h. R1 power-responsive execution reduces it to19.738 while keeping periodic speed/DC/FSM boundaries.",
+      "implication": "The frozen pre-v6 model error should not be attributed to SAC. Geometry/line, ICE/ERS uncertainty and equivalent model parameters still constrain truthfulness."
+    },
+    {
+      "finding": "Physical and boundary checks must be assessed separately from supervised loss and training completion",
+      "evidence": "R4/2027 raw action RMSE0.01066 still terminates early; 179 complete training laps start103m/s and fail periodic speed closure. Formal evaluations shoot policy-specific initial speed around77.794m/s; no within-lap velocity resets.",
+      "implication": "Partial terminal time is not lap time. Same executor does not imply identical boundary condition; fixed-initial checkpoint roundtrip cannot be called independent shooting parity."
+    },
+    {
+      "finding": "Fastest is bounded by the finite research family",
+      "evidence": "R2 recorded numerical incumbent71.032060s; R3 teacher71.033308s; best BC71.043716s. Signed24trial and mode-aware32trial searches are finite, without global-optimality proof.",
+      "implication": "Do not call BC/SAC the fastest sustainable solution or claim millisecond differences as numerically resolved physics. The conservative energy floor/tail mask and disabled positive-wheel superclipping are experiment restrictions."
+    }
+  ],
+  "remaining_unknowns": [
+    "FIA-F1-DOC-058 ECU transitions and actual driver maximum-demand mapping; public-rule surrogate certificate is not full FIA homologation",
+    "Actual ES SOC/capacity, battery losses, engine rpm/transmission, ICE/fuel-flow and precise aero state",
+    "Reference-line/alignment fidelity; existing model accuracy gate remains failed",
+    "Long-horizon bootstrap critic calibration and hard action-projection plateaus; do not expand budgets from these logs without a new registered correction"
+  ],
+  "recommended_next_audits": [
+    "Keep numerical incumbent, BC incumbent and last SAC candidate provenance separate in final release",
+    "Investigate the single detected deployment-slew partial via accepted internal ledger and requested-versus-actual mapping; do not infer independent FIA violation from a maximum-demand HOLD label",
+    "After a separately frozen experiment, consider return normalisation with correct reward/entropy units and a converged MC value baseline, plus ablations separating MC and potential",
+    "Retain RMSE and sector gates unchanged; no new FP2 opening until local gates pass"
+  ],
+  "source_inventory": [
+    {
+      "path": "results/austria_2026_v6/R4/2026/bc_metadata.json",
+      "sha256": "ea5733ac706040aa954f7eb307c0f0ebcf1a3a7e2964e9c0dc3cbee4659a0763"
+    },
+    {
+      "path": "results/austria_2026_v6/R4/2027/bc_metadata.json",
+      "sha256": "24351fa4b6d8d5a4f4f7b891ec5e8d62daf1205453ec1b209cbe5737e710bb7d"
+    },
+    {
+      "path": "results/austria_2026_v6/R4/2028/bc_metadata.json",
+      "sha256": "4140401018a63aad6d1474c923ff89d559bc3729004e88db6a481e588522e4d5"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_auto/sac_metadata.json",
+      "sha256": "d6c010ce9228168c52f6b904d222d18e59fa9b07efd9b2998a28c10114701610"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_auto/sac_history.json",
+      "sha256": "9aff0be943e5f0509cd3db8082f79c8830745e3d52f5f8a05f2184c8437e51dc"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_auto/evaluation_020_trajectory.json.gz",
+      "sha256": "7fa8510e6f4f732d90767abe7d87c554a863c2167028406138278f72e2d8e395"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_fixed/sac_metadata.json",
+      "sha256": "ed91466537739d1f13d9bb3b7aecfb9680d75d045a1b744855698901074aa9b5"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_fixed/sac_history.json",
+      "sha256": "8e22c78b3e94a8d3304851e8859c78577195411261715724d1afb1b9b0a38bbd"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2026_fixed/evaluation_020_trajectory.json.gz",
+      "sha256": "a2ca6a113bd441bfd7e15c410f5e4b2a8e125f19515599db589e0f85f6b4290f"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_auto/sac_metadata.json",
+      "sha256": "7470f4334e2f770bbdf4a5ac0d81a484881ce6717d6f3d83aa01e6035d5fc793"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_auto/sac_history.json",
+      "sha256": "cf4bb22064b60025e2804a3e77941abed90ce60fc441fe5c7785eae61f1bd76b"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_auto/evaluation_020_trajectory.json.gz",
+      "sha256": "39998c579300672978b193e737e7b4d5087bf29698e5c7249afd7a1144c9bdcd"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_fixed/sac_metadata.json",
+      "sha256": "f3d305aaccf9861366f21bc8d70672529b05025ac73dab4c1bc3be899b00c211"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_fixed/sac_history.json",
+      "sha256": "0631369e23379e951cd3aef73af09f16288593ceedc28fc4f106b86f59da360a"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2027_fixed/evaluation_020_trajectory.json.gz",
+      "sha256": "3328baead47a34a9d2131e44d28a997470291a49c8d5c386db9970f0736d218b"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_auto/sac_metadata.json",
+      "sha256": "d8f8d1402c212febe9193ac9902bb7593325d0199aef37130975c8fdf7b7fb7a"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_auto/sac_history.json",
+      "sha256": "dace35a7d1a749b6bd9337ccb2b750214a5ace6d642fd6c8dd18b35e668ca1bc"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_auto/evaluation_020_trajectory.json.gz",
+      "sha256": "787db0dfd1a66c370fdbb742de3ee78fdef432f6727ba26ae310af5983fe89be"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_fixed/sac_metadata.json",
+      "sha256": "a5898109fe448d43f5f5840714397d3a436fa717e19c6bc22493d2de16f9bf9e"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_fixed/sac_history.json",
+      "sha256": "e2c856d5e91d3be59286e625a391f339c92081e1f2e2857d8decbb997fb44dc6"
+    },
+    {
+      "path": "results/austria_2026_v6/R5/2028_fixed/evaluation_020_trajectory.json.gz",
+      "sha256": "06d4b3c7b78ed6b9864e5a2280eddedc4910bc79d1c69dba905ce8f8a7e1c645"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2026/sac_metadata.json",
+      "sha256": "5a553b4b16bfc3ae5e45918177472543a7e37dd43c952abc400b8794d2d03c5c"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2026/sac_history.json",
+      "sha256": "210254661aa5f642d4fd32a535626c767a94504b90048381265ceebb9b506d82"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2026/evaluation_020_trajectory.json.gz",
+      "sha256": "b4de90c1d778a6bcdab7e4afdd180819853fb09a1509e5585c4b3e445060b3fd"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2027/sac_metadata.json",
+      "sha256": "5fadab47f404da0fb58a8b4070ea92618596d32795d65842c662333b6a6f1afd"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2027/sac_history.json",
+      "sha256": "8e78e4b4ba1b1940ded3b9404a20e221c9d86fde3e697eef8d3c5585d69763ba"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2027/evaluation_020_trajectory.json.gz",
+      "sha256": "2655339eb41c4645a6c9ddb5f698f41cc342fd3a9c84883126dacabdcd226df1"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2028/sac_metadata.json",
+      "sha256": "7663bfec6c49104ea3de504e6de46a23960bf9e49cbe6d6bb901ae92ab368c92"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2028/sac_history.json",
+      "sha256": "aeab2e3a471fa947299e5d70ae01f981b22c1e481068f02d27d832b82c9cf9d8"
+    },
+    {
+      "path": "results/austria_2026_v6/R6/2028/evaluation_020_trajectory.json.gz",
+      "sha256": "2424368f48d76db705fad43e46dcb1af7cc2ba0cd6f146ba84453066df75c440"
+    },
+    {
+      "path": "results/austria_2026_v6/rounds.json",
+      "sha256": "0a8a9c88e0aa0ba9c9e6638bf5448880aa3d1a820f50eb7570395fafc8e2b6c0"
+    },
+    {
+      "path": "results/austria_2026_v6/self_correction_decisions.json",
+      "sha256": "867f1352850a7084bdf894e8626e0ef5549e4f9621d2e1653d7137d73d00229d"
+    },
+    {
+      "path": "results/austria_2026_v6/started.json",
+      "sha256": "e130fedb78e4ec5d001fdd57cc4b53dbc5f107c4b423c9facd05236f80eb64d3"
+    },
+    {
+      "path": "f1ers_v6/learning.py",
+      "sha256": "db06fa29d14beb8bf6b76d6b066d81e9c93a75d9e8e203610aafb920506a936c"
+    },
+    {
+      "path": "f1ers_v6/reward.py",
+      "sha256": "c0e3086ef55d7908d3b883048b092a07d17a8e2d5d1329deb991b89de2dcf667"
+    },
+    {
+      "path": "tests/test_v6_learning.py",
+      "sha256": "295a47ca8fef72cf764e1495c8f303976bf0126d670779c659ad4966b7d23492"
+    }
+  ]
+}

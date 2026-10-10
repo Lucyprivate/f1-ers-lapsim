@@ -1,0 +1,16 @@
+{
+  "schema_version": 7,
+  "passed": true,
+  "tests_run": 472,
+  "elapsed_s": 163.151,
+  "log_sha256": "a08a2d845285fbd2c7659d6ece87c7efeed61b5a44cbcca6d4aadf00ec5c32ef",
+  "first_sandbox_run": {
+    "passed": false,
+    "tests_run": 472,
+    "errors": 2,
+    "log_sha256": "8de737f1112c583242b2e8dd94bdf6350e9d935dce18d93bc3e74e94b234797e",
+    "cause": "Git MSYS Windows named-object creation blocked by sandbox"
+  },
+  "rerun_scope": "unchanged full suite outside sandbox after approved escalation",
+  "FP2_accessed": false
+}

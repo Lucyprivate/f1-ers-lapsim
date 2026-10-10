@@ -1,0 +1,25 @@
+{
+  "candidates": [
+    {
+      "name": "baseline_remaining",
+      "geometry": {
+        "kind": "baseline"
+      },
+      "brake_mapping": "remaining"
+    },
+    {
+      "name": "baseline_independent",
+      "geometry": {
+        "kind": "baseline"
+      },
+      "brake_mapping": "independent"
+    }
+  ],
+  "frozen_before_development": true,
+  "eligibility_fit_laps": [
+    3,
+    4,
+    5,
+    6
+  ]
+}

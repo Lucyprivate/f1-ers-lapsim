@@ -1,0 +1,324 @@
+{
+  "schema_version": 7,
+  "reviewed_at_utc": "2026-10-09T18:58:30.505664+00:00",
+  "source_commit": "b98443c7efe42fd3bb2541c25675e0b51362256a",
+  "prior_source_commit": "82d28f8a50c58bd8b77e47a44723076c56be4748",
+  "scope": "Static ML/causality/frozen-demand review plus one synthetic pure-query check; no real simulation, training, scoring, dev telemetry or FP2 arrays loaded by this audit. R7 runner/result files are read-only.",
+  "checkpoint_schema": {
+    "features": [
+      "s_fraction",
+      "phase_sin",
+      "phase_cos",
+      "speed_scaled",
+      "energy_fraction",
+      "deployable_credit_fraction",
+      "recharge_fraction",
+      "previous_dc_fraction",
+      "curvature_scaled",
+      "lateral_utilization",
+      "wheel_demand_fraction",
+      "actual_braking",
+      "safe_speed_fraction",
+      "safe_100m_fraction",
+      "safe_250m_fraction",
+      "safe_500m_fraction",
+      "drag_fraction",
+      "aero_straight",
+      "sector_1",
+      "sector_2",
+      "sector_3",
+      "deployment_cap_fraction",
+      "reserve_fraction",
+      "reduction_active",
+      "reduction_pending",
+      "hold_remaining_fraction",
+      "reduction_total_fraction",
+      "low_speed_exempt",
+      "torque_cap_fraction",
+      "requested_dc_fraction",
+      "deployment_tail_mask"
+    ],
+    "network_sizes": [
+      31,
+      32,
+      32,
+      2
+    ],
+    "execution_protocol": "power_responsive_hard_boundary_v6",
+    "schema": 6
+  },
+  "prior_raw_policy_boundary": {
+    "completed_lap": false,
+    "feasible": false,
+    "speed_start_mps": 77.79423957403579,
+    "energy_start_mj": 2.0,
+    "distance_completed_m": 2749.997357427779
+  },
+  "integrity_checks": {
+    "original_checkpoint_sha256": "c9fd321a130dffdb370b0aaf87adb7e54d51c60d97c2d25da5f3dc464f4bb611",
+    "copied_checkpoint_sha256": "c9fd321a130dffdb370b0aaf87adb7e54d51c60d97c2d25da5f3dc464f4bb611",
+    "original_metadata_sha256": "24351fa4b6d8d5a4f4f7b891ec5e8d62daf1205453ec1b209cbe5737e710bb7d",
+    "original_prior_manifest_sha256": "65d196564d9a65838715760768faf13d43e64feea2fb3f6e2648fd2a4975f1b6",
+    "checkpoint_matches_parent_seal": true,
+    "metadata_matches_parent_seal": true,
+    "copied_checkpoint_matches_original": true,
+    "config_sha256": "e9db92de95b9fdcde4870f029dcc061f315d47ce1818b122cb8dc81b31af067f",
+    "frozen_protocol_sha256": "e9db92de95b9fdcde4870f029dcc061f315d47ce1818b122cb8dc81b31af067f",
+    "config_matches_freeze": true,
+    "features_match_frozen31": true,
+    "action_space_matches": true,
+    "R7_new_SAC_episodes": 0
+  },
+  "small_check": {
+    "kind": "Synthetic guard late-notice pure-query check; no vehicle integration or observed dataset read",
+    "actor_positive_request_kw": 350.0,
+    "guarded_positive_request_kw": 0.0,
+    "previous_accepted_dc_kw_before_after": [
+      350.0,
+      350.0
+    ],
+    "phase_after_guard": "HOLD",
+    "query_request_kw_during_hold": 350.0,
+    "two_queries_equal": true,
+    "query_does_not_mutate_rule_state": true,
+    "query_does_not_mutate_guard_audit": true,
+    "no_instant_clip_of_existing_dc": true
+  },
+  "findings": [
+    {
+      "topic": "ML provenance",
+      "assessment": "passed",
+      "evidence": {
+        "original_checkpoint_sha256": "c9fd321a130dffdb370b0aaf87adb7e54d51c60d97c2d25da5f3dc464f4bb611",
+        "copied_checkpoint_sha256": "c9fd321a130dffdb370b0aaf87adb7e54d51c60d97c2d25da5f3dc464f4bb611",
+        "original_metadata_sha256": "24351fa4b6d8d5a4f4f7b891ec5e8d62daf1205453ec1b209cbe5737e710bb7d",
+        "original_prior_manifest_sha256": "65d196564d9a65838715760768faf13d43e64feea2fb3f6e2648fd2a4975f1b6",
+        "checkpoint_matches_parent_seal": true,
+        "metadata_matches_parent_seal": true,
+        "copied_checkpoint_matches_original": true,
+        "config_sha256": "e9db92de95b9fdcde4870f029dcc061f315d47ce1818b122cb8dc81b31af067f",
+        "frozen_protocol_sha256": "e9db92de95b9fdcde4870f029dcc061f315d47ce1818b122cb8dc81b31af067f",
+        "config_matches_freeze": true,
+        "features_match_frozen31": true,
+        "action_space_matches": true,
+        "R7_new_SAC_episodes": 0
+      },
+      "refs": [
+        {
+          "file": "tools/run_r7.py",
+          "lines": [
+            153,
+            177,
+            184,
+            190
+          ]
+        },
+        {
+          "file": "config/v6_r7/protocol.json",
+          "lines": [
+            5,
+            6,
+            31
+          ]
+        }
+      ],
+      "interpretation": "Raw BC seed2027 checkpoint is byte-identical to frozen R4 input and copied R7 input; only deterministic policy load/inference occurs. No optimiser, SAC episodes, BC/DAgger updates, checkpoint writes or new weights. Previously raw partial elapsed46.3933s is never a formal lap time."
+    },
+    {
+      "topic": "Warm-state transfer",
+      "assessment": "separate research regime, untrained policy",
+      "refs": [
+        {
+          "file": "tools/run_r7.py",
+          "lines": [
+            191,
+            203,
+            204,
+            205,
+            220
+          ]
+        },
+        {
+          "file": "f1ers_v6/simulator.py",
+          "lines": [
+            90,
+            107,
+            108,
+            109
+          ]
+        }
+      ],
+      "interpretation": "Six physically contiguous laps inherit v/E/DC/FSM; ranking uses last two model lap times after same-policy warmup. Changing energy/reserve/request/FSM observations is a state-distribution shift; no OOD robustness or retraining success is established. Original six-lap subset, cold stronger proxy and steady stronger proxy are separate predicates. A steady candidate cannot erase cold proxy failure or imply a cold-start optimal result."
+    },
+    {
+      "topic": "Geometry guard application and bypass",
+      "assessment": "no actor or frozen-demand bypass found",
+      "refs": [
+        {
+          "file": "f1ers_v6/environment.py",
+          "lines": [
+            95,
+            107,
+            108,
+            110,
+            114
+          ]
+        },
+        {
+          "file": "f1ers_v6/geometry_guard.py",
+          "lines": [
+            79,
+            90,
+            93,
+            98,
+            121,
+            126
+          ]
+        },
+        {
+          "file": "f1ers_v6/r7.py",
+          "lines": [
+            32,
+            38,
+            40,
+            41,
+            44,
+            48
+          ]
+        }
+      ],
+      "interpretation": "All actor requests, including fixed raw-action arrays in numerical replay, enter GeometryAdvanceRuleShield.decide. Positive requests are reduced before parent FSM decide; actual negative wheel demand preserves actor harvest. Driver/shield binding persists after every reset, including FrozenR7Env. The unchanged vehicle kernel receives signed wheel demand and no target-acceleration override capable of bypassing this request mapping."
+    },
+    {
+      "topic": "No instant accepted-DC clipping",
+      "assessment": "passed static path plus synthetic check",
+      "refs": [
+        {
+          "file": "f1ers_v6/geometry_guard.py",
+          "lines": [
+            94,
+            97,
+            98,
+            103
+          ]
+        },
+        {
+          "file": "f1ers_v6/rules.py",
+          "lines": [
+            199,
+            242,
+            255,
+            277
+          ]
+        },
+        {
+          "file": "f1ers_v6/environment.py",
+          "lines": [
+            110,
+            114
+          ]
+        }
+      ],
+      "interpretation": "Geometry guard edits new scalar request only; query and accept use original FSM and accepted integrator records. Existing previous_dc_kw is not overwritten to the new cap. Late notice may still fail feasibility and is not repaired by falsifying supply. Actual K, maximum surrogate demand, effective query and public cap remain distinct."
+    },
+    {
+      "topic": "Future information and model feedback",
+      "assessment": "No future observed velocity enters deployment or ranking",
+      "refs": [
+        {
+          "file": "f1ers_v6/geometry_guard.py",
+          "lines": [
+            17,
+            48,
+            65,
+            72
+          ]
+        },
+        {
+          "file": "f1ers_v6/environment.py",
+          "lines": [
+            61,
+            79
+          ]
+        },
+        {
+          "file": "tools/run_r7.py",
+          "lines": [
+            86,
+            197,
+            220,
+            246
+          ]
+        }
+      ],
+      "interpretation": "Lookahead uses known fixed geometry safety-speed profile and current simulated speed, not observed telemetry. The original31 features remain unchanged. Margin ranking uses model legality and last-two simulated time, never calibration/development residual. Caveat: inherited load_local_dataset exposes authorized historical calibration+development data before ranking; development residual scoring occurs only after selection freezes. This is not a claim that development bytes remain unread. FP2 raw/test arrays are not loaded."
+    },
+    {
+      "topic": "Numerical demand freeze",
+      "assessment": "guard retained",
+      "refs": [
+        {
+          "file": "f1ers_v6/r7.py",
+          "lines": [
+            32,
+            35,
+            38,
+            41,
+            55,
+            59,
+            63,
+            68,
+            70,
+            79,
+            100
+          ]
+        }
+      ],
+      "interpretation": "Original full5m wheel-demand copies are read-only; raw actor actions and initial v/E/FSM are fixed across output/integration comparisons. Frozen simulator/environment inherit GeometryGuard classes and rebind driver.shield; causal guard/FSM queries continue using each accepted numerical state. Effective DC is deliberately not replaced by a table. Both physical and added HOLD/LIMITED proxy gates are required for valid convergence comparisons."
+    },
+    {
+      "topic": "Limits of geometric anticipation",
+      "assessment": "qualified engineering predictor",
+      "refs": [
+        {
+          "file": "f1ers_v6/geometry_guard.py",
+          "lines": [
+            29,
+            63,
+            69
+          ]
+        },
+        {
+          "file": "f1ers_v6/proxy_audit.py",
+          "lines": [
+            1,
+            95
+          ]
+        }
+      ],
+      "interpretation": "Fixed threshold332.5kW and arrival distance/known-profile-speed predict low positive wheel power. Global margins0.2/0.5/1s are not a universal control-invariance proof, an observed residual mask, or a new FIA rule. Full ECU demand/period semantics, true SOC and real warm-state policy generalisation remain unverified."
+    }
+  ],
+  "source_inventory": {
+    "f1ers_v6/geometry_guard.py": "aac9cdee3483fc80a1026e735a625ba4a2594dd795972caf407ae99fe0542b3b",
+    "f1ers_v6/r7.py": "56cdc73913dfef6dea02690b7902d1801ececdc95eca58d83600cb2fa8e894b7",
+    "f1ers_v6/frozen_demands.py": "e3fa425622f1200ee13d93520319f4e2a0bde2e6330c6897f8809ed0f6f62a7f",
+    "f1ers_v6/driver.py": "67cf6ddbd8443f9715384d719347c0463ddbca15bc9862983b12dba99e27473b",
+    "f1ers_v6/environment.py": "4d1ecad04412ec1489a7aba5feeb17d11a998e32be9e2f894665dd19e24c698e",
+    "f1ers_v6/simulator.py": "dff5e08f60ef2b1b6a934afc4553957956dee787c27cf3f95529fbe47114757b",
+    "f1ers_v6/rules.py": "c71bbd9be26dc4675ad18af9901371816c8031ac28569a1da435dcee223482c2",
+    "f1ers_v6/learning.py": "db06fa29d14beb8bf6b76d6b066d81e9c93a75d9e8e203610aafb920506a936c",
+    "f1ers_v6/proxy_audit.py": "d4f9c06315b8df305633ff4cbebac736c8af05856d81dd8e4a19a67d650df861",
+    "tools/run_r7.py": "b1084464a69e3885ac97d03a6361f38c881ff34352082aef72545220a74c755f",
+    "config/v6_r7/protocol.json": "e9db92de95b9fdcde4870f029dcc061f315d47ce1818b122cb8dc81b31af067f",
+    "tests/test_v6_geometry_guard.py": "7975f2b68fd6d9a2da30304c8b0c67b8744f8080840bc1c9caf46711d04ed944"
+  },
+  "R7_result_status_at_review": "running; final experiment/verification and numerical outcomes not reviewed",
+  "R7_experiment_exists_at_review": true,
+  "scientific_or_full_FIA_release_claim": false,
+  "policy_retrained": false,
+  "repository_modified": false,
+  "formal_R7_files_modified": false,
+  "review_files_modified": false,
+  "no_blocking_learning_code_issue_found": true
+}

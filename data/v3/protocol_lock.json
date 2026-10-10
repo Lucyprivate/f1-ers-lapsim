@@ -1,0 +1,61 @@
+{
+  "schema_version": 3,
+  "frozen_at_utc": "2026-10-09T13:24:07.384026+00:00",
+  "protocol_sha256": "9c9cd066a282851085915d62dd0d53a5a83e13f198a37b3adecf28c5c2b73957",
+  "frozen_before_fp2_download": true,
+  "frozen_inputs": [
+    {
+      "path": "config/rules_austria_2026.json",
+      "sha256": "5494a93000dddb9ea37637c24ae33b6f8b6043b4f41a1c00576059e987f49a7e"
+    },
+    {
+      "path": "data/processed/dataset.json",
+      "sha256": "e40adf65085a1b7147a7992706bfec3bca78ee1a54a8f233efbaacdc66e49c2b"
+    },
+    {
+      "path": "data/raw/tum/Spielberg_minimum_curvature.csv",
+      "sha256": "dd8516946053f5fdd4a5fe0b2f3df1bfe10d90fea84fe2ce125da4763da7fc15"
+    },
+    {
+      "path": "data/raw/tum/Spielberg_centerline.csv",
+      "sha256": "277b2854c4323021b10b6b63ebfe6a6cc971f494c0728202e910d67d7d65dc8c"
+    },
+    {
+      "path": "data/raw/openf1/sessions.json",
+      "sha256": "2ba6dce9e8d048cf1088711b6c415240e338c0b012e2ca44b2f0878402393158"
+    },
+    {
+      "path": "data/raw/openf1/drivers.json",
+      "sha256": "dcb624a80a343e1472db14e001353a4f66fdc3edbd953225341cc55057034304"
+    },
+    {
+      "path": "data/raw/openf1/laps.json",
+      "sha256": "09624d83306bbb970a04d147123b52fe542fd333ac0f51c7f7b1ac8cb5107e8e"
+    },
+    {
+      "path": "data/raw/openf1/race_control.json",
+      "sha256": "14bcd54d47244d336d9069b57542923c1b56b86d132fedd0e70da9c051899c6b"
+    },
+    {
+      "path": "data/raw/openf1/weather.json",
+      "sha256": "d4f8c3a4f7e01f0f9851378240fecfca899de4e5abe432a1603840e9e825200e"
+    },
+    {
+      "path": "data/raw/openf1/pit.json",
+      "sha256": "2835e13b7174f34d5c1f1f88bc763d7ce288febb51470555e4b65d519063cbb0"
+    },
+    {
+      "path": "data/raw/openf1/stints.json",
+      "sha256": "3fe51aa0744ddd8a844236417cf4ef011102df1820a4b8ecc10bb314bc1ef617"
+    },
+    {
+      "path": "data/raw/openf1/car_data_63_laps3to9.json",
+      "sha256": "81e5f3dd1d094085ef47f920314304db1cb855f1c584a2389c32b4acd4530d69"
+    },
+    {
+      "path": "data/raw/openf1/location_63_laps3to9.json",
+      "sha256": "6b059fb79bda90ccec5dc3475be327de1bd2be04fde0a2a79fc8bb8a97630a12"
+    }
+  ],
+  "historical_10_12_status": "Previously scored v2 historical diagnostic only; no new arrays read by local v3 loader"
+}

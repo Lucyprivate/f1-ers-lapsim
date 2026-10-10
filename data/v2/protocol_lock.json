@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "frozen_at_utc": "2026-10-05T13:48:51.813956+00:00",
+  "protocol_path": "config/protocol_austria_2026_v2.json",
+  "protocol_sha256": "b99ace85ec093720b3d1518a9b4ca1fd95cefd356e6fbc6510be373f8c673af9",
+  "frozen_before_new_telemetry_download": true,
+  "download_plan": [
+    {
+      "endpoint": "car_data",
+      "path": "data/v2/raw/car_data_63_laps10to18.json",
+      "url": "https://api.openf1.org/v1/car_data?session_key=11315&driver_number=63&date%3E=2026-06-28T13%3A14%3A09&date%3C=2026-06-28T13%3A25%3A09",
+      "window_start_utc": "2026-06-28T13:14:09",
+      "window_end_utc": "2026-06-28T13:25:09"
+    },
+    {
+      "endpoint": "location",
+      "path": "data/v2/raw/location_63_laps10to18.json",
+      "url": "https://api.openf1.org/v1/location?session_key=11315&driver_number=63&date%3E=2026-06-28T13%3A14%3A09&date%3C=2026-06-28T13%3A25%3A09",
+      "window_start_utc": "2026-06-28T13:14:09",
+      "window_end_utc": "2026-06-28T13:25:09"
+    }
+  ],
+  "frozen_inputs": [
+    {
+      "path": "config/rules_austria_2026.json",
+      "sha256": "5494a93000dddb9ea37637c24ae33b6f8b6043b4f41a1c00576059e987f49a7e",
+      "bytes": 6048
+    },
+    {
+      "path": "data/manifest.json",
+      "sha256": "631849d56087c6c362005c611835f6b2e4357da8c43217337058c4243e7d8eef",
+      "bytes": 20668
+    },
+    {
+      "path": "data/processed/dataset.json",
+      "sha256": "e40adf65085a1b7147a7992706bfec3bca78ee1a54a8f233efbaacdc66e49c2b",
+      "bytes": 12214
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/event_doc5_page2.png",
+      "sha256": "b1ad8a53a3e3c9337d9b9925e388763bfbffc2b886da8307a22737110c7f8446",
+      "bytes": 364905
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/event_doc7_page2.png",
+      "sha256": "8e9e81cd1964efee60c600f5e0f6c27182bb02af1cb701c1dd4596c7d5432c5c",
+      "bytes": 402997
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/sporting_issue07_page62.png",
+      "sha256": "9fc94c0e72d192b84addaa1b4435bec38763ddfa7a17dcb5ea7babb42258a250",
+      "bytes": 318915
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/sporting_issue07_page63.png",
+      "sha256": "fc372842210459d7342ad33d153a0296781a836eae91afefbb19aaae824a0a06",
+      "bytes": 291121
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/technical_issue19_page65.png",
+      "sha256": "d69b5fcaf8b642a1dcccac352a851ad00842a79fce99f72b13e02957235180bf",
+      "bytes": 370214
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/technical_issue19_page66.png",
+      "sha256": "85f43b726349bdd42f2d12c270ac40d3221420516585540922eda040edd29894",
+      "bytes": 360832
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/technical_issue19_page67.png",
+      "sha256": "ab2af0857ec7a422e5440e38e8b7f39dfd1ad8d3cc172e767c248865d25a9bfc",
+      "bytes": 368669
+    },
+    {
+      "path": "data/processed/fia_visual_evidence/technical_issue19_page75.png",
+      "sha256": "7dcf328ec28fcbf405df7321507d569cbefe2c7621a9a19394212a4864d4f836",
+      "bytes": 329515
+    },
+    {
+      "path": "data/processed/lap_03.npz",
+      "sha256": "bd727e171c78f219ce695b9b6cafff9fc49fa22acfaa0309b5885ab2e97b399b",
+      "bytes": 16375
+    },
+    {
+      "path": "data/processed/lap_04.npz",
+      "sha256": "75e0db4609ceaa9013209f868c0fd93cb11eb3203ee42ff8ac626da93aa68b24",
+      "bytes": 16534
+    },
+    {
+      "path": "data/processed/lap_05.npz",
+      "sha256": "c80420f087da537b01627dced43db43c277e76dfd8b7e06ccd8a158b63981539",
+      "bytes": 16757
+    },
+    {
+      "path": "data/processed/lap_06.npz",
+      "sha256": "bc4b884879138db552f11b311b35701e8c12dd6114d967dc89ae987b0291a310",
+      "bytes": 16461
+    },
+    {
+      "path": "data/processed/lap_07.npz",
+      "sha256": "654fd6d86b0140412fa42a5ff9e49974e21235c63d400e247eb5708fb22756f5",
+      "bytes": 16687
+    },
+    {
+      "path": "data/processed/lap_09.npz",
+      "sha256": "6557c8dfada44d3a0014a9b3577ed67023e1bf9271f4d6fe8ec021abd1de872a",
+      "bytes": 16454
+    },
+    {
+      "path": "data/processed/track.npz",
+      "sha256": "badcddde67cae0c2c8887f07d188b4a52dfb25317245d045cf794c52220d2345",
+      "bytes": 22061
+    },
+    {
+      "path": "data/raw/fia/circuit_map.pdf",
+      "sha256": "00e1595eb783c7edd279ad9e3dd1030c909c9c9edf0e7e423b7eb220db064a90",
+      "bytes": 7784168
+    },
+    {
+      "path": "data/raw/fia/competition_notes.pdf",
+      "sha256": "4686762368ed63df50288025577820707eeb3b9213c0c76735c27df506a95855",
+      "bytes": 1027649
+    },
+    {
+      "path": "data/raw/fia/power_unit_information.pdf",
+      "sha256": "40228f431ebc0cf35ebda5b5059c23b5efe41b0209dbbb57c781892311b002e1",
+      "bytes": 496352
+    },
+    {
+      "path": "data/raw/fia/sporting_regulations_issue07.pdf",
+      "sha256": "77ecb97eaf08598c40073ebc9c52c8ec943dccef77af0c3a406edde7534b5110",
+      "bytes": 1174041
+    },
+    {
+      "path": "data/raw/fia/technical_regulations_issue17.pdf",
+      "sha256": "5168bd011bac44a0b88a66b41bfa39469727b4792f69222ae48aaf78067391c3",
+      "bytes": 4255525
+    },
+    {
+      "path": "data/raw/fia/technical_regulations_issue19.pdf",
+      "sha256": "8751d3d47870675336d87e449a1a87d7d51a17ead4f430f280cabded9b52ad0a",
+      "bytes": 4432143
+    },
+    {
+      "path": "data/raw/openf1/car_data_63_laps3to8.json",
+      "sha256": "2927941dfa421252d2a6dda22b0aeef25db3f6e359323504982d6514517af127",
+      "bytes": 278718
+    },
+    {
+      "path": "data/raw/openf1/car_data_63_laps3to9.json",
+      "sha256": "81e5f3dd1d094085ef47f920314304db1cb855f1c584a2389c32b4acd4530d69",
+      "bytes": 324263
+    },
+    {
+      "path": "data/raw/openf1/drivers.json",
+      "sha256": "dcb624a80a343e1472db14e001353a4f66fdc3edbd953225341cc55057034304",
+      "bytes": 9166
+    },
+    {
+      "path": "data/raw/openf1/laps.json",
+      "sha256": "09624d83306bbb970a04d147123b52fe542fd333ac0f51c7f7b1ac8cb5107e8e",
+      "bytes": 623871
+    },
+    {
+      "path": "data/raw/openf1/location_63_laps3to8.json",
+      "sha256": "e68dfb0ae85e7d90dfd21db2d1ac8e352d3d911b333a72de4e042e2d81042ca1",
+      "bytes": 214879
+    },
+    {
+      "path": "data/raw/openf1/location_63_laps3to9.json",
+      "sha256": "6b059fb79bda90ccec5dc3475be327de1bd2be04fde0a2a79fc8bb8a97630a12",
+      "bytes": 250421
+    },
+    {
+      "path": "data/raw/openf1/pit.json",
+      "sha256": "2835e13b7174f34d5c1f1f88bc763d7ce288febb51470555e4b65d519063cbb0",
+      "bytes": 7366
+    },
+    {
+      "path": "data/raw/openf1/race_control.json",
+      "sha256": "14bcd54d47244d336d9069b57542923c1b56b86d132fedd0e70da9c051899c6b",
+      "bytes": 56484
+    },
+    {
+      "path": "data/raw/openf1/sessions.json",
+      "sha256": "2ba6dce9e8d048cf1088711b6c415240e338c0b012e2ca44b2f0878402393158",
+      "bytes": 359
+    },
+    {
+      "path": "data/raw/openf1/stints.json",
+      "sha256": "3fe51aa0744ddd8a844236417cf4ef011102df1820a4b8ecc10bb314bc1ef617",
+      "bytes": 9162
+    },
+    {
+      "path": "data/raw/openf1/weather.json",
+      "sha256": "d4f8c3a4f7e01f0f9851378240fecfca899de4e5abe432a1603840e9e825200e",
+      "bytes": 31973
+    },
+    {
+      "path": "data/raw/tum/LICENSE",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "bytes": 7652
+    },
+    {
+      "path": "data/raw/tum/README.md",
+      "sha256": "a19623b908df5b12d1d92288682a52c7f5ae0a3c148a260910b63e41212a7c8d",
+      "bytes": 3231
+    },
+    {
+      "path": "data/raw/tum/Spielberg_centerline.csv",
+      "sha256": "277b2854c4323021b10b6b63ebfe6a6cc971f494c0728202e910d67d7d65dc8c",
+      "bytes": 29945
+    },
+    {
+      "path": "data/raw/tum/Spielberg_minimum_curvature.csv",
+      "sha256": "dd8516946053f5fdd4a5fe0b2f3df1bfe10d90fea84fe2ce125da4763da7fc15",
+      "bytes": 19397
+    },
+    {
+      "path": "data/raw/tum/commit.json",
+      "sha256": "099fbd1eb4d9ab7d3495a74183450af1296737f2830674431ee77219468b6efc",
+      "bytes": 2550
+    }
+  ],
+  "calibration_geometry_fit_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "prior_information": "Laps 7 and 9 and their v1 residuals have been inspected. They are development data for v2. Full-session lap/sector metadata for candidate laps 10-18 has also been inspected; their complete speed/location arrays and model residuals have not.",
+  "accuracy_gate": {
+    "status": "Prospective research acceptance targets frozen before new telemetry download; not FIA requirements. This data protocol alone does not certify model accuracy.",
+    "mean_per_lap_speed_rmse_max_kmh": 15.0,
+    "every_lap_absolute_time_error_max_pct": 2.0,
+    "every_sector_absolute_time_error_max_s": 1.0,
+    "speed_aggregation": "Arithmetic mean of each complete lap's speed RMSE, with equal lap weight; do not pool all resampled points across laps.",
+    "development_gate": "Calibration convergence, implemented physical/rule-subset checks and all three accuracy criteria on development laps 7/9 are required before formal ML training. If the development gate fails, finish implementation/tests and score the newly reserved final test exactly once with the frozen diagnostic model; report failure rather than relax thresholds.",
+    "required_metrics": [
+      "per-lap speed RMSE in km/h",
+      "per-lap absolute circle-time error in percent",
+      "all three absolute sector-time errors in seconds"
+    ],
+    "forbidden_claims": [
+      "Full FIA compliance",
+      "Real team SOC or deployment reconstruction",
+      "Cross-track generalisation",
+      "Real-world lap-time gain inferred from model gain"
+    ]
+  },
+  "test_scoring_status": "Not scored by data preparation; downstream experiment must freeze its model before unsealing"
+}

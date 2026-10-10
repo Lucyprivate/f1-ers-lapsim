@@ -1,0 +1,662 @@
+{
+  "schema_version": 4,
+  "code_commit": "ea70476b5f2501a66234df295e799325f3aea304",
+  "gates": {
+    "data": true,
+    "convergence": false,
+    "physical": false,
+    "grid": false,
+    "development": false,
+    "new_test": false
+  },
+  "cross_session": {
+    "status": "pending",
+    "test_scored": false,
+    "reason": "Local fidelity gates failed; FP2 telemetry remains unopened",
+    "interpretation": "新会话验收待完成"
+  },
+  "training": {
+    "skipped": true,
+    "reason": "Stage 4 is fidelity-first; no policy training",
+    "sac_expanded": false
+  },
+  "development": {
+    "role": "development",
+    "physical_valid": false,
+    "normalized_objective": null,
+    "passed": false,
+    "diagnostics": {
+      "autonomous": [
+        {
+          "lap_number": 7,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 134.99987024565826,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 34.99996635998559,
+              "observed_mean_deceleration_mps2": -13.40221476766769,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 120.23887867000612,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -19.010557626835226
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1064.9989763824153,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 24.99997597141828,
+              "observed_mean_deceleration_mps2": -10.46985340213549,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 67.0,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -0.9595722616186294
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1869.9982026620814,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 34.99996635998559,
+              "observed_mean_deceleration_mps2": -11.926982926803458,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 98.50697560753909,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -11.69838593167435
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2394.9976980618635,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 44.999956748552904,
+              "observed_mean_deceleration_mps2": -7.808829024488487,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 158.0,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -15.802254456317645
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -6.0176309865999436,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 184.0,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -33.900735991265215
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2764.9973424388527,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": -4.999995194283201,
+              "observed_mean_deceleration_mps2": -4.591764421156521,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 196.47486469732732,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": -2.3259049017905
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.24114067006187,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 203.0,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -30.352275423489264
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3474.9966600271296,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 19.99998077713508,
+              "observed_mean_deceleration_mps2": -8.912371471571486,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 158.1554400053048,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -42.74519591934799
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        },
+        {
+          "lap_number": 9,
+          "valid": true,
+          "corners": [
+            {
+              "corner": "1",
+              "frozen_apex_s_m": 268.02240847448456,
+              "observed_brake_onset_s_m": 164.9998414113602,
+              "predicted_brake_onset_s_m": 169.99983660564385,
+              "brake_onset_error_m": 4.999995194283656,
+              "observed_mean_deceleration_mps2": -12.00298210620396,
+              "predicted_mean_deceleration_mps2": -25.125652768416018,
+              "observed_apex_speed_kmh": 117.14258880028612,
+              "predicted_apex_speed_kmh": 101.2283210431709,
+              "apex_speed_error_kmh": -15.91426775711522
+            },
+            {
+              "corner": "3",
+              "frozen_apex_s_m": 1209.1312899174316,
+              "observed_brake_onset_s_m": 1084.99895715955,
+              "predicted_brake_onset_s_m": 1089.9989523538336,
+              "brake_onset_error_m": 4.999995194283656,
+              "observed_mean_deceleration_mps2": -10.862539147874688,
+              "predicted_mean_deceleration_mps2": -21.880773383145293,
+              "observed_apex_speed_kmh": 66.30623573451402,
+              "predicted_apex_speed_kmh": 66.04042773838137,
+              "apex_speed_error_kmh": -0.2658079961326507
+            },
+            {
+              "corner": "4",
+              "frozen_apex_s_m": 2020.0903142415968,
+              "observed_brake_onset_s_m": 1874.998197856365,
+              "predicted_brake_onset_s_m": 1904.998169022067,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -12.219277310233466,
+              "predicted_mean_deceleration_mps2": -19.757195121055894,
+              "observed_apex_speed_kmh": 95.0,
+              "predicted_apex_speed_kmh": 86.80858967586475,
+              "apex_speed_error_kmh": -8.191410324135257
+            },
+            {
+              "corner": "6",
+              "frozen_apex_s_m": 2540.7099377570175,
+              "observed_brake_onset_s_m": 2409.9976836447145,
+              "predicted_brake_onset_s_m": 2439.9976548104164,
+              "brake_onset_error_m": 29.999971165701936,
+              "observed_mean_deceleration_mps2": -7.416865663189115,
+              "predicted_mean_deceleration_mps2": -16.397943690724702,
+              "observed_apex_speed_kmh": 156.02514569602545,
+              "predicted_apex_speed_kmh": 142.19774554368234,
+              "apex_speed_error_kmh": -13.827400152343092
+            },
+            {
+              "corner": "7",
+              "frozen_apex_s_m": 2841.065206758559,
+              "observed_brake_onset_s_m": 2494.997601947536,
+              "predicted_brake_onset_s_m": 2494.997601947536,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.912560099535123,
+              "predicted_mean_deceleration_mps2": -12.026864425058184,
+              "observed_apex_speed_kmh": 180.0,
+              "predicted_apex_speed_kmh": 150.0992640087348,
+              "apex_speed_error_kmh": -29.900735991265226
+            },
+            {
+              "corner": "8",
+              "frozen_apex_s_m": 3001.2528977020474,
+              "observed_brake_onset_s_m": 2759.9973472445695,
+              "predicted_brake_onset_s_m": 2759.9973472445695,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -4.228676364821978,
+              "predicted_mean_deceleration_mps2": -14.106388315532229,
+              "observed_apex_speed_kmh": 191.37313483989072,
+              "predicted_apex_speed_kmh": 194.14895979553683,
+              "apex_speed_error_kmh": 2.775824955646101
+            },
+            {
+              "corner": "9",
+              "frozen_apex_s_m": 3581.9055543528707,
+              "observed_brake_onset_s_m": 3494.9966408042646,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -9.934736118432502,
+              "predicted_mean_deceleration_mps2": -17.446310371787888,
+              "observed_apex_speed_kmh": 198.053868280919,
+              "predicted_apex_speed_kmh": 172.64772457651074,
+              "apex_speed_error_kmh": -25.406143704408272
+            },
+            {
+              "corner": "10",
+              "frozen_apex_s_m": 3772.127908295706,
+              "observed_brake_onset_s_m": 3494.9966408042646,
+              "predicted_brake_onset_s_m": 3494.9966408042646,
+              "brake_onset_error_m": 0.0,
+              "observed_mean_deceleration_mps2": -8.77713939371828,
+              "predicted_mean_deceleration_mps2": -18.73268902897265,
+              "observed_apex_speed_kmh": 155.11542185191652,
+              "predicted_apex_speed_kmh": 115.41024408595682,
+              "apex_speed_error_kmh": -39.70517776595971
+            }
+          ],
+          "windows_m": {
+            "approach": [
+              -350,
+              20
+            ],
+            "apex": [
+              -80,
+              80
+            ]
+          },
+          "interpretation": "Frozen-route equivalent dynamics diagnostics; actual pressure and braking force unobserved"
+        }
+      ],
+      "replay": [
+        {
+          "lap_number": 7,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        },
+        {
+          "lap_number": 9,
+          "valid": false,
+          "corners": [],
+          "reason": "Partial prediction retained without invented diagnostics"
+        }
+      ]
+    },
+    "replay": {
+      "metrics": [
+        {
+          "lap_number": 7,
+          "role": "development",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 49,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 3.3121096897125213,
+            "speed_start_mps": 85.27777777777777,
+            "speed_end_mps": 46.723318984098384,
+            "periodic_speed_residual_mps": 38.55445879367939,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 245.4807065661655,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 245.4807065661655,
+                "time_s": 3.3121096897125213
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.5254257479900844e-11,
+            "mechanical_work_total_residual_mj": -4.963622283001221e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.996783762566338,
+            "internal_steps": 578,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        },
+        {
+          "lap_number": 9,
+          "role": "development",
+          "mode": "replay",
+          "valid": false,
+          "invalid_reason": "Incomplete, nonfinite or physically invalid trajectory; not scored",
+          "completed_segments": 47,
+          "summary": {
+            "protocol": "event_time_midpoint_v4",
+            "mode": "replay",
+            "completed_lap": false,
+            "execution_feasible": false,
+            "feasible": false,
+            "status": "physical_fail",
+            "lap_time_s": 3.0195071072924318,
+            "speed_start_mps": 83.88888888888889,
+            "speed_end_mps": 54.15239844600602,
+            "periodic_speed_residual_mps": 29.736490442882868,
+            "periodic_speed_tolerance_mps": 0.02,
+            "ers_validated": false,
+            "observed_initial_speed_only": true,
+            "intermediate_speed_resets": 0,
+            "future_speed_caps_used": false,
+            "equivalent_power_and_braking": true,
+            "whole_lap_scaling_used": false,
+            "shared_vehicle_step": true,
+            "distance_completed_m": 236.86648298020415,
+            "length_m": 4284.99588150108,
+            "ds_m": 4.99999519428364,
+            "guard_failures": [
+              {
+                "status": "physical_fail",
+                "guard_reasons": [
+                  "combined_tire_force"
+                ],
+                "s_m": 236.86648298020415,
+                "time_s": 3.0195071072924318
+              }
+            ],
+            "mechanical_work_max_segment_residual_mj": 2.4844608105922816e-11,
+            "mechanical_work_total_residual_mj": -3.539297223959792e-10,
+            "output_residual_aggregation": "maximum absolute internal-step residual per output cell (MJ)",
+            "output_residual_sum_assignment": "internal-step midpoint assigns each residual once; total sum preserved",
+            "output_sampling": "exact accepted-step constant-acceleration time/position relation",
+            "max_joint_tire_force_excess_n": 7.952250597416423,
+            "internal_steps": 540,
+            "integrator_config": {
+              "dt_max": 0.02,
+              "max_ds": 1.0,
+              "dt_min": 1e-06,
+              "max_subdivisions": 20,
+              "v_atol": 0.001,
+              "v_rtol": 1e-05,
+              "s_atol": 0.0001,
+              "s_rtol": 1e-05,
+              "e_atol": 1e-07,
+              "e_rtol": 1e-06,
+              "root_tol": 1e-09,
+              "root_iterations": 50,
+              "event_t_tol": 1e-08,
+              "event_s_tol": 1e-05
+            },
+            "input_interpolation": {
+              "throttle": "linear",
+              "brake": "previous_value_hold"
+            },
+            "sustainable": null,
+            "envelope_report": null,
+            "driver_decision_spacing_m": 5.0,
+            "raw_requests_fixed": false
+          }
+        }
+      ],
+      "expected_laps": 2,
+      "gate": {
+        "passed": false,
+        "observed": {},
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "All precommitted laps must have complete valid predictions",
+          "Nonfinite or missing observable error",
+          "Physical checks failed"
+        ],
+        "precommitted": true
+      }
+    },
+    "autonomous": {
+      "metrics": [
+        {
+          "lap_number": 7,
+          "role": "development",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 71.975,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 1.1206048964438367,
+          "lap_error_pct": 1.556936292384629,
+          "speed_rmse_kmh": 20.833313354850205,
+          "speed_mae_kmh": 17.607566914860474,
+          "signed_speed_bias_kmh": -7.63368582784967,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.441,
+            32.377,
+            22.157
+          ],
+          "sim_sector_times_s": [
+            17.914829825173655,
+            31.7729408166498,
+            23.407834254620376
+          ],
+          "sector_error_s": [
+            0.4738298251736559,
+            -0.604059183350202,
+            1.2508342546203757
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 150,
+              "speed_rmse_kmh": 26.72356039362768,
+              "signed_speed_bias_kmh": 13.15372297782225
+            },
+            "partial_throttle": {
+              "samples": 155,
+              "speed_rmse_kmh": 19.352877273261242,
+              "signed_speed_bias_kmh": -1.4195621190037728
+            },
+            "full_throttle_straight": {
+              "samples": 445,
+              "speed_rmse_kmh": 20.797674030335088,
+              "signed_speed_bias_kmh": -17.035812895997235
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 16.944042049388106,
+              "signed_speed_bias_kmh": -4.498182005571741
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        },
+        {
+          "lap_number": 9,
+          "role": "development",
+          "mode": "autonomous",
+          "valid": true,
+          "real_lap_time_s": 72.403,
+          "sim_lap_time_s": 73.09560489644383,
+          "lap_error_s": 0.6926048964438252,
+          "lap_error_pct": 0.9565969593025497,
+          "speed_rmse_kmh": 19.9652256533232,
+          "speed_mae_kmh": 16.85576816417117,
+          "signed_speed_bias_kmh": -6.6871507682227325,
+          "sample_count": 857,
+          "real_sector_times_s": [
+            17.558,
+            32.504,
+            22.341
+          ],
+          "sim_sector_times_s": [
+            17.9758945523652,
+            31.732497425895705,
+            23.387212918182925
+          ],
+          "sector_error_s": [
+            0.4178945523652011,
+            -0.7715025741042929,
+            1.046212918182924
+          ],
+          "grouped_speed_errors": {
+            "braking": {
+              "samples": 128,
+              "speed_rmse_kmh": 26.313751779787747,
+              "signed_speed_bias_kmh": 14.754200482571067
+            },
+            "partial_throttle": {
+              "samples": 187,
+              "speed_rmse_kmh": 18.532560035687336,
+              "signed_speed_bias_kmh": 2.2443209909033617
+            },
+            "full_throttle_straight": {
+              "samples": 446,
+              "speed_rmse_kmh": 20.003820982199194,
+              "signed_speed_bias_kmh": -16.605097054508946
+            },
+            "corner": {
+              "samples": 312,
+              "speed_rmse_kmh": 16.263799682973392,
+              "signed_speed_bias_kmh": -2.299301816844148
+            }
+          },
+          "sector_boundary_method": "frozen observed telemetry time/distance mapping",
+          "ers_validated": true
+        }
+      ],
+      "expected_laps": 2,
+      "gate": {
+        "passed": false,
+        "observed": {
+          "mean_speed_rmse_kmh": 20.399269504086703,
+          "max_abs_lap_error_pct": 1.556936292384629,
+          "max_abs_sector_error_s": 1.2508342546203757
+        },
+        "thresholds": {
+          "mean_speed_rmse_kmh": 15.0,
+          "max_abs_lap_error_pct": 2.0,
+          "max_abs_sector_error_s": 1.0
+        },
+        "reasons": [
+          "mean_speed_rmse_kmh: 20.3993 exceeds 15.0",
+          "max_abs_sector_error_s: 1.25083 exceeds 1.0"
+        ],
+        "precommitted": true
+      }
+    }
+  },
+  "artifact_paths": {
+    "complete_local_trajectories": "results/austria_2026_v4/trajectories.json.gz",
+    "numerical_failures": "results/austria_2026_v4/numerical_failures.json.gz",
+    "diagnostic": "results/austria_2026_v4/diagnostics_v4.json"
+  },
+  "artifact_sha256": {
+    "audit.json": "2c9e6eb49435d00b96d14bc3295a47e9087e1e86344b69be413b8447cf01836b",
+    "browser_verification.json": "c03c663bbdca98cdb3e61b1cf1055efbc11155d0d3f7bc2e0abb6e6b5950dbf5",
+    "calibration.json": "0cbaddbd7796fb82efede9a2ff13f8bc6a1c03007d620fcd5b1fe302bc01ca82",
+    "diagnostics_v4.json": "4df6db56b15dc7d6e390e66c04d8ba4a68280ecb1adf5bdfe238cbe321b01786",
+    "experiment.json": "7e2ee13251b0e1e2c95b0b9af351cb94143e644af2dfe703908074fe4a2e4b41",
+    "failures/evaluation_00000.json.gz": "4cb7f4ca943551f124ff4cd1593a2ba85d8d544c1c6839fbdb53caacabf86cb8",
+    "failures/evaluation_00001.json.gz": "de145139f7203b25f38f0881616e4ae8f7085f9b93dac2a4a2110dedddec5721",
+    "failures/evaluation_00002.json.gz": "1940dbb8e7e060cd31d0aad50e1eb25884e496ce3cbb92c60b07c4a3ec4b6f29",
+    "failures/evaluation_00003.json.gz": "b5c134bebe5b6a4a82493fc97e88598cd49d7c37cb642174fe68205482db7254",
+    "failures/evaluation_00004.json.gz": "8292e67d799411798c503b15d3045d58ab9d7c159d5e551525290d83572129b6",
+    "failures/evaluation_00005.json.gz": "71648e29b0195091f1ce329ca8b5bf54036fe9fc084adec60ab57ff045385221",
+    "failures/evaluation_00006.json.gz": "9cd13d425589082ea7d4c6b2c92390481872d4c4b9a135d54b7991cf9359a058",
+    "failures/evaluation_00007.json.gz": "087c0b4958f1cb0ef8b2aca71c6e23b2e82d6d9368c110b0435d0573fa4d8b41",
+    "failures/evaluation_00008.json.gz": "1cafc8ec28679f451c399d15c82b31f25e4bbaceefffb6f5bae9b6016d702f37",
+    "failures/evaluation_00009.json.gz": "99e8db0d8c43fbba793d8b2a78011a8a2f47b5fccd45a96454bc1637c43415e0",
+    "failures/evaluation_00010.json.gz": "421cfa36ea454fe7b6565b092112e817701cb9089164dc1a0e5f3ceba6faddad",
+    "failures/evaluation_00011.json.gz": "6639f167502b19265e906079ede87f9da0e3fc6db5fbf13cc69130aa41e10617",
+    "failures/evaluation_00012.json.gz": "a604d07162c8db42a5942ebf8cf6451d05dc4992dc4e0cf92c47babe37a2c5d4",
+    "failures/evaluation_00013.json.gz": "e261ce10434dc7462dc425ff783344c32f4ae4517d6a9d3535c1bac60a295aeb",
+    "failures/evaluation_00014.json.gz": "5f8ea630e0595d725cc585e5d51187d3f6f512ed346f65342d48ddef6c87d34c",
+    "failures/evaluation_00015.json.gz": "68bacab01a17a20a1f679f7e7825bf699497e853e20a35a635652320eac9f9c5",
+    "failures/evaluation_00016.json.gz": "1ffeb5edd056319c9f10fb1eb5214e63cdcdfa44cd5e0c246aae38df111c8704",
+    "failures/evaluation_00017.json.gz": "7621b7a3d6d541ba814489a7c85ab404fadf81958862c0761af5ffad7c4dba96",
+    "failures/evaluation_00018.json.gz": "93d365dee50375215a72dd76b03754dfc2e05624c4bbed5bdbabf166a2f2d191",
+    "failures/evaluation_00019.json.gz": "0433a011e18dbcf53b779a3dcc5e575ae12fadb16ddbed31a00b71d4d43cb4df",
+    "failures/evaluation_00020.json.gz": "8890a90889f83a9e4e99a134413d0371f1e29c33fc2a4029d72c5f5bfb595be0",
+    "failures/evaluation_00021.json.gz": "40ca07420e004c8bafffe90cd1f5ea6024a124a06b7bf71edd89ce48009350ae",
+    "failures/evaluation_00022.json.gz": "d1224ddc56ff7ac653a8752857ea86808f3556f5fe31a0a066524a27bc2bb7b7",
+    "failures/evaluation_00023.json.gz": "94e151bc2fef3dc73a04220d2c8bb8495e2b3a2145c294aeb8061f1959d8bd6f",
+    "failures/evaluation_00024.json.gz": "4cafd288a574f947b7bf3dba99982d8069787f93527ee11882c313656c84b9ef",
+    "failures/evaluation_00025.json.gz": "a9e29d44725e3921e54a6088e6d8dae7d74cbb61479cf8bc63253908cbe9d052",
+    "failures/evaluation_00026.json.gz": "963afa2779180612a6952c2ea078fba25f0363c86efdda6383b873e8b34dfa31",
+    "failures/evaluation_00027.json.gz": "dc106bce360e9dfac026915ef7017f4f7a6a70edf52ae788156a23af70c68856",
+    "failures/evaluation_00028.json.gz": "d10b75214f04bd46bf5b3347aa5c70c289330d275c48de2e8eba23390302de4e",
+    "failures/evaluation_00029.json.gz": "d915ffbb39d65faba146f9ec36a6a292f1816062828160c6c08e3577a15d4bff",
+    "failures/evaluation_00030.json.gz": "b93cd75e29cdadd28b09bd42b78ebf1f6ba56292d0e79be1c12c310c077930a1",
+    "failures/evaluation_00031.json.gz": "ef71931f2d6c43afbbc9354e518ae6bca92c6100605f076b2ebbc9b02afc28ca",
+    "failures/evaluation_00032.json.gz": "0fdbe876229fa6e7f7079ff45132cb6cca750cc102cd9c7bb50d0b5e6cfd837f",
+    "failures/evaluation_00033.json.gz": "b1050432cb2c626a25d3de96d39a85dc843ee744133284f088a6eee5516e192e",
+    "failures/evaluation_00034.json.gz": "1a9883de52e78059b7da2b76555b7c6f62ab3a2b4fa2f53e1a8661f15f74b1c7",
+    "failures/evaluation_00035.json.gz": "937dfcc4008bf8a452107fd8c05c7fc9c9484ff9392104ed5719014aa560113f",
+    "failures/evaluation_00036.json.gz": "1d4503ee3d057a56423731806d363aa3666ebb0276f710da277773e6bc4de771",
+    "failures/evaluation_00037.json.gz": "980a95b00cf8f2ba49890c28914dcd145aeeb4515bb15e1acda26e95628f34a1",
+    "failures/evaluation_00038.json.gz": "da68f5e2a828801844db8a414c6ae1b1f8e1b0e5db09eb920d8a33df6182bdec",
+    "failures/evaluation_00039.json.gz": "e346d5f490d7b1ffca6464eb1f5b873854ea627d42e0e0489a1f3470e3443cc0",
+    "failures/evaluation_00040.json.gz": "55a217cfdb428bee24e988a4f48e111468870329043ecea0401e9d1d8d2d59b0",
+    "failures/evaluation_00041.json.gz": "fe8dc04e1c355afde2d59b3da6d6de7ef386ae468d968536472a1e0e71c4cd95",
+    "failures/evaluation_00042.json.gz": "43e84cbab2ca41a6a202c6f61a68409849a4fdc46417ab223a421e9415159031",
+    "failures/evaluation_00043.json.gz": "b3f099e62266a82aa1f70e443953854acd85706b0f85e192b9c9f63e87e4573d",
+    "failures/evaluation_00044.json.gz": "94ab3b70ba3925a140305901c82cf9db75d5dbe846a55506eace1a9c3fff74d1",
+    "failures/evaluation_00045.json.gz": "5946aa54bccf4f643796a82cfa9585b05cf3d4bd31af79490c14d2502ec06cf4",
+    "failures/evaluation_00046.json.gz": "d995a661b5802f8208acc1b99134731bd6bb75efff7971cb93ef61f763fcddbd",
+    "failures/evaluation_00047.json.gz": "6a807503790c67472c5dfaa8a59a8e4804c7bdd2d882e8bd96cd5776ed63e36d",
+    "failures/evaluation_00048.json.gz": "ca5036ae677893bde80dfaf6ac09ed7694e446ebc3e7d46bd8be0fb2a23b677a",
+    "failures/evaluation_00049.json.gz": "19e74da2d71b2ee0e9d4ade57ddbe8d03b914be762ed3d04fdc63b65ae486160",
+    "failures/evaluation_00050.json.gz": "064ab77b2c2711945ca7d6603310b85a485f493691bbdb6fa6d5a15925f634b9",
+    "failures/evaluation_00051.json.gz": "29e0730a612abcc8e6d4e8b16b040cf4d6cbfeb949966080645c75642fb4624a",
+    "failures/evaluation_00052.json.gz": "dbbb7237fec9b8463040c5dd53190c87d7b5a650a17f89ab0ed4bcc3ee8ef066",
+    "failures/evaluation_00053.json.gz": "8527cfdc6a3f680d98fe085a0437e38892b261d89c78ab290e29b7d956e28c2b",
+    "failures/evaluation_00054.json.gz": "3ddb08b67fb3cc8e4a14dda28f08fb2ae30dce3e7b990c63a9322bf71bd902c5",
+    "failures/evaluation_00055.json.gz": "ab1c2425944c1b1a5fec8a496aa33c28438dcc005ab0281a65c1789ebe3c497b",
+    "failures/evaluation_00056.json.gz": "6ea3911f3e7f2f5e1fdea5e175022eef2e568524f1506e3006f44d5e28b3c751",
+    "failures/evaluation_00057.json.gz": "321428a734ed20aea6c18b98b0d8fd3ffd743699de019549e089a228595db10f",
+    "failures/evaluation_00058.json.gz": "04789640ebfaa1f4d2bef9cc5d52b4e94a710226fb134552a304facf0694c10d",
+    "failures/evaluation_00059.json.gz": "0f717cbfad8f0a47e4c6a3299ccb301d0c905028abe83184b5646a208c07e44e",
+    "failures/evaluation_00060.json.gz": "cdb07d528a5a00082a28cb0fa0a207ce9d983ec21466570e8df394e16141d49a",
+    "failures/evaluation_00061.json.gz": "1bd83df8848a31460368d8616f7e300e880f3aed80acb7645f8929c9b299b684",
+    "failures/evaluation_00062.json.gz": "a4226ed754204a35f99d54eced7e5718a13bf56c061373fbee0d0c96e4d74363",
+    "failures/evaluation_00063.json.gz": "5488d63dcd22e84138702f7ea7c085a906350909871b25177ab50be20a4b1894",
+    "failures/mass_800.json.gz": "183badc0ceec30ad2b7370ae5eb2b4e41dd69a05717caccd93ecf59d739682b6",
+    "failures/mass_825.json.gz": "0cac539d87f9405df37a721c06dd1b8db01ecb527125976c83c1459381d10bf9",
+    "failures/mass_850.json.gz": "c45baebd710e08a0ee4c23c69babb8c6fd5b000703d390675f6c56bcd209298b",
+    "frozen_configuration.json": "471358d56ea0aded04ec815218e3f85bcf511fe48f46e311beac0314693c52b8",
+    "gates.json": "eaa7039fa36d6a86dffbff71a4e706b69a7b59652ade4790f28290c3546750ab",
+    "mass_sensitivity.json": "a7d42d39151ffae85f7f8f60582f1462db346746b6c7157b24b7c58ddcfd9e27",
+    "numerical_audit.json": "7c0abf6a63b4b0e7c57383e42689816c46fc6502b7551fda3eb6855963e1bf4b",
+    "numerical_failures.json.gz": "a458c3e81ba634605ff77f8c356a4bbef37c55c6da599215403d756e19020691",
+    "report.html": "c5d0ff3466ff5109a60f2d8e9c362f79854f23ca6dcc9960e6fe67431e68203c",
+    "screening.json": "6546c221d9d9b8d167432907b740ad8f9cacdc6db8d5a1950752fc65b71e41f5",
+    "trace_calibration_autonomous.csv": "82c11dd554d7c041a4231de6f7a50cfde6f9b51009738a2fb06e8f97cbc89db8",
+    "trace_calibration_replay_lap_3.csv": "0e0dd5cb9ecadd8692d41c64769ff711664a334a37e98308888c91ceb1bd82ec",
+    "trace_calibration_replay_lap_4.csv": "b818453a7d4ad909b283476fa99935c4c91a61e592970a5d413522828f9d6df2",
+    "trace_calibration_replay_lap_5.csv": "79c9a13aee1fd6af7616418a93f4035d83f72ac2705025e6bcb25a03f66384ed",
+    "trace_calibration_replay_lap_6.csv": "7da4593ecc9657c76c38a08cb6936b97e8734b6024c8d8a6a9a8ce0b38e8ba68",
+    "trace_development_autonomous.csv": "82c11dd554d7c041a4231de6f7a50cfde6f9b51009738a2fb06e8f97cbc89db8",
+    "trace_development_replay_lap_7.csv": "951deff4ec7dffc988591c9d21a3dc436a0f837f217383feec157d62421ba117",
+    "trace_development_replay_lap_9.csv": "97fe049bf7a1ffabe922964d9828fa1fd80081294f799b61d184f088536ea582",
+    "trajectories.json.gz": "671add934fee34e01098d7aa739b7067ea3facc2a33de70f0a50bffb1a899513",
+    "verification.json": "8039a28763b0a40f3d4e125a5648901f1497731a85a01ac948b50be56054c07d"
+  }
+}

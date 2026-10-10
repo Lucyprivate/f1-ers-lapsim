@@ -1,0 +1,57 @@
+F1 ERS Lab v7 — 本地诊断交付与离线复验
+
+本轮保留800 kg、400 kW等效ICE轮端动力、2–4 MJ理想DC等效储能。
+公开FIA规则子集与附加工程请求代理分别审核。真实精度、完整ECU规则、
+真实SOC与跨会话FP2测试仍独立判定。失败门槛不因成功复现而变为通过。
+HTML报告与summary.json记录实际最终数字、三段RMSE及失败轨迹。
+六圈连续资格只是有限模型验证，不证明无限周期或全局最快。
+
+Git分支：research/v7-reachable-control；交付标签：v7-0.7.0。
+A/B/C/D独立计算提交与结果manifest在summaries/v7/*_summary.json固定。
+最终结果提交见ZIP旁的F1_ERS_Lab_v7_delivery.json；不回写计算冻结身份。
+v2–v6标签、源码与原交付保留。完整历史在Git bundle；忽略制品在ZIP。
+
+先从bundle独立克隆，然后用另行固定的整个ZIP SHA256恢复制品：
+  git clone --branch v7-0.7.0 /absolute/F1_ERS_Lab_v7.bundle /absolute/new-clone
+  cd /absolute/new-clone
+  python tools/restore_v7.py --root . --archive /absolute/F1_ERS_Lab_v7.zip --sha256 PUBLISHED_ZIP_SHA256
+
+恢复工具先验证完整ZIP及所有路径。追踪源码仅检查、不覆盖。
+只恢复精确白名单内的A/B/C/D/report、冻结R7、一个原BC checkpoint和直接wheel。
+拒绝变更的已有制品、链接、越界路径、Windows路径别名、FP2及晚圈数组。
+相同制品可幂等恢复。v2–v6其它大型忽略制品仍由原下载包单独恢复。
+
+使用Windows Python 3.12。PowerShell中设置临时目录和单线程BLAS：
+  New-Item -ItemType Directory -Path .cache/test-tmp -Force | Out-Null
+  $env:TEMP=Join-Path (Get-Location) '.cache/test-tmp'
+  $env:TMP=$env:TEMP
+  $env:OPENBLAS_NUM_THREADS='1'
+  $env:OMP_NUM_THREADS='1'
+  python -m venv .venv
+  .venv/Scripts/python.exe -m pip install --no-index --find-links vendor/wheels -r requirements-lock.txt
+  .venv/Scripts/python.exe -m unittest discover -s tests -v
+
+按四个冻结接口精确复验。读取保存评分，复演已选末圈与代理账本，
+不重跑训练/候选搜索/测试解封，不把历史开发圈称为新测试：
+  .venv/Scripts/python.exe -m f1ers_v7 verify-v7 --root . --offline
+  .venv/Scripts/python.exe tools/run_v7_continuation.py --repo . --verify
+  .venv/Scripts/python.exe tools/run_v7_tail_audit.py --repo . --verify
+  .venv/Scripts/python.exe tools/run_v7_deployment.py --repo . --verify
+
+正常结果不可覆盖。run-v7及后续run脚本会搜索/训练，复验请只用--verify。
+新的研究需要新名称、干净工作树、独立代码固定和原共享FP2身份；
+切换分支或克隆不能获得新的测试评分机会。当地全部门槛通过前不打开FP2。
+
+报告为自包含HTML，无需在线资源。需要重建至新的输出目录时：
+  .venv/Scripts/python.exe -m pip install --no-index --find-links vendor/reporting-wheels --target .cache/reporting-deps -r requirements-reporting-v6.txt
+  .venv/Scripts/python.exe tools/report_v7.py . /absolute/new-report-directory
+
+独立bundle恢复、离线安装、全部回归和四个复验的回执位于下载包旁。
+该后验回执不写回已冻结ZIP/实验，避免循环散列。浏览器视觉验证单列，
+未实际交互检查时记录not_measured，不能用计算成功替代浏览器验证。
+
+学习计数：completed episode包含物理失败后的终止回合，合法完整圈另计。
+解析零均值BC是明确基线，不算学习增益。SAC best_episode=0也不算收益。
+仅保留且经统一六圈资格验证的best/last候选参与最终比较；不宣称检查了
+全部训练更新。E0通道修复已知别名，未证明一般Markov状态充分性。
+负轮段raw动作虽然不改变实际再生，仍进入SAC熵/Q；这是后续诊断限制。

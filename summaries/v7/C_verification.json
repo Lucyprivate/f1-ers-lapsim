@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "exact_trace": true,
+  "exact_proxy": true,
+  "exact_saved_development": true,
+  "exact_saved_calibration": true,
+  "source_hashes_passed": true,
+  "dependency_versions_passed": true,
+  "inventory_passed": true,
+  "new_selection_or_training": false,
+  "FP2_accessed": false,
+  "accuracy_gates": {
+    "cold_and_warm_control": true,
+    "calibration_accuracy": false,
+    "development_accuracy": false,
+    "numerical_convergence": true,
+    "full_FIA_ECU": false,
+    "true_SOC": false,
+    "formal_release": false,
+    "new_session_test": false
+  },
+  "formal_release": false,
+  "schema_version": 7,
+  "source_commit": "8454e603554a892387794de9a156a0bac4ec5be5",
+  "results_manifest_sha256": "fc8b6f15c20140e791092116323a23e2d8f37faf2c81f98662dd129fea17e5d2",
+  "verification_log_sha256": "ec791353594b03bbf175070ffb2fe141c92508ca8cfba2aeef32483381f47a20"
+}
