@@ -225,7 +225,7 @@ class ResearchPhysicsProtocolTests(unittest.TestCase):
         def evaluator(x,key):
             calls.append((key,x.copy()))
             # Excellent residual cannot promote an incomplete/failed rollout.
-            return {'complete':len(calls)<=2,'physical':len(calls)<=2,'objective':0.,
+            return {'complete':len(calls)<=2,'physical':len(calls)<=2,'public_rules_passed':True,'objective':0.,
                     'failure_position_m':12. if len(calls)>2 else None}
         report = sobol_viability(evaluator)
         self.assertEqual(len(calls),64)
@@ -246,7 +246,7 @@ class ResearchPhysicsProtocolTests(unittest.TestCase):
         center = BOUNDS.mean(axis=1)
         scale = np.diff(BOUNDS,axis=1).ravel()
         def oracle(x,key):
-            return {'complete':True,'physical':True,'objective':float(np.sum(((x-center)/scale)**2))}
+            return {'complete':True,'physical':True,'public_rules_passed':True,'objective':float(np.sum(((x-center)/scale)**2))}
         screening = sobol_viability(oracle)
         calls=[]
         def recorded(x,key):

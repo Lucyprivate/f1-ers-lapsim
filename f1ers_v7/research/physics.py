@@ -32,6 +32,7 @@ from .._core.provenance import read
 from ..deploy_only import DeployOnlyShield
 from .environment import ResearchEnv, ResearchSimulator
 from .data import require_role
+from .gates import GateReport, model_fit_eligible
 
 PARAMETERS = ('mu','drag_area_m2','downforce_area_m2','equivalent_power_kw','replay_brake_gain')
 BOUNDS = np.asarray([[1.2,2.4],[.6,2.],[1.8,6.],[350.,732.5],[.1,1.]])
@@ -255,7 +256,7 @@ def sobol_viability(evaluate,*,seed=2026,points=64):
     for index,x in enumerate(values):
         record = evaluate(x.copy(),f'screen_{index+1:02d}')
         finite = _finite_objective(record)
-        viable = bool(record.get('complete') and record.get('physical') and finite)
+        viable = bool(model_fit_eligible(record) and finite)
         rows.append({**record,'index':index+1,'parameters':x.tolist(),'viable':viable})
     starts = sorted((r for r in rows if r['viable']),key=lambda r:(r['objective'],r['index']))[:3]
     return {'seed':seed,'points':points,'records':rows,'viable_points':sum(r['viable'] for r in rows),
@@ -284,8 +285,7 @@ def capped_fit(evaluate,screening,*,max_iterations=300,max_evaluations=600):
             receipt = {'parameters':x.tolist(),'started':True,'viable':False}
             calls.append(receipt)
             record = evaluate(x.copy(),f'fit_{start_index+1}_{len(calls):03d}')
-            viable = bool(record.get('complete') and record.get('physical') and
-                          _finite_objective(record))
+            viable = bool(model_fit_eligible(record) and _finite_objective(record))
             receipt.update(record,parameters=x.tolist(),viable=viable)
             return float(record['objective']) if viable else 1e6
         try:
@@ -387,11 +387,19 @@ def evaluate_model(data,values,spec,output,config,*,role='calibration',initial_s
     _write(output/'autonomous.json.gz',auto)
     auto_score = score(auto,data,role)
     _write(output/'autonomous_score.json',auto_score)
+    replay_gates = [GateReport.from_result(result,report) for result,report in
+                    zip(replay_results,replay_scores)]
+    auto_gates = GateReport.from_result(auto,auto_score)
     all_results = replay_results+[auto]
     complete = all(r['summary']['completed_lap'] for r in all_results)
     physical = all(r['summary']['execution_feasible'] for r in all_results)
     objective = _normalized_objective(replay_scores,auto_score)
     report = {'role':role,'complete':bool(complete),'physical':bool(physical),
+        'public_rules_passed':auto_gates.public_rules,
+        'data_coverage_passed':all(g.data_coverage is True for g in replay_gates),
+        'model_fit_eligible':all(g.model_fit_eligible for g in replay_gates+[auto_gates]),
+        'gate_reports':{'replay':[g.to_dict() for g in replay_gates],
+                        'autonomous':auto_gates.to_dict()},
         'objective':objective if np.isfinite(objective) else None,
         'trajectory_directory':str(output),'parameters':dict(zip(PARAMETERS,map(float,values))),
         'candidate':spec,'replay_scores':replay_scores,'autonomous_score':auto_score,
@@ -401,7 +409,7 @@ def evaluate_model(data,values,spec,output,config,*,role='calibration',initial_s
         'autonomous_control_gates':{key:auto['summary'].get(key) for key in
             ('completed_lap','execution_feasible','sustainable','periodic_speed_closed',
              'dc_boundary_closed','rule_state_closed','public_rules_passed','reachable_request_gate_passed')},
-        'physical_flag_meaning':'complete signed-force integration only; control and accuracy gates are separate',
+        'physical_flag_meaning':'accepted signed-force physical integration; input coverage, completeness, public rules, accuracy and control closure are separate',
         'initial_speed_mps':initial_speed_mps,'autonomous_baseline_raw_action':action,
         'evaluation_wall_s':perf_counter()-started,
         'unobserved_ERS_fit':False,'partial_laps_formally_scored':False,'FP2_accessed':False,
@@ -424,7 +432,12 @@ def replay_numerical_audit(sim,driver_trace,output):
     output = Path(output);output.mkdir(parents=True,exist_ok=False)
     trace = {k:np.asarray(driver_trace[k],float).copy() for k in ('time_s','speed_mps','throttle','brake')}
     for value in trace.values(): value.setflags(write=False)
-    binding = sha256(b''.join(trace[k].tobytes() for k in sorted(trace))).hexdigest()
+    coverage = {key:deepcopy(driver_trace[key]) for key in
+        ('coverage_start_s','coverage_end_s','coverage_provenance','provenance') if key in driver_trace}
+    trace.update(coverage)
+    binding = sha256(json.dumps({'channels':{key:trace[key].tolist() for key in
+        ('time_s','speed_mps','throttle','brake')},'coverage':coverage},sort_keys=True,
+        separators=(',',':'),allow_nan=False).encode()).hexdigest()
     initial_speed = float(np.interp(0.,trace['time_s'],trace['speed_mps']))
     common = np.linspace(0.,sim.length_m,int(np.ceil(sim.length_m/.5))+1)
     comparisons,groups = {},{}
@@ -453,9 +466,65 @@ def replay_numerical_audit(sim,driver_trace,output):
     report = {'passed':all(r['passed'] for rows in comparisons.values() for r in rows),
         'comparisons':comparisons,'summaries':groups,'mode':'replay',
         'raw_time_channels_sha256':binding,'initial_speed_mps':initial_speed,
+        'raw_coverage_frozen':True,'raw_coverage':coverage,
         'same_raw_driver_channels_and_initial_state':True,'autonomous_driver_invoked':False,
         'output_resampling_and_internal_convergence_separate':True,
         'thresholds':{'lap_time_difference_s':.1,'speed_rmse_kmh':.5},'failed_trajectories_preserved':True}
+    _write(output/'numerical.json',report)
+    return report
+
+
+def autonomous_physical_numerical_audit(sim,result,output):
+    """Convergence of complete public-rule trajectories, with closure separate.
+
+    The pre-existing control audit still requires sustainable periodic control.
+    This model audit retains its live shield and exact original wheel requests
+    and raw actions without allowing cold-lap closure to mask convergence.
+    """
+    from ..deploy_only import freeze_simulator, proxy_audit
+    output=Path(output);output.mkdir(parents=True,exist_ok=False)
+    fixed=freeze_simulator(sim,result['driver_profile'])
+    actions=np.asarray(result['requested_actions'],float).copy()
+    actions.setflags(write=False)
+    common=np.linspace(0.,sim.length_m,int(np.ceil(sim.length_m/.5))+1)
+    comparisons,groups={},{}
+    for group,settings in (
+        ('output',((10.,.02,1.),(5.,.02,1.),(2.5,.02,1.))),
+        ('integration',((5.,.02,1.),(5.,.01,.5),(5.,.005,.25)))):
+        runs,proxies=[],[]
+        for index,(ds,dt,max_ds) in enumerate(settings):
+            run=fixed.simulate(actions,initial_speed_mps=result['summary']['speed_start_mps'],
+                initial_energy_mj=result['summary']['energy_start_mj'],
+                carried_rule_state=deepcopy(result['summary']['initial_rule_state']),
+                action_space=result['summary']['raw_action_space'],output_ds_m=ds,
+                numerics=replace(sim.config,dt_max=dt,max_ds=max_ds))
+            proxy=proxy_audit(fixed,run)
+            _write(output/f'{group}_{index}.json.gz',run)
+            _write(output/f'{group}_{index}_proxy.json',proxy)
+            runs.append(run);proxies.append(proxy)
+        rows=[]
+        for index,(a,b) in enumerate(zip(runs[:-1],runs[1:])):
+            valid=bool(all(r['summary'].get('completed_lap') and
+                r['summary'].get('execution_feasible') and r['summary'].get('public_rules_passed')
+                for r in (a,b)) and all(p['passed'] for p in proxies[index:index+2]))
+            def velocity(run):
+                if group=='integration':
+                    return np.interp(common,run['internal_trace']['s_m'],run['internal_trace']['speed_mps'])
+                return np.interp(common,np.r_[run['s_m'],sim.length_m],
+                    np.r_[run['speed_mps'],run['terminal_speed_mps']])
+            delta=abs(a['terminal_time_s']-b['terminal_time_s']) if valid else None
+            rmse=float(np.sqrt(np.mean((velocity(a)-velocity(b))**2))*3.6) if valid else None
+            rows.append({'valid':valid,'lap_time_difference_s':delta,'speed_rmse_kmh':rmse,
+                'passed':bool(valid and delta<=.1 and rmse<=.5)})
+        comparisons[group],groups[group]=rows,[run['summary'] for run in runs]
+    report={'passed':all(row['passed'] for rows in comparisons.values() for row in rows),
+        'comparisons':comparisons,'summaries':groups,
+        'fixed_raw_actions_and_original_5m_wheel_demands':True,
+        'same_initial_state_and_causal_deployment_only_shield':True,
+        'output_resampling_and_internal_convergence_separate':True,
+        'cold_lap_control_closure_used_for_numerical_eligibility':False,
+        'public_rules_and_proxy_required':True,'control_qualification_granted':False,
+        'thresholds':{'lap_time_difference_s':.1,'speed_rmse_kmh':.5}}
     _write(output/'numerical.json',report)
     return report
 
@@ -465,12 +534,11 @@ def selected_numerical_audit(data,selected,output,config):
     output = Path(output);output.mkdir(parents=True,exist_ok=False)
     values,spec = selected['selected_parameters'],selected['candidate']
     params = _model(values,spec)
-    from .environment import numerical_audit
     sim = _sim(data,params,config)
     fitted = next(row['best'] for row in selected['fit']['starts']
         if row['converged'] and row['best']['parameters']==values)
     baseline = read(Path(fitted['trajectory_directory'])/'autonomous.json.gz')
-    auto = numerical_audit(sim,baseline,output/'autonomous')
+    auto = autonomous_physical_numerical_audit(sim,baseline,output/'autonomous')
     replay_sim = SimulatorV4(data['track'],data['rules'],params)
     replay = [{'lap_number':int(lap['lap_number']),**replay_numerical_audit(
         replay_sim,lap['driver_trace'],output/f'replay_lap_{lap["lap_number"]}')}
@@ -586,8 +654,7 @@ def run_physics(data_cal,data_dev,output,config):
             row['development'] = evaluate_model(data_dev,fitting['selected_parameters'],spec,
                 folder/'development',config,role='development',initial_speed_mps=initial_speed)
         _write(folder/'candidate.json',_json_finite(row));summaries.append(row)
-    eligible = [r for r in summaries if r['development'] and r['development']['complete']
-                and r['development']['physical'] and r['development']['autonomous_control_qualified']
+    eligible = [r for r in summaries if r['development'] and model_fit_eligible(r['development'])
                 and np.isfinite(r['development']['objective'])]
     selected = None
     if eligible:
@@ -597,7 +664,7 @@ def run_physics(data_cal,data_dev,output,config):
         selected = min(tied,key=lambda r:next(i for i,c in enumerate(CANDIDATES) if c['name']==r['candidate']['name']))
     numerical = selected_numerical_audit(data_cal,selected,output/'selected_numerical',config) if selected else {
         'passed':False,'status':'withheld_no_eligible_physical_model',
-        'reason':'No converged complete physical/control-qualified development candidate'}
+        'reason':'No converged complete physical/public-rule-feasible development candidate'}
     sensitivity=[]
     frozen = VehicleParamsV4()
     base_values = selected['selected_parameters'] if selected else [getattr(frozen,key) for key in PARAMETERS]

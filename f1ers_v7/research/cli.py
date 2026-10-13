@@ -8,7 +8,8 @@ from .._core.learning_base import _write
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage',choices=('audit','physics','teacher','learning','verify'))
+    parser.add_argument('stage',choices=('audit','physics','teacher','learning','verify',
+        'geometry-audit','physics-refit','control-response','verify-geometry'))
     parser.add_argument('--root',type=Path,default=Path.cwd())
     parser.add_argument('--data-root',type=Path)
     parser.add_argument('--ledger-root',type=Path)
@@ -22,6 +23,37 @@ def main(argv=None):
     from .experiment import ensure_run,make_sim,stage_teacher,verify_saved,final_manifest
     output=result_directory(root,args.name)
     try:
+        if args.stage in ('geometry-audit','physics-refit','control-response','verify-geometry'):
+            from .study_protocol import (IDENTITY, ensure_study, start_stage, seal_stage,
+                                         final_manifest as study_manifest, verify_study)
+            if args.data_root is None:
+                raise ValueError('--data-root is required for the historical geometry study')
+            output=result_directory(root,'geometry_registration_2026_02')
+            if args.stage=='verify-geometry':
+                result=verify_study(root,args.data_root,output)
+            else:
+                if args.ledger_root is None:
+                    raise ValueError('Formal stages require the canonical shared --ledger-root')
+                frozen=ensure_study(root,args.data_root,output,args.ledger_root)
+                if args.stage=='physics-refit' and not (output/'geometry-audit.json').exists():
+                    raise ValueError('physics-refit requires a terminal geometry-audit result')
+                start_stage(args.stage,output)
+                from .geometry_study import run_geometry,run_refit,run_response
+                config=frozen['config']
+                try:
+                    if args.stage=='geometry-audit':result=run_geometry(args.data_root,root,output,config)
+                    elif args.stage=='physics-refit':result=run_refit(args.data_root,root,output,config)
+                    else:result=run_response(args.data_root,root,output,config,frozen)
+                except (Exception,KeyboardInterrupt) as exc:
+                    result={'status':'interrupted' if isinstance(exc,KeyboardInterrupt) else 'execution_failed',
+                        'exception_type':type(exc).__name__,'reason':str(exc),
+                        'partial_artifacts_retained':True,'stage_spent':True,
+                        'no_replacement_attempt_authorized':True,'FP2_accessed':False}
+                seal_stage(output,args.stage,result)
+                study_manifest(output)
+            print(json.dumps(result,indent=2,ensure_ascii=False,default=str))
+            return int((args.stage=='verify-geometry' and not result['passed']) or
+                       result.get('status') in ('interrupted','execution_failed'))
         config=read(root/'config/research/experiment.json')
         if args.stage=='audit':
             result={'config':config,'optional_dependencies':{},'FP2_accessed':False,

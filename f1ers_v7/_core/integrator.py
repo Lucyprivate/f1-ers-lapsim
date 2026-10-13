@@ -554,6 +554,23 @@ def vehicle_step(state, command, continuous_geometry, params, dt_s, config=None)
     status_name = "numerical_fail" if status == 3 else ("physical_fail" if failures else ("physical_stop" if status == 1 else "accepted"))
     proposed = IntegrationState(state.s_m+ds,float(v1),state.elapsed_time_s+float(actual_dt),
         None if next_energy is None else float(next_energy),None if next_recharge is None else float(next_recharge),dc)
+    lateral_utilization = 0.
+    for stage_s,stage_v in ((state.s_m,state.speed_mps),
+            (state.s_m+.5*ds,.5*(state.speed_mps+float(v1))),(state.s_m+ds,float(v1))):
+        stage = continuous_geometry.evaluate(stage_s)
+        normal = params.mass_kg*9.81+.5*params.air_density_kgpm3*float(stage.get("downforce_area_m2",params.downforce_area_m2))*stage_v**2
+        capacity = params.mu*params.session_grip_scale*normal
+        lateral_utilization = max(lateral_utilization,
+            params.mass_kg*stage_v**2*abs(float(stage["curvature_1pm"]))/capacity)
+    remaining_capacity = brake_capacity if demand < 0 else drive_capacity
+    if lateral_utilization > 1.+1e-9:
+        truncation_reason = "lateral_demand_exceeds_capacity"
+    elif abs(demand) > remaining_capacity+1e-6:
+        truncation_reason = "remaining_joint_tire_budget"
+    elif abs(demand-wheel) > 1e-6:
+        truncation_reason = "power_or_electrical_source_limit"
+    else:
+        truncation_reason = "none"
     info = dict(status=status_name,step_certified=not failures or certified_floor,guard_reasons=failures,
         accepted_prefix=bool(certified_floor and actual_dt > 0.),energy_floor_event=bool(certified_floor),
         s_start_m=state.s_m,s_end_m=proposed.s_m,speed_start_mps=state.speed_mps,speed_next_mps=float(v1),
@@ -561,6 +578,8 @@ def vehicle_step(state, command, continuous_geometry, params, dt_s, config=None)
         ax_mps2=(float(v1)-state.speed_mps)/max(actual_dt,1e-15),wheel_force_n=wheel,drag_force_n=drag,
         tire_drive_capacity_n=drive_capacity,tire_brake_capacity_n=brake_capacity,tire_force_excess_n=excess,
         requested_wheel_force_n=demand,axle_budget_enabled=bool(params.axle_budget_enabled),
+        lateral_utilization=lateral_utilization,remaining_longitudinal_capacity_n=remaining_capacity,
+        force_truncation_reason=truncation_reason,
         front_longitudinal_capacity_n=front_capacity,rear_longitudinal_capacity_n=rear_capacity,
         front_normal_load_n=front_load,rear_normal_load_n=rear_load,
         front_lateral_force_n=front_lateral,rear_lateral_force_n=rear_lateral,
@@ -629,8 +648,10 @@ def advance_interval(state, driver_adapter, ers_request, stop_s_m, continuous_ge
     terminal_info = None
     while state.s_m < stop_s_m-config.event_s_tol:
         final_time = getattr(driver_adapter,"final_time_s",math.inf)
-        if state.elapsed_time_s >= final_time-config.event_t_tol:
-            terminal_info = dict(status="physical_fail",guard_reasons=["driver_trace_exhausted"],step_certified=False)
+        if state.elapsed_time_s >= final_time:
+            terminal_info = dict(status="input_exhausted",guard_reasons=["driver_trace_exhausted"],
+                step_certified=True,input_coverage_end_s=float(final_time),input_extrapolation_used=False)
+            events.append(dict(kind="input_exhausted",s_m=state.s_m,time_s=state.elapsed_time_s))
             break
         if state.speed_mps <= 0:
             terminal_info = dict(status="physical_stop",guard_reasons=["vehicle_stopped"],step_certified=False)
@@ -640,7 +661,7 @@ def advance_interval(state, driver_adapter, ers_request, stop_s_m, continuous_ge
             _next_event(continuous_geometry,"next_space_event",state.s_m),
             _next_event(ers_request,"next_space_event",state.s_m) if ers_request is not None else math.inf)
         time_room = time_event-state.elapsed_time_s
-        if time_room <= config.event_t_tol:
+        if time_room <= 0.:
             # An adapter must return the strictly next event; do not invent time.
             terminal_info = dict(status="numerical_fail",guard_reasons=["nonadvancing_time_event"],step_certified=False)
             break
@@ -726,6 +747,16 @@ def advance_interval(state, driver_adapter, ers_request, stop_s_m, continuous_ge
                 et = config.e_atol+config.e_rtol*(0. if halves.energy_mj is None else abs(halves.energy_mj))
                 valid = dv <= vt and ds <= st and de <= et
             if valid and halves.s_m <= space_event+config.event_s_tol:
+                # Two additions of dt/2 can land one floating-point unit shy
+                # of the raw endpoint. Correct only that rounding, after the
+                # complete requested time was integrated; never skip a real
+                # remainder merely because it is below event_t_tol.
+                if np.isfinite(final_time) and time_event == final_time and dt == time_room:
+                    rounding = final_time-halves.elapsed_time_s
+                    if abs(rounding) <= 4.*abs(np.spacing(final_time)):
+                        halves = replace(halves,elapsed_time_s=float(final_time))
+                        second_info["time_end_s"] = float(final_time)
+                        second_info["event_time_rounding_s"] = float(rounding)
                 if collect_steps:
                     records.extend([first_info,second_info])
                 state = halves

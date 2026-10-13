@@ -9,6 +9,49 @@ from .._core.provenance import digest
 ROLES = {'calibration': (3, 4, 5, 6), 'development': (7, 9)}
 
 
+def load_role_source(data_root, role):
+    """Restrict calibration repair/support before materializing channel arrays.
+
+    The sole pre-window car sample brackets the already authorized initial
+    observation. Later-than-lap-6 values cannot repair or extend early controls.
+    Fold registration uses the stricter isolated per-lap geometry raw view.
+    """
+    if role not in ROLES:
+        raise DataUnavailable('Unknown historical role')
+    root = Path(data_root)
+    raw = root/'data/raw/openf1'
+    document = read_json(root/'data/processed/dataset.json')
+    metadata = read_json(raw/'laps.json')
+    original = {int(r['lap_number']): r for r in document['laps']}
+    chosen = {int(r['lap_number']): r for r in metadata
+              if r.get('driver_number') == 63 and r.get('session_key') == 11315}
+    rows = []
+    for number in ROLES[role]:
+        row = dict(chosen[number])
+        row.update(role=role, lap_time_s=float(row['lap_duration']), compound=original[number]['compound'],
+                   sector_times_s=[float(row[f'duration_sector_{i}']) for i in (1, 2, 3)])
+        rows.append(row)
+    car = read_json(raw/'car_data_63_laps3to9.json')
+    location = read_json(raw/'location_63_laps3to9.json')
+    if role == 'calibration':
+        start = channels.epoch(rows[0]['date_start'])
+        end = channels.epoch(rows[-1]['date_start'])+float(rows[-1]['lap_duration'])
+        previous = [r for r in car if channels.epoch(r['date']) <= start]
+        if not previous:
+            raise DataUnavailable('Initial observed speed has no original time bracket')
+        bracket = max(previous, key=lambda r: channels.epoch(r['date']))
+        car = [bracket]+[r for r in car if start < channels.epoch(r['date']) <= end]
+        location = [r for r in location if start-3. <= channels.epoch(r['date']) <= end]
+        # raw_arrays may repair invalid values only after this role restriction;
+        # no later-role value can supply its interpolation or held brake switch.
+    arrays = channels.raw_arrays(car, location)
+    arrays['role_source_provenance'] = {'role': role, 'selected_laps': list(ROLES[role]),
+        'calibration_tail_extended_from_development': False,
+        'initial_speed_bracket_from_original_raw_sample': True,
+        'invalid_calibration_repair_uses_early_view_only': role == 'calibration'}
+    return document, rows, arrays
+
+
 def input_files(data_root):
     root = Path(data_root).resolve()
     names = ['data/processed/dataset.json', 'data/processed/track.npz', 'data/v3/local/registration.json',
