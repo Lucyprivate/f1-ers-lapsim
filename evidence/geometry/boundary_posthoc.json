@@ -1,0 +1,274 @@
+{
+  "identity": "spielberg_geometry_registration_2026_02",
+  "original_experiment_source_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+  "post_hoc_diagnostic": true,
+  "formal_geometry_score_replaced": false,
+  "geometry_gates_changed": false,
+  "new_fits": 0,
+  "new_integrator_executions": 0,
+  "FP2_accessed": false,
+  "original_telemetry_loaded": false,
+  "helper_sha256": "4d726ecbfbc540bb970fcea7ecfab18ed1f3b0ce163b5528bc461e1e66f9c458",
+  "frozen_geometry_module_sha256": "e0cf623bfccd16d9bfdab3c0e8062facac992776710a8573cc6c6debafab6af3",
+  "input_geometry_hashes": {
+    "centerline": "277b2854c4323021b10b6b63ebfe6a6cc971f494c0728202e910d67d7d65dc8c",
+    "baseline_route": "dd8516946053f5fdd4a5fe0b2f3df1bfe10d90fea84fe2ce125da4763da7fc15"
+  },
+  "baseline": {
+    "length_m": 4284.99588150108,
+    "continuous_gate": {
+      "passed": true,
+      "reason": null,
+      "intersections": 0,
+      "method": "analytic cubic intersections with explicit inherited width polygon",
+      "surveyed_boundary": false,
+      "numeric_root_imaginary_tolerance": 1e-07
+    },
+    "localized_intersections": [],
+    "distinct_intersection_locations": 0,
+    "outside_excursions": [],
+    "nearest_segment_minimum_clearance_0_1m_grid_m": 0.6304361798771803,
+    "nearest_segment_outside_samples_0_1m_grid": 0
+  },
+  "full_calibration_candidates": [
+    {
+      "regularization_length_m": 20,
+      "frozen_candidate_sha256": "34b164e86b98db3dbc697ec144fdf4e060172df80650621345457cca62b2211a",
+      "diagnostic": {
+        "length_m": 4297.061989328894,
+        "continuous_gate": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "localized_intersections": [
+          {
+            "s_route_m": 1209.4205590033605,
+            "legacy_s_m": 1198.3725450539062,
+            "fia_fraction": 0.2796828805664047,
+            "fia_coordinate_m": 1209.9081413302667,
+            "source_parameter_m": 1389.925788850195,
+            "source_reference_parameter_m": 1386.6225450539064,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 278,
+            "edge_fraction": 0.9512419210478915,
+            "spline_segment_index": 694,
+            "line_residual_m": 7.473363942721519e-14,
+            "nearest_boundary_vertex_distance_m": 0.14805448746963107,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1209.4205590033605,
+            "distance_to_source_parameter_seam_m": 1389.925788850195,
+            "before_inside": true,
+            "after_inside": false,
+            "crossing_type": "exit"
+          },
+          {
+            "s_route_m": 1210.0643154966624,
+            "legacy_s_m": 1199.0369135954413,
+            "fia_fraction": 0.27983793460884016,
+            "fia_coordinate_m": 1210.5789051178426,
+            "source_parameter_m": 1390.5691722059148,
+            "source_reference_parameter_m": 1387.2869135954418,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 279,
+            "edge_fraction": 0.2443412508655023,
+            "spline_segment_index": 694,
+            "line_residual_m": 1.4089809716026127e-14,
+            "nearest_boundary_vertex_distance_m": 0.5140592237066645,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1210.0643154966624,
+            "distance_to_source_parameter_seam_m": 1390.5691722059148,
+            "before_inside": false,
+            "after_inside": true,
+            "crossing_type": "entry"
+          }
+        ],
+        "distinct_intersection_locations": 2,
+        "outside_excursions": [
+          {
+            "start_route_m": 1209.4205590033605,
+            "end_route_m": 1210.0643154966624,
+            "wraps_control_line": false,
+            "outside_arc_length_m": 0.6437564933019075,
+            "maximum_penetration_estimate_m": 0.059817354973499444,
+            "maximum_at_route_m": 1209.5645045546578,
+            "maximum_at_legacy_m": 1198.5210988479303,
+            "maximum_at_fia_coordinate_m": 1210.0581251108174,
+            "sampling_step_m": 0.0009996218840091732,
+            "nearest_segment_clearance_at_penetration_m": -0.03503499962707313,
+            "penetration_against": "explicit inherited miter width polygon, not a surveyed boundary"
+          }
+        ],
+        "nearest_segment_minimum_clearance_0_1m_grid_m": -0.031319578230887934,
+        "nearest_segment_outside_samples_0_1m_grid": 4
+      }
+    },
+    {
+      "regularization_length_m": 40,
+      "frozen_candidate_sha256": "30375adf26ec73c5ff9eff9c3e2950f4954b7e4e99788dee0ae490b633fa660d",
+      "diagnostic": {
+        "length_m": 4292.418532693957,
+        "continuous_gate": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "localized_intersections": [
+          {
+            "s_route_m": 1207.3069280421862,
+            "legacy_s_m": 1198.113683535329,
+            "fia_fraction": 0.27962246601878993,
+            "fia_coordinate_m": 1209.6467879972852,
+            "source_parameter_m": 1387.8146725145496,
+            "source_reference_parameter_m": 1386.363683535329,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 278,
+            "edge_fraction": 0.8655314817510374,
+            "spline_segment_index": 694,
+            "line_residual_m": 2.043840726018263e-14,
+            "nearest_boundary_vertex_distance_m": 0.4083152572459982,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1207.3069280421862,
+            "distance_to_source_parameter_seam_m": 1387.8146725145496,
+            "before_inside": true,
+            "after_inside": false,
+            "crossing_type": "exit"
+          },
+          {
+            "s_route_m": 1208.5247388107002,
+            "legacy_s_m": 1199.381167063531,
+            "fia_fraction": 0.2799182784067665,
+            "fia_coordinate_m": 1210.9264723876718,
+            "source_parameter_m": 1389.0318606926778,
+            "source_reference_parameter_m": 1387.6311670635312,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 279,
+            "edge_fraction": 0.4057381925648068,
+            "spline_segment_index": 694,
+            "line_residual_m": 9.931468870996694e-14,
+            "nearest_boundary_vertex_distance_m": 0.8536154233442106,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1208.5247388107002,
+            "distance_to_source_parameter_seam_m": 1389.0318606926778,
+            "before_inside": false,
+            "after_inside": true,
+            "crossing_type": "entry"
+          }
+        ],
+        "distinct_intersection_locations": 2,
+        "outside_excursions": [
+          {
+            "start_route_m": 1207.3069280421862,
+            "end_route_m": 1208.5247388107002,
+            "wraps_control_line": false,
+            "outside_arc_length_m": 1.2178107685140276,
+            "maximum_penetration_estimate_m": 0.1397930498720656,
+            "maximum_at_route_m": 1207.6998669847362,
+            "maximum_at_legacy_m": 1198.522651221555,
+            "maximum_at_fia_coordinate_m": 1210.0596924276713,
+            "sampling_step_m": 0.0009998446375320423,
+            "nearest_segment_clearance_at_penetration_m": -0.11576079826672458,
+            "penetration_against": "explicit inherited miter width polygon, not a surveyed boundary"
+          }
+        ],
+        "nearest_segment_minimum_clearance_0_1m_grid_m": -0.11573892754204085,
+        "nearest_segment_outside_samples_0_1m_grid": 11
+      }
+    },
+    {
+      "regularization_length_m": 80,
+      "frozen_candidate_sha256": "8a96fdc9f5d3831e080cad905c45fdc7287637c50f884e40104e905858c080cc",
+      "diagnostic": {
+        "length_m": 4286.798870687186,
+        "continuous_gate": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "localized_intersections": [
+          {
+            "s_route_m": 1206.2815560772183,
+            "legacy_s_m": 1197.9948319914558,
+            "fia_fraction": 0.27959472778138833,
+            "fia_coordinate_m": 1209.526792382286,
+            "source_parameter_m": 1386.7891500476885,
+            "source_reference_parameter_m": 1386.244831991456,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 278,
+            "edge_fraction": 0.8263362728189575,
+            "spline_segment_index": 694,
+            "line_residual_m": 1.681872511571379e-14,
+            "nearest_boundary_vertex_distance_m": 0.5273319760015526,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1206.2815560772183,
+            "distance_to_source_parameter_seam_m": 1386.7891500476885,
+            "before_inside": true,
+            "after_inside": false,
+            "crossing_type": "exit"
+          },
+          {
+            "s_route_m": 1207.6293905666794,
+            "legacy_s_m": 1199.400459899252,
+            "fia_fraction": 0.2799227810765673,
+            "fia_coordinate_m": 1210.9459509372302,
+            "source_parameter_m": 1388.1363163313981,
+            "source_reference_parameter_m": 1387.6504598992522,
+            "ring": "inner",
+            "width_side": "right",
+            "boundary_edge_index": 279,
+            "edge_fraction": 0.4149778087110669,
+            "spline_segment_index": 694,
+            "line_residual_m": 3.182080621259833e-14,
+            "nearest_boundary_vertex_distance_m": 0.8730542609807932,
+            "near_miter_vertex_within_0_1m": false,
+            "distance_to_control_line_m": 1207.6293905666794,
+            "distance_to_source_parameter_seam_m": 1388.1363163313981,
+            "before_inside": false,
+            "after_inside": true,
+            "crossing_type": "entry"
+          }
+        ],
+        "distinct_intersection_locations": 2,
+        "outside_excursions": [
+          {
+            "start_route_m": 1206.2815560772183,
+            "end_route_m": 1207.6293905666794,
+            "wraps_control_line": false,
+            "outside_arc_length_m": 1.3478344894610927,
+            "maximum_penetration_estimate_m": 0.1654542836875932,
+            "maximum_at_route_m": 1206.7884938265927,
+            "maximum_at_legacy_m": 1198.5235091599977,
+            "maximum_at_fia_coordinate_m": 1210.0605586246738,
+            "sampling_step_m": 0.0009998772177011073,
+            "nearest_segment_clearance_at_penetration_m": -0.14155471628163596,
+            "penetration_against": "explicit inherited miter width polygon, not a surveyed boundary"
+          }
+        ],
+        "nearest_segment_minimum_clearance_0_1m_grid_m": -0.13935143709353248,
+        "nearest_segment_outside_samples_0_1m_grid": 12
+      }
+    }
+  ],
+  "scope": "Declared inherited nearest-segment corridor and explicit miter polygon only; no surveyed 2026 road or racing-line conclusion",
+  "interpretation": "Two mathematically different inherited boundary representations are compared without changing either formal gate; nearest-segment clearance cannot replace continuous miter-polygon containment",
+  "schema_version": 1,
+  "task_local_source": "work/geometry_boundary_posthoc.json",
+  "source_json_sha256": "e5790abeea2d36bbbd3e64dfba1a83ba42408684587796771d5cc5ebaa0e5c5e",
+  "outside_formal_manifest": true,
+  "point_coordinates_and_candidate_arrays_included": false,
+  "publication_note": "Post hoc localization only; all original geometry scores and gates are unchanged"
+}

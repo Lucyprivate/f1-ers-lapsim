@@ -20,8 +20,8 @@
       "sha256": "bf50a0c40b274e09075f487e5e2dc552bdb07fee9d895c827b2764f973767a9c"
     },
     "README.md": {
-      "bytes": 3480,
-      "sha256": "8924f49d4f21210112e7cc8e809a61697a8af6d6a4454bc5fc16a74d0d5d0957"
+      "bytes": 4089,
+      "sha256": "307189aca22fe5b94744306fa5047c3a017efc5f9f9c8cdab58c1f7a154c6c86"
     },
     "config/data_protocol.json": {
       "bytes": 6448,
@@ -48,8 +48,12 @@
       "sha256": "04cb6f56804786f3c56dc9c92693085a7dcec473746a2a4db3a91573cefcb9b5"
     },
     "docs/GEOMETRY_PROTOCOL.md": {
-      "bytes": 6609,
-      "sha256": "7335f257ca01862d1c3a3b798c24b7fe91f88d6f27b73bb42cbe0a3624fba1e4"
+      "bytes": 7007,
+      "sha256": "f42f1c6f35c35429ac2f9b91315247a8d58ca000b42a29a4ef15c082fa90d68b"
+    },
+    "docs/GEOMETRY_RESULTS.md": {
+      "bytes": 17085,
+      "sha256": "24f8c04ce9b356c7e5e2bc29c0e94c784578136aa325587063843cc38c57dec8"
     },
     "docs/OPEN_SOURCE_METHODS.md": {
       "bytes": 15737,
@@ -84,12 +88,36 @@
       "sha256": "eb0bb89fdc6ae13c4949e3276c296b665ea748f4825ebd2e4f531838f2656154"
     },
     "docs/SOURCE_PROVENANCE.json": {
-      "bytes": 7562,
-      "sha256": "431fb74f35b129e01eb7052e52aa8a14a1b4466719a453ca9f8475d8836ca7af"
+      "bytes": 8318,
+      "sha256": "77593c12e35223bad78eb092417d3c301a2a0127255f34929abe608fccd5423b"
     },
     "docs/VALIDATION.json": {
-      "bytes": 9254,
-      "sha256": "6ee4af52948d7cff6119afe43770a1a1254c8e069ccf515a64e9923528d7666d"
+      "bytes": 15514,
+      "sha256": "07926353e4daa4f863bfa32932d27b7f7bd7eae5e7e2f867a324a9137eb8d3c3"
+    },
+    "evidence/geometry/boundary_posthoc.json": {
+      "bytes": 12344,
+      "sha256": "8ab6b3143865cd95413bba1c2434f9325705a8631f97460e4226843863ed2cbe"
+    },
+    "evidence/geometry/control_response.json": {
+      "bytes": 116623,
+      "sha256": "a24dc7af1a0674b6900d9a4dafb3b0fa370e217711da6070eea50cf34c7c20df"
+    },
+    "evidence/geometry/geometry.json": {
+      "bytes": 46823,
+      "sha256": "818e26535e7a4f081228d5ed244372ebc09893e4698ec255533233555b02987f"
+    },
+    "evidence/geometry/physics.json": {
+      "bytes": 314,
+      "sha256": "081b60e2f93ac038865143ef9a5419cbd51ced23dacea771c5e3c416a9bf8cad"
+    },
+    "evidence/geometry/publication_addendum.json": {
+      "bytes": 2639,
+      "sha256": "7a4e19d28df8f8e9d2fa3c453934ae67bd50ab4bf792512fb3fe32258ad6aa32"
+    },
+    "evidence/geometry/summary.json": {
+      "bytes": 2073,
+      "sha256": "8049a3be41bd6893d587d9bdf748f72d4094201ab0cccdb121adcec7af36fc59"
     },
     "evidence/latest/summary.json": {
       "bytes": 82043,
@@ -415,6 +443,10 @@
       "bytes": 2643,
       "sha256": "3281462762d877498fcc8ae34c3cf979f02281eb521cf81855cb2e5f709a1bd0"
     },
+    "tests/test_verify_geometry_evidence.py": {
+      "bytes": 5784,
+      "sha256": "0a600ccbe47e2fd8ee57117003d7c7f89f3fb7910110d3dde13000e6e53b5425"
+    },
     "tests/test_verify_research_artifacts.py": {
       "bytes": 11293,
       "sha256": "40e950c369dbae20fee00e0b491cd1fd92fa1703837495449d4ff7a741359295"
@@ -422,6 +454,10 @@
     "tools/verify_geometry_artifacts.py": {
       "bytes": 3549,
       "sha256": "e8d61947a0cc67556542238106f70e0b2376c66119fdda3aeace9b052695697a"
+    },
+    "tools/verify_geometry_evidence.py": {
+      "bytes": 7785,
+      "sha256": "41ed25ac617c0ddaddb9c033a2a8b1709e209a89c78995b63831d0a7f12b622e"
     },
     "tools/verify_public_snapshot.py": {
       "bytes": 2895,

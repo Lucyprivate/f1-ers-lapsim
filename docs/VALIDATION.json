@@ -1,200 +1,50 @@
 {
-  "schema_version": 1,
-  "package_version": "0.8.1",
-  "scope": "Current 0.8.1 source validation; stopped frozen 0.8.0 experiment separately identified",
+  "schema_version": 2,
+  "package_version": "0.9.0",
+  "scope": "Current frozen source, bounded completed study and saved artifact integrity; measured model gates remain separate",
+  "original_experiment_source_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
   "checks": {
     "included_regression_tests": {
-      "run": 145,
-      "passed": 143,
+      "run": 188,
+      "passed": 186,
       "skipped": 2,
       "failed": 0,
       "skip_reason": "Windows privileges unavailable for two symlink-creation fixtures",
-      "log_sha256": "0a6e32b7952a267be8de042f01557ab6e442601447d074437b938238bf5882d7"
+      "source_code_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+      "log_sha256": "7a286eb1bdd29c80dcd09ba4e7793978aac8f52aea722d4354470035163783b6"
     },
-    "all_discovered_module_imports": {
+    "saved_study_integrity": {
       "passed": true,
-      "module_count": 45
-    },
-    "research_differential": {
-      "passed": true,
-      "tolerance": 1e-09,
-      "cases": [
-        {
-          "update": 1,
-          "fixture": "ordinary",
-          "errors": {
-            "target": 3.469446951953614e-18,
-            "actor_loss": 8.673617379884035e-19,
-            "logp": 6.661338147750939e-16,
-            "actor_gradients": 8.131516293641283e-20,
-            "q_gradients": 3.469446951953614e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 2,
-          "fixture": "ordinary",
-          "errors": {
-            "target": 5.204170427930421e-18,
-            "actor_loss": 0.0,
-            "logp": 2.220446049250313e-16,
-            "actor_gradients": 9.486769009248164e-20,
-            "q_gradients": 3.469446951953614e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 3,
-          "fixture": "ordinary",
-          "errors": {
-            "target": 6.938893903907228e-18,
-            "actor_loss": 1.734723475976807e-18,
-            "logp": 4.440892098500626e-16,
-            "actor_gradients": 1.0842021724855044e-19,
-            "q_gradients": 2.6020852139652106e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 4,
-          "fixture": "saturated_mean",
-          "errors": {
-            "target": 3.469446951953614e-18,
-            "actor_loss": 0.0,
-            "logp": 0.0,
-            "actor_gradients": 1.0164395367051604e-20,
-            "q_gradients": 3.469446951953614e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 5,
-          "fixture": "clipped_logstd",
-          "errors": {
-            "target": 6.938893903907228e-18,
-            "actor_loss": 0.0,
-            "logp": 1.7763568394002505e-15,
-            "actor_gradients": 2.710505431213761e-20,
-            "q_gradients": 3.469446951953614e-18,
-            "Adam_and_Polyak": 1.1102230246251565e-16
-          },
-          "passed": true
-        },
-        {
-          "update": 6,
-          "fixture": "equal_twin_Q",
-          "errors": {
-            "target": 6.938893903907228e-18,
-            "actor_loss": 0.0,
-            "logp": 8.881784197001252e-16,
-            "actor_gradients": 5.421010862427522e-20,
-            "q_gradients": 1.734723475976807e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 7,
-          "fixture": "terminal_zero_bootstrap",
-          "errors": {
-            "target": 0.0,
-            "actor_loss": 8.673617379884035e-19,
-            "logp": 8.881784197001252e-16,
-            "actor_gradients": 1.0842021724855044e-19,
-            "q_gradients": 1.0570971181733668e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17,
-            "terminal_bootstrap": 0.0
-          },
-          "passed": true
-        },
-        {
-          "update": 8,
-          "fixture": "negative_saturation_lower_clip_edge",
-          "errors": {
-            "target": 0.0,
-            "actor_loss": 0.0,
-            "logp": 0.0,
-            "actor_gradients": 1.0164395367051604e-20,
-            "q_gradients": 1.734723475976807e-18,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 9,
-          "fixture": "upper_clip_edge",
-          "errors": {
-            "target": 0.0,
-            "actor_loss": 0.0,
-            "logp": 8.881784197001252e-16,
-            "actor_gradients": 2.710505431213761e-20,
-            "q_gradients": 8.673617379884035e-19,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        },
-        {
-          "update": 10,
-          "fixture": "global_gradient_clipping",
-          "errors": {
-            "target": 0.0,
-            "actor_loss": 0.0,
-            "logp": 3.552713678800501e-15,
-            "actor_gradients": 5.421010862427522e-20,
-            "q_gradients": 4.547473508864641e-13,
-            "Adam_and_Polyak": 5.551115123125783e-17
-          },
-          "passed": true
-        }
-      ],
-      "braking_actor_gradient_exact_zero": true,
-      "default_common_update_RNG_error": 5.551115123125783e-17,
-      "braking_Q_action_invariant": true,
-      "episodes_spent": 0,
-      "common_batch_common_epsilon": true,
-      "dependency_evidence": {
-        "implementation": "SB3 network modules with explicitly aligned custom float64 SAC updates",
-        "stock_sb3_learn_executed": false,
-        "actual_sb3_modules_used": [
-          "SACPolicy.Actor.latent_pi",
-          "Actor.mu",
-          "Actor.log_std",
-          "ContinuousCritic.q_networks"
-        ],
-        "sb3_version": "2.9.0",
-        "sb3_module_sha256": "a8d5d1b88605932e9d03c6acc37eadc54319bb1b563faf00cd173fbfdf059cf6",
-        "torch_version": "2.14.1+cpu",
-        "dtype": "float64",
-        "aligned_changes": [
-          "float64",
-          "fixed normalizer",
-          "strict logstd clipping derivative",
-          "per-critic Adam",
-          "gradient norm clipping10",
-          "pre-demand braking no-op mask"
-        ]
-      }
-    },
-    "legacy_audit": {
-      "passed": true,
-      "feature_count": 34,
-      "scope": "Archived controller synthetic audit"
+      "artifact_hash_failures": [],
+      "inventory_equal": true,
+      "computational_source_equal": true,
+      "frozen_git_tree_equal": true,
+      "canonical_claim_equal": true,
+      "input_hashes_equal": true,
+      "closed_parent_completion_equal": true,
+      "shared_stage_receipts_match": {
+        "geometry-audit": true,
+        "physics-refit": true,
+        "control-response": true
+      },
+      "runtime_equal": true,
+      "FP2_ledger_unchanged": true,
+      "all_stages_terminal": true,
+      "FP2_accessed": false,
+      "optimization_and_training_repeated": false,
+      "saved_scores_read_only": true,
+      "original_code_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203"
     },
     "wheel_build": {
       "passed": true,
-      "filename": "f1_ers_lapsim-0.8.1-py3-none-any.whl",
-      "bytes": 179092,
-      "sha256": "eced2ea31c6efa090ce8e4ad990e9e4b1a7d2cbad592ce0ac3439a2e5aea1494"
+      "filename": "f1_ers_lapsim-0.9.0-py3-none-any.whl",
+      "bytes": 210453,
+      "wheel_sha256": "e6e71babbb82a82cd7a79d04b7e884e119e7238325ee023b247d5f0d1bfbb619",
+      "package_source_files_checked": 52,
+      "source_files_differing": [],
+      "config_and_data_require_source_checkout": true
     },
-    "english_markdown_and_local_links": {
-      "passed": true,
-      "problems": []
-    },
-    "sealed_research_artifact_bytes": {
+    "closed_parent_artifact_integrity": {
       "passed": true,
       "identity": "spielberg_open_source_control_2026_01",
       "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
@@ -210,49 +60,340 @@
       "artifacts_modified": false,
       "training_attempts_consumed": 0
     },
-    "independent_frozen_baseline_recomputation": {
+    "current_portable_saved_evidence_verifier": {
       "passed": true,
-      "persisted_JSON_qualification_exactly_equal": true,
-      "in_memory_report_equal": false,
-      "in_memory_schema_type": "tuple",
-      "persisted_schema_type": "list",
-      "physical_laps_recomputed": 6,
-      "formal_objective_s": 70.44079066181877,
-      "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
-      "replay_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
-      "expected_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
-      "optimizer_or_training_repeated": false,
-      "source_changed": false,
-      "FP2_accessed": false
-    },
-    "original_research_repository": {
-      "clean": true,
-      "head": "b418dd27b071c413477b646db0c813350ad357ba",
-      "frozen_historical_inputs_checked": 8,
-      "frozen_historical_inputs_unchanged": true
-    },
-    "independent_wheel_install_and_audit": {
-      "passed": true,
-      "version": "0.8.1",
-      "imported_from_independent_target": true,
-      "differential_fixtures_passed": 10,
-      "historical_arrays_loaded": false,
-      "training_started": false,
-      "FP2_accessed": false
+      "identity": "spielberg_geometry_registration_2026_02",
+      "declared_files_verified": 688,
+      "json_leaf_artifacts_checked": 556,
+      "source_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+      "manifest_sha256": "677a580021e57c9759208662e59c15e1ea26f6b986381d4ea25a50c97aec22c7",
+      "freeze_sha256": "fa65c8c6c5ebd6f902d17a1465affb8794433d0d54c7fd53b7b4618f63df72e3",
+      "scope": "sealed artifact byte identity and strict JSON/inventory only",
+      "hash_only": true,
+      "simulation_repeated": false,
+      "telemetry_loaded": false,
+      "real_world_accuracy_certified": false,
+      "artifacts_modified": false,
+      "shared_budget_restored_or_reset": false,
+      "FP2_data_loaded": false,
+      "entry": "tools/verify_geometry_evidence.py"
     }
   },
-  "formal_research_results": {
-    "source_version": "0.8.0",
-    "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
-    "status": "Stopped after teacher surrogate defect; physics screening complete, SAC withheld",
-    "screening_points": 192,
-    "viable_fit_starts": 0,
-    "teacher_attempts": 35,
+  "formal_study": {
+    "schema_version": 1,
+    "package_version": "0.9.0",
+    "identity": "spielberg_geometry_registration_2026_02",
+    "parent_identity": "spielberg_open_source_control_2026_01",
+    "parent_completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+    "code_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+    "freeze_sha256": "fa65c8c6c5ebd6f902d17a1465affb8794433d0d54c7fd53b7b4618f63df72e3",
+    "manifest_sha256": "677a580021e57c9759208662e59c15e1ea26f6b986381d4ea25a50c97aec22c7",
+    "manifest_file_count": 688,
+    "stage_sha256": {
+      "geometry-audit": "f91f07a8d69c9358a527b2c8453397be6b85a76c77083469f8d8e500944a63ad",
+      "physics-refit": "e8cc043db08ba2c9e97c9e31ccf215c8621606888b194a79a3b401f0497b110d",
+      "control-response": "64c87cafa97614d58c31b108e4ad0d1347b6d039ff63fe3497972094156bb0ca"
+    },
+    "shared_terminal_receipt_sha256": {
+      "geometry-audit_completed.json": "6605e6a1bb63bccdc05ff05b48919ca65cb2d528c9ad628d2cb97389e838fb07",
+      "physics-refit_completed.json": "17c882c7f9adeb9b736ca09320138031dc3a52e98b782f27cef8cf6c79e5a516",
+      "control-response_completed.json": "5e096a35ca8700acfbe7a274c6c5775195fdbad72faa54ad3c7e384175b27ffb"
+    },
+    "calibration_laps": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "development_loaded": false,
+    "geometry_gate_passed": false,
+    "physical_refit_status": "withheld_geometry_gate",
+    "control_response_status": "directional_diagnostics_completed",
+    "control_attempt_budget": {
+      "maximum": 132,
+      "reserved_attempts": 132,
+      "keys": 132
+    },
     "new_SAC_attempts": 0,
-    "accuracy_gates_passed": false,
-    "learning_gain_demonstrated": false
+    "teacher_search_attempts": 0,
+    "new_actor_or_teacher_adopted": false,
+    "lap_time_gain_claimed": false,
+    "FP2_accessed": false,
+    "FP2_sealed": true,
+    "full_FIA_or_real_SOC_validation_complete": false,
+    "browser_validation_performed": false,
+    "accuracy_thresholds": {
+      "mean_speed_rmse_kmh": 15.0,
+      "max_abs_lap_error_pct": 2.0,
+      "max_abs_sector_error_s": 1.0
+    },
+    "historical_results_retained": "evidence/research/ and docs/RESEARCH_RESULTS.md"
   },
-  "current_source_formal_optimizer_or_training_rerun": false,
+  "historical_source_validation": {
+    "schema_version": 1,
+    "package_version": "0.8.1",
+    "scope": "Current 0.8.1 source validation; stopped frozen 0.8.0 experiment separately identified",
+    "checks": {
+      "included_regression_tests": {
+        "run": 145,
+        "passed": 143,
+        "skipped": 2,
+        "failed": 0,
+        "skip_reason": "Windows privileges unavailable for two symlink-creation fixtures",
+        "log_sha256": "0a6e32b7952a267be8de042f01557ab6e442601447d074437b938238bf5882d7"
+      },
+      "all_discovered_module_imports": {
+        "passed": true,
+        "module_count": 45
+      },
+      "research_differential": {
+        "passed": true,
+        "tolerance": 1e-09,
+        "cases": [
+          {
+            "update": 1,
+            "fixture": "ordinary",
+            "errors": {
+              "target": 3.469446951953614e-18,
+              "actor_loss": 8.673617379884035e-19,
+              "logp": 6.661338147750939e-16,
+              "actor_gradients": 8.131516293641283e-20,
+              "q_gradients": 3.469446951953614e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 2,
+            "fixture": "ordinary",
+            "errors": {
+              "target": 5.204170427930421e-18,
+              "actor_loss": 0.0,
+              "logp": 2.220446049250313e-16,
+              "actor_gradients": 9.486769009248164e-20,
+              "q_gradients": 3.469446951953614e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 3,
+            "fixture": "ordinary",
+            "errors": {
+              "target": 6.938893903907228e-18,
+              "actor_loss": 1.734723475976807e-18,
+              "logp": 4.440892098500626e-16,
+              "actor_gradients": 1.0842021724855044e-19,
+              "q_gradients": 2.6020852139652106e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 4,
+            "fixture": "saturated_mean",
+            "errors": {
+              "target": 3.469446951953614e-18,
+              "actor_loss": 0.0,
+              "logp": 0.0,
+              "actor_gradients": 1.0164395367051604e-20,
+              "q_gradients": 3.469446951953614e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 5,
+            "fixture": "clipped_logstd",
+            "errors": {
+              "target": 6.938893903907228e-18,
+              "actor_loss": 0.0,
+              "logp": 1.7763568394002505e-15,
+              "actor_gradients": 2.710505431213761e-20,
+              "q_gradients": 3.469446951953614e-18,
+              "Adam_and_Polyak": 1.1102230246251565e-16
+            },
+            "passed": true
+          },
+          {
+            "update": 6,
+            "fixture": "equal_twin_Q",
+            "errors": {
+              "target": 6.938893903907228e-18,
+              "actor_loss": 0.0,
+              "logp": 8.881784197001252e-16,
+              "actor_gradients": 5.421010862427522e-20,
+              "q_gradients": 1.734723475976807e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 7,
+            "fixture": "terminal_zero_bootstrap",
+            "errors": {
+              "target": 0.0,
+              "actor_loss": 8.673617379884035e-19,
+              "logp": 8.881784197001252e-16,
+              "actor_gradients": 1.0842021724855044e-19,
+              "q_gradients": 1.0570971181733668e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17,
+              "terminal_bootstrap": 0.0
+            },
+            "passed": true
+          },
+          {
+            "update": 8,
+            "fixture": "negative_saturation_lower_clip_edge",
+            "errors": {
+              "target": 0.0,
+              "actor_loss": 0.0,
+              "logp": 0.0,
+              "actor_gradients": 1.0164395367051604e-20,
+              "q_gradients": 1.734723475976807e-18,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 9,
+            "fixture": "upper_clip_edge",
+            "errors": {
+              "target": 0.0,
+              "actor_loss": 0.0,
+              "logp": 8.881784197001252e-16,
+              "actor_gradients": 2.710505431213761e-20,
+              "q_gradients": 8.673617379884035e-19,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          },
+          {
+            "update": 10,
+            "fixture": "global_gradient_clipping",
+            "errors": {
+              "target": 0.0,
+              "actor_loss": 0.0,
+              "logp": 3.552713678800501e-15,
+              "actor_gradients": 5.421010862427522e-20,
+              "q_gradients": 4.547473508864641e-13,
+              "Adam_and_Polyak": 5.551115123125783e-17
+            },
+            "passed": true
+          }
+        ],
+        "braking_actor_gradient_exact_zero": true,
+        "default_common_update_RNG_error": 5.551115123125783e-17,
+        "braking_Q_action_invariant": true,
+        "episodes_spent": 0,
+        "common_batch_common_epsilon": true,
+        "dependency_evidence": {
+          "implementation": "SB3 network modules with explicitly aligned custom float64 SAC updates",
+          "stock_sb3_learn_executed": false,
+          "actual_sb3_modules_used": [
+            "SACPolicy.Actor.latent_pi",
+            "Actor.mu",
+            "Actor.log_std",
+            "ContinuousCritic.q_networks"
+          ],
+          "sb3_version": "2.9.0",
+          "sb3_module_sha256": "a8d5d1b88605932e9d03c6acc37eadc54319bb1b563faf00cd173fbfdf059cf6",
+          "torch_version": "2.14.1+cpu",
+          "dtype": "float64",
+          "aligned_changes": [
+            "float64",
+            "fixed normalizer",
+            "strict logstd clipping derivative",
+            "per-critic Adam",
+            "gradient norm clipping10",
+            "pre-demand braking no-op mask"
+          ]
+        }
+      },
+      "legacy_audit": {
+        "passed": true,
+        "feature_count": 34,
+        "scope": "Archived controller synthetic audit"
+      },
+      "wheel_build": {
+        "passed": true,
+        "filename": "f1_ers_lapsim-0.8.1-py3-none-any.whl",
+        "bytes": 179092,
+        "sha256": "eced2ea31c6efa090ce8e4ad990e9e4b1a7d2cbad592ce0ac3439a2e5aea1494"
+      },
+      "english_markdown_and_local_links": {
+        "passed": true,
+        "problems": []
+      },
+      "sealed_research_artifact_bytes": {
+        "passed": true,
+        "identity": "spielberg_open_source_control_2026_01",
+        "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+        "result_manifest_sha256": "92f719fbea936935e5b168514d76aa28d028f9af77ec7feef8b6cd2b705f7117",
+        "freeze_sha256": "714c83ed3d9629db65c2301b0412e1e055c2cc31e7b8beca3874894ccb65febd",
+        "declared_files_checked": 2612,
+        "unexpected_files": [],
+        "completion_checked": true,
+        "completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+        "scope": "sealed artifact byte identity and inventory only",
+        "simulation_executed": false,
+        "telemetry_loaded": false,
+        "artifacts_modified": false,
+        "training_attempts_consumed": 0
+      },
+      "independent_frozen_baseline_recomputation": {
+        "passed": true,
+        "persisted_JSON_qualification_exactly_equal": true,
+        "in_memory_report_equal": false,
+        "in_memory_schema_type": "tuple",
+        "persisted_schema_type": "list",
+        "physical_laps_recomputed": 6,
+        "formal_objective_s": 70.44079066181877,
+        "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+        "replay_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+        "expected_qualification_sha256": "7bf40cc1c62490d735a3baf5cf9b640a7ec39daaae0d3d433be9599e7099f2fb",
+        "optimizer_or_training_repeated": false,
+        "source_changed": false,
+        "FP2_accessed": false
+      },
+      "original_research_repository": {
+        "clean": true,
+        "head": "b418dd27b071c413477b646db0c813350ad357ba",
+        "frozen_historical_inputs_checked": 8,
+        "frozen_historical_inputs_unchanged": true
+      },
+      "independent_wheel_install_and_audit": {
+        "passed": true,
+        "version": "0.8.1",
+        "imported_from_independent_target": true,
+        "differential_fixtures_passed": 10,
+        "historical_arrays_loaded": false,
+        "training_started": false,
+        "FP2_accessed": false
+      }
+    },
+    "formal_research_results": {
+      "source_version": "0.8.0",
+      "source_code_commit": "1cff56a38630c49fc56fcfafe9a0e65d43a6665b",
+      "status": "Stopped after teacher surrogate defect; physics screening complete, SAC withheld",
+      "screening_points": 192,
+      "viable_fit_starts": 0,
+      "teacher_attempts": 35,
+      "new_SAC_attempts": 0,
+      "accuracy_gates_passed": false,
+      "learning_gain_demonstrated": false
+    },
+    "current_source_formal_optimizer_or_training_rerun": false,
+    "FP2_accessed": false,
+    "full_FIA_ECU_verified": false,
+    "true_SOC_verified": false,
+    "browser_interaction_verified": false
+  },
+  "historical_validation_applies_to_current_source": false,
+  "independent_bundle_validation_record": "Supplied separately in the offline delivery; not claimed by this source receipt",
+  "accuracy_gate_passed": false,
+  "new_controller_adopted": false,
+  "new_SAC_attempts": 0,
   "FP2_accessed": false,
   "full_FIA_ECU_verified": false,
   "true_SOC_verified": false,

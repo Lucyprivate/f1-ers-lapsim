@@ -1,0 +1,10 @@
+{
+  "status": "withheld_geometry_gate",
+  "reason": "No positional route passed every fold and continuous geometry gate",
+  "screen_points_attempted": 0,
+  "fit_evaluations_attempted": 0,
+  "development_loaded": false,
+  "accuracy_improvement_demonstrated": false,
+  "FP2_accessed": false,
+  "fit": {}
+}

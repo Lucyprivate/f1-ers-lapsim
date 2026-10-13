@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "identity": "spielberg_geometry_registration_2026_02",
+  "original_experiment_source_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+  "formal_manifest_and_summary_modified": false,
+  "formal_summary_sha256_unchanged": "8049a3be41bd6893d587d9bdf748f72d4094201ab0cccdb121adcec7af36fc59",
+  "formal_manifest_sha256_retained": "677a580021e57c9759208662e59c15e1ea26f6b986381d4ea25a50c97aec22c7",
+  "terminal_stage_sha256_retained": {
+    "geometry-audit": "f91f07a8d69c9358a527b2c8453397be6b85a76c77083469f8d8e500944a63ad",
+    "physics-refit": "e8cc043db08ba2c9e97c9e31ccf215c8621606888b194a79a3b401f0497b110d",
+    "control-response": "64c87cafa97614d58c31b108e4ad0d1347b6d039ff63fe3497972094156bb0ca"
+  },
+  "source_readme_sha256": "8924f49d4f21210112e7cc8e809a61697a8af6d6a4454bc5fc16a74d0d5d0957",
+  "task_local_source_sha256": {
+    "GEOMETRY_RESULTS_ADDENDUM.md": "b462a86f16d4086c07a2beb9a11a393266135a93396da76aa153ceb96d4c0f49",
+    "README_GEOMETRY_REPLACEMENTS.json": "9ee34ee61e6cc6c3c67d14d6ea770a1d5813744c151a2afaaa2a03050a23bb54",
+    "geometry_boundary_posthoc.json": "e5790abeea2d36bbbd3e64dfba1a83ba42408684587796771d5cc5ebaa0e5c5e"
+  },
+  "augmentation_helper_sha256": "0c4c262a93762867b871e37fc0bf9a1d51c4296a66ca22fa54350b52039d1d3b",
+  "staged_file_sha256": {
+    "docs/GEOMETRY_RESULTS.md": "24f8c04ce9b356c7e5e2bc29c0e94c784578136aa325587063843cc38c57dec8",
+    "README.md": "307189aca22fe5b94744306fa5047c3a017efc5f9f9c8cdab58c1f7a154c6c86",
+    "evidence/geometry/boundary_posthoc.json": "8ab6b3143865cd95413bba1c2434f9325705a8631f97460e4226843863ed2cbe"
+  },
+  "energy_margin_caveat": {
+    "source_scope": "saved carried-baseline integration refinement diagnostics",
+    "internal_maximum_steps": [
+      [
+        0.02,
+        1.0
+      ],
+      [
+        0.01,
+        0.5
+      ],
+      [
+        0.005,
+        0.25
+      ]
+    ],
+    "rounded_net_model_energy_J": [
+      512.41,
+      820.957,
+      254.377
+    ],
+    "maximum_adjacent_change_J": 566.58,
+    "finest_positive_margin_J": 254.377,
+    "robust_positive_margin_established": false,
+    "hybrid_FSM_event_schedule_changes_in_one_carried_refinement": true,
+    "formal_energy_gate_changed": false
+  },
+  "new_simulations": 0,
+  "new_fits": 0,
+  "FP2_accessed": false,
+  "repository_or_formal_results_written": false,
+  "root_reviewed_additions": {
+    "scope": "Final bounded-response aggregate and additive offline JSON leaf compatibility correction",
+    "formal_results_changed": false,
+    "frozen_experiment_python_config_changed": false,
+    "new_portable_entry": "tools/verify_geometry_evidence.py"
+  }
+}

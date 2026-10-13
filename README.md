@@ -2,15 +2,15 @@
 
 A research simulator for causal ERS deployment control at Spielberg, with an implicit vehicle integrator, a rule shield, imitation learning and bounded SAC experiments.
 
-Version **0.9.0** adds a calibration-only geometry/registration study, exact replay input-end events and separate physical-fitting versus sustainable-control gates. It diagnoses bounded cold/carried control responses with at most 132 single-lap executions and **zero SAC episodes**. A failed positional geometry gate withholds vehicle fitting. See the [geometry protocol](docs/GEOMETRY_PROTOCOL.md). No real-car accuracy or control improvement is promised.
+Version **0.9.0** adds a calibration-only geometry/registration study, exact replay input-end events and separate physical-fitting versus sustainable-control gates. It diagnoses bounded cold/carried control responses with at most 132 single-lap executions and **zero SAC episodes**. All three 20/40/80 m candidate lines reduce positional cross-validation error from 2.323 m to 0.877/1.144/1.552 m, but fail continuous inherited-boundary checks; physical refitting is withheld. The unchanged baseline also fails prediction accuracy. See the [geometry results](docs/GEOMETRY_RESULTS.md) and [protocol](docs/GEOMETRY_PROTOCOL.md). No real-car accuracy or control improvement is claimed.
 
 This repository contains the current `f1ers_v7` package. Supporting integration and learning components live under `f1ers_v7/_core`; older standalone project versions are not included. Original local Git history and ZIP archives are retained separately.
 
 The archived D experiment completed **120 SAC episodes** across three seeds. Its selected checkpoint reproduced the analytical teacher: **70.44079066 s** for the last-two-lap mean after six physically carried laps. **No learning gain was demonstrated.** Historical development speed RMSE was **19.62589671 km/h**, above the unchanged 15 km/h gate.
 
-The actor controls positive deployment. Negative signed wheel demand requests maximum regeneration through the same tire, power, energy and slew constraints; it does not add braking force. A 34-feature observation includes episode initial energy. Speed, energy and rule state carry across the control line without within-lap resets.
+The archived D actor controls positive deployment with a 34-feature observation that includes episode initial energy. The current research diagnostic environment uses 36 features, adding episode initial speed and initial DC power. Negative signed wheel demand requests regeneration through the shared tire, power, energy and slew constraints; it does not add braking force. Speed, model energy and rule state carry across the control line without within-lap resets.
 
-The public-rule subset is enforced separately from engineering safeguards. Full FIA ECU behavior, real SOC, losses and transmission remain unverified. The registered FP2 test remains sealed.
+The energy coordinate is ideal DC-equivalent usable model energy, not measured battery SOC. Public-rule checks, energy sustainability and endpoint closure have separate gates. Full FIA ECU behavior, real SOC, losses and transmission remain unverified. The registered FP2 test remains sealed.
 
 ```sh
 python -m pip install -e .
@@ -28,6 +28,6 @@ python -m pip install -e ".[research]"
 python -m f1ers_v7.research.cli audit --root . --offline
 ```
 
-The research CLI provides `audit`, `physics`, `teacher`, `learning` and `verify` stages. See the [research protocol](docs/RESEARCH_PROTOCOL.md) and [upstream methods](docs/OPEN_SOURCE_METHODS.md). Formal runs require explicit read-only historical inputs and the shared external budget ledger. Archived `run-v7` and `verify-v7` still require their omitted private artifacts.
+The research CLI provides `audit`, `physics`, `teacher`, `learning` and `verify` stages. See the [research protocol](docs/RESEARCH_PROTOCOL.md) and [upstream methods](docs/OPEN_SOURCE_METHODS.md). The public snapshot supports source inspection and synthetic tests. Historical-input score reproduction requires the omitted authorized inputs/private artifacts and canonical external protocol ledger; a restored ledger is evidence of past execution, not a fresh scoring budget. Archived `run-v7` and `verify-v7` also require their omitted private artifacts.
 
 See [results](docs/RESULTS.md), [reproducibility](docs/REPRODUCIBILITY.md) and [notices](NOTICE.md). MIT applies to project-owned code only; historical telemetry, official FIA documents and large experiment artifacts are omitted.

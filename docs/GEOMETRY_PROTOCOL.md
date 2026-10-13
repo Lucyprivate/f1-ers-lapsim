@@ -40,3 +40,11 @@ python -m f1ers_v7.research.cli verify-geometry --root . --data-root HISTORICAL_
 The canonical ledger is workspace-specific and external to the repository. Results live in ignored `results/geometry_registration_2026_02`; Git contains current source and compact evidence only. Archived datasets, FIA PDFs and private FP2 windows are not published. Restored ledger snapshots are audit evidence, never a fresh authorization. A terminal stage cannot be rerun; a verification reads frozen results without optimizing or scoring late observations again.
 
 Defaults remain 800 kg, 400 kW equivalent ICE wheel power and a 2–4 MJ ideal energy window. Diagnostic 780/820 kg cases describe a declared ±20 kg mass assumption, not measured fuel load. True brake pressure, SOC, power split, transmission and the 2026 surveyed racing corridor remain unknown. Browser interaction and computational validation are recorded separately; browser validation is not performed by these commands.
+
+Portable derived-artifact verification is separate from the runtime/input check:
+
+```sh
+python tools/verify_geometry_evidence.py RESTORED_RESULTS/geometry_registration_2026_02
+```
+
+This current entry handles object and list diagnostic JSON roots. The original experiment source and configuration remain frozen; the additive verifier does not execute a model or restore shared scoring permissions.
