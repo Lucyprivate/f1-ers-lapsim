@@ -150,10 +150,17 @@ def process_lap(lap,arrays,track,registration,strict_signal_window=False):
     node_t=np.interp(track["s_m"],progress,lt)
     ct=arrays["car_t"]
     source_valid=(node_t>=max(start,ct[0])-1e-7)&(node_t<=min(end,ct[-1])+1e-7)
-    raw_inside=(ct>start)&(ct<end)
-    tt=np.r_[start,ct[raw_inside],end]
+    if ct[0] > start or ct[-1] < start:
+        raise DataUnavailable("Replay initial boundary is not covered by raw car samples")
+    # An interpolated metadata endpoint must lie inside actual raw coverage.
+    # Do not manufacture a final control sample beyond the last observed time.
+    coverage_end=min(end,float(ct[-1]))
+    raw_inside=(ct>start)&(ct<coverage_end)
+    tt=np.r_[start,ct[raw_inside],coverage_end]
     original=np.r_[False,np.ones(int(raw_inside.sum()),bool),False]
     driver={"time_s":tt-start,"speed_mps":np.interp(tt,ct,arrays["speed"]),
+            "coverage_start_s":0.,"coverage_end_s":float(coverage_end-start),
+            "coverage_provenance":"Metadata interval intersected with actual raw car-time support",
             "throttle":np.interp(tt,ct,arrays["throttle"]),"brake":previous_value(ct,arrays["brake"],tt),
             "throttle_raw_value":np.r_[np.nan,arrays["throttle_raw_value"][raw_inside],np.nan],
             "brake_raw_value":np.r_[np.nan,arrays["brake_raw_value"][raw_inside],np.nan],
@@ -162,6 +169,9 @@ def process_lap(lap,arrays,track,registration,strict_signal_window=False):
             "raw_epoch_s":tt,"provenance":{"speed_unit":"Original integer km/h converted to m/s","throttle":"Linear time interpolation",
              "brake":"Previous valid value hold, no interpolated switch","boundary_samples":"Interpolated boundary samples explicitly marked non-original",
              "end_boundary_extrapolated":bool(ct[-1]<end),
+             "coverage_end_s":float(coverage_end-start),
+             "metadata_duration_s":float(end-start),
+             "raw_coverage_end_not_extended":True,
              "no_observed_ers_labels":True}}
     at_boundary=np.interp([start,end],lt,progress)
     observed_speed=np.interp(node_t,ct,arrays["speed"])

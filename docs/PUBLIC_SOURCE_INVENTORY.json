@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "package_version": "0.8.1",
+  "package_version": "0.9.0",
   "scope": "Latest source, research methods and compact evidence only",
   "files": {
     ".gitattributes": {
@@ -20,8 +20,8 @@
       "sha256": "bf50a0c40b274e09075f487e5e2dc552bdb07fee9d895c827b2764f973767a9c"
     },
     "README.md": {
-      "bytes": 2992,
-      "sha256": "fdb3e2d9ca2b21561a62c6ea547fb37f856c9deeae22190f19ba24d04e682efa"
+      "bytes": 4089,
+      "sha256": "307189aca22fe5b94744306fa5047c3a017efc5f9f9c8cdab58c1f7a154c6c86"
     },
     "config/data_protocol.json": {
       "bytes": 6448,
@@ -30,6 +30,10 @@
     "config/research/experiment.json": {
       "bytes": 1463,
       "sha256": "2c7c7cb92de1f43382639dc40ba196640f9f11a957c539ee92457a4d389b52eb"
+    },
+    "config/research/geometry_registration.json": {
+      "bytes": 1646,
+      "sha256": "5a0788e30ed0272308b02fae87c6c7c05dbc1df8d22f9301bbcdc14c57866357"
     },
     "config/research/sources.json": {
       "bytes": 9743,
@@ -42,6 +46,14 @@
     "config/v7/deployment.json": {
       "bytes": 3531,
       "sha256": "04cb6f56804786f3c56dc9c92693085a7dcec473746a2a4db3a91573cefcb9b5"
+    },
+    "docs/GEOMETRY_PROTOCOL.md": {
+      "bytes": 7007,
+      "sha256": "f42f1c6f35c35429ac2f9b91315247a8d58ca000b42a29a4ef15c082fa90d68b"
+    },
+    "docs/GEOMETRY_RESULTS.md": {
+      "bytes": 17085,
+      "sha256": "24f8c04ce9b356c7e5e2bc29c0e94c784578136aa325587063843cc38c57dec8"
     },
     "docs/OPEN_SOURCE_METHODS.md": {
       "bytes": 15737,
@@ -76,12 +88,36 @@
       "sha256": "eb0bb89fdc6ae13c4949e3276c296b665ea748f4825ebd2e4f531838f2656154"
     },
     "docs/SOURCE_PROVENANCE.json": {
-      "bytes": 7562,
-      "sha256": "431fb74f35b129e01eb7052e52aa8a14a1b4466719a453ca9f8475d8836ca7af"
+      "bytes": 8318,
+      "sha256": "77593c12e35223bad78eb092417d3c301a2a0127255f34929abe608fccd5423b"
     },
     "docs/VALIDATION.json": {
-      "bytes": 9254,
-      "sha256": "6ee4af52948d7cff6119afe43770a1a1254c8e069ccf515a64e9923528d7666d"
+      "bytes": 15514,
+      "sha256": "07926353e4daa4f863bfa32932d27b7f7bd7eae5e7e2f867a324a9137eb8d3c3"
+    },
+    "evidence/geometry/boundary_posthoc.json": {
+      "bytes": 12344,
+      "sha256": "8ab6b3143865cd95413bba1c2434f9325705a8631f97460e4226843863ed2cbe"
+    },
+    "evidence/geometry/control_response.json": {
+      "bytes": 116623,
+      "sha256": "a24dc7af1a0674b6900d9a4dafb3b0fa370e217711da6070eea50cf34c7c20df"
+    },
+    "evidence/geometry/geometry.json": {
+      "bytes": 46823,
+      "sha256": "818e26535e7a4f081228d5ed244372ebc09893e4698ec255533233555b02987f"
+    },
+    "evidence/geometry/physics.json": {
+      "bytes": 314,
+      "sha256": "081b60e2f93ac038865143ef9a5419cbd51ced23dacea771c5e3c416a9bf8cad"
+    },
+    "evidence/geometry/publication_addendum.json": {
+      "bytes": 2639,
+      "sha256": "7a4e19d28df8f8e9d2fa3c453934ae67bd50ab4bf792512fb3fe32258ad6aa32"
+    },
+    "evidence/geometry/summary.json": {
+      "bytes": 2073,
+      "sha256": "8049a3be41bd6893d587d9bdf748f72d4094201ab0cccdb121adcec7af36fc59"
     },
     "evidence/latest/summary.json": {
       "bytes": 82043,
@@ -117,7 +153,7 @@
     },
     "f1ers_v7/__init__.py": {
       "bytes": 82,
-      "sha256": "0b1d4ab68b8984a3aba68063278cb01ff5a25d8eef777278182c01766c11bc2d"
+      "sha256": "110bdfeb5baf95f468b92b06349a40ee9bfbb1046167641f72eb6ac30f1743b5"
     },
     "f1ers_v7/__main__.py": {
       "bytes": 79,
@@ -136,8 +172,8 @@
       "sha256": "c71bbd9be26dc4675ad18af9901371816c8031ac28569a1da435dcee223482c2"
     },
     "f1ers_v7/_core/base_simulator.py": {
-      "bytes": 29456,
-      "sha256": "a07704beed3b5b0a19157326157ed9fcde2f0eec52d850fdc1ba99dca64a2ee6"
+      "bytes": 31095,
+      "sha256": "e04008486daae7ff01c5820d75ee8956317aad046309f06e98f31a78cdd7d4bf"
     },
     "f1ers_v7/_core/boundary.py": {
       "bytes": 616,
@@ -184,16 +220,16 @@
       "sha256": "12a4c298a16f742467ebc971d2b51a83651350cc72b76e0ece942b9c7516193f"
     },
     "f1ers_v7/_core/input_channels.py": {
-      "bytes": 15376,
-      "sha256": "3b98c2249e72acd0dd7d00825c169168e772958870a2f5395b1fa8e70c9b92c4"
+      "bytes": 16060,
+      "sha256": "032bfa745c60018e6fccf1f7189295c0d3d4fbd1e63b27c22efb25ed79314813"
     },
     "f1ers_v7/_core/input_io.py": {
       "bytes": 654,
       "sha256": "704dec2d383de8b52b44d90a4153adc2a88e900890cd82d93f68cec4a5913262"
     },
     "f1ers_v7/_core/integrator.py": {
-      "bytes": 41932,
-      "sha256": "7eea9b968be0010b2e767c005dc6d528c00c0734c718b0c9f04ce259b8b4b1b8"
+      "bytes": 43984,
+      "sha256": "adbdacae49401155afa27b31bd65deae6e9c2f100249f01cd7fb66d48b295e92"
     },
     "f1ers_v7/_core/learning_base.py": {
       "bytes": 38553,
@@ -260,12 +296,16 @@
       "sha256": "2f6c3d279d2f457e9d16fd0ea8db28d358343f6ce8c8a48a814f9f3e40ebfc6e"
     },
     "f1ers_v7/research/cli.py": {
-      "bytes": 4336,
-      "sha256": "2e5109bad8edc88ad3008a6ac91dd4839093e26619812684db7a09b633e3b04b"
+      "bytes": 6683,
+      "sha256": "8d799ab2ba7af91d1dcd13aa37005059386ced5b7ad7d3497feb276a4c9a77f8"
+    },
+    "f1ers_v7/research/control_response.py": {
+      "bytes": 22899,
+      "sha256": "8df95b4016d42bdbc978ba8937ea6d66f9aa7d4385199c981a7704bdeceeeb5c"
     },
     "f1ers_v7/research/data.py": {
-      "bytes": 2957,
-      "sha256": "6c957e1ad72e24372a2cf6ef0836bd00021f1a0028ef76d8d1db72a8bc2c81ca"
+      "bytes": 5329,
+      "sha256": "6b8d4906c106b18b93488841b3524cdd36c3a3053c6195719a5026343e774ad7"
     },
     "f1ers_v7/research/environment.py": {
       "bytes": 9762,
@@ -275,13 +315,25 @@
       "bytes": 9106,
       "sha256": "bc9f7797791627ff69c70eed7784203bd58571354d1e22a560cacbc8cb03edf0"
     },
+    "f1ers_v7/research/gates.py": {
+      "bytes": 4066,
+      "sha256": "e02186a3b2c66022eb797ac988c9ddb742398d7d254dfcca6b7923454beb270d"
+    },
+    "f1ers_v7/research/geometry_registration.py": {
+      "bytes": 38130,
+      "sha256": "e0cf623bfccd16d9bfdab3c0e8062facac992776710a8573cc6c6debafab6af3"
+    },
+    "f1ers_v7/research/geometry_study.py": {
+      "bytes": 10030,
+      "sha256": "9029a2a4a8a2b0c971e138e0dc430f57491d636f0b68dafb0106fee0b5f0fc09"
+    },
     "f1ers_v7/research/learning.py": {
       "bytes": 24032,
       "sha256": "82c90e040dd835944222dc555df56ff434f112fb8ae9d2e059250ccc89e1e1d2"
     },
     "f1ers_v7/research/physics.py": {
-      "bytes": 38989,
-      "sha256": "01af7caa8b045b089cc726c16dd1a06259b3752cfc4a1d79f15b72ff32c2dbd9"
+      "bytes": 43181,
+      "sha256": "c47b36744b7d366cff8e4f7f44b809dd79f38ccc8d6f0f0bbff327dfd45641fb"
     },
     "f1ers_v7/research/protocol.py": {
       "bytes": 3942,
@@ -290,6 +342,10 @@
     "f1ers_v7/research/runner_learning.py": {
       "bytes": 11670,
       "sha256": "0f82efc213c0a620d393f6daae927ce6defd10e82ad03879465304de8ce29211"
+    },
+    "f1ers_v7/research/study_protocol.py": {
+      "bytes": 12141,
+      "sha256": "abe953e26c9f0ea7ea30e079353229be0af456cc78da41e1c1b4f86c3fdd1fb4"
     },
     "f1ers_v7/research/teacher.py": {
       "bytes": 14423,
@@ -305,7 +361,7 @@
     },
     "pyproject.toml": {
       "bytes": 804,
-      "sha256": "a55864c188787fe11b8c22246c289fce23cfab5273f99122d56a148637b91350"
+      "sha256": "c40ecd887bf2d5d0359d54d6534bb307aa11b6a36096f3befa8dced7d9c9c1a8"
     },
     "requirements-lock.txt": {
       "bytes": 58,
@@ -315,17 +371,37 @@
       "bytes": 95,
       "sha256": "0052e2efec5cd3be5508411d25397ea3b95bebbacecc6864656ffc25386414a6"
     },
+    "tests/test_control_response.py": {
+      "bytes": 13542,
+      "sha256": "9ba5aee048f148053f4a96a254fe090b242ccb7b65460eda557d648abecfecbc"
+    },
+    "tests/test_geometry_registration.py": {
+      "bytes": 13376,
+      "sha256": "8010b8fa6b029959373dfe1eb7c72caabbd8d6296da4948660427d5994e029c2"
+    },
+    "tests/test_geometry_role_source.py": {
+      "bytes": 2401,
+      "sha256": "2d1bbf720d8fc3f68190b32c224ad688cc75829fc9e9025cfd33b6b12bcf929c"
+    },
+    "tests/test_geometry_study_protocol.py": {
+      "bytes": 2339,
+      "sha256": "8f73bdd7e1b7a1cb311d23aceaf6dc91ccbfd567e3e3d1973dd5b315a7c846a9"
+    },
+    "tests/test_input_gates.py": {
+      "bytes": 13308,
+      "sha256": "6da78088366ec5cd8144f264535e46a96536b08e35823f587905ab2394522995"
+    },
     "tests/test_integrator.py": {
-      "bytes": 11194,
-      "sha256": "4acf57440a491a1644cb6fb5fda6588ee8efd43bc910043ff0f2f18ee613a9ec"
+      "bytes": 11196,
+      "sha256": "2951adc5b631edca4601cc3bf4f8494d5df338e32ca4d71eb7faa0d2cf9101b6"
     },
     "tests/test_research_learning.py": {
       "bytes": 8647,
       "sha256": "a21e57dadf91ae955e24bec054465e8c079158d51f64eda5b5abf1d6608eff7d"
     },
     "tests/test_research_physics.py": {
-      "bytes": 20421,
-      "sha256": "a9bb2cf744f5fd58363347c839d2b8747bb6c31e7c349621aedefe376ab3c894"
+      "bytes": 20475,
+      "sha256": "9d37dae9144606883a451cb26d6af71f4f4a761d4143a7c86a0de818a1542599"
     },
     "tests/test_research_protocol.py": {
       "bytes": 2603,
@@ -363,9 +439,25 @@
       "bytes": 11862,
       "sha256": "02f03efc2c68e5ff09ef520c8c9edeef063ac6be3454fcafce3ff0b83c0ad966"
     },
+    "tests/test_verify_geometry_artifacts.py": {
+      "bytes": 2643,
+      "sha256": "3281462762d877498fcc8ae34c3cf979f02281eb521cf81855cb2e5f709a1bd0"
+    },
+    "tests/test_verify_geometry_evidence.py": {
+      "bytes": 5784,
+      "sha256": "0a600ccbe47e2fd8ee57117003d7c7f89f3fb7910110d3dde13000e6e53b5425"
+    },
     "tests/test_verify_research_artifacts.py": {
       "bytes": 11293,
       "sha256": "40e950c369dbae20fee00e0b491cd1fd92fa1703837495449d4ff7a741359295"
+    },
+    "tools/verify_geometry_artifacts.py": {
+      "bytes": 3549,
+      "sha256": "e8d61947a0cc67556542238106f70e0b2376c66119fdda3aeace9b052695697a"
+    },
+    "tools/verify_geometry_evidence.py": {
+      "bytes": 7785,
+      "sha256": "41ed25ac617c0ddaddb9c033a2a8b1709e209a89c78995b63831d0a7f12b622e"
     },
     "tools/verify_public_snapshot.py": {
       "bytes": 2895,

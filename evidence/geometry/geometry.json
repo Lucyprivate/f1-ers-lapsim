@@ -1,0 +1,1213 @@
+{
+  "geometry_gate_passed": false,
+  "formal_prediction": false,
+  "development_loaded": false,
+  "FP2_accessed": false,
+  "route_freeze_sha256": "cae857526b3fc61b8ec20c9c960d195600880b21f362059b5b7763f627628e80",
+  "conclusion": "not_identified; no vehicle screening authorized",
+  "reason": "No boundary-stable calibration route improves unbiased position CV by at least 1%",
+  "selected_kind": "baseline",
+  "baseline_position_cv_rmse_m": 2.3225282413480826,
+  "regularization_definition": "length^4 times mean squared second spatial derivative; not Gaussian sigma",
+  "raw_position_outside_fraction_per_lap": [
+    {
+      "lap_number": 3,
+      "fraction": 0.19117647058823528
+    },
+    {
+      "lap_number": 4,
+      "fraction": 0.18248175182481752
+    },
+    {
+      "lap_number": 5,
+      "fraction": 0.18661971830985916
+    },
+    {
+      "lap_number": 6,
+      "fraction": 0.18081180811808117
+    }
+  ],
+  "folds": [
+    {
+      "held_out_lap": 3,
+      "fit_laps": [
+        4,
+        5,
+        6
+      ],
+      "baseline_position_rmse_m": 2.3139157277122515,
+      "held_out_original_position_count": 272,
+      "held_out_positions_outside_fraction": 0.1875,
+      "registration": {
+        "fit_laps": [
+          4,
+          5,
+          6
+        ],
+        "scope": "registered_leave_one_out_training_fold",
+        "converged": true,
+        "evaluations": 20,
+        "optimizer_nfev": 4,
+        "residual_evaluations": 20,
+        "fixed_diagnostic_residual_evaluations": 9,
+        "original_route_control_line_s_m": 182.26991617342742,
+        "location_clock_offset_s": -0.035797326752127386,
+        "raw_location_units_per_m": 9.986270921325515,
+        "rmse_m": 7.344849629077282,
+        "phase_bounds_m": [
+          80.52827448989203,
+          280.52827448989206
+        ],
+        "clock_bounds_s": [
+          -1.0,
+          1.0
+        ],
+        "linearized_uncertainty": {
+          "phase_std_m": 0.6563017318788661,
+          "clock_std_s": 0.010350793950037905,
+          "rank": 2,
+          "normal_condition": 39749.35756945077,
+          "interpretation": "local residual-based diagnostic; correlated GPS/systematic errors are not covered",
+          "identifiability": "local_only"
+        },
+        "fixed_perturbation_sensitivity": [
+          {
+            "parameter": "phase_m",
+            "delta": -1.0,
+            "requested_delta": -1.0,
+            "position_rmse_m": 7.396777676735384
+          },
+          {
+            "parameter": "phase_m",
+            "delta": 1.0,
+            "requested_delta": 1.0,
+            "position_rmse_m": 7.397333713642489
+          },
+          {
+            "parameter": "clock_s",
+            "delta": -0.05000000000000001,
+            "requested_delta": -0.05,
+            "position_rmse_m": 7.856259508495745
+          },
+          {
+            "parameter": "clock_s",
+            "delta": 0.05,
+            "requested_delta": 0.05,
+            "position_rmse_m": 7.855687467843506
+          }
+        ],
+        "speed_support": [
+          {
+            "lap_number": 4,
+            "source_lap": 4,
+            "original_samples": 264,
+            "first_original_time_s": 0.14700007438659668,
+            "last_original_time_s": 71.50699996948242,
+            "start_extrapolation_s": 0.14700007438659668,
+            "end_extrapolation_s": 0.2720000305175745,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 5,
+            "source_lap": 5,
+            "original_samples": 270,
+            "first_original_time_s": 0.0070002079010009766,
+            "last_original_time_s": 71.48800015449524,
+            "start_extrapolation_s": 0.0070002079010009766,
+            "end_extrapolation_s": 0.1979998455047678,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 6,
+            "source_lap": 6,
+            "original_samples": 272,
+            "first_original_time_s": 0.04800009727478027,
+            "last_original_time_s": 71.80800008773804,
+            "start_extrapolation_s": 0.04800009727478027,
+            "end_extrapolation_s": 0.13899991226196562,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          }
+        ]
+      }
+    },
+    {
+      "held_out_lap": 4,
+      "fit_laps": [
+        3,
+        5,
+        6
+      ],
+      "baseline_position_rmse_m": 2.3725082010731486,
+      "held_out_original_position_count": 274,
+      "held_out_positions_outside_fraction": 0.1897810218978102,
+      "registration": {
+        "fit_laps": [
+          3,
+          5,
+          6
+        ],
+        "scope": "registered_leave_one_out_training_fold",
+        "converged": true,
+        "evaluations": 20,
+        "optimizer_nfev": 4,
+        "residual_evaluations": 20,
+        "fixed_diagnostic_residual_evaluations": 9,
+        "original_route_control_line_s_m": 179.7789077938528,
+        "location_clock_offset_s": -0.017970117241210826,
+        "raw_location_units_per_m": 9.98701591584238,
+        "rmse_m": 9.780972411075936,
+        "phase_bounds_m": [
+          80.52827448989203,
+          280.52827448989206
+        ],
+        "clock_bounds_s": [
+          -1.0,
+          1.0
+        ],
+        "linearized_uncertainty": {
+          "phase_std_m": 0.8758508889368046,
+          "clock_std_s": 0.013791647405207596,
+          "rank": 2,
+          "normal_condition": 39692.8814509612,
+          "interpretation": "local residual-based diagnostic; correlated GPS/systematic errors are not covered",
+          "identifiability": "local_only"
+        },
+        "fixed_perturbation_sensitivity": [
+          {
+            "parameter": "phase_m",
+            "delta": -1.0,
+            "requested_delta": -1.0,
+            "position_rmse_m": 9.8199563434859
+          },
+          {
+            "parameter": "phase_m",
+            "delta": 1.0,
+            "requested_delta": 1.0,
+            "position_rmse_m": 9.819876320613936
+          },
+          {
+            "parameter": "clock_s",
+            "delta": -0.05,
+            "requested_delta": -0.05,
+            "position_rmse_m": 10.167533504340067
+          },
+          {
+            "parameter": "clock_s",
+            "delta": 0.05,
+            "requested_delta": 0.05,
+            "position_rmse_m": 10.167674541217549
+          }
+        ],
+        "speed_support": [
+          {
+            "lap_number": 3,
+            "source_lap": 3,
+            "original_samples": 266,
+            "first_original_time_s": 0.046000003814697266,
+            "last_original_time_s": 71.68600010871887,
+            "start_extrapolation_s": 0.046000003814697266,
+            "end_extrapolation_s": 0.13199989128112577,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 5,
+            "source_lap": 5,
+            "original_samples": 270,
+            "first_original_time_s": 0.0070002079010009766,
+            "last_original_time_s": 71.48800015449524,
+            "start_extrapolation_s": 0.0070002079010009766,
+            "end_extrapolation_s": 0.1979998455047678,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 6,
+            "source_lap": 6,
+            "original_samples": 272,
+            "first_original_time_s": 0.04800009727478027,
+            "last_original_time_s": 71.80800008773804,
+            "start_extrapolation_s": 0.04800009727478027,
+            "end_extrapolation_s": 0.13899991226196562,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          }
+        ]
+      }
+    },
+    {
+      "held_out_lap": 5,
+      "fit_laps": [
+        3,
+        4,
+        6
+      ],
+      "baseline_position_rmse_m": 2.282919946212319,
+      "held_out_original_position_count": 284,
+      "held_out_positions_outside_fraction": 0.18309859154929578,
+      "registration": {
+        "fit_laps": [
+          3,
+          4,
+          6
+        ],
+        "scope": "registered_leave_one_out_training_fold",
+        "converged": true,
+        "evaluations": 20,
+        "optimizer_nfev": 4,
+        "residual_evaluations": 20,
+        "fixed_diagnostic_residual_evaluations": 9,
+        "original_route_control_line_s_m": 180.91824977131816,
+        "location_clock_offset_s": -0.023771153318307627,
+        "raw_location_units_per_m": 9.985093688486238,
+        "rmse_m": 9.810595879046636,
+        "phase_bounds_m": [
+          80.52827448989203,
+          280.52827448989206
+        ],
+        "clock_bounds_s": [
+          -1.0,
+          1.0
+        ],
+        "linearized_uncertainty": {
+          "phase_std_m": 0.8850857846967847,
+          "clock_std_s": 0.013986762801275766,
+          "rank": 2,
+          "normal_condition": 39698.81428788569,
+          "interpretation": "local residual-based diagnostic; correlated GPS/systematic errors are not covered",
+          "identifiability": "local_only"
+        },
+        "fixed_perturbation_sensitivity": [
+          {
+            "parameter": "phase_m",
+            "delta": -1.0,
+            "requested_delta": -1.0,
+            "position_rmse_m": 9.849449974138015
+          },
+          {
+            "parameter": "phase_m",
+            "delta": 1.0,
+            "requested_delta": 1.0,
+            "position_rmse_m": 9.849769429160498
+          },
+          {
+            "parameter": "clock_s",
+            "delta": -0.05000000000000001,
+            "requested_delta": -0.05,
+            "position_rmse_m": 10.196717571566039
+          },
+          {
+            "parameter": "clock_s",
+            "delta": 0.05,
+            "requested_delta": 0.05,
+            "position_rmse_m": 10.196857927338085
+          }
+        ],
+        "speed_support": [
+          {
+            "lap_number": 3,
+            "source_lap": 3,
+            "original_samples": 266,
+            "first_original_time_s": 0.046000003814697266,
+            "last_original_time_s": 71.68600010871887,
+            "start_extrapolation_s": 0.046000003814697266,
+            "end_extrapolation_s": 0.13199989128112577,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 4,
+            "source_lap": 4,
+            "original_samples": 264,
+            "first_original_time_s": 0.14700007438659668,
+            "last_original_time_s": 71.50699996948242,
+            "start_extrapolation_s": 0.14700007438659668,
+            "end_extrapolation_s": 0.2720000305175745,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 6,
+            "source_lap": 6,
+            "original_samples": 272,
+            "first_original_time_s": 0.04800009727478027,
+            "last_original_time_s": 71.80800008773804,
+            "start_extrapolation_s": 0.04800009727478027,
+            "end_extrapolation_s": 0.13899991226196562,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          }
+        ]
+      }
+    },
+    {
+      "held_out_lap": 6,
+      "fit_laps": [
+        3,
+        4,
+        5
+      ],
+      "baseline_position_rmse_m": 2.3198760931373337,
+      "held_out_original_position_count": 271,
+      "held_out_positions_outside_fraction": 0.1918819188191882,
+      "registration": {
+        "fit_laps": [
+          3,
+          4,
+          5
+        ],
+        "scope": "registered_leave_one_out_training_fold",
+        "converged": true,
+        "evaluations": 20,
+        "optimizer_nfev": 4,
+        "residual_evaluations": 20,
+        "fixed_diagnostic_residual_evaluations": 9,
+        "original_route_control_line_s_m": 179.0563950347019,
+        "location_clock_offset_s": 0.0009765339936607862,
+        "raw_location_units_per_m": 9.986193359827315,
+        "rmse_m": 8.5085601409599,
+        "phase_bounds_m": [
+          80.52827448989203,
+          280.52827448989206
+        ],
+        "clock_bounds_s": [
+          -1.0,
+          1.0
+        ],
+        "linearized_uncertainty": {
+          "phase_std_m": 0.7695649968005948,
+          "clock_std_s": 0.012120342593365785,
+          "rank": 2,
+          "normal_condition": 40854.731237747204,
+          "interpretation": "local residual-based diagnostic; correlated GPS/systematic errors are not covered",
+          "identifiability": "local_only"
+        },
+        "fixed_perturbation_sensitivity": [
+          {
+            "parameter": "phase_m",
+            "delta": -1.0,
+            "requested_delta": -1.0,
+            "position_rmse_m": 8.553757778069379
+          },
+          {
+            "parameter": "phase_m",
+            "delta": 1.0,
+            "requested_delta": 1.0,
+            "position_rmse_m": 8.553563114460752
+          },
+          {
+            "parameter": "clock_s",
+            "delta": -0.05,
+            "requested_delta": -0.05,
+            "position_rmse_m": 8.954105021793575
+          },
+          {
+            "parameter": "clock_s",
+            "delta": 0.05,
+            "requested_delta": 0.05,
+            "position_rmse_m": 8.954524052737693
+          }
+        ],
+        "speed_support": [
+          {
+            "lap_number": 3,
+            "source_lap": 3,
+            "original_samples": 266,
+            "first_original_time_s": 0.046000003814697266,
+            "last_original_time_s": 71.68600010871887,
+            "start_extrapolation_s": 0.046000003814697266,
+            "end_extrapolation_s": 0.13199989128112577,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 4,
+            "source_lap": 4,
+            "original_samples": 264,
+            "first_original_time_s": 0.14700007438659668,
+            "last_original_time_s": 71.50699996948242,
+            "start_extrapolation_s": 0.14700007438659668,
+            "end_extrapolation_s": 0.2720000305175745,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          },
+          {
+            "lap_number": 5,
+            "source_lap": 5,
+            "original_samples": 270,
+            "first_original_time_s": 0.0070002079010009766,
+            "last_original_time_s": 71.48800015449524,
+            "start_extrapolation_s": 0.0070002079010009766,
+            "end_extrapolation_s": 0.1979998455047678,
+            "maximum_allowed_boundary_extrapolation_s": 0.5,
+            "method": "linear continuation of two original samples from this same lap only",
+            "foreign_lap_samples": false,
+            "allowed_for_formal_replay_extension": false
+          }
+        ]
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "regularization_length_m": 20.0,
+      "position_cv_rmse_m": 0.8773517993214169,
+      "passed": false,
+      "final_solver": {
+        "converged": true,
+        "iterations": 28,
+        "optimality": 1.7713998366393478e-06,
+        "cost": 0.46097395078629627,
+        "active_nodes": 38,
+        "bound_margin_m": 0.05,
+        "post_fit_clipping": false
+      },
+      "folds": [
+        {
+          "held_out_lap": 3,
+          "fit_laps": [
+            4,
+            5,
+            6
+          ],
+          "position_rmse_m": 0.8412596579412535,
+          "solver": {
+            "converged": true,
+            "iterations": 28,
+            "optimality": 1.0303874308037087e-06,
+            "cost": 0.44943659774920114,
+            "active_nodes": 31,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.0008650390749345149,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 3.8263897345803627e-13,
+            "closure_tangent_error": 2.220446049250313e-16,
+            "maximum_abs_curvature_1pm": 0.06147086110817646,
+            "curvature_high_frequency_rms_1pm": 0.00035495739782527173,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00010101100691496591
+          }
+        },
+        {
+          "held_out_lap": 4,
+          "fit_laps": [
+            3,
+            5,
+            6
+          ],
+          "position_rmse_m": 0.9269720056302745,
+          "solver": {
+            "converged": true,
+            "iterations": 31,
+            "optimality": 2.6279700380132565e-07,
+            "cost": 0.4803452675852655,
+            "active_nodes": 36,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.016034088750186193,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 2.361953496943366e-13,
+            "closure_tangent_error": 1.1102230246251565e-16,
+            "maximum_abs_curvature_1pm": 0.06177078500854298,
+            "curvature_high_frequency_rms_1pm": 0.00035918270112882204,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 1.985137260749784e-05
+          }
+        },
+        {
+          "held_out_lap": 5,
+          "fit_laps": [
+            3,
+            4,
+            6
+          ],
+          "position_rmse_m": 0.835092476673154,
+          "solver": {
+            "converged": true,
+            "iterations": 57,
+            "optimality": 9.251164432504191e-07,
+            "cost": 0.44163215456186167,
+            "active_nodes": 28,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.0035815890084727187,
+            "nearest_segment_outside_samples": 1,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 1.1718571004216928e-13,
+            "closure_tangent_error": 1.1102230246251565e-16,
+            "maximum_abs_curvature_1pm": 0.060665750246205574,
+            "curvature_high_frequency_rms_1pm": 0.00034543107626389645,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 2.8818102044587e-05
+          }
+        },
+        {
+          "held_out_lap": 6,
+          "fit_laps": [
+            3,
+            4,
+            5
+          ],
+          "position_rmse_m": 0.9025576785958673,
+          "solver": {
+            "converged": true,
+            "iterations": 28,
+            "optimality": 7.015169665874192e-08,
+            "cost": 0.4894548863585256,
+            "active_nodes": 41,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.025033437192514718,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 1.464821375527116e-13,
+            "closure_tangent_error": 0.0,
+            "maximum_abs_curvature_1pm": 0.06116086458992668,
+            "curvature_high_frequency_rms_1pm": 0.0003559199173827534,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 8.801237848303457e-05
+          }
+        }
+      ],
+      "final_geometry": {
+        "passed": false,
+        "reasons": [
+          "continuous_curve_touches_or_crosses_width_polygon"
+        ],
+        "minimum_boundary_clearance_m": 0.005285525684448622,
+        "nearest_segment_outside_samples": 0,
+        "clearance_sampling_m": 0.5,
+        "continuous_corridor": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "closure_position_error_m": 1.464821375527116e-13,
+        "closure_tangent_error": 5.551115123125783e-17,
+        "maximum_abs_curvature_1pm": 0.061491192538978286,
+        "curvature_high_frequency_rms_1pm": 0.00035399603108843107,
+        "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00010452054058730357
+      }
+    },
+    {
+      "regularization_length_m": 40.0,
+      "position_cv_rmse_m": 1.1437711344877521,
+      "passed": false,
+      "final_solver": {
+        "converged": true,
+        "iterations": 23,
+        "optimality": 1.1190746725618624e-06,
+        "cost": 0.8231631130790057,
+        "active_nodes": 12,
+        "bound_margin_m": 0.05,
+        "post_fit_clipping": false
+      },
+      "folds": [
+        {
+          "held_out_lap": 3,
+          "fit_laps": [
+            4,
+            5,
+            6
+          ],
+          "position_rmse_m": 1.120317681994881,
+          "solver": {
+            "converged": true,
+            "iterations": 20,
+            "optimality": 9.551387445155908e-08,
+            "cost": 0.7990564865572984,
+            "active_nodes": 13,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.09315176827956062,
+            "nearest_segment_outside_samples": 2,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 1.4836567898030567e-13,
+            "closure_tangent_error": 1.2412670766236366e-16,
+            "maximum_abs_curvature_1pm": 0.05892412461067704,
+            "curvature_high_frequency_rms_1pm": 0.0003127465025217159,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 5.096787574283423e-06
+          }
+        },
+        {
+          "held_out_lap": 4,
+          "fit_laps": [
+            3,
+            5,
+            6
+          ],
+          "position_rmse_m": 1.1990933451741956,
+          "solver": {
+            "converged": true,
+            "iterations": 25,
+            "optimality": 9.800169419163203e-07,
+            "cost": 0.8532809618514144,
+            "active_nodes": 15,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.030164611380246953,
+            "nearest_segment_outside_samples": 1,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 3.8263897345803627e-13,
+            "closure_tangent_error": 1.1102230246251565e-16,
+            "maximum_abs_curvature_1pm": 0.05923510179111448,
+            "curvature_high_frequency_rms_1pm": 0.0003129933348338118,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00010433154384072727
+          }
+        },
+        {
+          "held_out_lap": 5,
+          "fit_laps": [
+            3,
+            4,
+            6
+          ],
+          "position_rmse_m": 1.0893644167906356,
+          "solver": {
+            "converged": true,
+            "iterations": 25,
+            "optimality": 6.150434393356449e-05,
+            "cost": 0.7863008522351317,
+            "active_nodes": 12,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.007254138343713912,
+            "nearest_segment_outside_samples": 1,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 3.552713678800501e-13,
+            "closure_tangent_error": 0.0,
+            "maximum_abs_curvature_1pm": 0.058246841079045486,
+            "curvature_high_frequency_rms_1pm": 0.00031113829747588467,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 8.789353693005544e-06
+          }
+        },
+        {
+          "held_out_lap": 6,
+          "fit_laps": [
+            3,
+            4,
+            5
+          ],
+          "position_rmse_m": 1.1632704933714129,
+          "solver": {
+            "converged": true,
+            "iterations": 26,
+            "optimality": 5.742898402402009e-07,
+            "cost": 0.8814358947927624,
+            "active_nodes": 14,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.03135342534608476,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 3.1776437161565096e-14,
+            "closure_tangent_error": 0.0,
+            "maximum_abs_curvature_1pm": 0.05825374451489156,
+            "curvature_high_frequency_rms_1pm": 0.0003108037833256931,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 5.778731039592493e-06
+          }
+        }
+      ],
+      "final_geometry": {
+        "passed": false,
+        "reasons": [
+          "leaves_nearest_segment_inherited_boundaries",
+          "continuous_curve_touches_or_crosses_width_polygon"
+        ],
+        "minimum_boundary_clearance_m": -0.0689924298093052,
+        "nearest_segment_outside_samples": 3,
+        "clearance_sampling_m": 0.5,
+        "continuous_corridor": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "closure_position_error_m": 8.788928253162695e-14,
+        "closure_tangent_error": 0.0,
+        "maximum_abs_curvature_1pm": 0.05844187639611043,
+        "curvature_high_frequency_rms_1pm": 0.00031341803078669046,
+        "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00011253222594635731
+      }
+    },
+    {
+      "regularization_length_m": 80.0,
+      "position_cv_rmse_m": 1.5517876372615973,
+      "passed": false,
+      "final_solver": {
+        "converged": true,
+        "iterations": 37,
+        "optimality": 3.7348514251343702e-06,
+        "cost": 1.3842139279746593,
+        "active_nodes": 8,
+        "bound_margin_m": 0.05,
+        "post_fit_clipping": false
+      },
+      "folds": [
+        {
+          "held_out_lap": 3,
+          "fit_laps": [
+            4,
+            5,
+            6
+          ],
+          "position_rmse_m": 1.560189534491707,
+          "solver": {
+            "converged": true,
+            "iterations": 42,
+            "optimality": 9.072038483027682e-05,
+            "cost": 1.3247577981898448,
+            "active_nodes": 8,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.09312722824124453,
+            "nearest_segment_outside_samples": 2,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 2.929642751054232e-14,
+            "closure_tangent_error": 0.0,
+            "maximum_abs_curvature_1pm": 0.05819015158020853,
+            "curvature_high_frequency_rms_1pm": 0.0003098740966260323,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 1.4522824094386934e-05
+          }
+        },
+        {
+          "held_out_lap": 4,
+          "fit_laps": [
+            3,
+            5,
+            6
+          ],
+          "position_rmse_m": 1.5983420305799714,
+          "solver": {
+            "converged": true,
+            "iterations": 46,
+            "optimality": 0.000453336715148877,
+            "cost": 1.434604589963693,
+            "active_nodes": 8,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.008304645789944942,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 1.4836567898030567e-13,
+            "closure_tangent_error": 1.2412670766236366e-16,
+            "maximum_abs_curvature_1pm": 0.058055752606778074,
+            "curvature_high_frequency_rms_1pm": 0.00030857206699807865,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 3.5280283706717595e-06
+          }
+        },
+        {
+          "held_out_lap": 5,
+          "fit_laps": [
+            3,
+            4,
+            6
+          ],
+          "position_rmse_m": 1.4735284197866703,
+          "solver": {
+            "converged": true,
+            "iterations": 44,
+            "optimality": 3.32444815953217e-06,
+            "cost": 1.3310603797199432,
+            "active_nodes": 7,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "leaves_nearest_segment_inherited_boundaries",
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": -0.017078428239162058,
+            "nearest_segment_outside_samples": 1,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 4.4310757595180986e-13,
+            "closure_tangent_error": 0.0,
+            "maximum_abs_curvature_1pm": 0.05710230214751446,
+            "curvature_high_frequency_rms_1pm": 0.00030583524834444247,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00012688930216517253
+          }
+        },
+        {
+          "held_out_lap": 6,
+          "fit_laps": [
+            3,
+            4,
+            5
+          ],
+          "position_rmse_m": 1.5722610630734222,
+          "solver": {
+            "converged": true,
+            "iterations": 45,
+            "optimality": 4.204452265342012e-05,
+            "cost": 1.468945489622406,
+            "active_nodes": 10,
+            "bound_margin_m": 0.05,
+            "post_fit_clipping": false
+          },
+          "geometry": {
+            "passed": false,
+            "reasons": [
+              "continuous_curve_touches_or_crosses_width_polygon"
+            ],
+            "minimum_boundary_clearance_m": 0.022061838080762897,
+            "nearest_segment_outside_samples": 0,
+            "clearance_sampling_m": 0.5,
+            "continuous_corridor": {
+              "passed": false,
+              "reason": "continuous_curve_touches_or_crosses_width_polygon",
+              "intersections": 2,
+              "method": "analytic cubic intersections with explicit inherited width polygon",
+              "surveyed_boundary": false,
+              "numeric_root_imaginary_tolerance": 1e-07
+            },
+            "closure_position_error_m": 2.947682064685117e-13,
+            "closure_tangent_error": 1.5700924586837752e-16,
+            "maximum_abs_curvature_1pm": 0.05731338536171149,
+            "curvature_high_frequency_rms_1pm": 0.00030674626432990073,
+            "curvature_absolute_integral_1m_vs_half_m_relative_difference": 0.00011500766525102021
+          }
+        }
+      ],
+      "final_geometry": {
+        "passed": false,
+        "reasons": [
+          "leaves_nearest_segment_inherited_boundaries",
+          "continuous_curve_touches_or_crosses_width_polygon"
+        ],
+        "minimum_boundary_clearance_m": -0.10224652515605559,
+        "nearest_segment_outside_samples": 3,
+        "clearance_sampling_m": 0.5,
+        "continuous_corridor": {
+          "passed": false,
+          "reason": "continuous_curve_touches_or_crosses_width_polygon",
+          "intersections": 2,
+          "method": "analytic cubic intersections with explicit inherited width polygon",
+          "surveyed_boundary": false,
+          "numeric_root_imaginary_tolerance": 1e-07
+        },
+        "closure_position_error_m": 1.191086668529821e-13,
+        "closure_tangent_error": 1.1102230246251565e-16,
+        "maximum_abs_curvature_1pm": 0.057873604562396215,
+        "curvature_high_frequency_rms_1pm": 0.0003105813945583544,
+        "curvature_absolute_integral_1m_vs_half_m_relative_difference": 2.179870000272712e-06
+      }
+    }
+  ],
+  "final_registration": {
+    "fit_laps": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "scope": "full_calibration",
+    "converged": true,
+    "evaluations": 20,
+    "optimizer_nfev": 4,
+    "residual_evaluations": 20,
+    "fixed_diagnostic_residual_evaluations": 9,
+    "original_route_control_line_s_m": 180.51449268472646,
+    "location_clock_offset_s": -0.018900135499765002,
+    "raw_location_units_per_m": 9.986260944873013,
+    "rmse_m": 9.151412527490809,
+    "phase_bounds_m": [
+      80.52827448989203,
+      280.52827448989206
+    ],
+    "clock_bounds_s": [
+      -1.0,
+      1.0
+    ],
+    "linearized_uncertainty": {
+      "phase_std_m": 0.7120245800319835,
+      "clock_std_s": 0.011227021210825316,
+      "rank": 2,
+      "normal_condition": 39970.75136148926,
+      "interpretation": "local residual-based diagnostic; correlated GPS/systematic errors are not covered",
+      "identifiability": "local_only"
+    },
+    "fixed_perturbation_sensitivity": [
+      {
+        "parameter": "phase_m",
+        "delta": -1.0,
+        "requested_delta": -1.0,
+        "position_rmse_m": 9.193226522063103
+      },
+      {
+        "parameter": "phase_m",
+        "delta": 1.0,
+        "requested_delta": 1.0,
+        "position_rmse_m": 9.193143833486262
+      },
+      {
+        "parameter": "clock_s",
+        "delta": -0.05,
+        "requested_delta": -0.05,
+        "position_rmse_m": 9.565311035292568
+      },
+      {
+        "parameter": "clock_s",
+        "delta": 0.05,
+        "requested_delta": 0.05,
+        "position_rmse_m": 9.565494911061013
+      }
+    ],
+    "speed_support": [
+      {
+        "lap_number": 3,
+        "source_lap": 3,
+        "original_samples": 266,
+        "first_original_time_s": 0.046000003814697266,
+        "last_original_time_s": 71.68600010871887,
+        "start_extrapolation_s": 0.046000003814697266,
+        "end_extrapolation_s": 0.13199989128112577,
+        "maximum_allowed_boundary_extrapolation_s": 0.5,
+        "method": "linear continuation of two original samples from this same lap only",
+        "foreign_lap_samples": false,
+        "allowed_for_formal_replay_extension": false
+      },
+      {
+        "lap_number": 4,
+        "source_lap": 4,
+        "original_samples": 264,
+        "first_original_time_s": 0.14700007438659668,
+        "last_original_time_s": 71.50699996948242,
+        "start_extrapolation_s": 0.14700007438659668,
+        "end_extrapolation_s": 0.2720000305175745,
+        "maximum_allowed_boundary_extrapolation_s": 0.5,
+        "method": "linear continuation of two original samples from this same lap only",
+        "foreign_lap_samples": false,
+        "allowed_for_formal_replay_extension": false
+      },
+      {
+        "lap_number": 5,
+        "source_lap": 5,
+        "original_samples": 270,
+        "first_original_time_s": 0.0070002079010009766,
+        "last_original_time_s": 71.48800015449524,
+        "start_extrapolation_s": 0.0070002079010009766,
+        "end_extrapolation_s": 0.1979998455047678,
+        "maximum_allowed_boundary_extrapolation_s": 0.5,
+        "method": "linear continuation of two original samples from this same lap only",
+        "foreign_lap_samples": false,
+        "allowed_for_formal_replay_extension": false
+      },
+      {
+        "lap_number": 6,
+        "source_lap": 6,
+        "original_samples": 272,
+        "first_original_time_s": 0.04800009727478027,
+        "last_original_time_s": 71.80800008773804,
+        "start_extrapolation_s": 0.04800009727478027,
+        "end_extrapolation_s": 0.13899991226196562,
+        "maximum_allowed_boundary_extrapolation_s": 0.5,
+        "method": "linear continuation of two original samples from this same lap only",
+        "foreign_lap_samples": false,
+        "allowed_for_formal_replay_extension": false
+      }
+    ]
+  },
+  "preserved_private_candidate_spec_sha256": {
+    "geometry/candidates/length_020/full_calibration.json": "34b164e86b98db3dbc697ec144fdf4e060172df80650621345457cca62b2211a",
+    "geometry/candidates/length_020/held_out_3.json": "35016fdfdcc45d97794a714ebca7bfc743d87c5742b9109ed3ed5d1af26ebffa",
+    "geometry/candidates/length_020/held_out_4.json": "e2ce9d9dcd94c70ccb3d8fcf1fc1712b784dc1b339728e1742b09070a465ae73",
+    "geometry/candidates/length_020/held_out_5.json": "c41ca2aa3ea409fd4832552910507fa8541912a936f694db3df687870cad6837",
+    "geometry/candidates/length_020/held_out_6.json": "363b23443b5811ffd28080fbf6dbd4e88c7c6048fb563214517f30c09a94c85e",
+    "geometry/candidates/length_040/full_calibration.json": "30375adf26ec73c5ff9eff9c3e2950f4954b7e4e99788dee0ae490b633fa660d",
+    "geometry/candidates/length_040/held_out_3.json": "e4c244d464e812f214f959f2727525c68cec27f5381c635aee239bbe295b65ab",
+    "geometry/candidates/length_040/held_out_4.json": "6a270ef054f0ac8283bd2fbe569b386ccd6f36923fdcbd23a5f743d9b133fcf0",
+    "geometry/candidates/length_040/held_out_5.json": "8e632b3646699eff1dc10ea996ca98fb3f743efc7ab6cdc417df12916203bc79",
+    "geometry/candidates/length_040/held_out_6.json": "3bcd2fac5c991369b4c011187ca8978ca57151e8e6eedbf63dce6d4782d5d641",
+    "geometry/candidates/length_080/full_calibration.json": "8a96fdc9f5d3831e080cad905c45fdc7287637c50f884e40104e905858c080cc",
+    "geometry/candidates/length_080/held_out_3.json": "eeadb83daeb30a150f863e967e813441a26335d1e610c2b0931abfe998874387",
+    "geometry/candidates/length_080/held_out_4.json": "525c03f9486f678d4cc24c064713cc032c4f71d91b385b00c74a05fb7d2b5d69",
+    "geometry/candidates/length_080/held_out_5.json": "331193309f0858b66d8056b1a0f1fda06d289c17a32509abfbe2d5cf11123f74",
+    "geometry/candidates/length_080/held_out_6.json": "491d38893e27914c3cbc221b18ec1b9e028159ae1336edebc9ad9e2bc872702f"
+  },
+  "positions_or_model_residuals_published": false,
+  "boundary_scope": "inherited historical TUM corridor; not a surveyed 2026 boundary"
+}

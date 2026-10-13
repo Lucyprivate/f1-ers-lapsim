@@ -99,9 +99,19 @@ class ReplayDriver:
         if not np.all(np.isclose(self.trace["brake"],0)|np.isclose(self.trace["brake"],1)):
             raise ValueError("Brake input must be a discrete switch")
         self.initial_speed_mps = float(np.interp(0.,t,self.trace["speed_mps"]))
-        self.final_time_s = float(t[-1])
+        # Coverage may end before a processed interpolation boundary. Metadata
+        # can restrict raw support; it can never authorize extrapolated input.
+        self.coverage_start_s = float(trace.get("coverage_start_s",t[0]))
+        self.final_time_s = float(trace.get("coverage_end_s",t[-1]))
+        if (not np.isfinite([self.coverage_start_s,self.final_time_s]).all() or
+                self.coverage_start_s < t[0] or self.coverage_start_s > 0 or
+                self.final_time_s <= 0 or self.final_time_s > t[-1]):
+            raise ValueError("Replay coverage must lie inside the supplied input support and bracket zero")
+        self.coverage_provenance = trace.get("coverage_provenance")
 
     def query(self, t, s):
+        if not np.isfinite(t) or t < self.coverage_start_s or t > self.final_time_s:
+            raise ValueError("Replay input query outside declared raw coverage")
         times = self.trace["time_s"]
         i = min(len(times)-1,max(0,int(np.searchsorted(times,t,side="right")-1)))
         return {"power_kw": float(np.interp(t,times,self.trace["throttle"]))*self.params.equivalent_power_kw*self.params.replay_power_scale,
@@ -276,11 +286,15 @@ class SimulatorV4:
                 records.extend(info.get("step_records",[]));events.extend(info.get("events",[]))
                 status=info.get("status","numerical_fail")
                 if status!="accepted":failure=info;break
-                if mode=="replay" and state.elapsed_time_s>driver.trace["time_s"][-1]+cfg.event_t_tol:
-                    failure={"status":"physical_fail","guard_reasons":["driver_trace_exhausted"]};status="physical_fail";break
         result=self._result(mode,initial,state,records,events,failure,status,float(output_ds_m),cfg)
         result["summary"].update(envelope_report=envelope,driver_decision_spacing_m=DRIVER_DS_M,
                                   raw_requests_fixed=isinstance(controller,dict) and controller.get("driver_profile") is not None)
+        if mode=="replay":
+            result["summary"].update(input_coverage_start_s=driver.coverage_start_s,
+                input_coverage_end_s=driver.final_time_s,
+                input_coverage_passed=status!="input_exhausted",
+                input_coverage_provenance=driver.coverage_provenance,
+                input_extrapolation_used=False)
         if mode=="autonomous":
             result["driver_profile"]={k:np.asarray([r[k] for r in driver.rows],float) for k in
                 ("s_m","target_acceleration_mps2","power_kw","brake_fraction")}
@@ -323,7 +337,9 @@ class SimulatorV4:
                 np.add.at(sums,cells,values)
             return sums[:count]
         periodic=abs(terminal.speed_mps-initial.speed_mps)
-        physical=status=="accepted" and failure is None
+        # Exhausted data is an independently reported event, not a failure of
+        # the accepted physical prefix. Completeness still gates every score.
+        physical=(status=="accepted" and failure is None) or status=="input_exhausted"
         feasible=complete and physical and (mode=="replay" or periodic<=.02)
         reasons=[] if failure is None else [{"status":status,"guard_reasons":failure.get("guard_reasons",[status]),
                                                 "s_m":terminal.s_m,"time_s":terminal.elapsed_time_s}]
@@ -341,6 +357,12 @@ class SimulatorV4:
                 "distance_completed_m":terminal.s_m,"terminal_s_m":terminal.s_m,"terminal_speed_mps":terminal.speed_mps,
                 "terminal_time_s":terminal.elapsed_time_s,"event_diagnostics":events,"guard_diagnostics":reasons,
                 "internal_trace":{"s_m":ss,"time_s":tt,"speed_mps":vv,"wheel_force_n":force,"wheel_power_kw":power,
+                    "requested_wheel_force_n":col("requested_wheel_force_n"),
+                    "tire_drive_capacity_n":col("tire_drive_capacity_n"),
+                    "tire_brake_capacity_n":col("tire_brake_capacity_n"),
+                    "lateral_utilization":col("lateral_utilization"),
+                    "remaining_longitudinal_capacity_n":col("remaining_longitudinal_capacity_n"),
+                    "force_truncation_reason":[r.get("force_truncation_reason","none") for r in records],
                     "mechanical_work_residual_mj":residual,"tire_force_excess_n":tire},
                 "summary":{"protocol":PROTOCOL,"mode":mode,"completed_lap":complete,"execution_feasible":physical,"feasible":feasible,
                     "status":status,"lap_time_s":terminal.elapsed_time_s,"speed_start_mps":initial.speed_mps,"speed_end_mps":terminal.speed_mps,

@@ -156,5 +156,18 @@
       "Actual learner certificate counts",
       "Independent read-only pinned artifact verifier"
     ]
+  },
+  "geometry_registration_0_9_0": {
+    "study_identity": "spielberg_geometry_registration_2026_02",
+    "original_experiment_source_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+    "GitHub_API_source_copy_commit": "f809b0de65083f6b5d56b27ae13bca119090ec47",
+    "original_and_public_source_tree": "3c765f2680b98cfe9a16144d65a1842894173e77",
+    "commit_metadata_differs_but_source_tree_matches": true,
+    "original_local_history_preserved_in_bundle": true,
+    "results_commit_changes_only_docs_and_compact_evidence": false,
+    "historical_science_repository_modified": false,
+    "raw_telemetry_FIA_documents_and_FP2_excluded": true,
+    "parent_completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+    "results_commit_scope": "English docs, compact evidence and additive portable verifier/regressions only; original tracked experiment Python and config unchanged"
   }
 }

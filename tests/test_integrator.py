@@ -178,7 +178,7 @@ class VehicleV4Tests(unittest.TestCase):
         driver=SwitchDriver(0.,power=350.)
         driver.final_time_s=.02
         final,info=advance_interval(IntegrationState(0.,30.),driver,None,5.,self.straight,self.params)
-        self.assertEqual(info["status"],"physical_fail")
+        self.assertEqual(info["status"],"input_exhausted")
         self.assertEqual(info["guard_reasons"],["driver_trace_exhausted"])
         self.assertLessEqual(final.elapsed_time_s,.02+1e-8)
 

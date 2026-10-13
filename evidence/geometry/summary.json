@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "package_version": "0.9.0",
+  "identity": "spielberg_geometry_registration_2026_02",
+  "parent_identity": "spielberg_open_source_control_2026_01",
+  "parent_completion_sha256": "e04e38f7891920c27c3dcd087f59c015b041094420efd782375103bb7a47c0c0",
+  "code_commit": "5df3736ef4c20720bcfc7430a070abd4ecbd5203",
+  "freeze_sha256": "fa65c8c6c5ebd6f902d17a1465affb8794433d0d54c7fd53b7b4618f63df72e3",
+  "manifest_sha256": "677a580021e57c9759208662e59c15e1ea26f6b986381d4ea25a50c97aec22c7",
+  "manifest_file_count": 688,
+  "stage_sha256": {
+    "geometry-audit": "f91f07a8d69c9358a527b2c8453397be6b85a76c77083469f8d8e500944a63ad",
+    "physics-refit": "e8cc043db08ba2c9e97c9e31ccf215c8621606888b194a79a3b401f0497b110d",
+    "control-response": "64c87cafa97614d58c31b108e4ad0d1347b6d039ff63fe3497972094156bb0ca"
+  },
+  "shared_terminal_receipt_sha256": {
+    "geometry-audit_completed.json": "6605e6a1bb63bccdc05ff05b48919ca65cb2d528c9ad628d2cb97389e838fb07",
+    "physics-refit_completed.json": "17c882c7f9adeb9b736ca09320138031dc3a52e98b782f27cef8cf6c79e5a516",
+    "control-response_completed.json": "5e096a35ca8700acfbe7a274c6c5775195fdbad72faa54ad3c7e384175b27ffb"
+  },
+  "calibration_laps": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "development_loaded": false,
+  "geometry_gate_passed": false,
+  "physical_refit_status": "withheld_geometry_gate",
+  "control_response_status": "directional_diagnostics_completed",
+  "control_attempt_budget": {
+    "maximum": 132,
+    "reserved_attempts": 132,
+    "keys": 132
+  },
+  "new_SAC_attempts": 0,
+  "teacher_search_attempts": 0,
+  "new_actor_or_teacher_adopted": false,
+  "lap_time_gain_claimed": false,
+  "FP2_accessed": false,
+  "FP2_sealed": true,
+  "full_FIA_or_real_SOC_validation_complete": false,
+  "browser_validation_performed": false,
+  "accuracy_thresholds": {
+    "mean_speed_rmse_kmh": 15.0,
+    "max_abs_lap_error_pct": 2.0,
+    "max_abs_sector_error_s": 1.0
+  },
+  "historical_results_retained": "evidence/research/ and docs/RESEARCH_RESULTS.md"
+}
