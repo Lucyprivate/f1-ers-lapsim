@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package_version": "0.7.1",
-  "scope": "Current public files; manifest excluded from its own hash inventory",
+  "scope": "Current public files. This manifest excludes its own hash.",
   "original_frozen_source_byte_identity_claimed": false,
   "files": {
     ".gitattributes": {
@@ -17,12 +17,12 @@
       "sha256": "29b660e27637aa2795a6982becabba9aeee410407a6e5567e0759d0c3c369fba"
     },
     "NOTICE.md": {
-      "bytes": 1564,
-      "sha256": "bf50a0c40b274e09075f487e5e2dc552bdb07fee9d895c827b2764f973767a9c"
+      "bytes": 1559,
+      "sha256": "b4a30bfb231e7771327a12bea430b4fb905fcbec476cd775fc6e10af0afef7d9"
     },
     "README.md": {
-      "bytes": 2068,
-      "sha256": "8d3e6503729ec1771ab2da01c04f042d01c03d635625178bf6f33e3a145dd1a7"
+      "bytes": 2117,
+      "sha256": "c359764e7d0813d8d4712f7bd2c2ce42764de81fb306db76f99e10eca0f4fa2f"
     },
     "config/data_protocol.json": {
       "bytes": 6448,
@@ -37,24 +37,24 @@
       "sha256": "04cb6f56804786f3c56dc9c92693085a7dcec473746a2a4db3a91573cefcb9b5"
     },
     "docs/REPRODUCIBILITY.md": {
-      "bytes": 3545,
-      "sha256": "b8140d4653446b6a8288bf684babb8c7f80edb4d4c23e567abf5938ea97c95af"
+      "bytes": 3521,
+      "sha256": "c3b9920ae0ec44f4b537bad19fa6ee0b64956c77e2797f95a4648dd23c90834a"
     },
     "docs/RESULTS.md": {
-      "bytes": 2332,
-      "sha256": "22148c8ac717ef44718ccf001de59d4f11916ce6169add30b4a20ff6a96a4024"
+      "bytes": 2403,
+      "sha256": "24e1dcdbaff53ada6e104c2e9f6c22a5af74b97384d7bf5bcbfff174462fad1e"
     },
     "docs/SOURCES.md": {
-      "bytes": 2728,
-      "sha256": "eb0bb89fdc6ae13c4949e3276c296b665ea748f4825ebd2e4f531838f2656154"
+      "bytes": 2727,
+      "sha256": "f3e18408783af1be1b99f1f7b4b68fa45af56d025dd8d665216b64852efe0c62"
     },
     "docs/SOURCE_PROVENANCE.json": {
-      "bytes": 6453,
-      "sha256": "8741f8d0e171cf66544c3ceb788e34a55f5b33d937a29777f0ad44badf8eeadb"
+      "bytes": 6374,
+      "sha256": "7cb87452721c5fd32a94c3e6884c4d41ba843acf8246e2ccd7ed8598c872d95f"
     },
     "docs/VALIDATION.json": {
-      "bytes": 1202,
-      "sha256": "281dd5dbad447c88b650c02363abb9d005876956bdb92a1920e4a39253cae6df"
+      "bytes": 1196,
+      "sha256": "9ffd608d30dc722c7dbfc9596feca548bb0e69dbeda9a983c0e5b8a098e7c095"
     },
     "evidence/latest/summary.json": {
       "bytes": 82043,

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package_version": "0.7.1",
-  "scope": "Local validation of the current public layout; not a new scientific experiment",
+  "scope": "Local checks of the current public layout. No new scientific experiment.",
   "checks": {
     "included_regression_tests": {
       "passed": 73,
